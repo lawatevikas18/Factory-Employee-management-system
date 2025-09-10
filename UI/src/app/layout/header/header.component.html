@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <!-- Logo (always visible) -->
+    <a class="navbar-brand fw-bold logo-name me-3">Factory App</a>
+
+    <!-- Mobile: Settings + Logout (icons only) -->
+    <div class="d-flex d-lg-none align-items-center gap-2 ms-auto">
+      <button class="btn btn-outline-secondary btn-sm" (click)="toggleSettingsPopup()">
+        ⚙
+      </button>
+      <button class="btn btn-danger btn-sm" (click)="logout()">
+        ⏻
+      </button>
+    </div>
+
+    <!-- Desktop: Language + Logout -->
+    <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarContent">
+      <!-- Language Dropdown -->
+      <div class="dropdown me-3">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          🌐 Language
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let lang of languages">
+            <button class="dropdown-item" (click)="changeLanguage(lang.code)">
+              {{ lang.label }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Logout -->
+      <button class="btn btn-danger" (click)="logout()">⏻ Logout</button>
+    </div>
+  </div>
+</nav>

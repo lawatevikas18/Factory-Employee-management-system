@@ -1,0 +1,96 @@
+.attendance-table {
+  overflow-x: auto;
+  white-space: nowrap;
+  border-radius: 8px;
+}
+
+.attendance-table th,
+.attendance-table td {
+  min-width: 70px;
+  vertical-align: middle;
+}
+
+/* Sticky Sr. No. */
+.sticky-col-1 {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background: #f8f9fa; /* matches table header bg */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  width: 70px;
+}
+
+/* Sticky Employee Name */
+.sticky-col-2 {
+  position: sticky;
+  left: 70px; /* same as width of first col */
+  z-index: 5;
+  background: #fff;
+  min-width: 160px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+/* Attendance coloring */
+.present {
+  background-color: #d1f7d1;
+  color: #0b7300;
+  font-weight: 600;
+}
+
+.absent {
+  background-color: #fddcdc;
+  color: #c30000;
+  font-weight: 600;
+}
+
+.halfday {
+  background-color: #fff6d1;
+  color: #9a6c00;
+  font-weight: 600;
+}
+.NotMarked {
+  background-color: #fff6d1;
+  color: #212121;
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f7ff;
+}
+.card {
+  border-radius: 12px;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.btn {
+  font-weight: 500;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .attendance-table th,
+  .attendance-table td {
+    min-width: 50px;
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .sticky-col-2 {
+    min-width: 120px;
+  }
+  .form-control{
+font-size: 12px;
+  }
+}

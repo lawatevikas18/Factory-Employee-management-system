@@ -1,0 +1,208 @@
+<div class="d-flex flex-wrap align-items-center gap-2 mb-2 mt-2">
+  <!-- Employee Search -->
+  <div class="flex-grow-1 flex-sm-grow-0" style="min-width: 120px;">
+    <div class="input-group input-group-sm">
+      <span class="input-group-text">
+        <span class="material-symbols-outlined">search</span>
+      </span>
+      <input type="text"
+             class="form-control"
+             placeholder="Search..."
+             [(ngModel)]="searchText"
+             (input)="filterEmployees()">
+    </div>
+  </div>
+
+  <!-- Factory Dropdown -->
+  <div class="flex-grow-1 flex-sm-grow-0" style="min-width: 120px;">
+    <div class="input-group input-group-sm">
+      <span class="input-group-text">
+        <span class="material-symbols-outlined">factory</span>
+      </span>
+      <select class="form-control" [(ngModel)]="selectedFactory" (change)="filterEmployees()">
+        <option value="">All Factories</option>
+        <option *ngFor="let f of factories" [value]="f">{{ f }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Add Employee Button -->
+  <div style="min-width: 100px;" (click)="openAddEmployeePopup()">
+    <button class="btn btn-sm btn-success w-100">
+      <span class="material-symbols-outlined">person_add</span>
+      <span class="d-none d-sm-inline ms-1">Add Employee</span>
+    </button>
+  </div>
+</div>
+
+<!-- Employee Table -->
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-sm">
+    <thead class="table-light">
+      <tr>
+        <th>Sr no</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Factory</th>
+        <th>Salary</th>
+        <th>Mobile 1</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of filteredEmployees; trackBy: trackByEmployee">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.firstName }} {{ emp.middleName }} {{ emp.lastName }}</td>
+        <td>{{ emp.designation }}</td>
+        <td>{{ emp.factory }}</td>
+        <td>₹{{ emp.salary | number }}</td>
+        <td>{{ emp.mobile1 }}</td>
+        <td class="d-flex gap-1">
+          <button class="btn btn-outline-primary btn-sm" (click)="openEditEmployee(emp)">
+            <span class="material-symbols-outlined">edit</span>
+          </button>
+          <button class="btn btn-outline-danger btn-sm" (click)="confirmDeleteEmployee(emp)">
+            <span class="material-symbols-outlined">delete</span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Employee Popup -->
+<div class="custom-popup" *ngIf="isEmployeePopupOpen">
+  <div class="custom-popup-content">
+    <h5>{{ isAddMode ? 'Add Employee' : 'Edit Employee' }}</h5>
+
+    <form [formGroup]="employeeForm">
+      <!-- First / Middle / Last Name -->
+      <div class="row">
+        <div class="col-md-4 col-12 mb-2">
+          <label>First Name</label>
+          <input type="text" placeholder="Enter first name" class="form-control form-control-sm" formControlName="firstName">
+          <small class="text-danger" *ngIf="f['firstName'].touched && f['firstName'].invalid">First name is required</small>
+        </div>
+        <div class="col-md-4 col-12 mb-2">
+          <label>Middle Name</label>
+          <input type="text" placeholder="Enter middle name" class="form-control form-control-sm" formControlName="middleName">
+        </div>
+        <div class="col-md-4 col-12 mb-2">
+          <label>Last Name</label>
+          <input type="text" placeholder="Enter last name" class="form-control form-control-sm" formControlName="lastName">
+          <small class="text-danger" *ngIf="f['lastName'].touched && f['lastName'].invalid">Last name is required</small>
+        </div>
+      </div>
+
+      <!-- Designation Dropdown -->
+      <div class="mb-2">
+        <label>Designation</label>
+        <select class="form-control form-control-sm" formControlName="designation">
+          <option value="">Select Designation</option>
+          <option *ngFor="let d of designations" [value]="d">{{ d }}</option>
+        </select>
+        <small class="text-danger" *ngIf="f['designation'].touched && f['designation'].invalid">Designation is required</small>
+      </div>
+
+      <!-- Factory Dropdown -->
+      <div class="mb-2">
+        <label>Factory</label>
+        <select class="form-control form-control-sm" formControlName="factory">
+          <option value="">Select Factory</option>
+          <option *ngFor="let f of factories" [value]="f">{{ f }}</option>
+        </select>
+        <small class="text-danger" *ngIf="f['factory'].touched && f['factory'].invalid">Factory is required</small>
+      </div>
+
+      <!-- Salary & Deposit -->
+      <div class="row">
+        <div class="col-md-6 col-12 mb-2">
+          <label>Salary</label>
+          <input type="number" placeholder="Enter salary" class="form-control form-control-sm" formControlName="salary">
+          <small class="text-danger" *ngIf="f['salary'].touched && f['salary'].invalid">Minimum salary is ₹5000</small>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+          <label>Deposit</label>
+          <input type="number" placeholder="Enter deposit amount" class="form-control form-control-sm" formControlName="deposit">
+        </div>
+      </div>
+
+      <!-- Aadhaar / Car No / PAN -->
+      <div class="row">
+        <div class="col-md-4 col-12 mb-2">
+          <label>Aadhar No</label>
+          <input type="text" placeholder="Enter 12-digit Aadhaar" class="form-control form-control-sm" formControlName="aadhar">
+          <small class="text-danger" *ngIf="f['aadhar'].touched && f['aadhar'].invalid">Aadhaar must be 12 digits</small>
+        </div>
+        <div class="col-md-4 col-12 mb-2">
+          <label>Car No</label>
+          <input type="text" placeholder="Enter car number" class="form-control form-control-sm" formControlName="carNo">
+        </div>
+        <div class="col-md-4 col-12 mb-2">
+          <label>PAN No</label>
+          <input type="text" placeholder="Enter PAN number" class="form-control form-control-sm" formControlName="panNo">
+          <small class="text-danger" *ngIf="f['panNo'].touched && f['panNo'].invalid">Enter valid PAN (e.g., ABCDE1234F)</small>
+        </div>
+      </div>
+
+      <!-- Mobile Numbers -->
+      <div class="row">
+        <div class="col-md-6 col-12 mb-2">
+          <label>Mobile No 1</label>
+          <input type="text" placeholder="Enter 10-digit mobile" class="form-control form-control-sm" formControlName="mobile1">
+          <small class="text-danger" *ngIf="f['mobile1'].touched && f['mobile1'].invalid">Enter valid 10-digit number</small>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+          <label>Mobile No 2</label>
+          <input type="text" placeholder="Enter alternate mobile" class="form-control form-control-sm" formControlName="mobile2">
+          <small class="text-danger" *ngIf="f['mobile2'].touched && f['mobile2'].invalid">Enter valid 10-digit number</small>
+        </div>
+      </div>
+
+      <!-- Village / Taluka / District -->
+      <div class="row">
+        <div class="col-md-4 col-12 mb-2">
+          <label>Village</label>
+          <input type="text" placeholder="Enter village" class="form-control form-control-sm" formControlName="village">
+          <small class="text-danger" *ngIf="f['village'].touched && f['village'].invalid">Village is required</small>
+        </div>
+        <div class="col-md-4 col-12 mb-2">
+          <label>Taluka</label>
+          <input type="text" placeholder="Enter taluka" class="form-control form-control-sm" formControlName="taluka">
+        </div>
+        <div class="col-md-4 col-12 mb-2">
+          <label>District</label>
+          <input type="text" placeholder="Enter district" class="form-control form-control-sm" formControlName="district">
+        </div>
+      </div>
+
+      <!-- Country & State -->
+      <div class="row">
+        <div class="col-md-6 col-12 mb-2">
+          <label>Country</label>
+          <select class="form-control form-control-sm" formControlName="country">
+            <option value="">Select Country</option>
+            <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+          </select>
+          <small class="text-danger" *ngIf="f['country'].touched && f['country'].invalid">Country is required</small>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+          <label>State</label>
+          <select class="form-control form-control-sm" formControlName="state">
+            <option value="">Select State</option>
+            <option *ngFor="let s of states" [value]="s">{{ s }}</option>
+          </select>
+          <small class="text-danger" *ngIf="f['state'].touched && f['state'].invalid">State is required</small>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="d-flex justify-content-end gap-2 mt-3">
+        <button type="button" class="btn btn-secondary btn-sm" (click)="closeEmployeePopup()">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="saveEmployee()">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

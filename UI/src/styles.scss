@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~typeface-roboto/index.css";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+.toast-top-center {
+    top: 20px !important;   /* distance from top */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    text-align: center;
+  }
+  
+  /* Custom width/height */
+  .toast-top-custom {
+    width: 350px !important;        /* set width */
+    min-height: 80px !important;    /* set height */
+    padding: 15px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+  /* Success toast */
+  .toast-success {
+    background-color: #4caf50 !important;
+    color: white !important;
+  }
+  
+  /* Error toast */
+  .toast-error {
+    background-color: #f44336 !important;
+    color: white !important;
+  }
+  
+  /* Progress bar at bottom */
+  .toast-top-custom .toast-progress {
+    height: 5px !important;
+    bottom: 0 !important;
+    background: rgba(255,255,255,0.8) !important;
+  }
+    
+  

@@ -1,0 +1,53 @@
+<!-- Mobile Hamburger Button -->
+<button class="hamburger" (click)="toggleMobileMenu()" *ngIf="ishamburger">
+  <i class="fas fa-bars"></i>
+</button>
+
+<!-- Sidebar -->
+<div class="sidenav" 
+     [ngClass]="[collapsed ? 'sidenav-collapsed' : '', isMobileMenuOpen ? 'show' : '']">
+  
+  <div class="logo-container">
+    <button class="logo" (click)="toggelCollapse()"> {{ adminData?.adminName?.split(' ')[0]?.charAt(0) }}</button>
+     <ng-container *ngIf="screenWidth > 768 && collapsed">
+    <div class="logo-text">{{ adminData?.adminName?.split(' ')[0] }}</div>
+    <!-- <div class="btn-closes"(click)="closeSidenave()">
+      <span class="material-symbols-outlined">
+        close
+      </span>
+    </div> -->
+  </ng-container>
+     <ng-container *ngIf="screenWidth <= 768 && collapsed">
+    <div class="logo-text">Vikas L</div>
+    <div class="btn-closes"(click)="closeSidenave()">
+      <span class="material-symbols-outlined">
+        close
+      </span>
+    </div>
+  </ng-container>
+    
+
+  </div>
+
+  <ul class="side-nav">
+    <li class="side-nav-item" *ngFor="let data of navdata">
+      <a class="side-nav-link" 
+         [routerLink]="[data.routerLink]"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact:true}">
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        
+       
+        <!-- Display for mobile screens -->
+      <span class="sidenav-link-text" *ngIf="screenWidth <= 768 && collapsed">
+        {{ data.label | translate }}
+      </span>
+
+      <!-- Display for laptop/desktop screens -->
+      <span class="sidenav-link-text" *ngIf="screenWidth > 768 && collapsed">
+        {{ data.label | translate }}
+      </span>
+      </a>
+    </li>
+  </ul>
+</div>
