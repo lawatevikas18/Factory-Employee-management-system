@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "/itvMyZf9VqVDRazbOLDEnkqhoHse4lLAaMbYdUkOwg=",
+  "Source": "Auth.Api",
+  "BasePath": "_content/Auth.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Auth.Api\\wwwroot",
+      "Source": "Auth.Api",
+      "ContentRoot": "E:\\Vikas-projectWork\\AuthApiProject\\Auth.Api\\wwwroot\\",
+      "BasePath": "_content/Auth.Api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\Vikas-projectWork\\AuthApiProject\\Auth.Api\\wwwroot\\images\\logo.png",
+      "SourceId": "Auth.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Vikas-projectWork\\AuthApiProject\\Auth.Api\\wwwroot\\",
+      "BasePath": "_content/Auth.Api",
+      "RelativePath": "images/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo.png"
+    }
+  ]
+}

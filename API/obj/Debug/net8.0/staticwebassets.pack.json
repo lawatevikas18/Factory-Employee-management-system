@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Vikas-projectWork\\AuthApiProject\\Auth.Api\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Auth.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Auth.Api.props",
+      "PackagePath": "build\\Auth.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Auth.Api.props",
+      "PackagePath": "buildMultiTargeting\\Auth.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Auth.Api.props",
+      "PackagePath": "buildTransitive\\Auth.Api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
