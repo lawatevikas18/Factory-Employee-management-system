@@ -17,6 +17,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
 
+  { path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule) },
+
+  // { path: 'Auth', loadChildren: () => import('./auth/auth/auth.module').then(m => m.AuthModule) },
+
   // Wildcard fallback
   { path: '**', redirectTo: 'login' }
 ];

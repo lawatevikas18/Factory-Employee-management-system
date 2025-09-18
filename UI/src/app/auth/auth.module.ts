@@ -7,7 +7,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [LoginComponent, OptComponent],
   imports: [

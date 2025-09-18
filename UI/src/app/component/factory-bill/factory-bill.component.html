@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>🏭 Factory Bills</h1>
+
+  <!-- Form -->
+  <form (ngSubmit)="saveBill()" class="form">
+    <input type="number" [(ngModel)]="newBill.userId" name="userId" placeholder="User ID" required />
+    <input type="text" [(ngModel)]="newBill.factoryName" name="factoryName" placeholder="Factory Name" required />
+    <input type="date" [(ngModel)]="newBill.fromDate" name="fromDate" required />
+    <input type="date" [(ngModel)]="newBill.toDate" name="toDate" required />
+    <input type="text" [(ngModel)]="newBill.workDescription" name="workDescription" placeholder="Work Description" />
+    <input type="number" [(ngModel)]="newBill.totalBill" name="totalBill" placeholder="Total Bill" required />
+    <input type="number" [(ngModel)]="newBill.paidAmount" name="paidAmount" placeholder="Paid Amount" required />
+    <input type="number" [(ngModel)]="newBill.pendingAmount" name="pendingAmount" placeholder="Pending Amount" required />
+
+    <button type="submit" class="btn save">{{ isEditing ? 'Update' : 'Add' }} Bill</button>
+    <button type="button" *ngIf="isEditing" (click)="cancelEdit()" class="btn cancel">Cancel</button>
+  </form>
+
+  <!-- Table -->
+  <table class="bill-table">
+    <thead>
+      <tr>
+        <th>Bill ID</th>
+        <th>User ID</th>
+        <th>Factory</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Total</th>
+        <th>Paid</th>
+        <th>Pending</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of bills">
+        <td>{{ bill.billId }}</td>
+        <td>{{ bill.userId }}</td>
+        <td>{{ bill.factoryName }}</td>
+        <td>{{ bill.fromDate | date }}</td>
+        <td>{{ bill.toDate | date }}</td>
+        <td>{{ bill.totalBill }}</td>
+        <td>{{ bill.paidAmount }}</td>
+        <td>{{ bill.pendingAmount }}</td>
+        <td>
+          <button (click)="editBill(bill)" class="btn edit">✏️</button>
+          <button (click)="deleteBill(bill.billId!)" class="btn delete">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

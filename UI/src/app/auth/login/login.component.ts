@@ -1,54 +1,75 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email = '';
-  password = '';
-  selectedCompany = '';
-  companies: string[] = ['COMP1', 'COMP2', 'COMP3', 'COMP4', 'COMP5']; 
-  adminData: any;
+      isLoginMode = true; // toggle between login and register
+  loginForm: FormGroup;
+  registerForm: FormGroup;
+  message: string = '';
+  showPassword: boolean = false;
 
-  constructor(
-    private apiService: AuthService,
-    private router: Router,
-    private toastr: ToastrService
-  ) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+    this.loginForm = this.fb.group({
+      mobileNumber: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
 
-  onLogin() {
-    if (!this.selectedCompany) {
-      this.toastr.error('Please select a company', 'Validation Error');
-      return;
-    }
-
-    let requestObj = {
-      userId: this.email,
-      password: this.password,
-      company: this.selectedCompany
-    };
-
-    this.apiService.login(requestObj).subscribe({
-      next: (response) => {
-        console.log('Login success:', response);
-        this.adminData = response;
-        localStorage.setItem('adminData', JSON.stringify(this.adminData));
-        this.toastr.success('Login successful!', 'Success');
-        this.router.navigate(['/dashboard']);
-        localStorage.setItem('adminData', JSON.stringify(this.adminData));
-      },
-      error: (error) => {
-        console.error('Login failed:', error);
-        this.adminData = { adminName: 'santosh d', adminId: '1', role: 'Admin' };
-        // this.toastr.error('Invalid credentials!', 'Error');
-        this.toastr.success('Login successful!', 'Success');
-        this.router.navigate(['/dashboard']);
-        localStorage.setItem('adminData', JSON.stringify(this.adminData));
-      }
+    this.registerForm = this.fb.group({
+      adminId: ['', Validators.required],
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      aadhaar: ['', Validators.required],
+      panCard: ['', Validators.required],
+      mobileNumber: ['', Validators.required],
+      role: ['', Validators.required],
+      factoryName: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
+
+  toggleMode() {
+    this.isLoginMode = !this.isLoginMode;
+    this.message = '';
+  }
+
+  login() {
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe({
+        next: res => {
+          localStorage.setItem('token', res.token);
+          this.message = 'Login successful!';
+          // this.loginForm.reset();
+          // Redirect to dashboard or another page if needed
+           this.router.navigate(['/dashboard']);
+        },
+        error: err => this.message = err.error || 'Login failed!'
+      });
+    }
+  }
+
+  register() {
+    if (this.registerForm.valid) {
+      this.authService.register(this.registerForm.value).subscribe({
+        next: res => {
+          this.message = res.message;
+          this.registerForm.reset();
+          this.isLoginMode = true;
+        },
+        error: err => this.message = err.error || 'Registration failed!'
+      });
+    }
+  }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
 }

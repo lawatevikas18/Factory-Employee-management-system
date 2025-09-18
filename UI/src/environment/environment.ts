@@ -1,9 +1,8 @@
 export const environment = {
-    production: false,
-   
-
-   
-    apiUrl: 'https://localhost:44392/api/Auth', 
+ 
+    production: true,
+      
+    apiUrl: 'https://emp360-001-site1.stempurl.com/api',
     
     
   };  

@@ -6,16 +6,12 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
 import { EmployeeDetailsModule } from './component/employee-details/employee-details.module';
 import { ToastrModule } from 'ngx-toastr';
 import { ReportsModule } from './component/reports/reports.module';
-
-
-
-
+import { AuthModule } from './auth/auth.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,7 +33,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
       defaultLanguage: 'en'
     }),
-    AuthModule,
     CoreModule,
     LayoutModule,
     EmployeeDetailsModule,
@@ -51,6 +46,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       toastClass: 'ngx-toastr toast-top-custom' // custom width/height
     }),
      ReportsModule,
+     AuthModule
     
   ],
   providers: [],

@@ -26,6 +26,8 @@ export const navbardata=[
     label:'MENU.REPORTS'  
    },
 {
+
+    {
     routerLink:'advance',
     icon:'fa-regular fa-file',
     label:'MENU.ADVANCE'  

@@ -11,6 +11,8 @@
     "LOGOUT": "Logout",
      "REPORTS": "Reports",
      "ADVANCE":"Advance"
+     "ADVANCE":"Advance",
+    "FACTORY_BILL": "Factory_Bill",
   },
   "LOGIN": {
     "TITLE": "Welcome",
