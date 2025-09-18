@@ -9,11 +9,11 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: 'dashboard', loadChildren: () => import('../component/dashboard/dashboard.module').then(m => m.DashboardModule) },
+     { path: 'dashboard', loadChildren: () => import('../component/dashboard/dashboard.module').then(m => m.DashboardModule) },
      { path: 'employee-details', loadChildren: () => import('../component/employee-details/employee-details.module').then(m => m.EmployeeDetailsModule) },
      { path: 'employee-attendance', loadChildren: () => import('../component/attendance/attendance.module').then(m=> m.AttendanceModule)},
      { path: 'employee-salary', loadChildren: () => import('../component/salary/salary.module').then(m=>m.SalaryModule)},
      { path: 'reports', loadChildren: () => import('../component/reports/reports.module').then(m=>m.ReportsModule)},
-     { path: 'advance', loadChildren: () => import('../component/advance/advance.module').then(m=>m.AdvanceModule)}
      { path: 'advance', loadChildren: () => import('../component/advance/advance.module').then(m=>m.AdvanceModule)},
      { path: 'factory-bill', loadChildren: () => import('../component/factory-bill/factory-bill.module').then(m => m.FactoryBillModule)},
      { path: 'auth', loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)},
