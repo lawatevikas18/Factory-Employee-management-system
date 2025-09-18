@@ -10,9 +10,11 @@
     "SETTINGS": "Settings",
     "LOGOUT": "Logout",
      "REPORTS": "Reports",
-     "ADVANCE":"Advance"
      "ADVANCE":"Advance",
     "FACTORY_BILL": "Factory_Bill",
+     "AUTH": "Auth"
+
+
   },
   "LOGIN": {
     "TITLE": "Welcome",
