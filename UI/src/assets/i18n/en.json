@@ -9,7 +9,8 @@
     "salary":"salary",
     "SETTINGS": "Settings",
     "LOGOUT": "Logout",
-     "REPORTS": "Reports"
+     "REPORTS": "Reports",
+     "ADVANCE":"Advance"
   },
   "LOGIN": {
     "TITLE": "Welcome",

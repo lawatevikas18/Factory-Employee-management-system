@@ -65,4 +65,12 @@
       padding: 0.25rem 0.5rem;
     }
   }
+  nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050; /* higher than content */
+  }
+  
   

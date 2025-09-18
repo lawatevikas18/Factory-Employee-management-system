@@ -11,6 +11,7 @@ declare var bootstrap: any;
 type Status = 'Full Day' | 'Half Day' | 'Late' | 'Absent' | null;
 
 interface Employee {
+  id: number;             
   employeeCode: number;
   name: string;
   designation: string;
@@ -31,6 +32,15 @@ export class AttendanceComponent {
   selectedDates: string[] = [];
   isAddPopupOpen = false;
   // UI state'
+  selectedEmployee: any;
+    isEmployeePopupOpen = false;
+    isAddMode = false;
+    adminData: any;
+  
+    factories = ['Factory A', 'Factory B', 'Factory C'];
+    states = ['Maharashtra', 'Karnataka', 'Gujarat', 'Madhya Pradesh'];
+    countries = ['India', 'Nepal', 'Bangladesh', 'Sri Lanka'];
+
   newEmployee = { id: 0, name: '', designation: '', status: null };
   selectedDesignation: string = '';
   searchTerm: string = '';
@@ -189,8 +199,9 @@ export class AttendanceComponent {
   }
  
   openAddPopup() {
-    this.isAddPopupOpen = true;
-    this.newEmployee = { id: 0, name: '', designation: '', status: null }; // reset form
+    // this.isAddPopupOpen = true;
+    this.isEmployeePopupOpen = true;
+    this.newEmployee = { id: 0, name: '', designation: '', status: null }; 
   }
 
   closeAddPopup() {
@@ -208,4 +219,26 @@ export class AttendanceComponent {
       alert('Please fill all fields.');
     }
   }
+
+
+   closeEmployeePopup() {
+      this.isEmployeePopupOpen = false;
+      this.selectedEmployee = null;
+    }
+  
+    handleSave(employeeData: Employee) {
+      // if (this.isAddMode) {
+       
+      //   const newId = this.employees.length ? Math.max(...this.employees.map(e => e.id)) + 1 : 1;
+      //   employeeData.id = newId;
+      //   this.employees.push(employeeData);
+      // } else {
+      //   const index = this.employees.findIndex(e => e.id === employeeData.id);
+      //   if (index !== -1) {
+      //     this.employees[index] = employeeData;
+      //   }
+      // }
+      this.employees = [...this.employees];
+      this.closeEmployeePopup();
+    }
 }

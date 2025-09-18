@@ -3,7 +3,7 @@ export const environment = {
    
 
    
-    apiUrl: 'https://localhost:44392/api/Auth',
+    apiUrl: 'https://localhost:44392/api/Auth', 
     
     
   };  

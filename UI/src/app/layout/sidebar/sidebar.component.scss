@@ -1,12 +1,9 @@
-/* 🔹 Hamburger only for mobile */
+
 .hamburger {
   display: none;
   position: fixed;
-  // top: 1rem;
-  // left: 0.5rem;
-  top: 29.5px;
+  top: 10px;
   left: 1.5rem;
-
   background: transparent;
   border: none;
   font-size: 24px;
@@ -74,24 +71,12 @@
       color: #fff;
     }
 
-    // .btn-close {
-    //   margin-left: auto;
-    //   width: 2rem;
-    //   height: 2rem;
-    //   border-radius: 50%;
-    //   background-color: transparent;
-    //   border: none;
-    //   color: #fff !important;
-    //   .fa-times {
-    //     color: #fff !important;
-    //     font-size: 20px ;
-    //   }
-    // }
   }
 }
 
 .sidenav-collapsed {
   width: 16.53rem;
+  margin-top: 57px;
 }
 
 .side-nav {

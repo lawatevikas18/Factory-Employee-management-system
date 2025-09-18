@@ -220,4 +220,36 @@
       </button>
     </div>
   </div>
+
+  <div class="custom-popup" *ngIf="isEmployeePopupOpen">
+    <!-- existing search + table unchanged -->
+
+<!-- Reusable popup component -->
+<app-employee-form
+  *ngIf="isEmployeePopupOpen"
+  [isAddMode]="isAddMode"
+  [employee]="selectedEmployee"
+  [designations]="designations"
+  [factories]="factories"
+  [states]="states"
+  [countries]="countries"
+  (close)="closeEmployeePopup()">
+</app-employee-form>
+
+
+
+<!-- <app-employee-form
+  *ngIf="isEmployeePopupOpen"
+  [isAddMode]="isAddMode"
+  [employee]="selectedEmployee"
+  [designations]="designations"
+  [factories]="factories"
+  [states]="states"
+  [countries]="countries"
+  (save)="handleSave($event)"
+  (close)="closeEmployeePopup()">
+</app-employee-form> -->
+
+
+</div>
 </div>

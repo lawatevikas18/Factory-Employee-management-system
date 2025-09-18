@@ -6,19 +6,21 @@ import { EmployeeDetailsComponent } from './employee-details.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 
 
 @NgModule({
   declarations: [
     EmployeeDetailsComponent,
-    EmployeeFormComponent
+    // EmployeeFormComponent
   ],
   imports: [
     CommonModule,
     EmployeeDetailsRoutingModule,
     TranslateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule   
   ]
 })
 export class EmployeeDetailsModule { }

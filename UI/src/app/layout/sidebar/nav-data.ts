@@ -24,6 +24,11 @@ export const navbardata=[
     routerLink:'reports',
     icon:'fa-regular fa-file',
     label:'MENU.REPORTS'  
+   },
+{
+    routerLink:'advance',
+    icon:'fa-regular fa-file',
+    label:'MENU.ADVANCE'  
    }
    
 ]
