@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
@@ -9,8 +10,17 @@ export class AuthService {
     
   }
   private baseUrl = 'https://emp360-001-site1.stempurl.com/api/Auth'; 
+  private baseUrl =  environment.apiUrl;
   private TOKEN_KEY = 'jwt_token';
 
+
+  
+  private getHeaders() {
+    const token = localStorage.getItem('token'); // ✅ Get token from localStorage (or service)
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+  }
   
   // login(request: any) {
   //   // localStorage.setItem(this.TOKEN_KEY, token);
@@ -28,8 +38,26 @@ export class AuthService {
  saveAttendance(request: any): Observable<any>{
     return this.http.post(`${this.baseUrl}/saveAttendance`, request);
  }
+//  saveAttendance(request: any): Observable<any>{
+//     return this.http.post(`${this.baseUrl}/saveAttendance`, request);
+//  }
+
+saveAttendance(requestdata:any): Observable<any> {
+  return this.http.post<any>(`${this.baseUrl}/Attendance`,requestdata,{ headers: this.getHeaders() });
+  }
+
+// getReport(requestdata:any): Observable<any> {
+//   return this.http.post<any>(`${this.baseUrl}/attendanceReport`, requestdata);
+//   }
+
+postattendance(requestdata:any): Observable<any> {
+  return this.http.post<any>(`${this.baseUrl}/Attendance`, requestdata, { headers: this.getHeaders() });
+  }
+
+
 getReport(requestdata:any): Observable<any> {
   return this.http.post<any>(`${this.baseUrl}/attendanceReport`, requestdata);
+  return this.http.get<any>(`${this.baseUrl}/Employee`, { headers: this.getHeaders() });
   }
  downloadReportPdf(requestdata:any): Observable<any> {
   return this.http.post<any>(`${this.baseUrl}/attendanceReport/pdf`, requestdata);

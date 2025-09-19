@@ -6,6 +6,13 @@
   justify-content: center;
   align-items: center;
   z-index: 1050;
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-width: 1000px;
+  margin: 1rem auto;
 }
 
 .custom-popup-content {
@@ -14,6 +21,10 @@
   border-radius: 10px;
   width: 90%;
   max-width: 450px;
+.employee-form .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .75rem;
 }
 
 @media (max-width: 576px) {
@@ -22,15 +33,28 @@
     max-width: 350px;
     padding: 15px;
   }
+label {
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+}
 
   table {
     font-size: 0.85rem;
   }
+input, textarea {
+  padding: .4rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 .custom-select-wrapper {
   position: relative;
   display: inline-block;
   width: 100%;
+
+textarea {
+  resize: vertical;
+  min-height: 50px;
 }
 
 .custom-select-wrapper select {
@@ -39,6 +63,8 @@
   -moz-appearance: none;
   width: 100%;
   padding-right: 30px; /* Space for arrow */
+.actions {
+  margin-top: 0.5rem;
 }
 
 .custom-select-wrapper .dropdown-arrow {
@@ -49,6 +75,14 @@
   pointer-events: none; /* Allow clicks on select */
   font-size: 0.8rem;
   color: #555;
+button {
+  padding: .4rem .75rem;
+  border: none;
+  border-radius: 6px;
+  background: #2b6cb0;
+  color: #fff;
+  cursor: pointer;
+  margin-right: .5rem;
 }
 
 /* Mobile adjustments */
@@ -57,14 +91,23 @@
     font-size: 0.85rem;
     padding: 5px 25px 5px 10px;
   }
+button.secondary {
+  background: #aaa;
+}
 
   .custom-select-wrapper .dropdown-arrow {
     font-size: 0.7rem;
   }
+button.small {
+  padding: .25rem .5rem;
+  font-size: 0.85rem;
 }
 select.form-control {
   font-size: 0.9rem;
   padding: 6px 10px;
+
+button.danger {
+  background: #c62828;
 }
 
 @media (max-width: 576px) {
@@ -72,16 +115,28 @@ select.form-control {
     font-size: 0.85rem;
     padding: 8px 10px;
   }
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: .75rem;
 }
 
 @media (max-width: 576px) {
   .input-group {
     width: 100% !important;
   }
+.employee-table th, .employee-table td {
+  padding: .5rem;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
 
   .btn {
     width: 100%;
   }
+.success {
+  color: green;
+  margin: 0.5rem 0;
 }
 
 .custom-popup-content {
@@ -92,6 +147,9 @@ select.form-control {
   max-width: 600px; /* bigger for more fields */
   max-height: 90vh;
   overflow-y: auto;
+.error {
+  color: #c62828;
+  margin: 0.5rem 0;
 }
 
 @media (max-width: 576px) {
@@ -102,4 +160,7 @@ select.form-control {
   .form-control-sm {
     font-size: 0.8rem;
   }
+.info {
+  font-style: italic;
+  color: #666;
 }

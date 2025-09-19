@@ -9,11 +9,17 @@
 }
 
 .custom-popup-content {
+.card {
+  padding: 1rem;
+  border-radius: 8px;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
   width: 90%;
   max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-width: 900px;
+  margin: 1rem auto;
 }
 
 @media (max-width: 576px) {
@@ -45,6 +51,11 @@
   table td {
     font-size: 0.85rem;
   }
+.generate-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .input-group-text {
@@ -53,6 +64,10 @@
 
 .input-group .form-control {
   border-left: 0;
+input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
 }
 @media (max-width: 576px) {
   .highlight-first-three td:nth-child(-n+3) {
@@ -62,7 +77,20 @@
 }
 
 
+button {
+  grid-column: 1 / -1;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 // @media (max-width: 768px) {
 //   .table-responsive {
@@ -73,12 +101,34 @@
 //     flex-wrap: wrap;
 //   }
 // }
+.salary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
 
 // @media (min-width: 769px) {
 //   .card-grid {
 //     display: none; /* hide cards on desktop */
 //   }
 // }
+.salary-table th, .salary-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
 
+.success {
+  color: green;
+  margin: 0.5rem 0;
+}
 
+.error {
+  color: #c62828;
+  margin: 0.5rem 0;
+}
 
+.info {
+  color: #555;
+  font-style: italic;
+}

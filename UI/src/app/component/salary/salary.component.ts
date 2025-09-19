@@ -1,4 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 interface Employee {
@@ -24,8 +26,17 @@ export class SalaryComponent implements OnInit {
   currentUserRole: 'Manager' | 'Employee' = 'Manager';
   filteredEmployees: Employee[] = [];
   isSearchFocused: boolean = false;
+  salaries: any[] = [];
+  form!: FormGroup;
+  loading = false;
+  submitting = false;
+  message = '';
+  error = '';
 
   constructor(private toastr: ToastrService) {}
+  private apiUrl = `${(window as any).__env?.apiUrl || ''}/api/Salary`;
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.employees = [
@@ -39,15 +50,45 @@ export class SalaryComponent implements OnInit {
       { id: 8, name: 'Sita Kulkarni', designation: 'Manager', status: 'Paid', salary: 58000, advance: 0 }
     ];
     this.filteredEmployees = [...this.employees];
+    this.form = this.fb.group({
+      employeeId: [null, [Validators.required, Validators.min(1)]],
+      startDate: [null, Validators.required],
+      endDate: [null, Validators.required]
+    });
+
+    this.loadSalaries();
+  }
+
+  private getHeaders() {
+    const token = localStorage.getItem('token') || '';
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      })
+    };
   }
 
   get pendingCount(): number {
     return this.employees.filter(e => e.status === 'Pending' || e.status === null).length;
+  loadSalaries() {
+    this.loading = true;
+    this.http.get<any[]>(`${this.apiUrl}/GetAllSalaryTransactions`, this.getHeaders())
+      .subscribe({
+        next: data => { this.salaries = data; this.loading = false; },
+        error: err => { this.error = 'Failed to load salary data'; this.loading = false; }
+      });
   }
 
   openSalaryPopup(emp: Employee) {
     if (this.currentUserRole !== 'Manager') {
       this.toastr.error('Only Managers can modify salary');
+  generateSalary() {
+    this.message = '';
+    this.error = '';
+
+    if (this.form.invalid) {
+      this.error = 'Please fill all fields correctly.';
       return;
     }
     // clone to prevent direct edit until saved
@@ -59,6 +100,9 @@ export class SalaryComponent implements OnInit {
     this.isSalaryPopupOpen = false;
     this.selectedEmployee = null;
   }
+    const { employeeId, startDate, endDate } = this.form.value;
+    const s = new Date(startDate);
+    const e = new Date(endDate);
 
   saveSalaryChanges() {
     if (!this.selectedEmployee) return;
@@ -73,6 +117,9 @@ export class SalaryComponent implements OnInit {
       };
       this.toastr.success(`${this.selectedEmployee.name}'s salary updated and marked as Paid`);
       this.closeSalaryPopup();
+    if (e < s) {
+      this.error = 'End date must be after start date.';
+      return;
     }
   }
   
@@ -80,6 +127,13 @@ export class SalaryComponent implements OnInit {
   trackByEmployee(index: number, emp: Employee) {
     return emp.id;
   }
+    this.submitting = true;
+
+    const body = {
+      employeeId,
+      startDate: s.toISOString(),
+      endDate: e.toISOString()
+    };
 
   filterEmployees() {
     const text = this.searchText.toLowerCase();
@@ -88,5 +142,18 @@ export class SalaryComponent implements OnInit {
       emp.designation.toLowerCase().includes(text) ||
       emp.status?.toLowerCase().includes(text)
     );
+    this.http.post(`${this.apiUrl}/GenerateSalary`, body, this.getHeaders())
+      .subscribe({
+        next: (res: any) => {
+          this.message = res?.message || 'Salary processed successfully';
+          this.submitting = false;
+          this.form.reset();
+          this.loadSalaries();
+        },
+        error: err => {
+          this.error = err?.error?.message || 'Failed to generate salary';
+          this.submitting = false;
+        }
+      });
   }
 }

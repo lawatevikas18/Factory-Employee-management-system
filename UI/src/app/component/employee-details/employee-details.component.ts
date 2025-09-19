@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/model/employee.model';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environment/environment';
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
@@ -10,12 +13,21 @@ export class EmployeeDetailsComponent implements OnInit {
   employees: Employee[] = [];
   filteredEmployees: Employee[] = [];
   searchText: string = '';
+   employees: any[] = [];
+  wallets: any[] = [];
+  form!: FormGroup;
+  isEdit = false;
+  selectedId: number | null = null;
+  loading = false;
+  message = '';
+  error = '';
 
   // Dropdown data
   designations = ['Worker', 'Supervisor', 'Manager', 'Driver'];
   factories = ['Factory A', 'Factory B', 'Factory C'];
   states = ['Maharashtra', 'Karnataka', 'Gujarat', 'Madhya Pradesh'];
   countries = ['India', 'Nepal', 'Bangladesh', 'Sri Lanka'];
+  private apiUrl = environment.apiUrl
 
   selectedEmployee: Employee | null = null;
   isEmployeePopupOpen = false;
@@ -24,6 +36,7 @@ export class EmployeeDetailsComponent implements OnInit {
   adminData: any;
 
   constructor(private apiService: AuthService) {}
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.employees = [
@@ -84,25 +97,58 @@ export class EmployeeDetailsComponent implements OnInit {
       error: (error) => {
         console.error(error);
       }
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      address: [''],
+      village: [''],
+      taluka: [''],
+      district: [''],
+      state: [''],
+      role: [''],
+      aadhaar: ['', Validators.pattern(/^\d{12}$/)],
+      panCard: ['', Validators.maxLength(10)],
+      mobile1: ['', Validators.required],
+      mobile2: [''],
+      monthlySalary: [0, [Validators.required, Validators.min(0)]],
+      factoryName: ['']
     });
+
+    this.loadEmployees();
+    this.loadWallets();
   }
 
   openAddEmployeePopup() {
     this.selectedEmployee = null;
     this.isAddMode = true;
     this.isEmployeePopupOpen = true;
+  private getHeaders() {
+    const token = localStorage.getItem('token') || '';
+    return { headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }) };
   }
 
   openEditEmployee(emp: Employee) {
     this.selectedEmployee = { ...emp }; 
     this.isAddMode = false;
     this.isEmployeePopupOpen = true;
+  loadEmployees() {
+    this.loading = true;
+    this.http.get<any[]>(`${this.apiUrl}/Employee`, this.getHeaders())
+      .subscribe({
+        next: res => { this.employees = res; this.loading = false; },
+        error: () => { this.error = 'Failed to load employees'; this.loading = false; }
+      });
   }
   
 
   closeEmployeePopup() {
     this.isEmployeePopupOpen = false;
     this.selectedEmployee = null;
+  loadWallets() {
+    this.http.get<any[]>(`${this.apiUrl}/employee_wallete`, this.getHeaders())
+      .subscribe({
+        next: res => this.wallets = res,
+        error: () => console.warn('Wallet fetch failed (Admin cannot view wallets)')
+      });
   }
 
   handleSave(employeeData: Employee) {
@@ -111,11 +157,39 @@ export class EmployeeDetailsComponent implements OnInit {
       const newId = this.employees.length ? Math.max(...this.employees.map(e => e.id)) + 1 : 1;
       employeeData.id = newId;
       this.employees.push(employeeData);
+  submit() {
+    if (this.form.invalid) {
+      this.error = 'Please fill required fields correctly.';
+      return;
+    }
+
+    this.error = '';
+    const body = this.form.value;
+
+    if (this.isEdit && this.selectedId) {
+      this.http.put(`${this.apiUrl}/${this.selectedId}`, { ...body, employeeId: this.selectedId }, this.getHeaders())
+        .subscribe({
+          next: (res: any) => {
+            this.message = res.message || 'Employee updated';
+            this.resetForm();
+            this.loadEmployees();
+          },
+          error: err => this.error = err?.error?.message || 'Update failed'
+        });
     } else {
       const index = this.employees.findIndex(e => e.id === employeeData.id);
       if (index !== -1) {
         this.employees[index] = employeeData;
       }
+      this.http.post( `${this.apiUrl}/Employee`, body, this.getHeaders())
+        .subscribe({
+          next: () => {
+            this.message = 'Employee added';
+            this.resetForm();
+            this.loadEmployees();
+          },
+          error: err => this.error = err?.error?.message || 'Add failed'
+        });
     }
     this.filteredEmployees = [...this.employees];
     this.closeEmployeePopup();
@@ -123,6 +197,11 @@ export class EmployeeDetailsComponent implements OnInit {
 
   trackByEmployee(index: number, emp: Employee) {
     return emp.id;
+  edit(emp: any) {
+    this.isEdit = true;
+    this.selectedId = emp.employeeId;
+    this.form.patchValue(emp);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   confirmDeleteEmployee(emp: Employee) {
@@ -130,11 +209,26 @@ export class EmployeeDetailsComponent implements OnInit {
     if (confirmed) {
       this.deleteEmployee(emp);
     }
+  delete(empId: number) {
+    if (!confirm('Are you sure you want to delete this employee?')) return;
+    this.http.delete(`${this.apiUrl}/${empId}`, this.getHeaders())
+      .subscribe({
+        next: (res: any) => {
+          this.message = res.message || 'Employee deleted';
+          this.loadEmployees();
+          this.loadWallets();
+        },
+        error: err => this.error = err?.error?.message || 'Delete failed'
+      });
   }
 
   deleteEmployee(emp: Employee) {
     this.employees = this.employees.filter(e => e.id !== emp.id);
     this.filteredEmployees = [...this.employees];
+  resetForm() {
+    this.isEdit = false;
+    this.selectedId = null;
+    this.form.reset({ monthlySalary: 0 });
   }
 
   filterEmployees() {
@@ -148,5 +242,8 @@ export class EmployeeDetailsComponent implements OnInit {
        emp.factory.toLowerCase().includes(text)) &&
       (factory === '' || emp.factory === factory)
     );
+  walletBalance(empId: number) {
+    const w = this.wallets.find(x => x.employeeId === empId);
+    return w ? w.advanceBalance : 0;
   }
 }
