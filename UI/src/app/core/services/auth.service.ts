@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -9,7 +8,6 @@ export class AuthService {
   constructor(private http: HttpClient) {
     
   }
-  private baseUrl = 'https://emp360-001-site1.stempurl.com/api/Auth'; 
   private baseUrl =  environment.apiUrl;
   private TOKEN_KEY = 'jwt_token';
 
@@ -35,9 +33,6 @@ export class AuthService {
  addEmployee(request: any): Observable<any>{
     return this.http.post(`${this.baseUrl}/registoreEmployee`, request);
  }
- saveAttendance(request: any): Observable<any>{
-    return this.http.post(`${this.baseUrl}/saveAttendance`, request);
- }
 //  saveAttendance(request: any): Observable<any>{
 //     return this.http.post(`${this.baseUrl}/saveAttendance`, request);
 //  }
@@ -56,7 +51,6 @@ postattendance(requestdata:any): Observable<any> {
 
 
 getReport(requestdata:any): Observable<any> {
-  return this.http.post<any>(`${this.baseUrl}/attendanceReport`, requestdata);
   return this.http.get<any>(`${this.baseUrl}/Employee`, { headers: this.getHeaders() });
   }
  downloadReportPdf(requestdata:any): Observable<any> {
@@ -87,8 +81,6 @@ getReport(requestdata:any): Observable<any> {
   login(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/login`, data);
   }
-   
-
 }
 
 

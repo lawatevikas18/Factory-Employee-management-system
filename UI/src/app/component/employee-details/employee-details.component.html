@@ -1,15 +1,3 @@
-<div class="d-flex flex-wrap align-items-center gap-2 mb-2 mt-2">
-  <!-- Employee Search -->
-  <div class="flex-grow-1 flex-sm-grow-0" style="min-width: 120px;">
-    <div class="input-group input-group-sm">
-      <span class="input-group-text">
-        <span class="material-symbols-outlined">search</span>
-      </span>
-      <input type="text"
-             class="form-control"
-             placeholder="Search..."
-             [(ngModel)]="searchText"
-             (input)="filterEmployees()">
 <div class="employee-container card">
   <h2>Employee Management</h2>
 
@@ -30,79 +18,38 @@
       <label>Factory<input formControlName="factoryName" /></label>
       <label class="full">Address<textarea formControlName="address"></textarea></label>
     </div>
-  </div>
 
-  <!-- Factory Dropdown -->
-  <div class="flex-grow-1 flex-sm-grow-0" style="min-width: 120px;">
-    <div class="input-group input-group-sm">
-      <span class="input-group-text">
-        <span class="material-symbols-outlined">factory</span>
-      </span>
-      <select class="form-control" [(ngModel)]="selectedFactory" (change)="filterEmployees()">
-        <option value="">All Factories</option>
-        <option *ngFor="let f of factories" [value]="f">{{ f }}</option>
-      </select>
     <div class="actions">
       <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
       <button type="button" (click)="resetForm()" class="secondary" *ngIf="isEdit">Cancel</button>
     </div>
-  </div>
   </form>
 
-  <!-- Add Employee Button -->
-  <div style="min-width: 100px;" (click)="openAddEmployeePopup()">
-    <button class="btn btn-sm btn-success w-100">
-      <span class="material-symbols-outlined">person_add</span>
-      <span class="d-none d-sm-inline ms-1">Add Employee</span>
-    </button>
-  </div>
-</div>
   <div *ngIf="message" class="success">{{ message }}</div>
   <div *ngIf="error" class="error">{{ error }}</div>
 
   <hr />
 
-<!-- Employee Table -->
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-sm">
-    <thead class="table-light">
   <!-- ✅ Employee Table -->
   <h3>Employee List</h3>
   <div *ngIf="loading" class="info">Loading...</div>
   <table *ngIf="!loading && employees.length" class="employee-table">
     <thead>
       <tr>
-        <th>Sr no</th>
         <th>#</th>
         <th>Name</th>
-        <th>Designation</th>
-        <th>Factory</th>
         <th>Mobile</th>
         <th>Salary</th>
-        <th>Mobile 1</th>
         <th>Wallet</th>
         <th>Aadhaar</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let emp of filteredEmployees; trackBy: trackByEmployee">
-        <td>{{ emp.id }}</td>
-        <td>{{ emp.firstName }} {{ emp.middleName }} {{ emp.lastName }}</td>
-        <td>{{ emp.designation }}</td>
-        <td>{{ emp.factory }}</td>
-        <td>₹{{ emp.salary | number }}</td>
       <tr *ngFor="let emp of employees; let i = index">
         <td>{{ i + 1 }}</td>
         <td>{{ emp.name }}</td>
         <td>{{ emp.mobile1 }}</td>
-        <td class="d-flex gap-1">
-          <button class="btn btn-outline-primary btn-sm" (click)="openEditEmployee(emp)">
-            <span class="material-symbols-outlined">edit</span>
-          </button>
-          <button class="btn btn-outline-danger btn-sm" (click)="confirmDeleteEmployee(emp)">
-            <span class="material-symbols-outlined">delete</span>
-          </button>
         <td>{{ emp.monthlySalary | number:'1.2-2' }}</td>
         <td>{{ walletBalance(emp.employeeId) | number:'1.2-2' }}</td>
         <td>{{ emp.aadhaar }}</td>
@@ -113,25 +60,6 @@
       </tr>
     </tbody>
   </table>
-</div>
-
-<!-- Employee Popup -->
-<div class="custom-popup" *ngIf="isEmployeePopupOpen">
-    <!-- existing search + table unchanged -->
-
-<!-- Reusable popup component -->
-<app-employee-form
-  *ngIf="isEmployeePopupOpen"
-  [isAddMode]="isAddMode"
-  [employee]="selectedEmployee"
-  [designations]="designations"
-  [factories]="factories"
-  [states]="states"
-  [countries]="countries"
-  (save)="handleSave($event)"
-  (close)="closeEmployeePopup()">
-</app-employee-form>
-
 
   <div *ngIf="!loading && !employees.length" class="info">No employees found.</div>
 </div>
