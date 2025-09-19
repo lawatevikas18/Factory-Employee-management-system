@@ -60,6 +60,9 @@
 
 .input-group-text {
   background-color: #f0f0f0;
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .input-group .form-control {
@@ -132,3 +135,5 @@ button[disabled] {
   color: #555;
   font-style: italic;
 }
+
+

@@ -22,3 +22,5 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
         SharedModule   
   ]
 })
+export class AttendanceModule { }
+

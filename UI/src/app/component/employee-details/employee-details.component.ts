@@ -247,3 +247,6 @@ export class EmployeeDetailsComponent implements OnInit {
     return w ? w.advanceBalance : 0;
   }
 }
+
+
+
