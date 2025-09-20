@@ -1,193 +1,94 @@
-﻿using Auth.Api.Models;
-using Auth.Api.Models.employee;
-using Auth.Api.Models.reports;
-using Auth.Api.Repositories;
-using Auth.Api.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using FEMS_API.Database;
+using FEMS_API.DTOS;
+using FEMS_API.Models;
+using FEMS_API.Services;
 using Microsoft.AspNetCore.Mvc;
-using QuestPDF.Fluent;
-using QuestPDF.Helpers;
-using QuestPDF.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Text;
 
-namespace Auth.Api.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class AuthController : ControllerBase
+namespace FEMS_API.Controllers
 {
-    private readonly IAuthService _service;
-
-    public AuthController(IAuthService service)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AuthController : ControllerBase
     {
-        _service = service;
-    }
+        private readonly FEMS_DbContext _db;
+        private readonly TokenService _tokenService;
 
-    [HttpPost("register")]
-    public async Task<IActionResult> Register(RegisterRequest request)
-    {
-        try
+        public AuthController(FEMS_DbContext db, TokenService tokenService)
         {
-            var userId = await _service.RegisterAsync(request);
-            return Ok(new { userId });
+            _db = db;
+            _tokenService = tokenService;
         }
-        catch (Exception ex)
-        {
-            return BadRequest(new { error = ex.Message });
-        }
-    }
 
-    [HttpPost("login")]
-    public async Task<IActionResult> Login(LoginRequest request)
-    {
-        try
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(UserRegisterDto dto)
         {
-            var result = await _service.LoginAsync(request);
-            return Ok(ResponseHelper.Success(result));
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ResponseHelper.Fail<object>(ex.Message, 401));
-        }
-    }
+            if (await _db.Users.AnyAsync(u => u.MobileNumber == dto.MobileNumber))
+                return BadRequest("User already exists./Mobile number are same");
+            if (await _db.Users.AnyAsync(u => u.Aadhaar == dto.Aadhaar))
+                return BadRequest("User already exists./Adhar number are same");
+            if (await _db.Users.AnyAsync(u => u.FactoryName == dto.FactoryName))
+                return BadRequest("User already exists./ One user not for 2 factory");
 
-    [Authorize]
-    [HttpPost("logout")]
-    public IActionResult Logout()
-    {
-        // JWT logout is handled client-side (delete token from storage)
-        return Ok(new { message = "Logged out" });
-    }
+            CreatePasswordHash(dto.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
-    [HttpPost("getEmployeeList")]
-    public async Task<IActionResult> getEmployeeList(getEmployeeListRequest request)
-    {
-        try
-        {
-            var result = await _service.getEmployeeListAsync(request);
-            return Ok(ResponseHelper.Success(result));
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ResponseHelper.Fail<object>(ex.Message, 401));
-        }
-    }
-
-    [HttpPost("registoreEmployee")]
-    public async Task<IActionResult> registoreEmployee(RegistoreEmployeeRequest request)
-    {
-        try
-        {
-            var result = await _service.registoreEmployeeAsync(request);
-            return Ok(ResponseHelper.Success(result));
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ResponseHelper.Fail<object>(ex.Message, 401));
-        }
-    }
-
-    [HttpPost("saveAttendance")]
-    public async Task<IActionResult> SaveAttendance([FromBody] AttendanceRequest request)
-    {
-        try
-        {
-            var result = await _service.SaveAttendanceAsync(request);
-            return Ok(ResponseHelper.Success(result));
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ResponseHelper.Fail<object>(ex.Message, 401));
-        }
-    }
-    [HttpPost("attendanceReport")]
-    public async Task<IActionResult> GetAttendanceReport([FromBody] AttendanceReportRequest request)
-    {
-        try
-        {
-            var result = await _service.GetAttendanceReportAsync(request);
-
-            return Ok(ResponseHelper.Success(result));
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ResponseHelper.Fail<object>(ex.Message, 401));
-        }
-    }
-
-    [HttpPost("attendanceReport/pdf")]
-    public async Task<IActionResult> GetAttendanceReportPdf([FromBody] AttendanceReportRequest request)
-    {
-        try
-        {
-            var data = await _service.GetAttendanceReportAsync(request);
-
-            // 🔹 Generate PDF with QuestPDF
-            var pdf = Document.Create(container =>
+            var user = new User
             {
-                container.Page(page =>
-                {
-                    page.Margin(30);
-                    var logoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "logo.png");
-                    // Header with Logo
-                    page.Header().Row(row =>
-                    {
-                        row.ConstantItem(60).Image(logoPath);
-                        row.RelativeItem().Column(col =>
-                        {
-                            col.Item().Text("Shri Vitthal Co-op Sugar Factory Ltd.").SemiBold().FontSize(16).AlignCenter();
-                            col.Item().Text("Venunagar - Gursale, Tal. Pandharpur, Dist. Solapur").FontSize(10).AlignCenter();
-                            col.Item().Text($"Attendance Report ({request.FromDate:dd-MMM-yyyy} to {request.ToDate:dd-MMM-yyyy})").FontSize(12).AlignCenter();
-                        });
-                    });
+                Name = dto.Name,
+                AdminId = dto.AdminId,
+                Address = dto.Address,
+                Aadhaar = dto.Aadhaar,
+                PanCard = dto.PanCard,
+                MobileNumber = dto.MobileNumber,
+                Role = dto.Role,
+                FactoryName = dto.FactoryName,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt
+            };
 
-                    // Attendance Table
-                    page.Content().Table(table =>
-                    {
-                        table.ColumnsDefinition(columns =>
-                        {
-                            columns.ConstantColumn(50);
-                            columns.RelativeColumn();
-                            columns.RelativeColumn();
-                            columns.RelativeColumn();
-                            columns.RelativeColumn();
-                        });
+            _db.Users.Add(user);
 
-                        table.Header(header =>
-                        {
-                            header.Cell().Text("Sr.No");
-                            header.Cell().Text("Code");
-                            header.Cell().Text("Name");
-                            header.Cell().Text("Designation");
-                            header.Cell().Text("Status");
-                        });
+            var wallet = new UserWallet
+            {
+                UserId = user.UserId,
+                Balance = 0
+            };
+            _db.UserWallets.Add(wallet);
 
-                        int i = 1;
-                        foreach (var emp in data)
-                        {
-                            table.Cell().Text(i++.ToString());
-                            table.Cell().Text(emp.EmployeeCode);
-                            table.Cell().Text(emp.EmployeeName);
-                            table.Cell().Text(emp.Designation);
-                            table.Cell().Text(string.IsNullOrEmpty(emp.Status) ? "-" : emp.Status);
-                        }
-                    });
+            await _db.SaveChangesAsync();
 
-                    // Footer with Signatures
-                    page.Footer().Row(row =>
-                    {
-                        row.RelativeItem().AlignLeft().Text($"Prepared By: HR Department");
-                        row.RelativeItem().AlignRight().Text($"Approved By: Factory Manager");
-                    });
-                });
-            });
-
-            var pdfBytes = pdf.GeneratePdf();
-            return File(pdfBytes, "application/pdf", "AttendanceReport.pdf");
+            return Ok(new { message = "User registered successfully" });
         }
-        catch (Exception ex)
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(UserLoginDto dto)
         {
-            return BadRequest(ResponseHelper.Fail<object>(ex.Message, 401));
-        }
-    }
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.MobileNumber == dto.MobileNumber);
+            if (user == null) return Unauthorized("Invalid credentials");
 
+            if (!VerifyPasswordHash(dto.Password, user.PasswordHash, user.PasswordSalt))
+                return Unauthorized("Invalid credentials");
+
+            var token = _tokenService.GenerateToken(user);
+            return Ok(new { token });
+        }
+
+        #region Password Hashing
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using var hmac = new HMACSHA512();
+            passwordSalt = hmac.Key;
+            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+        }
+
+        private bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
+        {
+            using var hmac = new HMACSHA512(storedSalt);
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+            return computedHash.SequenceEqual(storedHash);
+        }
+        #endregion
+    }
 }

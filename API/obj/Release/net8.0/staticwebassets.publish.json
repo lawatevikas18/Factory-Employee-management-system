@@ -1,0 +1,4451 @@
+{
+  "Version": 1,
+  "Hash": "21SJ5gT13R1sD9UB0WW5Ypo0dnWBidYJMozejXLodpI=",
+  "Source": "FEMS_API",
+  "BasePath": "_content/FEMS_API",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "FEMS_API\\wwwroot",
+      "Source": "FEMS_API",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.dbdb0a598122f17e.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "132.dbdb0a598122f17e#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "k0q9k39vu7",
+      "Integrity": "DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\132.dbdb0a598122f17e.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "3rdpartylicenses#[.{fingerprint}]?.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xcz5uz3zia",
+      "Integrity": "v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\3rdpartylicenses.txt"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.b93da0ab18589729.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "641.b93da0ab18589729#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9xlujuokfy",
+      "Integrity": "g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\641.b93da0ab18589729.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.cbf8a298c287e938.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "661.cbf8a298c287e938#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r17pu290gd",
+      "Integrity": "EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\661.cbf8a298c287e938.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\en.json",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "assets/i18n/en#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sj8v3gwkqm",
+      "Integrity": "+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\i18n\\en.json"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\kn.json",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "assets/i18n/kn#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iv9ylclte9",
+      "Integrity": "ftuNIJCPSUkzPbzholw21hY+4L2bD8OOU0AfpiOHMes=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\i18n\\kn.json"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\mr.json",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "assets/i18n/mr#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "69h2w3140f",
+      "Integrity": "2t+JNT1CXml4D5zUQckoXpcawNV9cOuvPH8AMqB6WCQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\i18n\\mr.json"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-brands-400.b56d441c57a13e5a.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "fa-brands-400.b56d441c57a13e5a#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q28bbgemto",
+      "Integrity": "ooi1jyNk47MYJ3wg9KqWiJuHW/JZV3a6Ogwa3IAMLTw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fa-brands-400.b56d441c57a13e5a.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-regular-400.47469621ae437987.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "fa-regular-400.47469621ae437987#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oda9zrw7am",
+      "Integrity": "NFTB0Ox7TZC0WzN5ziKcSUQgQbwjxAZE5MA2DsBDKEw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fa-regular-400.47469621ae437987.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-solid-900.174bea58d33b35a5.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "fa-solid-900.174bea58d33b35a5#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m9tcp3o9vf",
+      "Integrity": "KoSuR6qBgyV+3wg2CYaAOoCaLqDDTDxyKVYsYsFcn/I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fa-solid-900.174bea58d33b35a5.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-v4compatibility.25cfd40cb64ecf7c.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "fa-v4compatibility.25cfd40cb64ecf7c#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aqby3l4rw8",
+      "Integrity": "Hjl+P1r48gzyCy97MaE4FMIqYVleR9ur7BiOA7mI7Vg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fa-v4compatibility.25cfd40cb64ecf7c.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\favicon.ico",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "favicon#[.{fingerprint}]?.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nf69tc4d23",
+      "Integrity": "LQpPWnfHiLCEkZsbjK1XE9nfwziO8plpxMtmwoCS5oM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\index.html",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7pf5thznx4",
+      "Integrity": "RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.f5dc612673fa6d1f.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "main.f5dc612673fa6d1f#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ou5y6ae1em",
+      "Integrity": "IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main.f5dc612673fa6d1f.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\polyfills.6dcd853f16b77d1e.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "polyfills.6dcd853f16b77d1e#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "u7zw1tvvmm",
+      "Integrity": "Sl8gZ/sNpbJh01OY16mmOPrwGNK0iu907vvd+Zu+q5s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\polyfills.6dcd853f16b77d1e.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100.539f0a96b40596f7.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-100.539f0a96b40596f7#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "igo9yzlyiy",
+      "Integrity": "EoI9WFYFI4EhVUr/i7BgojXcNvN+/Z+x5+bqGpYivDU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-100.539f0a96b40596f7.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100.5ba994dac3e79ea8.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-100.5ba994dac3e79ea8#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0pg9esvye6",
+      "Integrity": "xOrU3p96/yN9BrUw6thBPRNXQn9qkllENCu04rHc5tA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-100.5ba994dac3e79ea8.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100italic.41ba64219cb743c9.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-100italic.41ba64219cb743c9#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "29a1zbtc0e",
+      "Integrity": "JskepDt5sdRWaV3kaPUD4BQenrdn/hZNr4vz86EBJW8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-100italic.41ba64219cb743c9.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100italic.d61e7e8b07c0638c.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-100italic.d61e7e8b07c0638c#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6l2p9ewza3",
+      "Integrity": "WjqYQEFHaPouyYizPJ6Wb9/+LbflYKJws6nGugHxdxg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-100italic.d61e7e8b07c0638c.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300.4d8f8086236bad80.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-300.4d8f8086236bad80#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h2p15v4yr1",
+      "Integrity": "KfbaCowhxWgVEbubCGY9P9LF0Jyb2AVOw1TFY7jIt8E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-300.4d8f8086236bad80.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300.6c1bc461047e61f5.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-300.6c1bc461047e61f5#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m4le6yw71g",
+      "Integrity": "drBUAP/52ltDhi43EwmeORORamKVYCZe0ksZ0DEifL8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-300.6c1bc461047e61f5.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300italic.3a529751a590d3c1.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-300italic.3a529751a590d3c1#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "t2t3y2w703",
+      "Integrity": "C+Cubv2FKzaVy3p2KGCW9g6Tt9McFuC3HKNeztf96PY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-300italic.3a529751a590d3c1.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300italic.45164643b3bd5824.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-300italic.45164643b3bd5824#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "etov6yuoyq",
+      "Integrity": "ngJSTr7NgT/EvLQDNrsrAzhxsf3L0jQine5BidxEhQ0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-300italic.45164643b3bd5824.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400.1e2d4d3a272629cd.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-400.1e2d4d3a272629cd#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o49ev60j2o",
+      "Integrity": "SMP6b4bFTx2btRkiBxPUsKH4zRpYmjwDufqC6Y7LE+M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-400.1e2d4d3a272629cd.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400.7e4a045b9373d9c1.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-400.7e4a045b9373d9c1#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zv4qoki69v",
+      "Integrity": "wdyH+Zx/8iiAYRfVjwhcbFcwV/ojcigIGAK32NPPdoQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-400.7e4a045b9373d9c1.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400italic.68431199e5b90ea8.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-400italic.68431199e5b90ea8#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gkm9jpvz1g",
+      "Integrity": "gIFe/jvZMXxmbfDy5tcBM14XiVT2TrHpkQP+qBwqoTc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-400italic.68431199e5b90ea8.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400italic.bb3c6955c4334c8a.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-400italic.bb3c6955c4334c8a#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wwqyxtt4ji",
+      "Integrity": "QB5sJYAbotWXldBabdlz+VVmtBBw05ObqTB9ZYYK5Q4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-400italic.bb3c6955c4334c8a.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500.1dfbc3dbf815e3f3.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-500.1dfbc3dbf815e3f3#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "csyzjn0amq",
+      "Integrity": "JDaeGyRhr53O/sr5zJPWTPIqTFusMlBhALniEBRQe88=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-500.1dfbc3dbf815e3f3.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500.e21fe97fd2329ff7.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-500.e21fe97fd2329ff7#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i11sjs5lnx",
+      "Integrity": "upj5kdACxr+q97h0ZS/9zekmGoaSXbh98+0oYeoICt8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-500.e21fe97fd2329ff7.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500italic.7543a42b12b1452f.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-500italic.7543a42b12b1452f#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ilgu5danwy",
+      "Integrity": "hoi2IEJzjro56Lwu34augykF6O4yQbVYNVJkZdnrjhs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-500italic.7543a42b12b1452f.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500italic.aaff6867154023d3.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-500italic.aaff6867154023d3#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pmidr3daol",
+      "Integrity": "byl0o5bcBpXQcehCVR56+ccvDvjS0Hb+c6UjsaPC0Oc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-500italic.aaff6867154023d3.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700.02633003129d1e63.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-700.02633003129d1e63#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "00sb079gip",
+      "Integrity": "gG6kbEJq+Pwk5c9CohAihzlpaTPTYpnrKK7mT2n8cfE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-700.02633003129d1e63.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700.12893bfc0762b0f3.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-700.12893bfc0762b0f3#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ci670d2p7w",
+      "Integrity": "tNB4ks3nFdULtpwZgt9JY4XR39j50YZ8MfGaPIY0z64=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-700.12893bfc0762b0f3.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700italic.bc7179e004e40113.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-700italic.bc7179e004e40113#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "si04e9t0tc",
+      "Integrity": "XMLkdwHufcnguhYwPhcNsPyy3ymJt3Y6xwWJPTe04jc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-700italic.bc7179e004e40113.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700italic.e53062e27c63fafb.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-700italic.e53062e27c63fafb#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "u8vv632xuo",
+      "Integrity": "7sFCYI6LQX4qy25TAadQBHoE4sWmVjIjyq5JnhnqCO4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-700italic.e53062e27c63fafb.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900.282ba77fda1349f3.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-900.282ba77fda1349f3#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9lbhl1yqwc",
+      "Integrity": "7c3z9gJSpZh77cnIa1Qi2XK6UJu75g1YklMQx0SjPig=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-900.282ba77fda1349f3.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900.4962e810cbb4d3e5.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-900.4962e810cbb4d3e5#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8sutarxfp7",
+      "Integrity": "6FhvnbfAUDqYTJRK0vH3g79gUa6ioGa8If3tyP5/poo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-900.4962e810cbb4d3e5.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900italic.2394134a78bbaef8.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-900italic.2394134a78bbaef8#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "26941af2w1",
+      "Integrity": "aoDZy09JtZUbQH+JBc+oh/Hj8uLsQ2m/WOrGM7LgWUg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-900italic.2394134a78bbaef8.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900italic.9c1f80840351fa12.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "roboto-latin-900italic.9c1f80840351fa12#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f3fc2wkdpl",
+      "Integrity": "leYLk5GTHcTVzJs7DCiw6ydRuQZgN/dZS6dsR3OcGHs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\roboto-latin-900italic.9c1f80840351fa12.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.05012fe890b26458.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "runtime.05012fe890b26458#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lwjezhjaxi",
+      "Integrity": "uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\runtime.05012fe890b26458.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\scripts.dfb889cef33f36ee.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "scripts.dfb889cef33f36ee#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4l1b66x5ei",
+      "Integrity": "ODUwYqIyRhfHyvOG495JJybhuOP8Qt+X36sm/dV+6+8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\scripts.dfb889cef33f36ee.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.b40217b712af49d9.css",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "styles.b40217b712af49d9#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j7rsz08hx1",
+      "Integrity": "vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\styles.b40217b712af49d9.css"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\web.config",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "web#[.{fingerprint}]?.config",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yst1sfuzhi",
+      "Integrity": "IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\web.config"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "132.dbdb0a598122f17e.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.dbdb0a598122f17e.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "873"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU="
+        }
+      ]
+    },
+    {
+      "Route": "132.dbdb0a598122f17e.k0q9k39vu7.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.dbdb0a598122f17e.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "873"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k0q9k39vu7"
+        },
+        {
+          "Name": "label",
+          "Value": "132.dbdb0a598122f17e.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU="
+        }
+      ]
+    },
+    {
+      "Route": "3rdpartylicenses.txt",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22782"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM="
+        }
+      ]
+    },
+    {
+      "Route": "3rdpartylicenses.xcz5uz3zia.txt",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22782"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xcz5uz3zia"
+        },
+        {
+          "Name": "label",
+          "Value": "3rdpartylicenses.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM="
+        }
+      ]
+    },
+    {
+      "Route": "641.b93da0ab18589729.9xlujuokfy.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.b93da0ab18589729.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8144"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9xlujuokfy"
+        },
+        {
+          "Name": "label",
+          "Value": "641.b93da0ab18589729.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU="
+        }
+      ]
+    },
+    {
+      "Route": "641.b93da0ab18589729.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.b93da0ab18589729.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8144"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU="
+        }
+      ]
+    },
+    {
+      "Route": "661.cbf8a298c287e938.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.cbf8a298c287e938.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17794"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0="
+        }
+      ]
+    },
+    {
+      "Route": "661.cbf8a298c287e938.r17pu290gd.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.cbf8a298c287e938.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17794"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "r17pu290gd"
+        },
+        {
+          "Name": "label",
+          "Value": "661.cbf8a298c287e938.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0="
+        }
+      ]
+    },
+    {
+      "Route": "assets/i18n/en.json",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\en.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1806"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 07 Sep 2025 18:22:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw="
+        }
+      ]
+    },
+    {
+      "Route": "assets/i18n/en.sj8v3gwkqm.json",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\en.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1806"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 07 Sep 2025 18:22:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sj8v3gwkqm"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/i18n/en.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw="
+        }
+      ]
+    },
+    {
+      "Route": "assets/i18n/kn.iv9ylclte9.json",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\kn.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3019"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ftuNIJCPSUkzPbzholw21hY+4L2bD8OOU0AfpiOHMes=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iv9ylclte9"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/i18n/kn.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ftuNIJCPSUkzPbzholw21hY+4L2bD8OOU0AfpiOHMes="
+        }
+      ]
+    },
+    {
+      "Route": "assets/i18n/kn.json",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\kn.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3019"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ftuNIJCPSUkzPbzholw21hY+4L2bD8OOU0AfpiOHMes=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ftuNIJCPSUkzPbzholw21hY+4L2bD8OOU0AfpiOHMes="
+        }
+      ]
+    },
+    {
+      "Route": "assets/i18n/mr.69h2w3140f.json",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\mr.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2t+JNT1CXml4D5zUQckoXpcawNV9cOuvPH8AMqB6WCQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "69h2w3140f"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/i18n/mr.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2t+JNT1CXml4D5zUQckoXpcawNV9cOuvPH8AMqB6WCQ="
+        }
+      ]
+    },
+    {
+      "Route": "assets/i18n/mr.json",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\mr.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2t+JNT1CXml4D5zUQckoXpcawNV9cOuvPH8AMqB6WCQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2t+JNT1CXml4D5zUQckoXpcawNV9cOuvPH8AMqB6WCQ="
+        }
+      ]
+    },
+    {
+      "Route": "fa-brands-400.b56d441c57a13e5a.q28bbgemto.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-brands-400.b56d441c57a13e5a.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "101088"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ooi1jyNk47MYJ3wg9KqWiJuHW/JZV3a6Ogwa3IAMLTw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q28bbgemto"
+        },
+        {
+          "Name": "label",
+          "Value": "fa-brands-400.b56d441c57a13e5a.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ooi1jyNk47MYJ3wg9KqWiJuHW/JZV3a6Ogwa3IAMLTw="
+        }
+      ]
+    },
+    {
+      "Route": "fa-brands-400.b56d441c57a13e5a.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-brands-400.b56d441c57a13e5a.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "101088"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ooi1jyNk47MYJ3wg9KqWiJuHW/JZV3a6Ogwa3IAMLTw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ooi1jyNk47MYJ3wg9KqWiJuHW/JZV3a6Ogwa3IAMLTw="
+        }
+      ]
+    },
+    {
+      "Route": "fa-regular-400.47469621ae437987.oda9zrw7am.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-regular-400.47469621ae437987.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18892"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NFTB0Ox7TZC0WzN5ziKcSUQgQbwjxAZE5MA2DsBDKEw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oda9zrw7am"
+        },
+        {
+          "Name": "label",
+          "Value": "fa-regular-400.47469621ae437987.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NFTB0Ox7TZC0WzN5ziKcSUQgQbwjxAZE5MA2DsBDKEw="
+        }
+      ]
+    },
+    {
+      "Route": "fa-regular-400.47469621ae437987.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-regular-400.47469621ae437987.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18892"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NFTB0Ox7TZC0WzN5ziKcSUQgQbwjxAZE5MA2DsBDKEw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NFTB0Ox7TZC0WzN5ziKcSUQgQbwjxAZE5MA2DsBDKEw="
+        }
+      ]
+    },
+    {
+      "Route": "fa-solid-900.174bea58d33b35a5.m9tcp3o9vf.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-solid-900.174bea58d33b35a5.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113108"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KoSuR6qBgyV+3wg2CYaAOoCaLqDDTDxyKVYsYsFcn/I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m9tcp3o9vf"
+        },
+        {
+          "Name": "label",
+          "Value": "fa-solid-900.174bea58d33b35a5.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KoSuR6qBgyV+3wg2CYaAOoCaLqDDTDxyKVYsYsFcn/I="
+        }
+      ]
+    },
+    {
+      "Route": "fa-solid-900.174bea58d33b35a5.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-solid-900.174bea58d33b35a5.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113108"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KoSuR6qBgyV+3wg2CYaAOoCaLqDDTDxyKVYsYsFcn/I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KoSuR6qBgyV+3wg2CYaAOoCaLqDDTDxyKVYsYsFcn/I="
+        }
+      ]
+    },
+    {
+      "Route": "fa-v4compatibility.25cfd40cb64ecf7c.aqby3l4rw8.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-v4compatibility.25cfd40cb64ecf7c.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4132"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Hjl+P1r48gzyCy97MaE4FMIqYVleR9ur7BiOA7mI7Vg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aqby3l4rw8"
+        },
+        {
+          "Name": "label",
+          "Value": "fa-v4compatibility.25cfd40cb64ecf7c.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Hjl+P1r48gzyCy97MaE4FMIqYVleR9ur7BiOA7mI7Vg="
+        }
+      ]
+    },
+    {
+      "Route": "fa-v4compatibility.25cfd40cb64ecf7c.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-v4compatibility.25cfd40cb64ecf7c.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4132"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Hjl+P1r48gzyCy97MaE4FMIqYVleR9ur7BiOA7mI7Vg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Hjl+P1r48gzyCy97MaE4FMIqYVleR9ur7BiOA7mI7Vg="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LQpPWnfHiLCEkZsbjK1XE9nfwziO8plpxMtmwoCS5oM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LQpPWnfHiLCEkZsbjK1XE9nfwziO8plpxMtmwoCS5oM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.nf69tc4d23.ico",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LQpPWnfHiLCEkZsbjK1XE9nfwziO8plpxMtmwoCS5oM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nf69tc4d23"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LQpPWnfHiLCEkZsbjK1XE9nfwziO8plpxMtmwoCS5oM="
+        }
+      ]
+    },
+    {
+      "Route": "index.7pf5thznx4.html",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9467"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7pf5thznx4"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9467"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8="
+        }
+      ]
+    },
+    {
+      "Route": "main.f5dc612673fa6d1f.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.f5dc612673fa6d1f.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "384652"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo="
+        }
+      ]
+    },
+    {
+      "Route": "main.f5dc612673fa6d1f.ou5y6ae1em.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.f5dc612673fa6d1f.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "384652"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ou5y6ae1em"
+        },
+        {
+          "Name": "label",
+          "Value": "main.f5dc612673fa6d1f.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo="
+        }
+      ]
+    },
+    {
+      "Route": "polyfills.6dcd853f16b77d1e.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\polyfills.6dcd853f16b77d1e.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33876"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Sl8gZ/sNpbJh01OY16mmOPrwGNK0iu907vvd+Zu+q5s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Sl8gZ/sNpbJh01OY16mmOPrwGNK0iu907vvd+Zu+q5s="
+        }
+      ]
+    },
+    {
+      "Route": "polyfills.6dcd853f16b77d1e.u7zw1tvvmm.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\polyfills.6dcd853f16b77d1e.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33876"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Sl8gZ/sNpbJh01OY16mmOPrwGNK0iu907vvd+Zu+q5s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u7zw1tvvmm"
+        },
+        {
+          "Name": "label",
+          "Value": "polyfills.6dcd853f16b77d1e.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Sl8gZ/sNpbJh01OY16mmOPrwGNK0iu907vvd+Zu+q5s="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-100.539f0a96b40596f7.igo9yzlyiy.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100.539f0a96b40596f7.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EoI9WFYFI4EhVUr/i7BgojXcNvN+/Z+x5+bqGpYivDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "igo9yzlyiy"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-100.539f0a96b40596f7.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EoI9WFYFI4EhVUr/i7BgojXcNvN+/Z+x5+bqGpYivDU="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-100.539f0a96b40596f7.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100.539f0a96b40596f7.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EoI9WFYFI4EhVUr/i7BgojXcNvN+/Z+x5+bqGpYivDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EoI9WFYFI4EhVUr/i7BgojXcNvN+/Z+x5+bqGpYivDU="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-100.5ba994dac3e79ea8.0pg9esvye6.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100.5ba994dac3e79ea8.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20368"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xOrU3p96/yN9BrUw6thBPRNXQn9qkllENCu04rHc5tA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0pg9esvye6"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-100.5ba994dac3e79ea8.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xOrU3p96/yN9BrUw6thBPRNXQn9qkllENCu04rHc5tA="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-100.5ba994dac3e79ea8.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100.5ba994dac3e79ea8.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20368"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xOrU3p96/yN9BrUw6thBPRNXQn9qkllENCu04rHc5tA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xOrU3p96/yN9BrUw6thBPRNXQn9qkllENCu04rHc5tA="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-100italic.41ba64219cb743c9.29a1zbtc0e.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100italic.41ba64219cb743c9.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17008"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JskepDt5sdRWaV3kaPUD4BQenrdn/hZNr4vz86EBJW8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "29a1zbtc0e"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-100italic.41ba64219cb743c9.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JskepDt5sdRWaV3kaPUD4BQenrdn/hZNr4vz86EBJW8="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-100italic.41ba64219cb743c9.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100italic.41ba64219cb743c9.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17008"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JskepDt5sdRWaV3kaPUD4BQenrdn/hZNr4vz86EBJW8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JskepDt5sdRWaV3kaPUD4BQenrdn/hZNr4vz86EBJW8="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-100italic.d61e7e8b07c0638c.6l2p9ewza3.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100italic.d61e7e8b07c0638c.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21704"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WjqYQEFHaPouyYizPJ6Wb9/+LbflYKJws6nGugHxdxg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6l2p9ewza3"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-100italic.d61e7e8b07c0638c.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WjqYQEFHaPouyYizPJ6Wb9/+LbflYKJws6nGugHxdxg="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-100italic.d61e7e8b07c0638c.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100italic.d61e7e8b07c0638c.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21704"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WjqYQEFHaPouyYizPJ6Wb9/+LbflYKJws6nGugHxdxg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WjqYQEFHaPouyYizPJ6Wb9/+LbflYKJws6nGugHxdxg="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-300.4d8f8086236bad80.h2p15v4yr1.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300.4d8f8086236bad80.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15784"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KfbaCowhxWgVEbubCGY9P9LF0Jyb2AVOw1TFY7jIt8E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h2p15v4yr1"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-300.4d8f8086236bad80.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KfbaCowhxWgVEbubCGY9P9LF0Jyb2AVOw1TFY7jIt8E="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-300.4d8f8086236bad80.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300.4d8f8086236bad80.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15784"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KfbaCowhxWgVEbubCGY9P9LF0Jyb2AVOw1TFY7jIt8E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KfbaCowhxWgVEbubCGY9P9LF0Jyb2AVOw1TFY7jIt8E="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-300.6c1bc461047e61f5.m4le6yw71g.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300.6c1bc461047e61f5.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20348"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"drBUAP/52ltDhi43EwmeORORamKVYCZe0ksZ0DEifL8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m4le6yw71g"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-300.6c1bc461047e61f5.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-drBUAP/52ltDhi43EwmeORORamKVYCZe0ksZ0DEifL8="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-300.6c1bc461047e61f5.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300.6c1bc461047e61f5.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20348"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"drBUAP/52ltDhi43EwmeORORamKVYCZe0ksZ0DEifL8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-drBUAP/52ltDhi43EwmeORORamKVYCZe0ksZ0DEifL8="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-300italic.3a529751a590d3c1.t2t3y2w703.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300italic.3a529751a590d3c1.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22204"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C+Cubv2FKzaVy3p2KGCW9g6Tt9McFuC3HKNeztf96PY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t2t3y2w703"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-300italic.3a529751a590d3c1.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-C+Cubv2FKzaVy3p2KGCW9g6Tt9McFuC3HKNeztf96PY="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-300italic.3a529751a590d3c1.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300italic.3a529751a590d3c1.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22204"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C+Cubv2FKzaVy3p2KGCW9g6Tt9McFuC3HKNeztf96PY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-C+Cubv2FKzaVy3p2KGCW9g6Tt9McFuC3HKNeztf96PY="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-300italic.45164643b3bd5824.etov6yuoyq.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300italic.45164643b3bd5824.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17448"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ngJSTr7NgT/EvLQDNrsrAzhxsf3L0jQine5BidxEhQ0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "etov6yuoyq"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-300italic.45164643b3bd5824.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ngJSTr7NgT/EvLQDNrsrAzhxsf3L0jQine5BidxEhQ0="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-300italic.45164643b3bd5824.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300italic.45164643b3bd5824.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17448"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ngJSTr7NgT/EvLQDNrsrAzhxsf3L0jQine5BidxEhQ0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ngJSTr7NgT/EvLQDNrsrAzhxsf3L0jQine5BidxEhQ0="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-400.1e2d4d3a272629cd.o49ev60j2o.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400.1e2d4d3a272629cd.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15736"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SMP6b4bFTx2btRkiBxPUsKH4zRpYmjwDufqC6Y7LE+M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o49ev60j2o"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-400.1e2d4d3a272629cd.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SMP6b4bFTx2btRkiBxPUsKH4zRpYmjwDufqC6Y7LE+M="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-400.1e2d4d3a272629cd.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400.1e2d4d3a272629cd.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15736"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SMP6b4bFTx2btRkiBxPUsKH4zRpYmjwDufqC6Y7LE+M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SMP6b4bFTx2btRkiBxPUsKH4zRpYmjwDufqC6Y7LE+M="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-400.7e4a045b9373d9c1.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400.7e4a045b9373d9c1.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wdyH+Zx/8iiAYRfVjwhcbFcwV/ojcigIGAK32NPPdoQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wdyH+Zx/8iiAYRfVjwhcbFcwV/ojcigIGAK32NPPdoQ="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-400.7e4a045b9373d9c1.zv4qoki69v.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400.7e4a045b9373d9c1.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wdyH+Zx/8iiAYRfVjwhcbFcwV/ojcigIGAK32NPPdoQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zv4qoki69v"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-400.7e4a045b9373d9c1.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wdyH+Zx/8iiAYRfVjwhcbFcwV/ojcigIGAK32NPPdoQ="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-400italic.68431199e5b90ea8.gkm9jpvz1g.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400italic.68431199e5b90ea8.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21952"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gIFe/jvZMXxmbfDy5tcBM14XiVT2TrHpkQP+qBwqoTc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gkm9jpvz1g"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-400italic.68431199e5b90ea8.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gIFe/jvZMXxmbfDy5tcBM14XiVT2TrHpkQP+qBwqoTc="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-400italic.68431199e5b90ea8.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400italic.68431199e5b90ea8.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21952"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gIFe/jvZMXxmbfDy5tcBM14XiVT2TrHpkQP+qBwqoTc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gIFe/jvZMXxmbfDy5tcBM14XiVT2TrHpkQP+qBwqoTc="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-400italic.bb3c6955c4334c8a.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400italic.bb3c6955c4334c8a.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17324"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QB5sJYAbotWXldBabdlz+VVmtBBw05ObqTB9ZYYK5Q4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QB5sJYAbotWXldBabdlz+VVmtBBw05ObqTB9ZYYK5Q4="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-400italic.bb3c6955c4334c8a.wwqyxtt4ji.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400italic.bb3c6955c4334c8a.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17324"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QB5sJYAbotWXldBabdlz+VVmtBBw05ObqTB9ZYYK5Q4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wwqyxtt4ji"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-400italic.bb3c6955c4334c8a.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QB5sJYAbotWXldBabdlz+VVmtBBw05ObqTB9ZYYK5Q4="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-500.1dfbc3dbf815e3f3.csyzjn0amq.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500.1dfbc3dbf815e3f3.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15872"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JDaeGyRhr53O/sr5zJPWTPIqTFusMlBhALniEBRQe88=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "csyzjn0amq"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-500.1dfbc3dbf815e3f3.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JDaeGyRhr53O/sr5zJPWTPIqTFusMlBhALniEBRQe88="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-500.1dfbc3dbf815e3f3.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500.1dfbc3dbf815e3f3.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15872"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JDaeGyRhr53O/sr5zJPWTPIqTFusMlBhALniEBRQe88=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JDaeGyRhr53O/sr5zJPWTPIqTFusMlBhALniEBRQe88="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-500.e21fe97fd2329ff7.i11sjs5lnx.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500.e21fe97fd2329ff7.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20464"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"upj5kdACxr+q97h0ZS/9zekmGoaSXbh98+0oYeoICt8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i11sjs5lnx"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-500.e21fe97fd2329ff7.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-upj5kdACxr+q97h0ZS/9zekmGoaSXbh98+0oYeoICt8="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-500.e21fe97fd2329ff7.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500.e21fe97fd2329ff7.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20464"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"upj5kdACxr+q97h0ZS/9zekmGoaSXbh98+0oYeoICt8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-upj5kdACxr+q97h0ZS/9zekmGoaSXbh98+0oYeoICt8="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-500italic.7543a42b12b1452f.ilgu5danwy.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500italic.7543a42b12b1452f.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17316"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hoi2IEJzjro56Lwu34augykF6O4yQbVYNVJkZdnrjhs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ilgu5danwy"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-500italic.7543a42b12b1452f.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hoi2IEJzjro56Lwu34augykF6O4yQbVYNVJkZdnrjhs="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-500italic.7543a42b12b1452f.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500italic.7543a42b12b1452f.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17316"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hoi2IEJzjro56Lwu34augykF6O4yQbVYNVJkZdnrjhs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hoi2IEJzjro56Lwu34augykF6O4yQbVYNVJkZdnrjhs="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-500italic.aaff6867154023d3.pmidr3daol.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500italic.aaff6867154023d3.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22020"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"byl0o5bcBpXQcehCVR56+ccvDvjS0Hb+c6UjsaPC0Oc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pmidr3daol"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-500italic.aaff6867154023d3.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-byl0o5bcBpXQcehCVR56+ccvDvjS0Hb+c6UjsaPC0Oc="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-500italic.aaff6867154023d3.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500italic.aaff6867154023d3.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22020"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"byl0o5bcBpXQcehCVR56+ccvDvjS0Hb+c6UjsaPC0Oc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-byl0o5bcBpXQcehCVR56+ccvDvjS0Hb+c6UjsaPC0Oc="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-700.02633003129d1e63.00sb079gip.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700.02633003129d1e63.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20356"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gG6kbEJq+Pwk5c9CohAihzlpaTPTYpnrKK7mT2n8cfE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "00sb079gip"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-700.02633003129d1e63.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gG6kbEJq+Pwk5c9CohAihzlpaTPTYpnrKK7mT2n8cfE="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-700.02633003129d1e63.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700.02633003129d1e63.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20356"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gG6kbEJq+Pwk5c9CohAihzlpaTPTYpnrKK7mT2n8cfE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gG6kbEJq+Pwk5c9CohAihzlpaTPTYpnrKK7mT2n8cfE="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-700.12893bfc0762b0f3.ci670d2p7w.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700.12893bfc0762b0f3.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15816"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tNB4ks3nFdULtpwZgt9JY4XR39j50YZ8MfGaPIY0z64=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ci670d2p7w"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-700.12893bfc0762b0f3.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tNB4ks3nFdULtpwZgt9JY4XR39j50YZ8MfGaPIY0z64="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-700.12893bfc0762b0f3.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700.12893bfc0762b0f3.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15816"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tNB4ks3nFdULtpwZgt9JY4XR39j50YZ8MfGaPIY0z64=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tNB4ks3nFdULtpwZgt9JY4XR39j50YZ8MfGaPIY0z64="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-700italic.bc7179e004e40113.si04e9t0tc.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700italic.bc7179e004e40113.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17020"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XMLkdwHufcnguhYwPhcNsPyy3ymJt3Y6xwWJPTe04jc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "si04e9t0tc"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-700italic.bc7179e004e40113.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XMLkdwHufcnguhYwPhcNsPyy3ymJt3Y6xwWJPTe04jc="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-700italic.bc7179e004e40113.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700italic.bc7179e004e40113.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17020"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XMLkdwHufcnguhYwPhcNsPyy3ymJt3Y6xwWJPTe04jc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XMLkdwHufcnguhYwPhcNsPyy3ymJt3Y6xwWJPTe04jc="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-700italic.e53062e27c63fafb.u8vv632xuo.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700italic.e53062e27c63fafb.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21588"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7sFCYI6LQX4qy25TAadQBHoE4sWmVjIjyq5JnhnqCO4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u8vv632xuo"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-700italic.e53062e27c63fafb.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7sFCYI6LQX4qy25TAadQBHoE4sWmVjIjyq5JnhnqCO4="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-700italic.e53062e27c63fafb.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700italic.e53062e27c63fafb.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21588"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7sFCYI6LQX4qy25TAadQBHoE4sWmVjIjyq5JnhnqCO4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7sFCYI6LQX4qy25TAadQBHoE4sWmVjIjyq5JnhnqCO4="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-900.282ba77fda1349f3.9lbhl1yqwc.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900.282ba77fda1349f3.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15712"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7c3z9gJSpZh77cnIa1Qi2XK6UJu75g1YklMQx0SjPig=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9lbhl1yqwc"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-900.282ba77fda1349f3.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7c3z9gJSpZh77cnIa1Qi2XK6UJu75g1YklMQx0SjPig="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-900.282ba77fda1349f3.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900.282ba77fda1349f3.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15712"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7c3z9gJSpZh77cnIa1Qi2XK6UJu75g1YklMQx0SjPig=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7c3z9gJSpZh77cnIa1Qi2XK6UJu75g1YklMQx0SjPig="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-900.4962e810cbb4d3e5.8sutarxfp7.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900.4962e810cbb4d3e5.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20392"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6FhvnbfAUDqYTJRK0vH3g79gUa6ioGa8If3tyP5/poo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8sutarxfp7"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-900.4962e810cbb4d3e5.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6FhvnbfAUDqYTJRK0vH3g79gUa6ioGa8If3tyP5/poo="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-900.4962e810cbb4d3e5.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900.4962e810cbb4d3e5.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20392"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6FhvnbfAUDqYTJRK0vH3g79gUa6ioGa8If3tyP5/poo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6FhvnbfAUDqYTJRK0vH3g79gUa6ioGa8If3tyP5/poo="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-900italic.2394134a78bbaef8.26941af2w1.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900italic.2394134a78bbaef8.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22304"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aoDZy09JtZUbQH+JBc+oh/Hj8uLsQ2m/WOrGM7LgWUg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "26941af2w1"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-900italic.2394134a78bbaef8.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aoDZy09JtZUbQH+JBc+oh/Hj8uLsQ2m/WOrGM7LgWUg="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-900italic.2394134a78bbaef8.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900italic.2394134a78bbaef8.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22304"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aoDZy09JtZUbQH+JBc+oh/Hj8uLsQ2m/WOrGM7LgWUg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aoDZy09JtZUbQH+JBc+oh/Hj8uLsQ2m/WOrGM7LgWUg="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-900italic.9c1f80840351fa12.f3fc2wkdpl.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900italic.9c1f80840351fa12.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17520"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"leYLk5GTHcTVzJs7DCiw6ydRuQZgN/dZS6dsR3OcGHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f3fc2wkdpl"
+        },
+        {
+          "Name": "label",
+          "Value": "roboto-latin-900italic.9c1f80840351fa12.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-leYLk5GTHcTVzJs7DCiw6ydRuQZgN/dZS6dsR3OcGHs="
+        }
+      ]
+    },
+    {
+      "Route": "roboto-latin-900italic.9c1f80840351fa12.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900italic.9c1f80840351fa12.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17520"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"leYLk5GTHcTVzJs7DCiw6ydRuQZgN/dZS6dsR3OcGHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-leYLk5GTHcTVzJs7DCiw6ydRuQZgN/dZS6dsR3OcGHs="
+        }
+      ]
+    },
+    {
+      "Route": "runtime.05012fe890b26458.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.05012fe890b26458.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2740"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk="
+        }
+      ]
+    },
+    {
+      "Route": "runtime.05012fe890b26458.lwjezhjaxi.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.05012fe890b26458.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2740"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lwjezhjaxi"
+        },
+        {
+          "Name": "label",
+          "Value": "runtime.05012fe890b26458.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk="
+        }
+      ]
+    },
+    {
+      "Route": "scripts.dfb889cef33f36ee.4l1b66x5ei.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\scripts.dfb889cef33f36ee.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "79652"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ODUwYqIyRhfHyvOG495JJybhuOP8Qt+X36sm/dV+6+8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4l1b66x5ei"
+        },
+        {
+          "Name": "label",
+          "Value": "scripts.dfb889cef33f36ee.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ODUwYqIyRhfHyvOG495JJybhuOP8Qt+X36sm/dV+6+8="
+        }
+      ]
+    },
+    {
+      "Route": "scripts.dfb889cef33f36ee.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\scripts.dfb889cef33f36ee.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "79652"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ODUwYqIyRhfHyvOG495JJybhuOP8Qt+X36sm/dV+6+8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ODUwYqIyRhfHyvOG495JJybhuOP8Qt+X36sm/dV+6+8="
+        }
+      ]
+    },
+    {
+      "Route": "styles.b40217b712af49d9.css",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.b40217b712af49d9.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "302084"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg="
+        }
+      ]
+    },
+    {
+      "Route": "styles.b40217b712af49d9.j7rsz08hx1.css",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.b40217b712af49d9.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "302084"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j7rsz08hx1"
+        },
+        {
+          "Name": "label",
+          "Value": "styles.b40217b712af49d9.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg="
+        }
+      ]
+    },
+    {
+      "Route": "web.config",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\web.config",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "586"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:20:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA="
+        }
+      ]
+    },
+    {
+      "Route": "web.yst1sfuzhi.config",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\web.config",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "586"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 17 Sep 2025 07:20:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yst1sfuzhi"
+        },
+        {
+          "Name": "label",
+          "Value": "web.config"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA="
+        }
+      ]
+    }
+  ]
+}

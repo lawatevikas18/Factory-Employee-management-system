@@ -1,24 +1,196 @@
 {
   "Files": [
     {
-      "Id": "E:\\Vikas-projectWork\\AuthApiProject\\Auth.Api\\wwwroot\\images\\logo.png",
-      "PackagePath": "staticwebassets\\images\\logo.png"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.dbdb0a598122f17e.js",
+      "PackagePath": "staticwebassets\\132.dbdb0a598122f17e.js"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Auth.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.b93da0ab18589729.js",
+      "PackagePath": "staticwebassets\\641.b93da0ab18589729.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.cbf8a298c287e938.js",
+      "PackagePath": "staticwebassets\\661.cbf8a298c287e938.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\en.json",
+      "PackagePath": "staticwebassets\\assets\\i18n\\en.json"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\kn.json",
+      "PackagePath": "staticwebassets\\assets\\i18n\\kn.json"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\mr.json",
+      "PackagePath": "staticwebassets\\assets\\i18n\\mr.json"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-brands-400.b56d441c57a13e5a.woff2",
+      "PackagePath": "staticwebassets\\fa-brands-400.b56d441c57a13e5a.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-regular-400.47469621ae437987.woff2",
+      "PackagePath": "staticwebassets\\fa-regular-400.47469621ae437987.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-solid-900.174bea58d33b35a5.woff2",
+      "PackagePath": "staticwebassets\\fa-solid-900.174bea58d33b35a5.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-v4compatibility.25cfd40cb64ecf7c.woff2",
+      "PackagePath": "staticwebassets\\fa-v4compatibility.25cfd40cb64ecf7c.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.f5dc612673fa6d1f.js",
+      "PackagePath": "staticwebassets\\main.f5dc612673fa6d1f.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\polyfills.6dcd853f16b77d1e.js",
+      "PackagePath": "staticwebassets\\polyfills.6dcd853f16b77d1e.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100.539f0a96b40596f7.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-100.539f0a96b40596f7.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100.5ba994dac3e79ea8.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-100.5ba994dac3e79ea8.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100italic.41ba64219cb743c9.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-100italic.41ba64219cb743c9.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-100italic.d61e7e8b07c0638c.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-100italic.d61e7e8b07c0638c.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300.4d8f8086236bad80.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-300.4d8f8086236bad80.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300.6c1bc461047e61f5.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-300.6c1bc461047e61f5.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300italic.3a529751a590d3c1.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-300italic.3a529751a590d3c1.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-300italic.45164643b3bd5824.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-300italic.45164643b3bd5824.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400.1e2d4d3a272629cd.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-400.1e2d4d3a272629cd.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400.7e4a045b9373d9c1.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-400.7e4a045b9373d9c1.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400italic.68431199e5b90ea8.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-400italic.68431199e5b90ea8.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-400italic.bb3c6955c4334c8a.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-400italic.bb3c6955c4334c8a.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500.1dfbc3dbf815e3f3.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-500.1dfbc3dbf815e3f3.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500.e21fe97fd2329ff7.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-500.e21fe97fd2329ff7.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500italic.7543a42b12b1452f.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-500italic.7543a42b12b1452f.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-500italic.aaff6867154023d3.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-500italic.aaff6867154023d3.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700.02633003129d1e63.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-700.02633003129d1e63.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700.12893bfc0762b0f3.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-700.12893bfc0762b0f3.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700italic.bc7179e004e40113.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-700italic.bc7179e004e40113.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-700italic.e53062e27c63fafb.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-700italic.e53062e27c63fafb.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900.282ba77fda1349f3.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-900.282ba77fda1349f3.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900.4962e810cbb4d3e5.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-900.4962e810cbb4d3e5.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900italic.2394134a78bbaef8.woff",
+      "PackagePath": "staticwebassets\\roboto-latin-900italic.2394134a78bbaef8.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\roboto-latin-900italic.9c1f80840351fa12.woff2",
+      "PackagePath": "staticwebassets\\roboto-latin-900italic.9c1f80840351fa12.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.05012fe890b26458.js",
+      "PackagePath": "staticwebassets\\runtime.05012fe890b26458.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\scripts.dfb889cef33f36ee.js",
+      "PackagePath": "staticwebassets\\scripts.dfb889cef33f36ee.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.b40217b712af49d9.css",
+      "PackagePath": "staticwebassets\\styles.b40217b712af49d9.css"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\web.config",
+      "PackagePath": "staticwebassets\\web.config"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FEMS_API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FEMS_API.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Auth.Api.props",
-      "PackagePath": "build\\Auth.Api.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FEMS_API.props",
+      "PackagePath": "build\\FEMS_API.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Auth.Api.props",
-      "PackagePath": "buildMultiTargeting\\Auth.Api.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FEMS_API.props",
+      "PackagePath": "buildMultiTargeting\\FEMS_API.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Auth.Api.props",
-      "PackagePath": "buildTransitive\\Auth.Api.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FEMS_API.props",
+      "PackagePath": "buildTransitive\\FEMS_API.props"
     }
   ],
   "ElementsToRemove": []

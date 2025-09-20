@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2025-09-17T20:02:42.6191757Z||;True|2025-09-17T21:47:04.5466452+05:30||;True|2025-09-17T21:24:40.0450616+05:30||;True|2025-09-17T13:09:09.4984820+05:30||;True|2025-09-17T12:56:07.0523861+05:30||;True|2025-09-16T17:34:12.2162466+05:30||;True|2025-09-15T22:28:56.7476100+05:30||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=SQL6032.site4now.net%3bDatabase=db_abe4a6_dbfems%3bUser Id=db_abe4a6_dbfems_admin%3bPassword=DBFEMS360%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="FEMS_API.Database.FEMS_DbContext">
+      <Value>Server=SQL6032.site4now.net%3bDatabase=db_abe4a6_dbfems%3bUser Id=db_abe4a6_dbfems_admin%3bPassword=DBFEMS360%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

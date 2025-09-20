@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="emp360-001-site1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\ECommerceMicroservices\\FEMS_API\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="FEMS_API.Database.FEMS_DbContext" description="" value="Server=SQL6032.site4now.net;Database=db_abe4a6_dbfems;User Id=db_abe4a6_dbfems_admin;Password=DBFEMS360;" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\ECommerceMicroservices\\FEMS_API\\obj\\Release\\net8\.0\\PubTmp\\EFSQLScripts\\FEMS_API\.Database\.FEMS_DbContext\.sql$" />
+  </parameter>
+</parameters>
