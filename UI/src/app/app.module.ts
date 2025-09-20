@@ -12,6 +12,7 @@ import { EmployeeDetailsModule } from './component/employee-details/employee-det
 import { ToastrModule } from 'ngx-toastr';
 import { ReportsModule } from './component/reports/reports.module';
 import { AuthModule } from './auth/auth.module';
+import { LoaderComponent } from './layout/loader/loader.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -20,6 +21,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     AppComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

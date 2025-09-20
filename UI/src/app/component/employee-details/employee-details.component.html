@@ -1,69 +1,122 @@
-<div class="employee-container card">
-  <h2>Employee Management</h2>
+<div class="container my-3">
 
-  <!-- ✅ Add / Edit Form -->
-  <form [formGroup]="form" (ngSubmit)="submit()" class="employee-form">
-    <div class="grid">
-      <label>Name<input formControlName="name" /></label>
-      <label>Monthly Salary<input formControlName="monthlySalary" type="number" /></label>
-      <label>Mobile 1<input formControlName="mobile1" /></label>
-      <label>Mobile 2<input formControlName="mobile2" /></label>
-      <label>Aadhaar<input formControlName="aadhaar" /></label>
-      <label>Pan Card<input formControlName="panCard" /></label>
-      <label>Role<input formControlName="role" /></label>
-      <label>Village<input formControlName="village" /></label>
-      <label>Taluka<input formControlName="taluka" /></label>
-      <label>District<input formControlName="district" /></label>
-      <label>State<input formControlName="state" /></label>
-      <label>Factory<input formControlName="factoryName" /></label>
-      <label class="full">Address<textarea formControlName="address"></textarea></label>
+  <!-- Add / Edit Form -->
+  <div *ngIf="isemployeeForm" class="card shadow p-3">
+    <h4 class="mb-3">{{ isEdit ? 'Edit Employee' : 'Add Employee' }}</h4>
+
+    <form [formGroup]="employeeForm" (ngSubmit)="submit()" novalidate>
+      <div class="row g-3">
+        
+        <div class="col-md-6">
+          <label class="form-label">Name *</label>
+          <input class="form-control" formControlName="name" />
+          <div class="text-danger" *ngIf="employeeForm.controls['name'].touched && employeeForm.controls['name'].invalid">
+            Name is required (min 3 chars)
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Role *</label>
+          <input class="form-control" formControlName="role" />
+          <div class="text-danger" *ngIf="employeeForm.controls['role'].touched && employeeForm.controls['role'].invalid">
+            Role is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Mobile 1 *</label>
+          <input class="form-control" formControlName="mobile1" />
+          <div class="text-danger" *ngIf="employeeForm.controls['mobile1'].touched && employeeForm.controls['mobile1'].invalid">
+            Enter valid 10 digit number
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Mobile 2</label>
+          <input class="form-control" formControlName="mobile2" />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Salary *</label>
+          <input type="number" class="form-control" formControlName="monthlySalary" />
+          <div class="text-danger" *ngIf="employeeForm.controls['monthlySalary'].touched && employeeForm.controls['monthlySalary'].invalid">
+            Salary must be at least 1000
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Aadhaar</label>
+          <input class="form-control" formControlName="aadhaar" />
+          <div class="text-danger" *ngIf="employeeForm.controls['aadhaar'].touched && employeeForm.controls['aadhaar'].invalid">
+            Aadhaar must be 12 digits
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">PAN Card</label>
+          <input class="form-control" formControlName="panCard" />
+          <div class="text-danger" *ngIf="employeeForm.controls['panCard'].touched && employeeForm.controls['panCard'].invalid">
+            Invalid PAN format
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Address</label>
+          <textarea class="form-control" formControlName="address"></textarea>
+        </div>
+
+      </div>
+
+      <div class="mt-3">
+        <button type="submit" class="btn btn-success me-2">{{ isEdit ? 'Update' : 'Add' }}</button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Success & Error Messages -->
+  <!-- <div *ngIf="message" class="alert alert-success mt-2">{{ message }}</div>
+  <div *ngIf="error" class="alert alert-danger mt-2">{{ error }}</div> -->
+
+  <!-- Employee Table -->
+  <div *ngIf="!isemployeeForm" class="card shadow p-3 mt-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h4>Employee List</h4>
+      <button class="btn btn-primary" (click)="addNew()">Add New</button>
     </div>
 
-    <div class="actions">
-      <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
-      <button type="button" (click)="resetForm()" class="secondary" *ngIf="isEdit">Cancel</button>
+    <div *ngIf="loading" class="text-info my-2">Loading...</div>
+
+    <div class="table-responsive mt-3" *ngIf="employees.length">
+      <table class="table table-bordered table-hover align-middle text-center">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Salary</th>
+            <th>Wallet</th>
+            <th>Aadhaar</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.mobile1 }}</td>
+            <td>{{ emp.monthlySalary | number:'1.0-0' }}</td>
+            <td>{{ walletBalance(emp.employeeId) | number:'1.0-0' }}</td>
+            <td>{{ emp.aadhaar }}</td>
+            <td>
+              <button class="btn btn-sm btn-warning me-1" (click)="edit(emp)">Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="delete(emp.employeeId)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </form>
 
-  <div *ngIf="message" class="success">{{ message }}</div>
-  <div *ngIf="error" class="error">{{ error }}</div>
-
-  <hr />
-
-  <!-- ✅ Employee Table -->
-  <h3>Employee List</h3>
-  <div *ngIf="loading" class="info">Loading...</div>
-  <table *ngIf="!loading && employees.length" class="employee-table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Mobile</th>
-        <th>Salary</th>
-        <th>Wallet</th>
-        <th>Aadhaar</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let emp of employees; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ emp.name }}</td>
-        <td>{{ emp.mobile1 }}</td>
-        <td>{{ emp.monthlySalary | number:'1.2-2' }}</td>
-        <td>{{ walletBalance(emp.employeeId) | number:'1.2-2' }}</td>
-        <td>{{ emp.aadhaar }}</td>
-        <td>
-          <button (click)="edit(emp)" class="small">Edit</button>
-          <button (click)="delete(emp.employeeId)" class="small danger">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div *ngIf="!loading && !employees.length" class="info">No employees found.</div>
+    <div *ngIf="!loading && !employees.length" class="text-muted">No employees found.</div>
+  </div>
 </div>
-
-
-
-

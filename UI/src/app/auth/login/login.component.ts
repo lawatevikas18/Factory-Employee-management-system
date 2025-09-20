@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { LoaderService } from 'src/app/core/services/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,11 @@ export class LoginComponent {
   message: string = '';
   showPassword: boolean = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router,
+    private loader: LoaderService,
+  ) {
     this.loginForm = this.fb.group({
       mobileNumber: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -42,12 +47,12 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
+      this.loader.show()
       this.authService.login(this.loginForm.value).subscribe({
         next: res => {
           localStorage.setItem('token', res.token);
           this.message = 'Login successful!';
-          // this.loginForm.reset();
-          // Redirect to dashboard or another page if needed
+          this.loader.hide()
            this.router.navigate(['/dashboard']);
         },
         error: err => this.message = err.error || 'Login failed!'

@@ -1,5 +1,5 @@
 <!-- Mobile Hamburger Button -->
-<button class="hamburger" (click)="toggleMobileMenu()" *ngIf="ishamburger">
+<button class="hamburger" (click)="toggleMobileMenu()" >
   <i class="fas fa-bars"></i>
 </button>
 
@@ -8,7 +8,7 @@
      [ngClass]="[collapsed ? 'sidenav-collapsed' : '', isMobileMenuOpen ? 'show' : '']">
   
   <div class="logo-container">
-    <button class="logo" (click)="toggelCollapse()"> {{ adminData?.adminName?.split(' ')[0]?.charAt(0) }}</button>
+    <!-- <button class="logo" (click)="toggelCollapse()"> {{ adminData?.adminName?.split(' ')[0]?.charAt(0) }}</button> -->
      <ng-container *ngIf="screenWidth > 768 && collapsed">
     <div class="logo-text">{{ adminData?.adminName?.split(' ')[0] }}</div>
     <!-- <div class="btn-closes"(click)="closeSidenave()">

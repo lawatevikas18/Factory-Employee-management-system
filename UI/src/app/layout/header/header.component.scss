@@ -1,6 +1,6 @@
 .logo-name {
     font-size: 20px;
-    margin-left: 50px;
+    margin-left: 100px;
   }
   
   .custom-popup {
@@ -72,11 +72,5 @@
     width: 100%;
     z-index: 1050; /* higher than content */
   }
-  .user-photo {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;   /* ensures the image doesn't stretch */
-  border: 2px solid #ddd;
-}
   
   

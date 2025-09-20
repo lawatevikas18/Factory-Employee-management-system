@@ -1,0 +1,18 @@
+
+<div class="container">
+  <h2>Employee Wallets</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Advance Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let w of wallets">
+        <td>{{ w.employeeId }}</td>
+        <td>{{ w.advanceBalance | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
