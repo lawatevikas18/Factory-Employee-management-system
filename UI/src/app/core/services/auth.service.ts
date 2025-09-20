@@ -8,7 +8,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
     
   }
-  private baseUrl =  environment.apiUrl;
+  private baseUrl = 'https://emp360-001-site1.stempurl.com/api/'; 
   private TOKEN_KEY = 'jwt_token';
 
 
@@ -31,7 +31,7 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/getEmployeeList`, request);
   }
  addEmployee(request: any): Observable<any>{
-    return this.http.post(`${this.baseUrl}/registoreEmployee`, request);
+    return this.http.post(`${this.baseUrl}/Employee`, request);
  }
 //  saveAttendance(request: any): Observable<any>{
 //     return this.http.post(`${this.baseUrl}/saveAttendance`, request);
@@ -73,13 +73,13 @@ getReport(requestdata:any): Observable<any> {
   }
 
 
-
+   //datta 
   register(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, data);
+    return this.http.post(`${this.baseUrl}Auth/register`, data);
   }
 
   login(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, data);
+    return this.http.post(`${this.baseUrl}Auth/login`, data);
   }
 }
 

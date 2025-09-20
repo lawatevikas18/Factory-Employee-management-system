@@ -57,6 +57,8 @@ export class EmployeeFormComponent implements OnChanges {
       return;
     }
     this.save.emit(this.employeeForm.value);
+
+    
   }
 
   onClose() {

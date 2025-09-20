@@ -1,1 +1,248 @@
-<h3 class="fw-bold">{{ 'LOGIN.TITLE' | translate }}</h3>
+<!-- Admin Dashboard Component Template -->
+<div class="min-vh-100 bg-light">
+  <div class="container-fluid px-4 py-4" style="max-width: 1280px;">
+    
+    <!-- Header -->
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
+      <div class="d-flex align-items-center gap-3  mb-md-0">
+        <!-- User Photo -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="avatar-container">
+            <img src="assets/images/Nksboss.jpg" alt="Admin User" class="avatar-img">
+            <span class="avatar-fallback">AU</span>
+          </div>
+          <div class="d-none d-sm-block">
+            <p class="fw-medium mb-0 small">NKS BOSS !!</p>
+            
+          </div>
+        </div>
+        
+        <div class="ms-2">
+          
+          <p class="text-muted mb-0">
+            Overview of all sites 
+          </p>
+        </div>
+      </div>
+      
+      <!-- <div class="d-flex gap-2">
+        
+        <button class="btn btn-primary btn-sm">
+          <i class="bi bi-bar-chart me-2"></i>
+          Reports
+        </button>
+      </div> -->
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="row g-3 mb-4">
+      <!-- Total Sites -->
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="card metric-card">
+          <div class="card-header d-flex justify-content-between align-items-center py-2">
+            <h6 class="card-title mb-0 small">Total Sites</h6>
+            <i class="bi bi-building text-muted"></i>
+          </div>
+          <div class="card-body">
+            <div class="display-6 fw-bold">{{totalSites}}</div>
+            <p class="text-muted mb-0" style="font-size: 0.75rem;">
+              Across all locations
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Sites Today -->
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="card metric-card">
+          <div class="card-header d-flex justify-content-between align-items-center py-2">
+            <h6 class="card-title mb-0 small">Active Sites Today</h6>
+            <i class="bi bi-check-circle text-success"></i>
+          </div>
+          <div class="card-body">
+            <div class="display-6 fw-bold text-success">{{workingSitesToday}}</div>
+            <p class="text-muted mb-0" style="font-size: 0.75rem;">
+              {{siteOperationalPercentage}}% operational
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Employees -->
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="card metric-card">
+          <div class="card-header d-flex justify-content-between align-items-center py-2">
+            <h6 class="card-title mb-0 small">Total Employees</h6>
+            <i class="bi bi-people text-muted"></i>
+          </div>
+          <div class="card-body">
+            <div class="display-6 fw-bold">{{totalEmployees}}</div>
+            <p class="text-muted mb-0" style="font-size: 0.75rem;">
+              All active employees
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Present Today -->
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="card metric-card">
+          <div class="card-header d-flex justify-content-between align-items-center py-2">
+            <h6 class="card-title mb-0 small">Present Today</h6>
+            <i class="bi bi-person-check text-success"></i>
+          </div>
+          <div class="card-body">
+            <div class="display-6 fw-bold text-success">{{presentEmployeesToday}}</div>
+            <p class="text-muted mb-0" style="font-size: 0.75rem;">
+              {{attendancePercentage}}% attendance
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attendance Overview -->
+    <div class="row g-4 mb-4">
+      <div class="col-12 col-lg-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title d-flex align-items-center gap-2 mb-0">
+              <i class="bi bi-activity"></i>
+              Today's Attendance Overview
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small">Overall Attendance</span>
+                <span class="small text-muted">{{attendancePercentage}}%</span>
+              </div>
+              <div class="progress" style="height: 8px;">
+                <div class="progress-bar" [style.width.%]="attendancePercentage"></div>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-4">
+                <div class="text-center p-3 attendance-card attendance-present">
+                  <i class="bi bi-person-check fs-4 text-success mb-1"></i>
+                  <div class="fw-bold text-success">{{presentEmployeesToday}}</div>
+                  <div class="small text-muted">Present</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="text-center p-3 attendance-card attendance-late">
+                  <i class="bi bi-clock fs-4 text-warning mb-1"></i>
+                  <div class="fw-bold text-warning">{{lateEmployeesToday}}</div>
+                  <div class="small text-muted">Late</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="text-center p-3 attendance-card attendance-absent">
+                  <i class="bi bi-person-x fs-4 text-danger mb-1"></i>
+                  <div class="fw-bold text-danger">{{absentEmployeesToday}}</div>
+                  <div class="small text-muted">Absent</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+    <!-- Detailed Information Tabs -->
+    <div class="card">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="detailTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="sites-tab" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab">
+              Site Status
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="employees-tab" data-bs-toggle="tab" data-bs-target="#employees" type="button" role="tab">
+              Employee Status
+            </button>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="card-body">
+        <div class="tab-content" id="detailTabsContent">
+          <!-- Sites Tab -->
+          <div class="tab-pane fade show active" id="sites" role="tabpanel">
+            <h5 class="d-flex align-items-center gap-2 mb-4">
+              <i class="bi bi-geo-alt"></i>
+              Site Status Overview
+            </h5>
+            <div class="row g-3">
+              <div class="col-12 col-md-6 col-xl-4" *ngFor="let site of sites">
+                <div class="card site-card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <h6 class="fw-medium mb-0">{{site.name}}</h6>
+                      <span class="badge" [ngClass]="getStatusBadgeClass(site.status)">
+                        {{site.status}}
+                      </span>
+                    </div>
+                    <p class="text-muted small mb-3">{{site.location}}</p>
+                    <div class="d-flex flex-column gap-2">
+                      <div class="d-flex justify-content-between small">
+                        <span>Total Employees:</span>
+                        <span class="fw-medium">{{site.employeeCount}}</span>
+                      </div>
+                      <div class="d-flex justify-content-between small">
+                        <span>Present Today:</span>
+                        <span class="fw-medium text-success">{{site.presentToday}}</span>
+                      </div>
+                      <div class="d-flex justify-content-between small">
+                        <span>Attendance Rate:</span>
+                        <span class="fw-medium">{{getAttendanceRate(site)}}%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Employees Tab -->
+          <div class="tab-pane fade" id="employees" role="tabpanel">
+            <h5 class="d-flex align-items-center gap-2 mb-4">
+              <i class="bi bi-people"></i>
+              Recent Employee Activity
+            </h5>
+            <div class="d-flex flex-column gap-3">
+              <div class="d-flex align-items-center justify-content-between p-3 border rounded employee-item" 
+                   *ngFor="let employee of recentEmployees">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="status-dot" [ngClass]="getStatusDotClass(employee.status)"></div>
+                  <div>
+                    <p class="fw-medium mb-0">{{employee.name}}</p>
+                    <p class="text-muted small mb-0">
+                      {{employee.designation}} • {{employee.site}}
+                    </p>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <span class="badge" [ngClass]="getStatusBadgeClass(employee.status)">
+                    {{employee.status}}
+                  </span>
+                  <p class="text-muted mb-0" style="font-size: 0.75rem;" *ngIf="employee.checkInTime">
+                    {{employee.checkInTime}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-top">
+              <button class="btn btn-outline-primary w-100">
+                View All Employee Activity
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

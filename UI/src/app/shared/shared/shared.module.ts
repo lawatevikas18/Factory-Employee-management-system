@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
-    EmployeeFormComponent
+     EmployeeFormComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule
   ],
   exports: [
-    EmployeeFormComponent, 
+     EmployeeFormComponent, 
   ]
 })
 export class SharedModule { }

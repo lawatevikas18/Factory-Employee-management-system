@@ -72,5 +72,11 @@
     width: 100%;
     z-index: 1050; /* higher than content */
   }
+  .user-photo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;   /* ensures the image doesn't stretch */
+  border: 2px solid #ddd;
+}
   
   

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm" >
   <div class="container-fluid">
     <!-- Logo (always visible) -->
-    <a class="navbar-brand fw-bold logo-name me-3">Factory App</a>
+    <a class="navbar-brand fw-bold logo-name me-3">NKS BOSS</a>
 
     <!-- Mobile: Settings + Logout (icons only) -->
     <div class="d-flex d-lg-none align-items-center gap-2 ms-auto">
@@ -11,8 +11,19 @@
       <button class="btn btn-danger btn-sm" (click)="logout()">
         ⏻
       </button>
+      
     </div>
-
+         <!-- <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" id="userDropdown" role="button" >
+          <img
+            *ngIf="'assets/images/Nksboss.jpg'; else defaultIcon"
+           src="assets/images/Nksboss.jpg" 
+            class="rounded-circle user-photo"
+            alt="User Photo"
+          />
+          <ng-template #defaultIcon>
+            <i class="bi bi-person-circle fs-3 text-secondary"></i>
+          </ng-template>
+        </a> -->
     <!-- Desktop: Language + Logout -->
     <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarContent">
       <!-- Language Dropdown -->

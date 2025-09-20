@@ -1,0 +1,265 @@
+/* Admin Dashboard Component Styles */
+
+/* Avatar Styles */
+.avatar-container {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-fallback {
+  display: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.avatar-container:has(.avatar-img:broken) .avatar-fallback,
+.avatar-container:not(:has(.avatar-img)) .avatar-fallback {
+  display: block;
+}
+
+/* Metric Cards */
+.metric-card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.625rem;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.metric-card:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card .card-header {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.metric-card .card-body {
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+
+/* Attendance Cards */
+.attendance-card {
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.attendance-present {
+  background-color: rgba(25, 135, 84, 0.1);
+}
+
+.attendance-late {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.attendance-absent {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Progress Bar */
+.progress {
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+
+.progress-bar {
+  background-color: #0d6efd;
+  transition: width 0.6s ease;
+}
+
+/* Alert Items */
+.alert-item {
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.alert-info {
+  background-color: rgba(13, 202, 240, 0.1);
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.alert-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Site Cards */
+.site-card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #0d6efd;
+  border-radius: 0.625rem;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.site-card:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Employee Items */
+.employee-item {
+  transition: background-color 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.employee-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Status Dots */
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-dot.status-present {
+  background-color: #198754;
+}
+
+.status-dot.status-late {
+  background-color: #ffc107;
+}
+
+.status-dot.status-absent {
+  background-color: #dc3545;
+}
+
+.status-dot.status-active {
+  background-color: #198754;
+}
+
+.status-dot.status-inactive {
+  background-color: #dc3545;
+}
+
+.status-dot.status-maintenance {
+  background-color: #fd7e14;
+}
+
+/* Badge Variants */
+.badge.badge-success {
+  background-color: #198754;
+  color: white;
+}
+
+.badge.badge-warning {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.badge.badge-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.badge.badge-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Tab Styles */
+.nav-tabs .nav-link {
+  border: none;
+  color: #6c757d;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+}
+
+.nav-tabs .nav-link.active {
+  color: #0d6efd;
+  border-bottom: 2px solid #0d6efd;
+  background-color: transparent;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: transparent;
+  color: #0d6efd;
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.625rem;
+  box-shadow: none;
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .avatar-container {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .display-6 {
+    font-size: 1rem;
+  }
+  
+  .attendance-card {
+    padding: 0.75rem !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .bg-light {
+    background-color: #212529 !important;
+  }
+  
+  .card {
+    background-color: #2c3034;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e9ecef;
+  }
+  
+  .text-muted {
+    color: #adb5bd !important;
+  }
+  
+  .metric-card:hover,
+  .site-card:hover {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+  
+  .employee-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+}
+.card-title{
+  font-size: 12px;
+  }
