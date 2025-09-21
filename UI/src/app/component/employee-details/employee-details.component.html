@@ -105,7 +105,7 @@
             <th>Name</th>
             <th>Mobile</th>
             <th>Salary</th>
-            <th>Aadhaar</th>
+            <!-- <th>Aadhaar</th> -->
             <th>Role</th>
             <th>Actions</th>
           </tr>
@@ -116,9 +116,9 @@
             <td>{{ emp.name }}</td>
             <td>{{ emp.mobile1 }}</td>
             <td>{{ emp.monthlySalary | number:'1.0-0' }}</td>
-            <td>{{ emp.aadhaar }}</td>
+            <!-- <td>{{ emp.aadhaar }}</td> -->
             <td>{{ emp.role }}</td>
-            <td>
+            <td class="d-flex">
               <!-- View -->
               <button class="btn btn-sm btn-info me-1" (click)="viewEmployee(emp)">
                 <i class="bi bi-eye"></i>
@@ -141,30 +141,23 @@
   </div>
 
   <!-- Employee Details Modal -->
-  <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="employeeModalLabel">Employee Details</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p><strong>Name:</strong> {{ selectedEmployee?.name }}</p>
-          <p><strong>Mobile:</strong> {{ selectedEmployee?.mobile1 }}</p>
-          <p><strong>Salary:</strong> {{ selectedEmployee?.monthlySalary | currency:'INR' }}</p>
-          <p><strong>Aadhaar:</strong> {{ selectedEmployee?.aadhaar }}</p>
-          <p><strong>Role:</strong> {{ selectedEmployee?.role }}</p>
-          <p><strong>Address:</strong> {{ selectedEmployee?.address }}</p>
-          <p><strong>Village:</strong> {{ selectedEmployee?.village }}</p>
-          <p><strong>Taluka:</strong> {{ selectedEmployee?.taluka }}</p>
-          <p><strong>District:</strong> {{ selectedEmployee?.district }}</p>
-          <p><strong>State:</strong> {{ selectedEmployee?.state }}</p>
-        </div>
-        <div class="modal-footer">
-  <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-</div>
-      </div>
+  <div class="custom-modal-backdrop" *ngIf="selectedEmployee"></div>
+<div class="custom-modal" *ngIf="selectedEmployee">
+  <div class="custom-modal-content">
+    <h5>Employee Details</h5>
+    <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
+    <p><strong>Mobile:</strong> {{ selectedEmployee.mobile1 }}</p>
+    <p><strong>Salary:</strong> {{ selectedEmployee.monthlySalary | currency:'INR' }}</p>
+    <p><strong>Aadhaar:</strong> {{ selectedEmployee.aadhaar }}</p>
+    <p><strong>Address:</strong> {{ selectedEmployee.address }}</p>
+    <p><strong>District:</strong> {{ selectedEmployee.district }}</p>
+    <p><strong>State:</strong> {{ selectedEmployee.state }}</p>
+
+    <div class="text-end">
+      <button class="btn btn-secondary" (click)="closeModal()">Close</button>
     </div>
   </div>
+</div>
+
 
 </div>

@@ -28,7 +28,7 @@ export class AuthService {
   //   return this.http.post(`${this.baseUrl}/login`, request);
   // }
   getEmpListDetails(request: any) : Observable<any> {
-    return this.http.post(`${this.baseUrl}/getEmployeeList`, request);
+    return this.http.post(`${this.baseUrl}getEmployeeList`, request);
   }
  addEmployee(request: any): Observable<any>{
     return this.http.post(`${this.baseUrl}/Employee`, request);
@@ -46,15 +46,15 @@ saveAttendance(requestdata:any): Observable<any> {
 //   }
 
 postattendance(requestdata:any): Observable<any> {
-  return this.http.post<any>(`${this.baseUrl}/Attendance`, requestdata, { headers: this.getHeaders() });
+  return this.http.post<any>(`${this.baseUrl}Attendance`, requestdata, { headers: this.getHeaders() });
   }
 
 
 getReport(requestdata:any): Observable<any> {
-  return this.http.get<any>(`${this.baseUrl}/Employee`, { headers: this.getHeaders() });
+  return this.http.get<any>(`${this.baseUrl}Employee`, { headers: this.getHeaders() });
   }
  downloadReportPdf(requestdata:any): Observable<any> {
-  return this.http.post<any>(`${this.baseUrl}/attendanceReport/pdf`, requestdata);
+  return this.http.post<any>(`${this.baseUrl}attendanceReport/pdf`, requestdata);
   }
 
 

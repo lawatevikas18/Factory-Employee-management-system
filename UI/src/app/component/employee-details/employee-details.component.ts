@@ -141,17 +141,10 @@ export class EmployeeDetailsComponent implements OnInit {
   }
 
   // ✅ Show modal with employee details
-  viewEmployee(emp: any) {
+viewEmployee(emp: any) {
   this.selectedEmployee = emp;
-  const modalEl = document.getElementById('employeeModal');
-  if (modalEl) {
-    this.modalInstance = new bootstrap.Modal(modalEl, { backdrop: 'static' }); 
-    this.modalInstance.show();
-  }
 }
 closeModal() {
-  if (this.modalInstance) {
-    this.modalInstance.hide();
-  }
+  this.selectedEmployee = null;
 }
 }

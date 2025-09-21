@@ -46,9 +46,9 @@
   <!-- Filter + Search row (1/3 + 2/3) -->
   <div class="row g-2 align-items-center mb-3">
     <div class="col-4">
-      <select class="form-select form-select-sm" [(ngModel)]="selectedDesignation">
+      <select class="form-select form-select-sm" [(ngModel)]="selectedrole">
         <option value="">All</option>
-        <option *ngFor="let d of designations" [value]="d">{{ d }}</option>
+        <option *ngFor="let d of roles" [value]="d">{{ d }}</option>
       </select>
     </div>
   
@@ -83,9 +83,9 @@
       </div>
   
       <div class="mb-3">
-        <label class="form-label">Designation</label>
-        <select class="form-select" [(ngModel)]="newEmployee.designation">
-          <option *ngFor="let d of designations" [value]="d">{{ d }}</option>
+        <label class="form-label">role</label>
+        <select class="form-select" [(ngModel)]="newEmployee.role">
+          <option *ngFor="let d of roles" [value]="d">{{ d }}</option>
         </select>
       </div>
   
@@ -104,10 +104,10 @@
   </div>
 
   <div class="d-flex gap-2 flex-wrap mb-3">
-    <button class="btn btn-outline-success btn-sm" (click)="markAllFiltered('Full Day')">
-      <i class="bi bi-sun"></i> All Full Day
+    <button class="btn btn-outline-success btn-sm" (click)="markAllFiltered('Present')">
+      <i class="bi bi-sun"></i> All Present
     </button>
-    <button class="btn btn-outline-primary btn-sm" (click)="markAllFiltered('Half Day')">
+    <button class="btn btn-outline-primary btn-sm" (click)="markAllFiltered('HalfDay')">
       <i class="bi bi-moon"></i> All Half Day
     </button>
     <button class="btn btn-outline-danger btn-sm" (click)="markAllFiltered('Absent')">
@@ -130,15 +130,15 @@
           </div>
           <div>
             <div class="fw-semibold">{{ emp.name }}</div>
-            <div class="small text-muted">{{ emp.designation }}</div>
+            <div class="small text-muted">{{ emp.role }}</div>
           </div>
         </div>
       
         <!-- Right side (edit + badge) -->
         <div class="d-flex align-items-center gap-2">
           <span class="material-symbols-outlined cursor-pointer" (click)="openPopup()">edit</span>
-          <span class="badge" [ngClass]="emp.status ? 'custom-badge' : 'bg-light text-dark'">
-            {{ emp.status ? emp.status : 'Not marked' }}
+          <span class="badge" [ngClass]="emp.attendanceStatus ? 'custom-badge' : 'bg-light text-dark'">
+            {{ emp.attendanceStatus ? emp.attendanceStatus : 'Not marked' }}
           </span>
         </div>
       </div>
@@ -186,22 +186,22 @@
       <div class="row g-2 mt-1 attendance-row">
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
-                  [ngClass]="emp.status === 'Full Day' ? 'btn-success' : 'btn-outline-success'"
-                  (click)="markAttendance(emp, 'Full Day')">Full Day</button>
+                  [ngClass]="emp.attendanceStatus === 'Present' ? 'btn-success' : 'btn-outline-success'"
+                  (click)="markAttendance(emp, 'Present')">Present</button>
         </div>
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
-                  [ngClass]="emp.status === 'Half Day' ? 'btn-primary' : 'btn-outline-primary'"
-                  (click)="markAttendance(emp, 'Half Day')">Half Day</button>
+                  [ngClass]="emp.attendanceStatus === 'HalfDay' ? 'btn-primary' : 'btn-outline-primary'"
+                  (click)="markAttendance(emp, 'HalfDay')">Half Day</button>
         </div>
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
-                  [ngClass]="emp.status === 'Late' ? 'btn-warning text-dark' : 'btn-outline-warning'"
+                  [ngClass]="emp.attendanceStatus === 'Late' ? 'btn-warning text-dark' : 'btn-outline-warning'"
                   (click)="markAttendance(emp, 'Late')">Late</button>
         </div>
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
-                  [ngClass]="emp.status === 'Absent' ? 'btn-danger' : 'btn-outline-danger'"
+                  [ngClass]="emp.attendanceStatus === 'Absent' ? 'btn-danger' : 'btn-outline-danger'"
                   (click)="markAttendance(emp, 'Absent')">Absent</button>
         </div>
       </div>
@@ -221,35 +221,7 @@
     </div>
   </div>
 
-  <div class="custom-popup" *ngIf="isEmployeePopupOpen">
-    <!-- existing search + table unchanged -->
-
-<!-- Reusable popup component -->
-<app-employee-form
-  *ngIf="isEmployeePopupOpen"
-  [isAddMode]="isAddMode"
-  [employee]="selectedEmployee"
-  [designations]="designations"
-  [factories]="factories"
-  [states]="states"
-  [countries]="countries"
-  (close)="closeEmployeePopup()">
-</app-employee-form>
-
-
-
-<!-- <app-employee-form
-  *ngIf="isEmployeePopupOpen"
-  [isAddMode]="isAddMode"
-  [employee]="selectedEmployee"
-  [designations]="designations"
-  [factories]="factories"
-  [states]="states"
-  [countries]="countries"
-  (save)="handleSave($event)"
-  (close)="closeEmployeePopup()">
-</app-employee-form> -->
-
-
-</div>
+  <!-- <div class="custom-popup" *ngIf="isEmployeePopupOpen">
+    
+</div> -->
 </div>

@@ -2,23 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AttendanceService } from 'src/app/core/services/Attendance.Service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AttendanceRequest, EmployeeAttendance } from 'src/app/model/AttendanceRequest .model';
 declare var bootstrap: any;
 
 
 //import { Employee } from 'src/app/model/employee.model';
-type Status = 'Full Day' | 'Half Day' | 'Late' | 'Absent' | null;
+type attendanceStatus = 'Present' | 'HalfDay' | 'Late' | 'Absent' | null;
 
 interface Employee {
   id: number;             
-  employeeCode: number;
+  employeeId: number;
   name: string;
-  designation: string;
-  status: Status;
-  
-  
-  // add other fields if needed (employeeCode, factory, etc.)
+  role: string;
+  attendanceStatus: attendanceStatus;
+
 }
 @Component({
   selector: 'app-attendance',
@@ -26,9 +25,9 @@ interface Employee {
   styleUrls: ['./attendance.component.scss']
 })
 export class AttendanceComponent {
-  employees: Employee[] = [];
+  employees: any[] = [];
   selectedDate: Date = new Date();
-  designations: string[] = ['Supervisor', 'Manager', 'Driver', 'Worker'];
+  roles: string[] = ['Supervisor', 'Manager', 'Driver', 'Worker'];
   selectedDates: string[] = [];
   isAddPopupOpen = false;
   // UI state'
@@ -41,17 +40,18 @@ export class AttendanceComponent {
     states = ['Maharashtra', 'Karnataka', 'Gujarat', 'Madhya Pradesh'];
     countries = ['India', 'Nepal', 'Bangladesh', 'Sri Lanka'];
 
-  newEmployee = { id: 0, name: '', designation: '', status: null };
-  selectedDesignation: string = '';
+  newEmployee = { id: 0, name: '', role: '', attendanceStatus: null };
+  selectedrole: string = '';
   searchTerm: string = '';
-  emp: any = { name: 'John Doe', designation: 'Developer', status: '' };
+  emp: any = { name: 'John Doe', role: 'Developer', attendanceStatus: '' };
   today: string = new Date().toISOString().split('T')[0];
   isPopupOpen = false;
   useselectedDate: string = '';
  attendanceDate: string = new Date().toISOString().substring(0, 10);
 
  constructor(private http: HttpClient,
-  private authService:AuthService
+  private authService:AuthService,
+  private getAttendance:AttendanceService
 ){}
   ngOnInit(): void {
     this.getEmplyees()
@@ -60,15 +60,15 @@ export class AttendanceComponent {
   let requestdata={
        fromDate:'',
        toDate:'',
-       employeeCode:'',
+       employeeId:'',
        day:this.attendanceDate
   }
-    this.authService.getReport(requestdata)
+    this.getAttendance.getAll()
   .subscribe({
     next: (res) => {
-      if (res.statusCode === 200) {
-        this.employees = res.jsonStr;
-        }
+      
+      console.log(res)
+      this.employees = res;
       }
     })
   }
@@ -79,49 +79,49 @@ export class AttendanceComponent {
   get filteredEmployees(): Employee[] {
     const term = this.searchTerm?.trim().toLowerCase() ?? '';
     return this.employees.filter(emp => {
-      const matchDesignation = this.selectedDesignation
-        ? emp.designation.toLowerCase() === this.selectedDesignation.toLowerCase()
+      const matchrole = this.selectedrole
+        ? emp.role.toLowerCase() === this.selectedrole.toLowerCase()
         : true;
 
       const matchSearch = term
         ? (emp.name.toLowerCase().includes(term) ||
-           (emp.designation && emp.designation.toLowerCase().includes(term)))
+           (emp.role && emp.role.toLowerCase().includes(term)))
         : true;
 
-      return matchDesignation && matchSearch;
+      return matchrole && matchSearch;
     });
   }
 
   // Summary counts based on the currently visible (filtered) list
   get summary() {
     const list = this.filteredEmployees;
-    const fullDay = list.filter(e => e.status === 'Full Day').length;
-    const halfDay = list.filter(e => e.status === 'Half Day').length;
-    const late = list.filter(e => e.status === 'Late').length;
-    const absent = list.filter(e => e.status === 'Absent').length;
-    const pending = list.filter(e => e.status === null).length;
+    const fullDay = list.filter(e => e.attendanceStatus === 'Present').length;
+    const halfDay = list.filter(e => e.attendanceStatus === 'HalfDay').length;
+    const late = list.filter(e => e.attendanceStatus === 'Late').length;
+    const absent = list.filter(e => e.attendanceStatus === 'Absent').length;
+    const pending = list.filter(e => e.attendanceStatus === null).length;
     return { fullDay, halfDay, late, absent, pending };
   }
 
   // Total number of marked employees across whole dataset (used in Save button)
   get totalMarked(): number {
-    return this.employees.filter(e => e.status !== null).length;
+    return this.employees.filter(e => e.attendanceStatus !== null).length;
   }
 
   // --- Actions ---
 
   // Mark single employee
-  markAttendance(emp: Employee, status: Exclude<Status, null>): void {
-    emp.status = status;
+  markAttendance(emp: Employee, attendanceStatus: Exclude<attendanceStatus, null>): void {
+    emp.attendanceStatus = attendanceStatus;
     // Angular change detection will update UI automatically
   }
 
   // Mark all filtered employees (only visible ones)
-  markAllFiltered(status: Exclude<Status, null>): void {
+  markAllFiltered(attendanceStatus: Exclude<attendanceStatus, null>): void {
     const filtered = this.filteredEmployees;
     filtered.forEach(fe => {
-      const original = this.employees.find(e => e.employeeCode === fe.employeeCode);
-      if (original) original.status = status;
+      const original = this.employees.find(e => e.employeeId === fe.employeeId);
+      if (original) original.attendanceStatus = attendanceStatus;
     });
   }
 
@@ -129,26 +129,26 @@ export class AttendanceComponent {
   clearAllFiltered(): void {
     const filtered = this.filteredEmployees;
     filtered.forEach(fe => {
-      const original = this.employees.find(e => e.employeeCode === fe.employeeCode);
-      if (original) original.status = null;
+      const original = this.employees.find(e => e.employeeId === fe.employeeId);
+      if (original) original.attendanceStatus = null;
     });
   }
 
   // Save attendance (hook this to API)
   saveAttendance(): void {
-     const attendanceList: EmployeeAttendance[] = this.employees.map(emp => ({
-      employeeId: emp.employeeCode,
-      status: emp.status || 'NotMarked',
+     const attendanceList :any= this.employees.map(emp => ({
+      employeeId: emp.employeeId,
+      attendanceStatus: emp.attendanceStatus || 'NotMarked',
       attendanceDate: this.attendanceDate
     }));
 
-    const request: AttendanceRequest = {
-      adminId: '100', 
-      action: 'Insert',
-      attendanceList
-    };
+    // const request: AttendanceRequest = {
+    //   adminId: '100', 
+    //   action: 'Insert',
+    //   attendanceList
+    // };
 
-      this.authService.getReport(request)
+      this.getAttendance.saveAttendance(attendanceList)
        .subscribe({
       next: (res) => {
       if (res.statusCode === 200) {
@@ -164,7 +164,7 @@ export class AttendanceComponent {
 
   // Helpers for template (optional)
   trackByEmployee(index: number, emp: Employee) {
-    return emp.employeeCode;
+    return emp.employeeId;
   }
 
 
@@ -191,7 +191,7 @@ export class AttendanceComponent {
 
   submitDates() {
     if (this.selectedDates.length > 0) {
-      this.emp.status = `Updated with ${this.selectedDates.length} dates`;
+      this.emp.attendanceStatus = `Updated with ${this.selectedDates.length} dates`;
       this.closePopup();
     } else {
       alert('Please select at least one date!');
@@ -201,7 +201,7 @@ export class AttendanceComponent {
   openAddPopup() {
     // this.isAddPopupOpen = true;
     this.isEmployeePopupOpen = true;
-    this.newEmployee = { id: 0, name: '', designation: '', status: null }; 
+    this.newEmployee = { id: 0, name: '', role: '', attendanceStatus: null }; 
   }
 
   closeAddPopup() {
@@ -209,11 +209,11 @@ export class AttendanceComponent {
   }
 
   addEmployee() {
-    if (this.newEmployee.name && this.newEmployee.designation) {
+    if (this.newEmployee.name && this.newEmployee.role) {
       const newId = this.employees.length > 0 
-        ? Math.max(...this.employees.map(e => e.employeeCode)) + 1 
+        ? Math.max(...this.employees.map(e => e.employeeId)) + 1 
         : 1;
-      this.employees.push({ ...this.newEmployee, employeeCode: newId });
+      this.employees.push({ ...this.newEmployee, employeeId: newId });
       this.closeAddPopup();
     } else {
       alert('Please fill all fields.');

@@ -11,7 +11,15 @@ body{
 }
 
 
-  
+  .modal.show {
+  display: block;       /* ensures modal is visible */
+  z-index: 1060 !important;  /* keep it above backdrop */
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;  /* dim background */
+  z-index: 1050; /* keep it below modal */
+}
  
 
 

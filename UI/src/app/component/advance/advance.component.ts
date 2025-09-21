@@ -40,28 +40,29 @@ export class AdvanceComponent {
     constructor(private apiService: AuthService) {}
   
     ngOnInit(): void {
-      this.employees = [
-        {
-          id: 1,
-          name: 'John D. Smith',
-          mobileNo: '9876543210',
-          source: 'Factory A',
-          reason: 'Advance Request',
-          credit: 18000,
-          debit: 5000,
-          total: 18000 - 5000
-        },
-        {
-          id: 2,
-          name: 'Asha More',
-          mobileNo: '9001234567',
-          source: 'Factory B',
-          reason: 'Medical',
-          credit: 22000,
-          debit: 7000,
-          total: 22000 - 7000
-        }
-      ];
+      // this.employees = [
+      //   {
+      //     id: 1,
+      //     name: 'John D. Smith',
+      //     mobileNo: '9876543210',
+      //     source: 'Factory A',
+      //     reason: 'Advance Request',
+      //     credit: 18000,
+      //     debit: 5000,
+      //     total: 18000 - 5000
+      //   },
+      //   {
+      //     id: 2,
+      //     name: 'Asha More',
+      //     mobileNo: '9001234567',
+      //     source: 'Factory B',
+      //     reason: 'Medical',
+      //     credit: 22000,
+      //     debit: 7000,
+      //     total: 22000 - 7000
+      //   }
+      // ];
+      this. getEmployeeDetails()
       this.filteredEmployees = [...this.employees];
     }
   

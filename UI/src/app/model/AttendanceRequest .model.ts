@@ -1,6 +1,6 @@
 export interface EmployeeAttendance {
   employeeId: number;
-  status: string; // FullDay, HalfDay, Absent
+  attendanceStatus: string; // FullDay, HalfDay, Absent
   attendanceDate: string; // YYYY-MM-DD
 }
 
