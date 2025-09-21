@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AttendanceService } from 'src/app/core/services/Attendance.Service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { LoaderService } from 'src/app/core/services/loader.service';
 import { AttendanceRequest, EmployeeAttendance } from 'src/app/model/AttendanceRequest .model';
 declare var bootstrap: any;
 
@@ -51,12 +52,15 @@ export class AttendanceComponent {
 
  constructor(private http: HttpClient,
   private authService:AuthService,
-  private getAttendance:AttendanceService
+  private getAttendance:AttendanceService,
+  private router:Router,
+  private loader:LoaderService
 ){}
   ngOnInit(): void {
     this.getEmplyees()
   }
   getEmplyees(){
+    this.loader.show()
   let requestdata={
        fromDate:'',
        toDate:'',
@@ -66,9 +70,15 @@ export class AttendanceComponent {
     this.getAttendance.getAll()
   .subscribe({
     next: (res) => {
-      
-      console.log(res)
       this.employees = res;
+        this.loader.hide(); 
+      },
+       error: (err) => {
+        this.loader.hide();
+        console.error('Error loading employees', err);
+      },
+      complete: () => {
+        this.loader.hide(); 
       }
     })
   }
@@ -199,9 +209,9 @@ export class AttendanceComponent {
   }
  
   openAddPopup() {
-    // this.isAddPopupOpen = true;
-    this.isEmployeePopupOpen = true;
-    this.newEmployee = { id: 0, name: '', role: '', attendanceStatus: null }; 
+    this.router.navigate(['/employee-details'], {
+    queryParams: { 'from': 'Attendance' }
+  });
   }
 
   closeAddPopup() {

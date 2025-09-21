@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 
@@ -37,7 +38,9 @@ export class AdvanceComponent {
     selectedFactory: string = '';
     adminData: any;
   
-    constructor(private apiService: AuthService) {}
+    constructor(private apiService: AuthService,
+      private router:Router
+    ) {}
   
     ngOnInit(): void {
       // this.employees = [
@@ -83,9 +86,12 @@ export class AdvanceComponent {
     }
   
     openAddEmployeePopup() {
-      this.selectedEmployee = null;
-      this.isAddMode = true;
-      this.isEmployeePopupOpen = true;
+      // this.selectedEmployee = null;
+      // this.isAddMode = true;
+      // this.isEmployeePopupOpen = true;
+      this.router.navigate(['/employee-details'], {
+    queryParams: { 'from': 'Advance' }
+  })
     }
   
     openEditEmployee(emp: Employee) {

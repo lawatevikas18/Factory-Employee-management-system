@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environment/environment';
 import { EmployeeService } from 'src/app/core/services/employee.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { LoaderService } from 'src/app/core/services/loader.service';
 
 declare var bootstrap: any; 
@@ -24,6 +24,7 @@ export class EmployeeDetailsComponent implements OnInit {
   message = '';
   error = '';
   isemployeeForm = false;
+  from:any
 
   private apiUrl = environment.apiUrl;
   private modalInstance: any;
@@ -34,6 +35,7 @@ export class EmployeeDetailsComponent implements OnInit {
     private employeeService: EmployeeService,
     private route: Router,
     private loader: LoaderService,
+    private router: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -43,15 +45,20 @@ export class EmployeeDetailsComponent implements OnInit {
       mobile2: ['', [Validators.pattern('^[0-9]{10}$')]],
       role: ['', Validators.required],
       monthlySalary: [0, [Validators.required, Validators.min(1000)]],
-      address: [''],
-      village: [''],
-      taluka: [''],
-      district: [''],
-      state: [''],
-      aadhaar: ['', [Validators.pattern('^[0-9]{12}$')]],
+      address: ['',Validators.required],
+      village: ['',Validators.required],
+      taluka: ['',Validators.required],
+      district: ['',Validators.required],
+      state: ['',Validators.required],
+      aadhaar: ['', [Validators.required,Validators.pattern('^[0-9]{12}$')]],
       panCard: ['', [Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]]
     });
-
+   this.router.queryParams.subscribe(params => {
+     this.from = params['from']
+    if(this.from=='Attendance' ||this.from=='Advance' ){
+        this.addNew()
+    }
+  });
     this.loadEmployees();
   }
 

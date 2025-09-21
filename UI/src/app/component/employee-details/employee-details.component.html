@@ -45,7 +45,7 @@
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">Aadhaar</label>
+          <label class="form-label">Aadhaar *</label>
           <input class="form-control" formControlName="aadhaar" />
           <div class="text-danger" *ngIf="employeeForm.controls['aadhaar'].touched && employeeForm.controls['aadhaar'].invalid">
             Aadhaar must be 12 digits
@@ -61,22 +61,25 @@
         </div>
 
         <div class="col-12">
-          <label class="form-label">Address</label>
+          <label class="form-label">Address *</label>
           <textarea class="form-control" formControlName="address"></textarea>
         </div>
-
+         <div class="col-md-6">
+          <label class="form-label">Village *</label>
+          <input class="form-control" formControlName="village" />
+        </div>
         <div class="col-md-6">
-          <label class="form-label">Taluka</label>
+          <label class="form-label">Taluka *</label>
           <input class="form-control" formControlName="taluka" />
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">District</label>
+          <label class="form-label">District *</label>
           <input class="form-control" formControlName="district" />
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">State</label>
+          <label class="form-label">State *</label>
           <input class="form-control" formControlName="state" />
         </div>
       </div>

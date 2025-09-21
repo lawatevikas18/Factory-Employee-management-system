@@ -48,6 +48,6 @@ private getHeaders() {
     return this.http.get(`${this.baseUrl}/TodayCount`,{ headers: this.getHeaders() });
   }
   saveAttendance(attendance: Attendance): Observable<any> {
-    return this.http.post(`${this.baseUrl}/AddBulk`, attendance,{ headers: this.getHeaders() });
+    return this.http.post(`${this.baseUrl}/Add`, attendance,{ headers: this.getHeaders() });
   }
 }
