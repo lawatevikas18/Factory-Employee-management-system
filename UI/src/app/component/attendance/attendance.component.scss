@@ -209,6 +209,13 @@
   max-height: 90vh;
   overflow-y: auto;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.position-absolute {
+  z-index: 1050; // so it overlays content
+}
 
 
 

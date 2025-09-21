@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from 'src/app/core/services/employee.service';
+import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
+import { LoaderService } from 'src/app/core/services/loader.service';
 
 interface SiteData {
   id: string;
@@ -30,28 +33,32 @@ export class DashboardComponent {
   absentEmployeesToday = 14;
   lateEmployeesToday = 8;
 
-  sites: SiteData[] = [
-    { id: '1', name: 'Factory Unit A', status: 'active', employeeCount: 45, presentToday: 42, location: 'Pandharpur' },
-    { id: '2', name: 'Factory Unit B', status: 'active', employeeCount: 38, presentToday: 35, location: 'Solapur' },
-    { id: '3', name: 'Warehouse North', status: 'active', employeeCount: 22, presentToday: 20, location: 'Mumbai' },
-    { id: '4', name: 'Processing Center', status: 'maintenance', employeeCount: 15, presentToday: 0, location: 'Pune' },
-    { id: '5', name: 'Admin Office', status: 'active', employeeCount: 12, presentToday: 12, location: 'Pandharpur' },
-  ];
+  // sites: SiteData[] = [
+  //   { id: '1', name: 'Factory Unit A', status: 'active', employeeCount: 45, presentToday: 42, location: 'Pandharpur' },
+  //   { id: '2', name: 'Factory Unit B', status: 'active', employeeCount: 38, presentToday: 35, location: 'Solapur' },
+  //   { id: '3', name: 'Warehouse North', status: 'active', employeeCount: 22, presentToday: 20, location: 'Mumbai' },
+  //   { id: '4', name: 'Processing Center', status: 'maintenance', employeeCount: 15, presentToday: 0, location: 'Pune' },
+  //   { id: '5', name: 'Admin Office', status: 'active', employeeCount: 12, presentToday: 12, location: 'Pandharpur' },
+  // ];
 
-  recentEmployees: EmployeeData[] = [
-    { id: '1', name: 'John Smith', designation: 'Manager', status: 'present', site: 'Factory Unit A', checkInTime: '08:00 AM' },
-    { id: '2', name: 'Sarah Johnson', designation: 'Supervisor', status: 'late', site: 'Factory Unit B', checkInTime: '09:15 AM' },
-    { id: '3', name: 'Mike Davis', designation: 'Operator', status: 'present', site: 'Warehouse North', checkInTime: '07:45 AM' },
-    { id: '4', name: 'Lisa Anderson', designation: 'Technician', status: 'absent', site: 'Processing Center' },
-    { id: '5', name: 'Robert Wilson', designation: 'Driver', status: 'present', site: 'Admin Office', checkInTime: '08:30 AM' },
-  ];
+  // recentEmployees: EmployeeData[] = [
+  //   { id: '1', name: 'John Smith', designation: 'Manager', status: 'present', site: 'Factory Unit A', checkInTime: '08:00 AM' },
+  //   { id: '2', name: 'Sarah Johnson', designation: 'Supervisor', status: 'late', site: 'Factory Unit B', checkInTime: '09:15 AM' },
+  //   { id: '3', name: 'Mike Davis', designation: 'Operator', status: 'present', site: 'Warehouse North', checkInTime: '07:45 AM' },
+  //   { id: '4', name: 'Lisa Anderson', designation: 'Technician', status: 'absent', site: 'Processing Center' },
+  //   { id: '5', name: 'Robert Wilson', designation: 'Driver', status: 'present', site: 'Admin Office', checkInTime: '08:30 AM' },
+  // ];
 
   attendancePercentage = 0;
   siteOperationalPercentage = 0;
 
-  constructor() { }
+  constructor(private loader:LoaderService,
+    private employeeService:EmployeeService,
+    private errormsg:ErrorPopUpService
+  ) { }
 
   ngOnInit(): void {
+    this.loadDashboardDeatils()
     this.calculatePercentages();
   }
 
@@ -95,5 +102,24 @@ export class DashboardComponent {
 
   getAttendanceRate(site: SiteData): number {
     return site.employeeCount > 0 ? Math.round((site.presentToday / site.employeeCount) * 100) : 0;
+  }
+
+  loadDashboardDeatils() {
+    this.loader.show();   
+    this.employeeService.getDashBoardData().subscribe({
+      next: (res) => {
+        // this.employees = res;
+        console.log(res)
+        this.loader.hide();   // ✅ Hide on success
+      },
+      error: (err) => {
+        this.loader.hide();
+        this.errormsg.showError(err?.error)
+        console.error('Error loading employees', err);
+      },
+      complete: () => {
+        this.loader.hide(); 
+      }
+    });
   }
 }

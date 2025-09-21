@@ -62,4 +62,7 @@ export class EmployeeService {
   getWallets(): Observable<EmployeeWallet[]> {
     return this.http.get<EmployeeWallet[]>(`${this.apiUrl}/employee_wallete`,{ headers: this.getHeaders() });
   }
+  getDashBoardData(): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/AdminToUserTransaction/DashboardStats`,{ headers: this.getHeaders() });
+  }
 }

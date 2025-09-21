@@ -6,6 +6,7 @@ import { AttendanceComponent } from './attendance.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -18,8 +19,9 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
     AttendanceRoutingModule,
     TranslateModule,
     FormsModule,
-        ReactiveFormsModule,
-        SharedModule   
+    ReactiveFormsModule,
+   SharedModule,
+  NgbModule  
   ]
 })
 export class AttendanceModule { }

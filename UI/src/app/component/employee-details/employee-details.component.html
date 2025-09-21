@@ -151,10 +151,14 @@
     <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
     <p><strong>Mobile:</strong> {{ selectedEmployee.mobile1 }}</p>
     <p><strong>Salary:</strong> {{ selectedEmployee.monthlySalary | currency:'INR' }}</p>
+    <p><strong>Factory:</strong> {{ selectedEmployee.factoryName }}</p>
     <p><strong>Aadhaar:</strong> {{ selectedEmployee.aadhaar }}</p>
     <p><strong>Address:</strong> {{ selectedEmployee.address }}</p>
+      <p><strong>Village:</strong> {{ selectedEmployee.village }}</p>
+     <p><strong>Talika:</strong> {{ selectedEmployee.taluka }}</p>
     <p><strong>District:</strong> {{ selectedEmployee.district }}</p>
     <p><strong>State:</strong> {{ selectedEmployee.state }}</p>
+     <p><strong>Advance:</strong> {{ selectedEmployee.advanceBalance }}</p>
 
     <div class="text-end">
       <button class="btn btn-secondary" (click)="closeModal()">Close</button>

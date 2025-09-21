@@ -49,6 +49,7 @@ export class AttendanceComponent {
   isPopupOpen = false;
   useselectedDate: string = '';
  date: string = new Date().toISOString().substring(0, 10);
+  showDatepicker = false;
 
  constructor(private http: HttpClient,
   private authService:AuthService,
@@ -251,4 +252,35 @@ export class AttendanceComponent {
       this.employees = [...this.employees];
       this.closeEmployeePopup();
     }
+
+    
+
+     decreaseDate() {
+    this.selectedDate = new Date(this.selectedDate.setDate(this.selectedDate.getDate() - 1));
+  }
+
+  increaseDate() {
+  const today = new Date();
+
+  // If current selectedDate is before today, allow increment
+  if (this.selectedDate < today) {
+    const newDate = new Date(this.selectedDate);
+    newDate.setDate(this.selectedDate.getDate() + 1);
+
+    // Ensure it never goes beyond today
+    if (newDate <= today) {
+      this.selectedDate = newDate;
+    }
+  }
+}
+
+
+  openCalendar() {
+    this.showDatepicker = !this.showDatepicker;
+  }
+
+  onDateSelect(date: any) {
+    this.selectedDate = new Date(date.year, date.month - 1, date.day);
+    this.showDatepicker = false;
+  }
 }
