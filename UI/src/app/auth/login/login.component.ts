@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
 
 @Component({
@@ -21,6 +22,7 @@ export class LoginComponent {
     private authService: AuthService, 
     private router: Router,
     private loader: LoaderService,
+    private error:ErrorPopUpService
   ) {
     this.loginForm = this.fb.group({
       mobileNumber: ['', [Validators.required]],
@@ -55,7 +57,14 @@ export class LoginComponent {
           this.loader.hide()
            this.router.navigate(['/dashboard']);
         },
-        error: err => this.message = err.error || 'Login failed!'
+        error: (err) => {
+        this.loader.hide();
+        this.error.showError(`login Failed:${err?.error}`)
+        console.error('login Failed', err);
+      },
+      complete: () => {
+        this.loader.hide(); 
+      }
       });
     }
   }

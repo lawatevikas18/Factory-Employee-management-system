@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ReportsModule } from './component/reports/reports.module';
 import { AuthModule } from './auth/auth.module';
 import { LoaderComponent } from './layout/loader/loader.component';
+import { ErrorPopUpComponent } from './layout/error-pop-up/error-pop-up.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,7 +22,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent
+    LoaderComponent,
+    ErrorPopUpComponent
   ],
   imports: [
     BrowserModule,

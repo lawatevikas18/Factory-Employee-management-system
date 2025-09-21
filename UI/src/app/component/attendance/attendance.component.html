@@ -137,8 +137,8 @@
         <!-- Right side (edit + badge) -->
         <div class="d-flex align-items-center gap-2">
           <span class="material-symbols-outlined cursor-pointer" (click)="openPopup()">edit</span>
-          <span class="badge" [ngClass]="emp.Status ? 'custom-badge' : 'bg-light text-dark'">
-            {{ emp.Status ? emp.Status : 'Not marked' }}
+          <span class="badge" [ngClass]="emp.status ? 'custom-badge' : 'bg-light text-dark'">
+            {{ emp.status ? emp.status : 'Not marked' }}
           </span>
         </div>
       </div>
@@ -148,9 +148,9 @@
         <div class="custom-popup-content">
           <h5>Update Attendance</h5>
       
-          <label for="attendanceDate" class="form-label">Select Dates</label>
+          <label for="date" class="form-label">Select Dates</label>
           <input type="date"
-                 id="attendanceDate"
+                 id="date"
                  class="form-control mb-3"
                  [max]="today"
                  (change)="addDate($event)" />
@@ -186,22 +186,22 @@
       <div class="row g-2 mt-1 attendance-row">
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
-                  [ngClass]="emp.Status === 'Present' ? 'btn-success' : 'btn-outline-success'"
+                  [ngClass]="emp.status === 'Present' ? 'btn-success' : 'btn-outline-success'"
                   (click)="markAttendance(emp, 'Present')">Present</button>
         </div>
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
-                  [ngClass]="emp.Status === 'HalfDay' ? 'btn-primary' : 'btn-outline-primary'"
+                  [ngClass]="emp.status === 'HalfDay' ? 'btn-primary' : 'btn-outline-primary'"
                   (click)="markAttendance(emp, 'HalfDay')">Half Day</button>
         </div>
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
-                  [ngClass]="emp.Status === 'Late' ? 'btn-warning text-dark' : 'btn-outline-warning'"
+                  [ngClass]="emp.status === 'Late' ? 'btn-warning text-dark' : 'btn-outline-warning'"
                   (click)="markAttendance(emp, 'Late')">Late</button>
         </div>
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
-                  [ngClass]="emp.Status === 'Absent' ? 'btn-danger' : 'btn-outline-danger'"
+                  [ngClass]="emp.status === 'Absent' ? 'btn-danger' : 'btn-outline-danger'"
                   (click)="markAttendance(emp, 'Absent')">Absent</button>
         </div>
       </div>

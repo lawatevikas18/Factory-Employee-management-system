@@ -5,6 +5,7 @@ import { environment } from 'src/environment/environment';
 import { EmployeeService } from 'src/app/core/services/employee.service';
 import { Router,ActivatedRoute } from '@angular/router';
 import { LoaderService } from 'src/app/core/services/loader.service';
+import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
 
 declare var bootstrap: any; 
 
@@ -35,7 +36,8 @@ export class EmployeeDetailsComponent implements OnInit {
     private employeeService: EmployeeService,
     private route: Router,
     private loader: LoaderService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private errormsg:ErrorPopUpService
   ) {}
 
   ngOnInit(): void {
@@ -139,6 +141,7 @@ export class EmployeeDetailsComponent implements OnInit {
       },
       error: (err) => {
         this.loader.hide();
+        this.errormsg.showError(err?.error)
         console.error('Error loading employees', err);
       },
       complete: () => {

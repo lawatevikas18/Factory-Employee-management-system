@@ -10,14 +10,14 @@ declare var bootstrap: any;
 
 
 //import { Employee } from 'src/app/model/employee.model';
-type Status = 'Present' | 'HalfDay' | 'Late' | 'Absent' | null;
+type status = 'Present' | 'HalfDay' | 'Late' | 'Absent' | null;
 
 interface Employee {
   id: number;             
   employeeId: number;
   name: string;
   role: string;
-  Status: Status;
+  status: status;
 
 }
 @Component({
@@ -41,14 +41,14 @@ export class AttendanceComponent {
     states = ['Maharashtra', 'Karnataka', 'Gujarat', 'Madhya Pradesh'];
     countries = ['India', 'Nepal', 'Bangladesh', 'Sri Lanka'];
 
-  newEmployee = { id: 0, name: '', role: '', Status: null };
+  newEmployee = { id: 0, name: '', role: '', status: null };
   selectedrole: string = '';
   searchTerm: string = '';
-  emp: any = { name: 'John Doe', role: 'Developer', Status: '' };
+  emp: any = { name: 'John Doe', role: 'Developer', status: '' };
   today: string = new Date().toISOString().split('T')[0];
   isPopupOpen = false;
   useselectedDate: string = '';
- attendanceDate: string = new Date().toISOString().substring(0, 10);
+ date: string = new Date().toISOString().substring(0, 10);
 
  constructor(private http: HttpClient,
   private authService:AuthService,
@@ -65,7 +65,7 @@ export class AttendanceComponent {
        fromDate:'',
        toDate:'',
        employeeId:'',
-       day:this.attendanceDate
+       day:this.date
   }
     this.getAttendance.getAll()
   .subscribe({
@@ -105,33 +105,33 @@ export class AttendanceComponent {
   // Summary counts based on the currently visible (filtered) list
   get summary() {
     const list = this.filteredEmployees;
-    const fullDay = list.filter(e => e.Status === 'Present').length;
-    const halfDay = list.filter(e => e.Status === 'HalfDay').length;
-    const late = list.filter(e => e.Status === 'Late').length;
-    const absent = list.filter(e => e.Status === 'Absent').length;
-    const pending = list.filter(e => e.Status === null).length;
+    const fullDay = list.filter(e => e.status === 'Present').length;
+    const halfDay = list.filter(e => e.status === 'HalfDay').length;
+    const late = list.filter(e => e.status === 'Late').length;
+    const absent = list.filter(e => e.status === 'Absent').length;
+    const pending = list.filter(e => e.status === null).length;
     return { fullDay, halfDay, late, absent, pending };
   }
 
   // Total number of marked employees across whole dataset (used in Save button)
   get totalMarked(): number {
-    return this.employees.filter(e => e.Status !== null).length;
+    return this.employees.filter(e => e.status !== null).length;
   }
 
   // --- Actions ---
 
   // Mark single employee
-  markAttendance(emp: Employee, Status: Exclude<Status, null>): void {
-    emp.Status = Status;
+  markAttendance(emp: Employee, status: Exclude<status, null>): void {
+    emp.status = status;
     // Angular change detection will update UI automatically
   }
 
   // Mark all filtered employees (only visible ones)
-  markAllFiltered(Status: Exclude<Status, null>): void {
+  markAllFiltered(status: Exclude<status, null>): void {
     const filtered = this.filteredEmployees;
     filtered.forEach(fe => {
       const original = this.employees.find(e => e.employeeId === fe.employeeId);
-      if (original) original.Status = Status;
+      if (original) original.status = status;
     });
   }
 
@@ -140,7 +140,7 @@ export class AttendanceComponent {
     const filtered = this.filteredEmployees;
     filtered.forEach(fe => {
       const original = this.employees.find(e => e.employeeId === fe.employeeId);
-      if (original) original.Status = null;
+      if (original) original.status = null;
     });
   }
 
@@ -148,8 +148,8 @@ export class AttendanceComponent {
   saveAttendance(): void {
      const attendanceList :any= this.employees.map(emp => ({
       employeeId: emp.employeeId,
-      Status: emp.Status || 'NotMarked',
-      attendanceDate: this.attendanceDate
+      status: emp.status || 'NotMarked',
+      date: this.date
     }));
 
     // const request: AttendanceRequest = {
@@ -201,7 +201,7 @@ export class AttendanceComponent {
 
   submitDates() {
     if (this.selectedDates.length > 0) {
-      this.emp.Status = `Updated with ${this.selectedDates.length} dates`;
+      this.emp.status = `Updated with ${this.selectedDates.length} dates`;
       this.closePopup();
     } else {
       alert('Please select at least one date!');
