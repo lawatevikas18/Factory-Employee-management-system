@@ -1,7 +1,8 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environment/environment';
 
 export interface Employee {
   employeeId?: number;
@@ -28,31 +29,37 @@ export interface EmployeeWallet {
   providedIn: 'root'
 })
 export class EmployeeService {
-  private apiUrl = 'https://localhost:5001/api/Employee';
+  private apiUrl = `${environment.apiUrl}/Employee`;
 
   constructor(private http: HttpClient) {}
+   private getHeaders() {
+      const token = localStorage.getItem('token'); // ✅ Get token from localStorage (or service)
+      return new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      });
+    }
 
   getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.apiUrl);
+    return this.http.get<Employee[]>(this.apiUrl,{ headers: this.getHeaders() });
   }
 
   getEmployee(id: number): Observable<Employee> {
-    return this.http.get<Employee>(`${this.apiUrl}/${id}`);
+    return this.http.get<Employee>(`${this.apiUrl}/${id}`,{ headers: this.getHeaders() });
   }
 
   addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.apiUrl, employee);
+    return this.http.post<Employee>(this.apiUrl, employee,{ headers: this.getHeaders() });
   }
 
   updateEmployee(id: number, employee: Employee) {
-    return this.http.put(`${this.apiUrl}/${id}`, employee);
+    return this.http.put(`${this.apiUrl}/${id}`, employee,{ headers: this.getHeaders() });
   }
 
   deleteEmployee(id: number) {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(`${this.apiUrl}/${id}`,{ headers: this.getHeaders() });
   }
 
   getWallets(): Observable<EmployeeWallet[]> {
-    return this.http.get<EmployeeWallet[]>(`${this.apiUrl}/employee_wallete`);
+    return this.http.get<EmployeeWallet[]>(`${this.apiUrl}/employee_wallete`,{ headers: this.getHeaders() });
   }
 }

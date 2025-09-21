@@ -6,6 +6,8 @@ import { EmployeeService } from 'src/app/core/services/employee.service';
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/core/services/loader.service';
 
+declare var bootstrap: any; 
+
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
@@ -17,12 +19,14 @@ export class EmployeeDetailsComponent implements OnInit {
   wallets: any[] = [];
   isEdit = false;
   selectedId: number | null = null;
+  selectedEmployee: any = null;  // ✅ For modal
   loading = false;
   message = '';
   error = '';
   isemployeeForm = false;
 
   private apiUrl = environment.apiUrl;
+  private modalInstance: any;
 
   constructor(
     private fb: FormBuilder,
@@ -47,22 +51,13 @@ export class EmployeeDetailsComponent implements OnInit {
       aadhaar: ['', [Validators.pattern('^[0-9]{12}$')]],
       panCard: ['', [Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]]
     });
-//this.loader.show()
+
     this.loadEmployees();
-   // this.loadWallets();
   }
 
   private getHeaders() {
     const token = localStorage.getItem('token') || '';
     return { headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }) };
-  }
-
-  loadWallets() {
-    this.http.get<any[]>(`${this.apiUrl}/employee_wallete`, this.getHeaders())
-      .subscribe({
-        next: res => this.wallets = res,
-        error: () => console.warn('Wallet fetch failed (Admin cannot view wallets)')
-      });
   }
 
   submit() {
@@ -112,7 +107,6 @@ export class EmployeeDetailsComponent implements OnInit {
         next: () => {
           this.message = 'Employee deleted';
           this.loadEmployees();
-          this.loadWallets();
         },
         error: err => this.error = err?.error?.message || 'Delete failed'
       });
@@ -125,29 +119,39 @@ export class EmployeeDetailsComponent implements OnInit {
     this.isemployeeForm = false;
   }
 
-  walletBalance(empId: number) {
-    const w = this.wallets.find(x => x.employeeId === empId);
-    return w ? w.advanceBalance : 0;
-  }
-
   addNew() {
     this.isemployeeForm = true;
   }
 
-loadEmployees() {
-  this.loader.show();   // 🔹 show loader before API call
-  this.employeeService.getEmployees().subscribe({
-    next: (res) => {
-      this.employees = res;
-    },
-    error: (err) => {
-      this.loader.hide()
-      console.error('Error loading employees', err);
-    },
-    complete: () => {
-      this.loader.hide();  // 🔹 always hide when API finishes
-    }
-  });
-}
+  loadEmployees() {
+    this.loader.show();   
+    this.employeeService.getEmployees().subscribe({
+      next: (res) => {
+        this.employees = res;
+        this.loader.hide();   // ✅ Hide on success
+      },
+      error: (err) => {
+        this.loader.hide();
+        console.error('Error loading employees', err);
+      },
+      complete: () => {
+        this.loader.hide(); 
+      }
+    });
+  }
 
+  // ✅ Show modal with employee details
+  viewEmployee(emp: any) {
+  this.selectedEmployee = emp;
+  const modalEl = document.getElementById('employeeModal');
+  if (modalEl) {
+    this.modalInstance = new bootstrap.Modal(modalEl, { backdrop: 'static' }); 
+    this.modalInstance.show();
+  }
+}
+closeModal() {
+  if (this.modalInstance) {
+    this.modalInstance.hide();
+  }
+}
 }
