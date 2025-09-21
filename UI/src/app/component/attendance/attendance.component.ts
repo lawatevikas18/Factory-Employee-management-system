@@ -10,14 +10,14 @@ declare var bootstrap: any;
 
 
 //import { Employee } from 'src/app/model/employee.model';
-type attendanceStatus = 'Present' | 'HalfDay' | 'Late' | 'Absent' | null;
+type Status = 'Present' | 'HalfDay' | 'Late' | 'Absent' | null;
 
 interface Employee {
   id: number;             
   employeeId: number;
   name: string;
   role: string;
-  attendanceStatus: attendanceStatus;
+  Status: Status;
 
 }
 @Component({
@@ -41,10 +41,10 @@ export class AttendanceComponent {
     states = ['Maharashtra', 'Karnataka', 'Gujarat', 'Madhya Pradesh'];
     countries = ['India', 'Nepal', 'Bangladesh', 'Sri Lanka'];
 
-  newEmployee = { id: 0, name: '', role: '', attendanceStatus: null };
+  newEmployee = { id: 0, name: '', role: '', Status: null };
   selectedrole: string = '';
   searchTerm: string = '';
-  emp: any = { name: 'John Doe', role: 'Developer', attendanceStatus: '' };
+  emp: any = { name: 'John Doe', role: 'Developer', Status: '' };
   today: string = new Date().toISOString().split('T')[0];
   isPopupOpen = false;
   useselectedDate: string = '';
@@ -105,33 +105,33 @@ export class AttendanceComponent {
   // Summary counts based on the currently visible (filtered) list
   get summary() {
     const list = this.filteredEmployees;
-    const fullDay = list.filter(e => e.attendanceStatus === 'Present').length;
-    const halfDay = list.filter(e => e.attendanceStatus === 'HalfDay').length;
-    const late = list.filter(e => e.attendanceStatus === 'Late').length;
-    const absent = list.filter(e => e.attendanceStatus === 'Absent').length;
-    const pending = list.filter(e => e.attendanceStatus === null).length;
+    const fullDay = list.filter(e => e.Status === 'Present').length;
+    const halfDay = list.filter(e => e.Status === 'HalfDay').length;
+    const late = list.filter(e => e.Status === 'Late').length;
+    const absent = list.filter(e => e.Status === 'Absent').length;
+    const pending = list.filter(e => e.Status === null).length;
     return { fullDay, halfDay, late, absent, pending };
   }
 
   // Total number of marked employees across whole dataset (used in Save button)
   get totalMarked(): number {
-    return this.employees.filter(e => e.attendanceStatus !== null).length;
+    return this.employees.filter(e => e.Status !== null).length;
   }
 
   // --- Actions ---
 
   // Mark single employee
-  markAttendance(emp: Employee, attendanceStatus: Exclude<attendanceStatus, null>): void {
-    emp.attendanceStatus = attendanceStatus;
+  markAttendance(emp: Employee, Status: Exclude<Status, null>): void {
+    emp.Status = Status;
     // Angular change detection will update UI automatically
   }
 
   // Mark all filtered employees (only visible ones)
-  markAllFiltered(attendanceStatus: Exclude<attendanceStatus, null>): void {
+  markAllFiltered(Status: Exclude<Status, null>): void {
     const filtered = this.filteredEmployees;
     filtered.forEach(fe => {
       const original = this.employees.find(e => e.employeeId === fe.employeeId);
-      if (original) original.attendanceStatus = attendanceStatus;
+      if (original) original.Status = Status;
     });
   }
 
@@ -140,7 +140,7 @@ export class AttendanceComponent {
     const filtered = this.filteredEmployees;
     filtered.forEach(fe => {
       const original = this.employees.find(e => e.employeeId === fe.employeeId);
-      if (original) original.attendanceStatus = null;
+      if (original) original.Status = null;
     });
   }
 
@@ -148,7 +148,7 @@ export class AttendanceComponent {
   saveAttendance(): void {
      const attendanceList :any= this.employees.map(emp => ({
       employeeId: emp.employeeId,
-      attendanceStatus: emp.attendanceStatus || 'NotMarked',
+      Status: emp.Status || 'NotMarked',
       attendanceDate: this.attendanceDate
     }));
 
@@ -201,7 +201,7 @@ export class AttendanceComponent {
 
   submitDates() {
     if (this.selectedDates.length > 0) {
-      this.emp.attendanceStatus = `Updated with ${this.selectedDates.length} dates`;
+      this.emp.Status = `Updated with ${this.selectedDates.length} dates`;
       this.closePopup();
     } else {
       alert('Please select at least one date!');
