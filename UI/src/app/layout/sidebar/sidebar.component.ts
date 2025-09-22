@@ -52,17 +52,14 @@ export class SidebarComponent implements OnInit {
     this.onToggelSideNav.emit({ collapsed: this.collapsed, screenwidth: this.screenWidth });
   }
 
-  closeSidenave() {
-    // this.collapsed = false;
-    this.ishamburger=true;
-    this.isMobileMenuOpen = false;
-    this.onToggelSideNav.emit({ collapsed: this.collapsed, screenwidth: this.screenWidth });
-  }
+ 
 
-  toggleMobileMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    this.ishamburger = !this.isMobileMenuOpen;
+toggleMobileMenu() {
+  this.isMobileMenuOpen = !this.isMobileMenuOpen;
+}
 
-  }
+closeSidenave() {
+  this.isMobileMenuOpen = false;
+}
 }
 

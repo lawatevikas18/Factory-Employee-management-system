@@ -14,21 +14,21 @@ export const navbardata=[
     icon: 'fa-solid fa-calendar-check', 
     label: 'MENU.attendance'
   },
-  // {
-  //   routerLink:'reports',
-  //   icon:'fa-regular fa-file',
-  //   label:'MENU.REPORTS'  
-  //  },
+  {
+    routerLink:'reports',
+    icon:'fa-regular fa-file',
+    label:'MENU.REPORTS'  
+   },
 
     {
     routerLink:'advance',
     icon:'fa-regular fa-file',
     label:'MENU.ADVANCE'  },
-  //  {
-  //   routerLink:'factory-bill',
-  //   icon:'fa-regular fa-file',
-  //   label:'MENU.FACTORY_BILL'  
-  //  },
+   {
+    routerLink:'factory-bill',
+    icon:'fa-regular fa-file',
+    label:'MENU.FACTORY_BILL'  
+   },
   //   {
   //   routerLink:'auth',
   //   icon:'fa-regular fa-users',
