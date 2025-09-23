@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { EmployeeService } from 'src/app/core/services/employee.service';
 import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
@@ -26,10 +27,10 @@ interface EmployeeData {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
- totalSites = 12;
-  workingSitesToday = 10;
-  totalEmployees = 156;
-  presentEmployeesToday = 142;
+ totalSites:any=0;
+  workingSitesToday:any=0;
+  totalEmployees:any=0;
+  presentEmployeesToday:any=0;
   absentEmployeesToday = 14;
   lateEmployeesToday = 8;
 
@@ -54,7 +55,8 @@ export class DashboardComponent {
 
   constructor(private loader:LoaderService,
     private employeeService:EmployeeService,
-    private errormsg:ErrorPopUpService
+    private errormsg:ErrorPopUpService,
+    private authService:AuthService
   ) { }
 
   ngOnInit(): void {
@@ -110,6 +112,11 @@ export class DashboardComponent {
       next: (res) => {
         // this.employees = res;
         console.log(res)
+        this.totalEmployees=res.employee_count
+      this.presentEmployeesToday=res.attendance_count_today
+      this.workingSitesToday=res.active_site.length
+      this.totalSites=res.total_site
+          this.authService.setUserRole(res.role)
         this.loader.hide();   // ✅ Hide on success
       },
       error: (err) => {

@@ -109,7 +109,7 @@
             <th>Mobile</th>
             <th>Salary</th>
             <!-- <th>Aadhaar</th> -->
-            <th>Role</th>
+            <th>Designation</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -149,6 +149,7 @@
   <div class="custom-modal-content">
     <h5>Employee Details</h5>
     <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
+    <p><strong>Designation:</strong> {{ selectedEmployee.role }}</p>
     <p><strong>Mobile:</strong> {{ selectedEmployee.mobile1 }}</p>
     <p><strong>Salary:</strong> {{ selectedEmployee.monthlySalary | currency:'INR' }}</p>
     <p><strong>Factory:</strong> {{ selectedEmployee.factoryName }}</p>

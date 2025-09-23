@@ -1,0 +1,180 @@
+<div class="container-fluid p-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+      <!-- Invoice Header -->
+      <div class="invoice-header text-center border border-dark p-3 mb-4">
+        <h1 class="h4 text-uppercase mb-2">TAX INVOICE</h1>
+        <h2 class="h3 text-uppercase mb-2">{{ data.companyName }}</h2>
+        <p class="small mb-2">{{ data.address }}</p>
+        <p class="small mb-2">{{ data.description }}</p>
+        <p class="text-xs mb-0">
+          (Composition taxable person, not eligible to collect tax on supply under Sec. 51(1) read with Rule 48 of CGST Rule 2017)
+        </p>
+      </div>
+
+      <!-- Company and Invoice Details -->
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="mb-2">
+            <span class="fw-medium d-inline-block" style="width: 120px;">GSTIN NO.</span>
+            <span>{{ data.gstin }}</span>
+          </div>
+          <div class="mb-2">
+            <span class="fw-medium d-inline-block" style="width: 120px;">PAN NO.</span>
+            <span>{{ data.panNo }}</span>
+          </div>
+          <div class="mb-2">
+            <span class="fw-medium d-inline-block" style="width: 120px;">State :</span>
+            <span>{{ data.state }}</span>
+          </div>
+          <div class="mb-2">
+            <span class="fw-medium d-inline-block" style="width: 120px;">State Code :</span>
+            <span>{{ data.stateCode }}</span>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="mb-2">
+            <span class="fw-medium d-inline-block" style="width: 140px;">INVOICE NO.</span>
+            <span>{{ data.invoiceNo }}</span>
+          </div>
+          <div class="mb-2">
+            <span class="fw-medium d-inline-block" style="width: 140px;">INVOICE DATE</span>
+            <span>{{ data.invoiceDate | date:'dd/MM/yy' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Details -->
+      <div class="mb-4">
+        <div class="row mb-3">
+          <div class="col-12">
+            <span class="fw-medium me-3">To,</span>
+            <div class="d-inline-block">
+              <div>{{ data.customerName }}</div>
+              <div>{{ data.customerAddress }}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-2">
+              <span class="fw-medium d-inline-block" style="width: 160px;">Work Order No.</span>
+              <span>{{ data.workOrderNo }}</span>
+            </div>
+            <div class="mb-2">
+              <span class="fw-medium d-inline-block" style="width: 160px;">Buyers GST No.</span>
+              <span>{{ data.customerGstin }}</span>
+            </div>
+            <div class="mb-2">
+              <span class="fw-medium d-inline-block" style="width: 160px;">PAN No.</span>
+              <span>{{ data.customerState }}</span>
+            </div>
+            <div class="mb-2">
+              <span class="fw-medium d-inline-block" style="width: 160px;">Working Period Date :</span>
+              <span>{{ data.workingPeriod }}</span>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="mb-2">
+              <span class="fw-medium d-inline-block" style="width: 140px;">STATE</span>
+              <span>{{ data.customerState }}</span>
+            </div>
+            <div class="mb-2">
+              <span class="fw-medium d-inline-block" style="width: 140px;">Buyers State Code</span>
+              <span>{{ data.customerStateCode }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Items Table -->
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered border-dark mb-0">
+          <thead>
+            <tr class="border-dark">
+              <th class="text-center border-dark small p-2" style="width: 8%;">Sr. No.</th>
+              <th class="text-center border-dark small p-2" style="width: 40%;">Description of Taxable Service</th>
+              <th class="text-center border-dark small p-2" style="width: 15%;">Service Tariff Code</th>
+              <th class="text-center border-dark small p-2" style="width: 12%;">Qty (Bags)</th>
+              <th class="text-center border-dark small p-2" style="width: 10%;">Rate</th>
+              <th class="text-center border-dark small p-2" style="width: 15%;">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filled Items -->
+            <tr *ngFor="let item of data.items" class="border-dark">
+              <td class="text-center border-dark small p-2">{{ item.srNo }}</td>
+              <td class="border-dark small p-2">{{ item.description }}</td>
+              <td class="text-center border-dark small p-2">{{ item.serviceCode }}</td>
+              <td class="text-center border-dark small p-2">{{ item.quantity }}</td>
+              <td class="text-center border-dark small p-2">{{ item.rate }}</td>
+              <td class="text-center border-dark small p-2">{{ item.amount | number:'1.2-2' }}</td>
+            </tr>
+            
+            <!-- Empty rows -->
+            <tr *ngFor="let _ of emptyRows" class="border-dark" style="height: 35px;">
+              <td class="border-dark p-2">&nbsp;</td>
+              <td class="border-dark p-2">&nbsp;</td>
+              <td class="border-dark p-2">&nbsp;</td>
+              <td class="border-dark p-2">&nbsp;</td>
+              <td class="border-dark p-2">&nbsp;</td>
+              <td class="border-dark p-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Totals Section -->
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <div class="mb-2">
+            <span class="d-inline-block" style="width: 180px;">Total IGST Amount :</span>
+            <span class="me-3">Total</span>
+            <span class="ms-auto">{{ totals.subtotal | number:'1.2-2' }}</span>
+          </div>
+          <div class="mb-2">
+            <span class="d-inline-block" style="width: 180px;">Total Invoice Amount :</span>
+            <span>CGST @</span>
+            <span *ngIf="data.cgstRate" class="ms-2">{{ data.cgstRate }}%</span>
+            <span *ngIf="totals.cgstAmount" class="ms-auto">{{ totals.cgstAmount | number:'1.2-2' }}</span>
+          </div>
+          <div class="mb-2">
+            <span class="d-inline-block" style="width: 180px;"></span>
+            <span>SGST @</span>
+            <span *ngIf="data.sgstRate" class="ms-2">{{ data.sgstRate }}%</span>
+            <span *ngIf="totals.sgstAmount" class="ms-auto">{{ totals.sgstAmount | number:'1.2-2' }}</span>
+          </div>
+          <div class="mb-2">
+            <span class="d-inline-block" style="width: 180px;"></span>
+            <span>IGST @</span>
+            <span class="ms-2">{{ data.igstRate }}%</span>
+            <span class="ms-auto">{{ totals.igstAmount | number:'1.2-2' }}</span>
+          </div>
+          <div class="border-top border-dark pt-2">
+            <span class="d-inline-block" style="width: 180px;"></span>
+            <span class="fw-medium">Total Invoice Value</span>
+            <span class="ms-auto fw-medium">{{ totals.total | number:'1.0-0' }}</span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="border border-dark p-3">
+            <p class="small lh-sm mb-4">
+              Certified That the Particular given above are true and 
+              correct and the amount indicated represent the price 
+              actually charged and that there is no flow additional 
+              consideration directly or indirectly from the buyer.
+            </p>
+            <div class="text-end mt-5">
+              <p class="small mb-1">For, {{ data.companyName }}</p>
+              <p class="small mt-4 mb-0">Authorised Signatory</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

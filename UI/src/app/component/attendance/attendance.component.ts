@@ -18,6 +18,7 @@ interface Employee {
   name: string;
   role: string;
   status: status;
+ ot?: number | null;
 
 }
 @Component({
@@ -50,7 +51,7 @@ export class AttendanceComponent {
   useselectedDate: string = '';
  date: string = new Date().toISOString().substring(0, 10);
   showDatepicker = false;
-
+   UserRole:any
  constructor(private http: HttpClient,
   private authService:AuthService,
   private getAttendance:AttendanceService,
@@ -58,9 +59,11 @@ export class AttendanceComponent {
   private loader:LoaderService
 ){}
   ngOnInit(): void {
-    this.getEmplyees()
+    this.UserRole=this.authService.getUserRole()
+    const formattedDate = this.selectedDate.toISOString().split('T')[0];
+    this.getEmplyees(formattedDate)
   }
-  getEmplyees(){
+  getEmplyees(date:any){
     this.loader.show()
   let requestdata={
        fromDate:'',
@@ -68,7 +71,7 @@ export class AttendanceComponent {
        employeeId:'',
        day:this.date
   }
-    this.getAttendance.getAll()
+    this.getAttendance.getAll(date)
   .subscribe({
     next: (res) => {
       this.employees = res;
@@ -123,55 +126,61 @@ export class AttendanceComponent {
 
   // Mark single employee
   markAttendance(emp: Employee, status: Exclude<status, null>): void {
-    emp.status = status;
+    if(this.UserRole!=='Admin'){
+         emp.status = status;
+    }
+    
     // Angular change detection will update UI automatically
   }
+ setOT(emp: Employee, hours: number) {
+  if (this.UserRole !== 'Admin' && emp.status === 'Present') {
+    emp.ot = hours;   // ✅ store as number
+  }
+}
 
   // Mark all filtered employees (only visible ones)
   markAllFiltered(status: Exclude<status, null>): void {
+    if(this.UserRole!=='Admin'){
     const filtered = this.filteredEmployees;
     filtered.forEach(fe => {
       const original = this.employees.find(e => e.employeeId === fe.employeeId);
       if (original) original.status = status;
     });
   }
+  }
 
   // Clear statuses for filtered employees
   clearAllFiltered(): void {
+    if(this.UserRole!=='Admin'){
     const filtered = this.filteredEmployees;
     filtered.forEach(fe => {
       const original = this.employees.find(e => e.employeeId === fe.employeeId);
       if (original) original.status = null;
     });
   }
+  }
 
   // Save attendance (hook this to API)
   saveAttendance(): void {
-     const attendanceList :any= this.employees.map(emp => ({
+  if(this.UserRole !== 'Admin'){
+    const attendanceList: any = this.employees.map(emp => ({
       employeeId: emp.employeeId,
       status: emp.status || 'NotMarked',
-      date: this.date
+       
+      date: this.date,
+      ot: emp.ot || 0
     }));
 
-    // const request: AttendanceRequest = {
-    //   adminId: '100', 
-    //   action: 'Insert',
-    //   attendanceList
-    // };
-
-      this.getAttendance.saveAttendance(attendanceList)
-       .subscribe({
+    this.getAttendance.saveAttendance(attendanceList).subscribe({
       next: (res) => {
-      if (res.statusCode === 200) {
-        console.log('Attendance saved:', res);
+        if (res.statusCode === 200) {
           alert('Attendance saved successfully!');
         }
       },
-      error: err => {
-          console.error('Error saving attendance', err);
-        }
-    })
+      error: err => console.error('Error saving attendance', err)
+    });
   }
+}
 
   // Helpers for template (optional)
   trackByEmployee(index: number, emp: Employee) {
@@ -257,19 +266,24 @@ export class AttendanceComponent {
 
      decreaseDate() {
     this.selectedDate = new Date(this.selectedDate.setDate(this.selectedDate.getDate() - 1));
+    const formattedDate = this.selectedDate.toISOString().split('T')[0];
+    this.getEmplyees(formattedDate)
   }
 
   increaseDate() {
   const today = new Date();
 
+
   // If current selectedDate is before today, allow increment
   if (this.selectedDate < today) {
     const newDate = new Date(this.selectedDate);
     newDate.setDate(this.selectedDate.getDate() + 1);
-
+    
     // Ensure it never goes beyond today
     if (newDate <= today) {
       this.selectedDate = newDate;
+      const formattedDate = this.selectedDate.toISOString().split('T')[0];
+      this.getEmplyees(formattedDate)
     }
   }
 }

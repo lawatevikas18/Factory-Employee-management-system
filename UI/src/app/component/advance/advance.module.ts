@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdvanceRoutingModule } from './advance-routing.module';
 import { AdvanceComponent } from './advance.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AdvanceRoutingModule,
-    FormsModule   
+    FormsModule ,
+    ReactiveFormsModule  
   ]
 })
 export class AdvanceModule { }

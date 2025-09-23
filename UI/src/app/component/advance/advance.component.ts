@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { AdvanceTransaction, EmployeeAdvancesService } from 'src/app/core/services/employee-advance.service';
+import { EmployeeService } from 'src/app/core/services/employee.service';
+import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
+import { LoaderService } from 'src/app/core/services/loader.service';
 
 
 export interface Employee {
@@ -22,137 +27,124 @@ export interface Employee {
 })
 export class AdvanceComponent {
 
-   employees: Employee[] = [];
-    filteredEmployees: Employee[] = [];
-    searchText: string = '';
+   transactions: AdvanceTransaction[] = [];
+  advanceForm!: FormGroup;
+  loading = false;
+  errorMessage = '';
+  successMessage = '';
+  employees: any[] = [];
+
+ 
+  filteredTransactions: AdvanceTransaction[] = [];
   
-    // Dropdown data
-    designations = ['Worker', 'Supervisor', 'Manager', 'Driver'];
-    factories = ['Factory A', 'Factory B', 'Factory C'];
-    states = ['Maharashtra', 'Karnataka', 'Gujarat', 'Madhya Pradesh'];
-    countries = ['India', 'Nepal', 'Bangladesh', 'Sri Lanka'];
-  
-    selectedEmployee: Employee | null = null;
-    isEmployeePopupOpen = false;
-    isAddMode = false;
-    selectedFactory: string = '';
-    adminData: any;
-  
-    constructor(private apiService: AuthService,
-      private router:Router
-    ) {}
-  
-    ngOnInit(): void {
-      // this.employees = [
-      //   {
-      //     id: 1,
-      //     name: 'John D. Smith',
-      //     mobileNo: '9876543210',
-      //     source: 'Factory A',
-      //     reason: 'Advance Request',
-      //     credit: 18000,
-      //     debit: 5000,
-      //     total: 18000 - 5000
-      //   },
-      //   {
-      //     id: 2,
-      //     name: 'Asha More',
-      //     mobileNo: '9001234567',
-      //     source: 'Factory B',
-      //     reason: 'Medical',
-      //     credit: 22000,
-      //     debit: 7000,
-      //     total: 22000 - 7000
-      //   }
-      // ];
-      this. getEmployeeDetails()
-      this.filteredEmployees = [...this.employees];
-    }
-  
-    getEmployeeDetails(){
-      const request = {
-        admin: this.adminData?.adminName,
-        role: this.adminData?.role
-      };
-      this.apiService.getEmpListDetails(request).subscribe({
-        next: (res: Employee[]) => {
-          this.employees = res;
-          this.filteredEmployees = [...this.employees];
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
-    }
-  
-    openAddEmployeePopup() {
-      // this.selectedEmployee = null;
-      // this.isAddMode = true;
-      // this.isEmployeePopupOpen = true;
-      this.router.navigate(['/employee-details'], {
-    queryParams: { 'from': 'Advance' }
-  })
-    }
-  
-    openEditEmployee(emp: Employee) {
-      this.selectedEmployee = { ...emp }; 
-      this.isAddMode = false;
-      this.isEmployeePopupOpen = true;
-    }
-    
-  
-    closeEmployeePopup() {
-      this.isEmployeePopupOpen = false;
-      this.selectedEmployee = null;
-    }
-  
-    handleSave(employeeData: Employee) {
-      if (this.isAddMode) {
-        // create new unique id (safer than length+1)
-        const newId = this.employees.length ? Math.max(...this.employees.map(e => e.id)) + 1 : 1;
-        employeeData.id = newId;
-        this.employees.push(employeeData);
-      } else {
-        const index = this.employees.findIndex(e => e.id === employeeData.id);
-        if (index !== -1) {
-          this.employees[index] = employeeData;
-        }
+
+  searchQuery: string = '';
+  searchResults: any[] = [];
+  showPopup: boolean = false;
+
+  constructor(
+    private advancesService: EmployeeAdvancesService,
+    private fb: FormBuilder,
+    private loader: LoaderService,
+        private router: ActivatedRoute,
+        private errormsg:ErrorPopUpService,
+        private employeeService: EmployeeService,
+            private route: Router,
+  ) {}
+
+  ngOnInit(): void {
+    this.loadTransactions();
+
+    this.advanceForm = this.fb.group({
+      employeeId: ['', Validators.required],
+      reason: ['', Validators.required],
+      paymentMode: ['Cash', Validators.required],
+      amount: ['', [Validators.required, Validators.min(1)]],
+    });
+    this.loadEmployees()
+  }
+
+  loadTransactions() {
+    this.loading = true;
+    this.advancesService.getAll().subscribe({
+      next: (data) => {
+        this.transactions = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.errorMessage = 'Failed to load transactions';
+        this.loading = false;
       }
-      this.filteredEmployees = [...this.employees];
-      this.closeEmployeePopup();
-    }
-  
-    trackByEmployee(index: number, emp: Employee) {
-      return emp.id;
-    }
-  
-    confirmDeleteEmployee(emp: Employee) {
-      const confirmed = confirm(`Are you sure you want to delete ${emp.name}?`);
-      if (confirmed) {
-        this.deleteEmployee(emp.id);
+    });
+  }
+
+  onSubmit() {
+    if (this.advanceForm.invalid) return;
+
+    this.advancesService.sendAdvance(this.advanceForm.value).subscribe({
+      next: (res) => {
+        this.successMessage = res.message;
+        this.advanceForm.reset({ paymentMode: 'Cash' });
+        this.loadTransactions();
+        setTimeout(() => (this.successMessage = ''), 3000);
+      },
+      error: (err) => {
+        this.errorMessage = err.error || 'Failed to send advance';
+        setTimeout(() => (this.errorMessage = ''), 3000);
       }
-    }
-    
-    deleteEmployee(id: number) {
-      this.employees = this.employees.filter(e => e.id !== id);
-      this.filteredEmployees = [...this.employees];
+    });
+  }
+    loadEmployees() {
+    this.loader.show();   
+    this.employeeService.getEmployees().subscribe({
+      next: (res) => {
+        this.employees = res;
+        this.loader.hide();   // ✅ Hide on success
+      },
+      error: (err) => {
+        this.loader.hide();
+        this.errormsg.showError(err?.error)
+        console.error('Error loading employees', err);
+      },
+      complete: () => {
+        this.loader.hide(); 
+      }
+    });
+  }
+
+  onSearchChange() {
+    if (!this.searchQuery.trim()) {
+      this.searchResults = [];
+      this.showPopup = false;
+      return;
     }
 
+    const query = this.searchQuery.toLowerCase();
+    this.searchResults = this.employees.filter(emp =>
+      emp.name.toLowerCase().includes(query)
+    );
 
-    viewEmployee(emp: Employee) {
-      alert(`Viewing details of: ${emp.name}`);
-    }
-  
-    filterEmployees() {
-      const text = this.searchText.toLowerCase();  
-      const factory = this.selectedFactory;
-    
-      this.filteredEmployees = this.employees.filter(emp =>
-        (emp.name.toLowerCase().includes(text) ||
-         emp.source.toLowerCase().includes(text) ||
-         emp.reason.toLowerCase().includes(text)) &&
-        (factory === '' || emp.reason === factory)
-      );
-    }
-    
+    this.showPopup = this.searchResults.length > 0;
+  }
+
+  selectEmployee(emp: any) {
+    this.searchQuery = emp.name;  // fill selected name in search box
+    this.showPopup = false;
+
+    // Filter transactions for this employee
+    this.filteredTransactions = this.transactions.filter(
+      t => t.employeeId === emp.id
+    );
+  }
+
+  resetSearch() {
+    this.searchQuery = '';
+    this.filteredTransactions = this.transactions;
+    this.showPopup = false;
+  }
+
+  getEmployeeName(id: number): string {
+    const emp = this.employees.find(e => e.id === id);
+    return emp ? emp.name : `Emp#${id}`;
+  }
 }

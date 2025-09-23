@@ -14,11 +14,11 @@ export const navbardata=[
     icon: 'fa-solid fa-calendar-check', 
     label: 'MENU.attendance'
   },
-  {
-    routerLink:'reports',
-    icon:'fa-regular fa-file',
-    label:'MENU.REPORTS'  
-   },
+  // {
+  //   routerLink:'reports',
+  //   icon:'fa-regular fa-file',
+  //   label:'MENU.REPORTS'  
+  //  },
 
     {
     routerLink:'advance',
@@ -29,6 +29,11 @@ export const navbardata=[
     icon:'fa-regular fa-file',
     label:'MENU.FACTORY_BILL'  
    },
+  //  {
+  //   routerLink:'invice-form',
+  //   icon:'fa-regular fa-file',
+  //   label:'MENU.FACTORY_BILL'  
+  //  },
   //   {
   //   routerLink:'auth',
   //   icon:'fa-regular fa-users',

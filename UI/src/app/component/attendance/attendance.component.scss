@@ -216,6 +216,15 @@
 .position-absolute {
   z-index: 1050; // so it overlays content
 }
+.btn-option {
+  min-height: 40px;   /* keep all buttons same height */
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dropdown-toggle::after {
+  margin-left: auto;   /* push arrow to the right neatly */
+}
 
 
 

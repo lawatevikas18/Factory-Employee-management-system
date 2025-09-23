@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
- 
+ private role:any
   constructor(private http: HttpClient) {
     
   }
@@ -81,6 +81,16 @@ getReport(requestdata:any): Observable<any> {
   login(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}Auth/login`, data);
   }
+
+  setUserRole(userole:any){
+    this.role=userole
+  }
+  getUserRole(){
+return this.role
+  }
+  // setUserRole(userole:any){
+  //   this.role=userole
+  // }
 }
 
 

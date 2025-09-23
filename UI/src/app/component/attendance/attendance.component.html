@@ -43,18 +43,19 @@
         <div class="label">Half </div>
       </div>
     </div>
-    <div class="col">
-      <div class="summary-tile text-warning bg-warning bg-opacity-10 text-center">
-        <div class="count">{{ summary.late }}</div>
-        <div class="label">Late</div>
-      </div>
-    </div>
+    
     <div class="col">
       <div class="summary-tile text-danger bg-danger bg-opacity-10 text-center">
         <div class="count">{{ summary.absent }}</div>
         <div class="label">Absent</div>
       </div>
     </div>
+    <!-- <div class="col">
+      <div class="summary-tile text-warning bg-warning bg-opacity-10 text-center">
+        <div class="count">{{ summary.late }}</div>
+        <div class="label">Late</div>
+      </div>
+    </div> -->
     <div class="col">
       <div class="summary-tile text-secondary bg-secondary bg-opacity-10 text-center">
         <div class="count">{{ summary.pending }}</div>
@@ -116,7 +117,7 @@
     </div>
   </div>
   
-
+<div>
   <!-- Mark all label + actions -->
   <div class="mb-2 small text-muted">
     <i class="bi bi-people"></i>
@@ -207,22 +208,42 @@
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
                   [ngClass]="emp.status === 'Present' ? 'btn-success' : 'btn-outline-success'"
-                  (click)="markAttendance(emp, 'Present')">Present</button>
+                  (click)="markAttendance(emp, 'Present')"
+                   [disabled]=" UserRole === 'Admin'">Present</button>
         </div>
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
                   [ngClass]="emp.status === 'HalfDay' ? 'btn-primary' : 'btn-outline-primary'"
-                  (click)="markAttendance(emp, 'HalfDay')">Half Day</button>
+                  (click)="markAttendance(emp, 'HalfDay')"
+                  [disabled]=" UserRole === 'Admin'">Half Day</button>
         </div>
-        <div class="col-6 col-md-3">
-          <button class="btn w-100 btn-option"
-                  [ngClass]="emp.status === 'Late' ? 'btn-warning text-dark' : 'btn-outline-warning'"
-                  (click)="markAttendance(emp, 'Late')">Late</button>
-        </div>
+         <div class="col-6 col-md-3">
+    <div class="col-6 col-md-3">
+  <div class="dropdown w-100">
+    <button class="btn w-100 btn-option dropdown-toggle"
+            [class.btn-warning]="emp.ot"
+            [class.btn-outline-warning]="!emp.ot"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            [disabled]="UserRole === 'Admin' || emp.status !== 'Present'">
+      OT {{ emp.ot ? '('+emp.ot+'hr)' : '' }}
+    </button>
+    <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" (click)="setOT(emp, 2)">2hr</a></li>
+      <li><a class="dropdown-item" (click)="setOT(emp, 3)">3hr</a></li>
+      <li><a class="dropdown-item" (click)="setOT(emp, 4)">4hr</a></li>
+    </ul>
+  </div>
+</div>
+
+  </div>
         <div class="col-6 col-md-3">
           <button class="btn w-100 btn-option"
                   [ngClass]="emp.status === 'Absent' ? 'btn-danger' : 'btn-outline-danger'"
-                  (click)="markAttendance(emp, 'Absent')">Absent</button>
+                  (click)="markAttendance(emp, 'Absent')"
+                  [disabled]=" UserRole === 'Admin'">Absent</button>
         </div>
       </div>
       
@@ -233,14 +254,14 @@
   <div class="fixed-bottom bg-white border-top p-2">
     <div class="container">
       <button class="btn btn-save w-100"
-              [disabled]="totalMarked === 0"
+              [disabled]="totalMarked === 0 || UserRole === 'Admin'"
               (click)="saveAttendance()">
         <i class="bi bi-save me-2"></i>
         Save Attendance ({{ totalMarked }} marked)
       </button>
     </div>
   </div>
-
+</div>
   <!-- <div class="custom-popup" *ngIf="isEmployeePopupOpen">
     
 </div> -->

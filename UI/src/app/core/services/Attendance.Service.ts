@@ -24,8 +24,12 @@ private getHeaders() {
     }
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Attendance[]> {
-    return this.http.get<Attendance[]>(`${this.baseUrl}/TodayStatus`,{ headers: this.getHeaders() });
+  // getAll(): Observable<Attendance[]> {
+  //   return this.http.get<Attendance[]>(`${this.baseUrl}/StatusByDate?date=${date}`,{ headers: this.getHeaders() });
+  // }
+getAll(date: any): Observable<any[]> {
+
+    return this.http.get<any[]>(`${this.baseUrl}/StatusByDate?date=${date}`, { headers: this.getHeaders() });
   }
 
   getById(id: number): Observable<Attendance> {

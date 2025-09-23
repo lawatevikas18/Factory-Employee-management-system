@@ -1,5 +1,6 @@
 // src/app/layout/header/header.component.ts
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -16,7 +17,9 @@ export class HeaderComponent {
 
   showSettingsPopup = false;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService,
+    private router:Router
+  ) {}
 
   changeLanguage(lang: string) {
     this.translate.use(lang);
@@ -26,7 +29,8 @@ export class HeaderComponent {
   logout() {
     localStorage.removeItem('adminData');
   localStorage.clear();
-    window.location.href = '/login';
+    // window.location.href = '/login';
+     this.router.navigate(['/login'])
   }
 
   toggleSettingsPopup() {
