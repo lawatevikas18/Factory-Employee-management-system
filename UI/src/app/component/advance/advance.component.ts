@@ -29,6 +29,7 @@ export class AdvanceComponent {
     employees: Employee[] = [];
   filteredEmployees: any = [];
   transactions: AdvanceTransaction[] = [];
+  sendAdvanceForm:boolean=false
 
   advanceForm!: FormGroup;
   loading = false;
@@ -51,6 +52,8 @@ export class AdvanceComponent {
       reason: ['', Validators.required],
       paymentMode: ['Cash', Validators.required],
       amount: ['', [Validators.required, Validators.min(1)]],
+       date: ['', Validators.required],
+       payment_catagaory: ['', Validators.required],
     });
   }
 
@@ -83,6 +86,7 @@ export class AdvanceComponent {
     this.advanceForm.patchValue({
       employeeId: emp.employeeId
     });
+    this.sendAdvanceForm=!this.sendAdvanceForm
   }
 
 
@@ -98,12 +102,16 @@ export class AdvanceComponent {
         this.advanceForm.reset({ paymentMode: 'Cash' });
         setTimeout(() => (this.successMessage = ''), 3000);
         this.loadEmployees();
+        this.sendAdvanceForm=!this.sendAdvanceForm
       },
       error: (err) => {
         this.errorMessage = err.error || 'Failed to send advance';
         setTimeout(() => (this.errorMessage = ''), 3000);
       }
     });
+  }
+  closeForm(){
+    this.sendAdvanceForm=!this.sendAdvanceForm
   }
 }
 

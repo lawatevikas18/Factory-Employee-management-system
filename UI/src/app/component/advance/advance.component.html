@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="title">Employee Advances</h2>
-
+<div *ngIf="!sendAdvanceForm">
   <!-- ✅ Alerts -->
   <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
   <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
@@ -43,38 +43,60 @@
       </tbody>
     </table>
   </div>
-
+</div>
   <!-- ✅ Advance Form -->
-  <div class="card shadow p-3 mt-4">
-    <h4>Send Advance</h4>
-    <form [formGroup]="advanceForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label>Employee ID</label>
-        <input type="number" class="form-control" formControlName="employeeId" readonly />
-      </div>
+  <div class="card shadow p-3 mt-4 position-relative" *ngIf="sendAdvanceForm">
+  <!-- Close button -->
+  <button 
+    type="button" 
+    class="btn-close position-absolute top-0 end-0 m-2" 
+    aria-label="Close" 
+    (click)="closeForm()">
+  </button>
 
-      <div class="mb-3">
-        <label>Reason</label>
-        <input type="text" class="form-control" formControlName="reason" />
-      </div>
+  <h4>Send Advance</h4>
+  <form [formGroup]="advanceForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Employee ID</label>
+      <input type="number" class="form-control" formControlName="employeeId" readonly />
+    </div>
 
-      <div class="mb-3">
-        <label>Payment Mode</label>
-        <select class="form-select" formControlName="paymentMode">
-          <option value="Cash">Cash</option>
-          <option value="Bank Transfer">Bank Transfer</option>
-          <option value="UPI">UPI</option>
-        </select>
-      </div>
+    <div class="mb-3">
+      <label>Reason</label>
+      <input type="text" class="form-control" formControlName="reason" />
+    </div>
 
-      <div class="mb-3">
-        <label>Amount</label>
-        <input type="number" class="form-control" formControlName="amount" />
-      </div>
+    <div class="mb-3">
+      <label>Payment Mode</label>
+      <select class="form-select" formControlName="paymentMode">
+        <option value="Cash">Cash</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="UPI">UPI</option>
+      </select>
+    </div>
 
-      <button class="btn btn-success w-100" [disabled]="advanceForm.invalid">
-        Send Advance
-      </button>
-    </form>
-  </div>
+    <div class="mb-3">
+      <label>Amount</label>
+      <input type="number" class="form-control" formControlName="amount" />
+    </div>
+
+    <div class="mb-3">
+      <label>Date</label>
+      <input type="date" class="form-control" formControlName="date" />
+    </div>
+
+    <div class="mb-3">
+      <label>Payment Category</label>
+      <select class="form-select" formControlName="payment_catagaory">
+        <option value="Debit">Send To Employee</option>
+        <option value="Credit">Get From Employee</option>
+      </select>
+    </div>
+
+    <button class="btn btn-success w-100" [disabled]="advanceForm.invalid">
+      Send Advance
+    </button>
+  </form>
+</div>
+
 </div>
