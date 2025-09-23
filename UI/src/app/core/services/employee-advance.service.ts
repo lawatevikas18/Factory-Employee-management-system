@@ -33,7 +33,9 @@ export class EmployeeAdvancesService {
     return this.http.get<AdvanceTransaction[]>(this.baseUrl,{ headers: this.getHeaders() });
   }
 
- 
+ getAdvanceDetail(id:any): Observable<AdvanceTransaction[]> {
+    return this.http.get<AdvanceTransaction[]>(`${this.baseUrl}/${id}`,{ headers: this.getHeaders() });
+  }
   sendAdvance(transaction: AdvanceTransaction): Observable<any> {
     return this.http.post(this.baseUrl, transaction,{ headers: this.getHeaders() });
   }

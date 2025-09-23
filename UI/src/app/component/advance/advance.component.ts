@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdvanceTransaction, EmployeeAdvancesService } from 'src/app/core/services/employee-advance.service';
 import { EmployeeService } from 'src/app/core/services/employee.service';
+import { LoaderService } from 'src/app/core/services/loader.service';
  
 
 export interface Employee {
@@ -36,11 +37,13 @@ export class AdvanceComponent {
   successMessage = '';
   errorMessage = '';
   searchText = '';
-
+showDetails:boolean=false
+ advanceHistory: any[] = [];
   constructor(
     private empService: EmployeeService,
     private advancesService: EmployeeAdvancesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private loader:LoaderService
   ) {}
 
   ngOnInit(): void {
@@ -114,7 +117,25 @@ export class AdvanceComponent {
     this.sendAdvanceForm=!this.sendAdvanceForm
   }
   viewEmployee(e:any){
-  console.log(e)
+  this.advancesService.getAdvanceDetail(e.employeeId)
+  .subscribe({
+    next: (res) => {
+      this.showDetails=true
+      this.advanceHistory = res;
+     console.log(res)
+        this.loader.hide(); 
+      },
+       error: (err) => {
+        this.loader.hide();
+        console.error('Error loading employees details', err);
+      },
+      complete: () => {
+        this.loader.hide(); 
+      }
+    })
+  }
+  closeAdvanceDetails(){
+    this.showDetails=false
   }
 }
 

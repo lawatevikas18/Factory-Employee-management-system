@@ -24,11 +24,11 @@ export const navbardata=[
     routerLink:'advance',
     icon:'fa-regular fa-file',
     label:'MENU.ADVANCE'  },
-   {
-    routerLink:'factory-bill',
-    icon:'fa-regular fa-file',
-    label:'MENU.FACTORY_BILL'  
-   },
+  //  {
+  //   routerLink:'factory-bill',
+  //   icon:'fa-regular fa-file',
+  //   label:'MENU.FACTORY_BILL'  
+  //  },
   //  {
   //   routerLink:'invice-form',
   //   icon:'fa-regular fa-file',
