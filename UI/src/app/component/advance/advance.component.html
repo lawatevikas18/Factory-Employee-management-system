@@ -1,55 +1,53 @@
-<div class="container mt-3">
-  <h3>Add Employee Advance</h3>
+<div class="container">
+  <h2 class="title">Employee Advances</h2>
 
-  <form [formGroup]="advanceForm" (ngSubmit)="onSubmit()">
+  <!-- ✅ Search Input -->
+  <div class="d-flex gap-2 mb-3">
+    <input type="text" class="form-control"
+           placeholder="Search Employee Name..."
+           [(ngModel)]="searchQuery"
+           (input)="onSearchChange()" />
+    <button class="btn btn-outline-secondary" (click)="resetSearch()">Reset</button>
+  </div>
 
-    <!-- Employee Dropdown -->
-    <div class="mb-3">
-      <label class="form-label">Select Employee</label>
-      <select class="form-select" formControlName="employeeId" (change)="onEmployeeSelect($event)">
-        <option value="">-- Select --</option>
-        <option *ngFor="let emp of employees" [value]="emp.employeeId">
-          {{ emp.name }} ({{ emp.role }})
-        </option>
-      </select>
-    </div>
+  <!-- ✅ Popup for search results -->
+  <div *ngIf="showPopup" class="search-popup card shadow-sm">
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let emp of searchResults"
+          class="list-group-item list-group-item-action"
+          (click)="selectEmployee(emp)">
+        {{ emp.name }} (ID: {{ emp.id }})
+      </li>
+    </ul>
+  </div>
 
-    <!-- Auto Filled Employee Info -->
-    <div *ngIf="selectedEmployee" class="card p-3 mb-3">
-      <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
-      <p><strong>Role:</strong> {{ selectedEmployee.role }}</p>
-      <p><strong>PAN:</strong> {{ selectedEmployee.panCard }}</p>
-      <p><strong>Aadhaar:</strong> {{ selectedEmployee.aadhaar }}</p>
-      <p><strong>Factory:</strong> {{ selectedEmployee.factoryName }}</p>
-    </div>
+  <!-- ✅ Success / Error Alerts -->
+  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
 
-    <!-- Manual Fields -->
-    <div class="mb-3">
-      <label class="form-label">Reason</label>
-      <input type="text" class="form-control" formControlName="reason" placeholder="Enter reason" />
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Payment Mode</label>
-      <select class="form-select" formControlName="paymentMode">
-        <option value="">-- Select Mode --</option>
-        <option value="Cash">Cash</option>
-        <option value="Online">Online</option>
-        <option value="Cheque">Cheque</option>
-      </select>
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Amount</label>
-      <input type="number" class="form-control" formControlName="amount" />
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Date</label>
-      <input type="date" class="form-control" formControlName="date" />
-    </div>
-
-    <!-- Submit -->
-    <button type="submit" class="btn btn-primary" [disabled]="advanceForm.invalid">Save</button>
-  </form>
+  <!-- ✅ Table for Transactions -->
+  <div class="table-responsive mt-3">
+    <table class="table table-striped table-hover shadow-sm">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Employee</th>
+          <th>Reason</th>
+          <th>Payment Mode</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of filteredTransactions">
+          <td>{{ t.advanceId }}</td>
+          <td>{{ getEmployeeName(t.employeeId) }}</td>
+          <td>{{ t.reason }}</td>
+          <td>{{ t.paymentMode }}</td>
+          <td>{{ t.amount | currency }}</td>
+          <td>{{ t.date | date: 'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
