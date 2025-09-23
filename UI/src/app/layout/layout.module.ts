@@ -10,7 +10,6 @@ import { BodyComponent } from './body/body.component';
 
 
 
-
 @NgModule({
   declarations: [SidebarComponent,LayoutComponent,HeaderComponent, BodyComponent],
   imports: [
