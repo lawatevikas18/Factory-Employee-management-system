@@ -26,30 +26,25 @@ export interface Employee {
   styleUrls: ['./advance.component.scss']
 })
 export class AdvanceComponent {
-
-   transactions: AdvanceTransaction[] = [];
+  transactions: AdvanceTransaction[] = [];
   advanceForm!: FormGroup;
   loading = false;
   errorMessage = '';
   successMessage = '';
   employees: any[] = [];
-
- 
-  filteredTransactions: AdvanceTransaction[] = [];
-  
-
-  searchQuery: string = '';
-  searchResults: any[] = [];
-  showPopup: boolean = false;
+  searchTerm = '';
+  filteredEmployees: any[] = [];
+  showEmployeePopup = false;
+  selectedEmployee: any = null;
 
   constructor(
     private advancesService: EmployeeAdvancesService,
     private fb: FormBuilder,
     private loader: LoaderService,
-        private router: ActivatedRoute,
-        private errormsg:ErrorPopUpService,
-        private employeeService: EmployeeService,
-            private route: Router,
+    private router: ActivatedRoute,
+    private errormsg: ErrorPopUpService,
+    private employeeService: EmployeeService,
+    private route: Router,
   ) {}
 
   ngOnInit(): void {
@@ -60,8 +55,10 @@ export class AdvanceComponent {
       reason: ['', Validators.required],
       paymentMode: ['Cash', Validators.required],
       amount: ['', [Validators.required, Validators.min(1)]],
+      date: ['', Validators.required],
     });
-    this.loadEmployees()
+
+    this.loadEmployees();
   }
 
   loadTransactions() {
@@ -71,20 +68,63 @@ export class AdvanceComponent {
         this.transactions = data;
         this.loading = false;
       },
-      error: (err) => {
+      error: () => {
         this.errorMessage = 'Failed to load transactions';
         this.loading = false;
       }
     });
   }
 
+  loadEmployees() {
+    this.loader.show();
+    this.employeeService.getEmployees().subscribe({
+      next: (res) => {
+        this.employees = res;
+        this.loader.hide();
+      },
+      error: (err) => {
+        this.loader.hide();
+        this.errormsg.showError(err?.error);
+      },
+      complete: () => {
+        this.loader.hide();
+      }
+    });
+  }
+
+  searchEmployee() {
+    if (!this.searchTerm.trim()) {
+      this.showEmployeePopup = false;
+      return;
+    }
+    this.filteredEmployees = this.employees.filter(emp =>
+      emp.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+    this.showEmployeePopup = this.filteredEmployees.length > 0;
+  }
+
+  selectEmployee(emp: any) {
+    this.selectedEmployee = emp;
+    this.advanceForm.patchValue({
+      employeeId: emp.employeeId
+    });
+    this.showEmployeePopup = false;
+    this.searchTerm = ''; // reset search box
+  }
+
   onSubmit() {
     if (this.advanceForm.invalid) return;
 
-    this.advancesService.sendAdvance(this.advanceForm.value).subscribe({
+    const payload = {
+      ...this.advanceForm.value,
+      createdAT: new Date().toISOString()
+    };
+
+    this.advancesService.sendAdvance(payload).subscribe({
       next: (res) => {
         this.successMessage = res.message;
         this.advanceForm.reset({ paymentMode: 'Cash' });
+        this.selectedEmployee = null;
         this.loadTransactions();
         setTimeout(() => (this.successMessage = ''), 3000);
       },
@@ -94,57 +134,5 @@ export class AdvanceComponent {
       }
     });
   }
-    loadEmployees() {
-    this.loader.show();   
-    this.employeeService.getEmployees().subscribe({
-      next: (res) => {
-        this.employees = res;
-        this.loader.hide();   // ✅ Hide on success
-      },
-      error: (err) => {
-        this.loader.hide();
-        this.errormsg.showError(err?.error)
-        console.error('Error loading employees', err);
-      },
-      complete: () => {
-        this.loader.hide(); 
-      }
-    });
-  }
-
-  onSearchChange() {
-    if (!this.searchQuery.trim()) {
-      this.searchResults = [];
-      this.showPopup = false;
-      return;
-    }
-
-    const query = this.searchQuery.toLowerCase();
-    this.searchResults = this.employees.filter(emp =>
-      emp.name.toLowerCase().includes(query)
-    );
-
-    this.showPopup = this.searchResults.length > 0;
-  }
-
-  selectEmployee(emp: any) {
-    this.searchQuery = emp.name;  // fill selected name in search box
-    this.showPopup = false;
-
-    // Filter transactions for this employee
-    this.filteredTransactions = this.transactions.filter(
-      t => t.employeeId === emp.id
-    );
-  }
-
-  resetSearch() {
-    this.searchQuery = '';
-    this.filteredTransactions = this.transactions;
-    this.showPopup = false;
-  }
-
-  getEmployeeName(id: number): string {
-    const emp = this.employees.find(e => e.id === id);
-    return emp ? emp.name : `Emp#${id}`;
-  }
 }
+

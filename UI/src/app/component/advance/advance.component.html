@@ -1,29 +1,12 @@
 <div class="container">
   <h2 class="title">Employee Advances</h2>
 
-  <!-- ✅ Search Input -->
-  <div class="d-flex gap-2 mb-3">
-    <input type="text" class="form-control"
-           placeholder="Search Employee Name..."
-           [(ngModel)]="searchQuery"
-           (input)="onSearchChange()" />
-    <button class="btn btn-outline-secondary" (click)="resetSearch()">Reset</button>
-  </div>
-
-  <!-- ✅ Popup for search results -->
-  <div *ngIf="showPopup" class="search-popup card shadow-sm">
-    <ul class="list-group list-group-flush">
-      <li *ngFor="let emp of searchResults"
-          class="list-group-item list-group-item-action"
-          (click)="selectEmployee(emp)">
-        {{ emp.name }} (ID: {{ emp.id }})
-      </li>
-    </ul>
-  </div>
-
   <!-- ✅ Success / Error Alerts -->
   <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
   <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+  <!-- ✅ Loading Spinner -->
+  <div *ngIf="loading" class="loading">Loading transactions...</div>
 
   <!-- ✅ Table for Transactions -->
   <div class="table-responsive mt-3">
@@ -39,9 +22,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let t of filteredTransactions">
+        <tr *ngFor="let t of transactions">
           <td>{{ t.advanceId }}</td>
-          <td>{{ getEmployeeName(t.employeeId) }}</td>
+          <td>{{ t.employeeId }}</td>
           <td>{{ t.reason }}</td>
           <td>{{ t.paymentMode }}</td>
           <td>{{ t.amount | currency }}</td>
@@ -49,5 +32,70 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- ✅ Employee Search -->
+  <div class="input-group mt-3">
+    <input type="text" class="form-control" placeholder="Search employee by name"
+           [(ngModel)]="searchTerm" name="searchTerm">
+    <button class="btn btn-outline-primary" (click)="searchEmployee()">Search</button>
+  </div>
+
+  <!-- ✅ Employee Popup List -->
+  <div *ngIf="showEmployeePopup" class="card shadow p-3 mt-2">
+    <h5>Select Employee</h5>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action"
+          *ngFor="let emp of filteredEmployees"
+          (click)="selectEmployee(emp)">
+        {{ emp.name }} - {{ emp.role }} ({{ emp.employeeId }})
+      </li>
+    </ul>
+  </div>
+
+  <!-- ✅ Form to Send Advance -->
+  <div class="card shadow p-3 mt-4">
+    <h4>Send Advance</h4>
+
+    <!-- Show selected employee info -->
+    <div *ngIf="selectedEmployee" class="alert alert-info">
+      <strong>{{ selectedEmployee.name }}</strong> | Role: {{ selectedEmployee.role }} | 
+      PAN: {{ selectedEmployee.panCard }} | Aadhaar: {{ selectedEmployee.aadhaar }}
+    </div>
+
+    <form [formGroup]="advanceForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label>Employee ID</label>
+        <input type="number" class="form-control" formControlName="employeeId" readonly />
+      </div>
+
+      <div class="mb-3">
+        <label>Reason</label>
+        <input type="text" class="form-control" formControlName="reason" />
+      </div>
+
+      <div class="mb-3">
+        <label>Payment Mode</label>
+        <select class="form-select" formControlName="paymentMode">
+          <option value="Cash">Cash</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+          <option value="UPI">UPI</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label>Amount</label>
+        <input type="number" class="form-control" formControlName="amount" />
+      </div>
+
+      <div class="mb-3">
+        <label>Date</label>
+        <input type="date" class="form-control" formControlName="date" />
+      </div>
+
+      <button class="btn btn-primary w-100" [disabled]="advanceForm.invalid">
+        Send Advance
+      </button>
+    </form>
   </div>
 </div>
