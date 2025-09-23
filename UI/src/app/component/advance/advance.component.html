@@ -47,6 +47,7 @@
           <td>{{ t.paymentMode }}</td>
           <td>{{ t.amount | currency }}</td>
           <td>{{ t.date | date: 'short' }}</td>
+
         <tr *ngFor="let emp of filteredEmployees">
           <td>{{ emp.name }}</td>
           <td>{{ emp.mobile1 }}</td>
