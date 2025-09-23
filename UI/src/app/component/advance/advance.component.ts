@@ -7,6 +7,7 @@ import { EmployeeService } from 'src/app/core/services/employee.service';
 import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
 
+ 
 
 export interface Employee {
   id: number;        // Sr No
@@ -17,6 +18,19 @@ export interface Employee {
   credit: number;    // Credit
   debit: number;     // Debit
   total: number;     // Total = credit - debit
+  employeeId?: number;
+  name: string;
+  address?: string;
+  village?: string;
+  taluka?: string;
+  district?: string;
+  state?: string;
+  role?: string;
+  aadhaar?: string;
+  panCard?: string;
+  mobile1?: string;
+  mobile2?: string;
+  monthlySalary: number;
 }
 
 
@@ -26,7 +40,10 @@ export interface Employee {
   styleUrls: ['./advance.component.scss']
 })
 export class AdvanceComponent {
+    employees: Employee[] = [];
+  filteredEmployees: any = [];
   transactions: AdvanceTransaction[] = [];
+
   advanceForm!: FormGroup;
   loading = false;
   errorMessage = '';
@@ -36,8 +53,11 @@ export class AdvanceComponent {
   filteredEmployees: any[] = [];
   showEmployeePopup = false;
   selectedEmployee: any = null;
+  errorMessage = '';
+  searchText = '';
 
   constructor(
+    private empService: EmployeeService,
     private advancesService: EmployeeAdvancesService,
     private fb: FormBuilder,
     private loader: LoaderService,
@@ -45,9 +65,11 @@ export class AdvanceComponent {
     private errormsg: ErrorPopUpService,
     private employeeService: EmployeeService,
     private route: Router,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    this.loadEmployees();
     this.loadTransactions();
 
     this.advanceForm = this.fb.group({
@@ -64,13 +86,18 @@ export class AdvanceComponent {
   loadTransactions() {
     this.loading = true;
     this.advancesService.getAll().subscribe({
+  loadEmployees() {
+    this.empService.getAllEmployees().subscribe({
       next: (data) => {
         this.transactions = data;
         this.loading = false;
+        this.employees = data;
+        this.filteredEmployees = data;
       },
       error: () => {
         this.errorMessage = 'Failed to load transactions';
         this.loading = false;
+        this.errorMessage = 'Failed to load employees';
       }
     });
   }
@@ -89,6 +116,10 @@ export class AdvanceComponent {
       complete: () => {
         this.loader.hide();
       }
+  loadTransactions() {
+    this.advancesService.getAll().subscribe({
+      next: (data) => (this.transactions = data),
+      error: () => (this.errorMessage = 'Failed to load transactions')
     });
   }
 
@@ -97,14 +128,17 @@ export class AdvanceComponent {
       this.showEmployeePopup = false;
       return;
     }
+  filterEmployees() {
     this.filteredEmployees = this.employees.filter(emp =>
       emp.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      emp.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
     this.showEmployeePopup = this.filteredEmployees.length > 0;
   }
 
   selectEmployee(emp: any) {
     this.selectedEmployee = emp;
+  selectEmployee(emp: Employee) {
     this.advanceForm.patchValue({
       employeeId: emp.employeeId
     });
@@ -113,6 +147,7 @@ export class AdvanceComponent {
   }
 
   onSubmit() {
+    console.log(this.advanceForm.value);
     if (this.advanceForm.invalid) return;
 
     const payload = {
@@ -121,12 +156,15 @@ export class AdvanceComponent {
     };
 
     this.advancesService.sendAdvance(payload).subscribe({
+    this.advancesService.sendAdvance(this.advanceForm.value).subscribe({
       next: (res) => {
         this.successMessage = res.message;
         this.advanceForm.reset({ paymentMode: 'Cash' });
         this.selectedEmployee = null;
         this.loadTransactions();
+        this.advanceForm.reset({ paymentMode: 'Cash' });
         setTimeout(() => (this.successMessage = ''), 3000);
+        this.loadEmployees();
       },
       error: (err) => {
         this.errorMessage = err.error || 'Failed to send advance';

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
+import { Employee } from './employee.service';
 
 export interface AdvanceTransaction {
   advanceId?: number;
@@ -32,6 +33,7 @@ export class EmployeeAdvancesService {
     return this.http.get<AdvanceTransaction[]>(this.baseUrl,{ headers: this.getHeaders() });
   }
 
+ 
   sendAdvance(transaction: AdvanceTransaction): Observable<any> {
     return this.http.post(this.baseUrl, transaction,{ headers: this.getHeaders() });
   }

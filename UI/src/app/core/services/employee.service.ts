@@ -65,4 +65,9 @@ export class EmployeeService {
   getDashBoardData(): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}/AdminToUserTransaction/DashboardStats`,{ headers: this.getHeaders() });
   }
+
+     getAllEmployees(): Observable<Employee[]> {
+      return this.http.get<Employee[]>(this.apiUrl ,{ headers: this.getHeaders() } );
+    }
+  
 }
