@@ -34,7 +34,10 @@
           <td>{{ emp.name }}</td>
           <td>{{ emp.mobile1 }}</td>
           <td>{{ emp.advanceBalance | currency }}</td>
-          <td>
+          <td class="d-flex">
+            <button class="btn btn-sm btn-primary me-1" (click)="viewEmployee(emp)">
+                <i class="bi bi-eye"></i>
+              </button>
             <button class="btn btn-sm btn-primary" (click)="selectEmployee(emp)">
               Select
             </button>
@@ -88,8 +91,8 @@
     <div class="mb-3">
       <label>Payment Category</label>
       <select class="form-select" formControlName="payment_catagaory">
-        <option value="Debit">Send To Employee</option>
-        <option value="Credit">Get From Employee</option>
+        <option value="d">Send To Employee</option>
+        <option value="credit">Get From Employee</option>
       </select>
     </div>
 

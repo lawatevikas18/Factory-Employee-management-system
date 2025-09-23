@@ -113,5 +113,8 @@ export class AdvanceComponent {
   closeForm(){
     this.sendAdvanceForm=!this.sendAdvanceForm
   }
+  viewEmployee(e:any){
+  console.log(e)
+  }
 }
 
