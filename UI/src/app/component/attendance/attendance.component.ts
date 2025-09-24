@@ -170,14 +170,17 @@ export class AttendanceComponent {
       date: this.date,
       ot: emp.ot || 0
     }));
-
+    this.loader.show()
     this.getAttendance.saveAttendance(attendanceList).subscribe({
       next: (res) => {
+        this.loader.hide()
         if (res.statusCode === 200) {
           alert('Attendance saved successfully!');
         }
       },
+      
       error: err => console.error('Error saving attendance', err)
+      
     });
   }
 }

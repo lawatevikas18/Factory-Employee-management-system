@@ -61,12 +61,15 @@ showDetails:boolean=false
   }
 
   loadEmployees() {
+    this.loader.show()
     this.empService.getAllEmployees().subscribe({
       next: (data) => {
+        this.loader.hide()
         this.employees = data;
         this.filteredEmployees = data;
       },
       error: () => {
+        this.loader.hide()
         this.errorMessage = 'Failed to load employees';
       }
     });
@@ -97,9 +100,10 @@ showDetails:boolean=false
   onSubmit() {
     console.log(this.advanceForm.value);
     if (this.advanceForm.invalid) return;
-
+   this.loader.show()
     this.advancesService.sendAdvance(this.advanceForm.value).subscribe({
       next: (res) => {
+        this.loader.hide()
         this.successMessage = res.message;
         this.loadTransactions();
         this.advanceForm.reset({ paymentMode: 'Cash' });
@@ -108,6 +112,7 @@ showDetails:boolean=false
         this.sendAdvanceForm=!this.sendAdvanceForm
       },
       error: (err) => {
+        this.loader.hide()
         this.errorMessage = err.error || 'Failed to send advance';
         setTimeout(() => (this.errorMessage = ''), 3000);
       }
@@ -117,6 +122,7 @@ showDetails:boolean=false
     this.sendAdvanceForm=!this.sendAdvanceForm
   }
   viewEmployee(e:any){
+    this.loader.show()
   this.advancesService.getAdvanceDetail(e.employeeId)
   .subscribe({
     next: (res) => {

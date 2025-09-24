@@ -32,7 +32,7 @@ export const navbardata=[
    {
     routerLink:'Invoice',
     icon:'fa-regular fa-file',
-    label:'MENU.FACTORY_BILL'  
+    label:'MENU.INVOICE'  
    },
   //   {
   //   routerLink:'auth',
