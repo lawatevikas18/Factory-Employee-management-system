@@ -10,7 +10,7 @@ declare var bootstrap: any;
 
 
 //import { Employee } from 'src/app/model/employee.model';
-type status = 'Present' | 'HalfDay' | 'Late' | 'Absent' | null;
+type status = 'Present' | 'HalfDay' | 'OT' | 'Absent' | null;
 
 interface Employee {
   id: number;             
@@ -111,10 +111,10 @@ export class AttendanceComponent {
     const list = this.filteredEmployees;
     const fullDay = list.filter(e => e.status === 'Present').length;
     const halfDay = list.filter(e => e.status === 'HalfDay').length;
-    const late = list.filter(e => e.status === 'Late').length;
+    const OT = list.filter(e => e.status === 'OT').length;
     const absent = list.filter(e => e.status === 'Absent').length;
     const pending = list.filter(e => e.status === null).length;
-    return { fullDay, halfDay, late, absent, pending };
+    return { fullDay, halfDay, OT, absent, pending };
   }
 
   // Total number of marked employees across whole dataset (used in Save button)

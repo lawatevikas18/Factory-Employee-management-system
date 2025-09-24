@@ -29,11 +29,11 @@ export const navbardata=[
   //   icon:'fa-regular fa-file',
   //   label:'MENU.FACTORY_BILL'  
   //  },
-  //  {
-  //   routerLink:'invice-form',
-  //   icon:'fa-regular fa-file',
-  //   label:'MENU.FACTORY_BILL'  
-  //  },
+   {
+    routerLink:'Invoice',
+    icon:'fa-regular fa-file',
+    label:'MENU.FACTORY_BILL'  
+   },
   //   {
   //   routerLink:'auth',
   //   icon:'fa-regular fa-users',

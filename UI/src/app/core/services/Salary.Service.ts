@@ -27,7 +27,7 @@ export class SalaryService {
   constructor(private http: HttpClient) {}
 
   private authHeaders(): { headers: HttpHeaders } {
-    const token = localStorage.getItem('token') || '';
+    const token = sessionStorage.getItem('token') || '';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`

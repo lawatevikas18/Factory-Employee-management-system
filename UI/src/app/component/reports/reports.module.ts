@@ -5,8 +5,7 @@ import { ReportsRoutingModule } from './reports-routing.module';
 import { AttendanceReportComponent } from './attendance-report/attendance-report.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TaxInvoiceComponent } from './tax-invice/tax-invice.component';
-import { TaxInviceFormComponent } from './tax-invice-form/tax-invice-form.component';
+
 
 
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,7 +13,7 @@ import { TaxInviceFormComponent } from './tax-invice-form/tax-invice-form.compon
 
 
 @NgModule({
-  declarations: [AttendanceReportComponent, TaxInvoiceComponent,TaxInviceFormComponent ,],
+  declarations: [AttendanceReportComponent ],
   imports: [
     CommonModule,
     ReportsRoutingModule,

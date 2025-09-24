@@ -28,7 +28,7 @@ export class SidebarComponent implements OnInit {
 
     // Emit initial state to parent
     this.onToggelSideNav.emit({ collapsed: this.collapsed, screenwidth: this.screenWidth });
-    const storedData = localStorage.getItem('adminData');
+    const storedData = sessionStorage.getItem('adminData');
   if (storedData) {
     this.adminData = JSON.parse(storedData);
   }

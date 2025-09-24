@@ -27,8 +27,8 @@ export class HeaderComponent {
   }
 
   logout() {
-    localStorage.removeItem('adminData');
-  localStorage.clear();
+    sessionStorage.removeItem('adminData');
+  sessionStorage.clear();
     // window.location.href = '/login';
      this.router.navigate(['/login'])
   }

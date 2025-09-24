@@ -14,6 +14,7 @@ import { ReportsModule } from './component/reports/reports.module';
 import { AuthModule } from './auth/auth.module';
 import { LoaderComponent } from './layout/loader/loader.component';
 import { ErrorPopUpComponent } from './layout/error-pop-up/error-pop-up.component';
+import { InviceModule } from './component/invice/invice.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -50,7 +51,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       toastClass: 'ngx-toastr toast-top-custom' // custom width/height
     }),
      ReportsModule,
-     AuthModule
+     AuthModule,
+     InviceModule
     
   ],
   providers: [],

@@ -1,0 +1,497 @@
+<!-- Preview Mode -->
+<div *ngIf="showPreview" class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="d-flex gap-2 mb-3 no-print">
+        <button class="btn btn-outline-primary" (click)="onBackToForm()">
+          <i class="fas fa-arrow-left me-2"></i>Back to Form
+        </button>
+        <button class="btn btn-primary" (click)="onPrintInvoice()">
+          <i class="fas fa-print me-2"></i>Print Invoice
+        </button>
+      </div>
+      <app-tax-invoice [invoiceData]="invoiceData"></app-tax-invoice>
+    </div>
+  </div>
+</div>
+
+<!-- Form Mode -->
+<div *ngIf="!showPreview" class="container-fluid p-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-xl-10">
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-start mb-4">
+        <div>
+          <h1 class="h3 mb-2">Tax Invoice Generator</h1>
+          <p class="text-muted">Enter invoice details to generate a professional tax invoice</p>
+        </div>
+        <button 
+          class="btn btn-primary"
+          (click)="onPreviewInvoice()"
+          [disabled]="invoiceForm.invalid">
+          <i class="fas fa-eye me-2"></i>Preview Invoice
+        </button>
+      </div>
+
+      <form [formGroup]="invoiceForm" novalidate>
+        <!-- Company Information -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Company Information</h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="companyName" class="form-label">Company Name *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('companyName')"
+                  id="companyName" 
+                  formControlName="companyName"
+                  placeholder="Enter company name">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('companyName')">
+                  {{ getFieldErrorMessage('companyName') }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="gstin" class="form-label">GSTIN *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('gstin')"
+                  id="gstin" 
+                  formControlName="gstin"
+                  placeholder="Enter GSTIN">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('gstin')">
+                  {{ getFieldErrorMessage('gstin') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-12">
+                <label for="address" class="form-label">Address *</label>
+                <textarea 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('address')"
+                  id="address" 
+                  formControlName="address"
+                  rows="2"
+                  placeholder="Enter complete address"></textarea>
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('address')">
+                  {{ getFieldErrorMessage('address') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-12">
+                <label for="description" class="form-label">Business Description *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('description')"
+                  id="description" 
+                  formControlName="description"
+                  placeholder="Enter business description">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('description')">
+                  {{ getFieldErrorMessage('description') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-md-4">
+                <label for="panNo" class="form-label">PAN No. *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('panNo')"
+                  id="panNo" 
+                  formControlName="panNo"
+                  placeholder="Enter PAN number">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('panNo')">
+                  {{ getFieldErrorMessage('panNo') }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="state" class="form-label">State *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('state')"
+                  id="state" 
+                  formControlName="state"
+                  placeholder="Enter state">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('state')">
+                  {{ getFieldErrorMessage('state') }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="stateCode" class="form-label">State Code *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('stateCode')"
+                  id="stateCode" 
+                  formControlName="stateCode"
+                  placeholder="Enter state code">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('stateCode')">
+                  {{ getFieldErrorMessage('stateCode') }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Details -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Invoice Details</h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label for="invoiceNo" class="form-label">Invoice No. *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('invoiceNo')"
+                  id="invoiceNo" 
+                  formControlName="invoiceNo"
+                  placeholder="Enter invoice number">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('invoiceNo')">
+                  {{ getFieldErrorMessage('invoiceNo') }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="invoiceDate" class="form-label">Invoice Date *</label>
+                <input 
+                  type="date" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('invoiceDate')"
+                  id="invoiceDate" 
+                  formControlName="invoiceDate">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('invoiceDate')">
+                  {{ getFieldErrorMessage('invoiceDate') }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="workOrderNo" class="form-label">Work Order No. *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('workOrderNo')"
+                  id="workOrderNo" 
+                  formControlName="workOrderNo"
+                  placeholder="Enter work order number">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('workOrderNo')">
+                  {{ getFieldErrorMessage('workOrderNo') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-12">
+                <label for="workingPeriod" class="form-label">Working Period *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('workingPeriod')"
+                  id="workingPeriod" 
+                  formControlName="workingPeriod"
+                  placeholder="Enter working period (e.g., 01/03/03 TO 17/11/2005)">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('workingPeriod')">
+                  {{ getFieldErrorMessage('workingPeriod') }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Information -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Customer Information</h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="customerName" class="form-label">Customer Name *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('customerName')"
+                  id="customerName" 
+                  formControlName="customerName"
+                  placeholder="Enter customer name">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerName')">
+                  {{ getFieldErrorMessage('customerName') }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="customerGstin" class="form-label">Customer GSTIN *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('customerGstin')"
+                  id="customerGstin" 
+                  formControlName="customerGstin"
+                  placeholder="Enter customer GSTIN">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerGstin')">
+                  {{ getFieldErrorMessage('customerGstin') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-12">
+                <label for="customerAddress" class="form-label">Customer Address *</label>
+                <textarea 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('customerAddress')"
+                  id="customerAddress" 
+                  formControlName="customerAddress"
+                  rows="2"
+                  placeholder="Enter customer address"></textarea>
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerAddress')">
+                  {{ getFieldErrorMessage('customerAddress') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-md-6">
+                <label for="customerState" class="form-label">Customer State *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('customerState')"
+                  id="customerState" 
+                  formControlName="customerState"
+                  placeholder="Enter customer state">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerState')">
+                  {{ getFieldErrorMessage('customerState') }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="customerStateCode" class="form-label">Customer State Code *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('customerStateCode')"
+                  id="customerStateCode" 
+                  formControlName="customerStateCode"
+                  placeholder="Enter customer state code">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerStateCode')">
+                  {{ getFieldErrorMessage('customerStateCode') }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Items -->
+        <div class="card mb-4">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Invoice Items</h5>
+            <button type="button" class="btn btn-sm btn-success" (click)="addItem()">
+              <i class="fas fa-plus me-2"></i>Add Item
+            </button>
+          </div>
+          <div class="card-body">
+            <div *ngFor="let itemForm of items.controls; let i = index" class="border rounded p-3 mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="mb-0">Item {{ i + 1 }}</h6>
+                <button 
+                  *ngIf="items.length > 1"
+                  type="button" 
+                  class="btn btn-sm btn-danger"
+                  (click)="removeItem(i)">
+                  <i class="fas fa-minus me-2"></i>Remove
+                </button>
+              </div>
+
+              <div [formGroup]="getItemFormGroup(i)">
+                <div class="row g-3">
+                  <div class="col-md-8">
+                    <label class="form-label">Description *</label>
+                    <textarea 
+                      class="form-control"
+                      [class.is-invalid]="isItemFieldInvalid(i, 'description')"
+                      formControlName="description"
+                      rows="2"
+                      placeholder="Enter service description"></textarea>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Service Code</label>
+                    <input 
+                      type="text" 
+                      class="form-control"
+                      formControlName="serviceCode"
+                      placeholder="Enter service code">
+                  </div>
+                </div>
+
+                <div class="row g-3 mt-2">
+                  <div class="col-md-2">
+                    <label class="form-label">Quantity *</label>
+                    <input 
+                      type="number" 
+                      class="form-control"
+                      [class.is-invalid]="isItemFieldInvalid(i, 'quantity')"
+                      formControlName="quantity"
+                      step="0.01"
+                      min="0"
+                      placeholder="0.00">
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">Unit *</label>
+                    <input 
+                      type="text" 
+                      class="form-control"
+                      [class.is-invalid]="isItemFieldInvalid(i, 'unit')"
+                      formControlName="unit"
+                      placeholder="MT">
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Rate *</label>
+                    <input 
+                      type="number" 
+                      class="form-control"
+                      [class.is-invalid]="isItemFieldInvalid(i, 'rate')"
+                      formControlName="rate"
+                      step="0.01"
+                      min="0"
+                      placeholder="0.00">
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label">Amount</label>
+                    <input 
+                      type="number" 
+                      class="form-control bg-light"
+                      formControlName="amount"
+                      step="0.01"
+                      readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tax Configuration -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Tax Configuration</h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label for="igstRate" class="form-label">IGST Rate (%) *</label>
+                <input 
+                  type="number" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('igstRate')"
+                  id="igstRate" 
+                  formControlName="igstRate"
+                  step="0.01"
+                  min="0"
+                  max="100"
+                  placeholder="18">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('igstRate')">
+                  {{ getFieldErrorMessage('igstRate') }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="cgstRate" class="form-label">CGST Rate (%) - Optional</label>
+                <input 
+                  type="number" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('cgstRate')"
+                  id="cgstRate" 
+                  formControlName="cgstRate"
+                  step="0.01"
+                  min="0"
+                  max="100"
+                  placeholder="9">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('cgstRate')">
+                  {{ getFieldErrorMessage('cgstRate') }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="sgstRate" class="form-label">SGST Rate (%) - Optional</label>
+                <input 
+                  type="number" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('sgstRate')"
+                  id="sgstRate" 
+                  formControlName="sgstRate"
+                  step="0.01"
+                  min="0"
+                  max="100"
+                  placeholder="9">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('sgstRate')">
+                  {{ getFieldErrorMessage('sgstRate') }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Summary -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Invoice Summary</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Subtotal:</span>
+                  <span class="fw-medium">₹{{ totals.subtotal | number:'1.2-2' }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <span>IGST ({{ invoiceForm.get('igstRate')?.value }}%):</span>
+                  <span class="fw-medium">₹{{ totals.igstAmount | number:'1.2-2' }}</span>
+                </div>
+                <div *ngIf="totals.cgstAmount" class="d-flex justify-content-between mb-2">
+                  <span>CGST ({{ invoiceForm.get('cgstRate')?.value }}%):</span>
+                  <span class="fw-medium">₹{{ totals.cgstAmount | number:'1.2-2' }}</span>
+                </div>
+                <div *ngIf="totals.sgstAmount" class="d-flex justify-content-between mb-2">
+                  <span>SGST ({{ invoiceForm.get('sgstRate')?.value }}%):</span>
+                  <span class="fw-medium">₹{{ totals.sgstAmount | number:'1.2-2' }}</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                  <span class="h6">Total Amount:</span>
+                  <span class="h6 fw-bold">₹{{ totals.total | number:'1.2-2' }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-end gap-3">
+          <button 
+            type="button" 
+            class="btn btn-outline-primary"
+            (click)="onPreviewInvoice()"
+            [disabled]="invoiceForm.invalid">
+            <i class="fas fa-eye me-2"></i>Preview Invoice
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-primary"
+            (click)="onPreviewInvoice()"
+            [disabled]="invoiceForm.invalid">
+            <i class="fas fa-file-alt me-2"></i>Generate Invoice
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

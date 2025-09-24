@@ -41,7 +41,7 @@ export class SalaryComponent implements OnInit {
   }
 
   private getHeaders() {
-    const token = localStorage.getItem('token') || '';
+    const token = sessionStorage.getItem('token') || '';
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

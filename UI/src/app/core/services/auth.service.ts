@@ -14,14 +14,14 @@ export class AuthService {
 
   
   private getHeaders() {
-    const token = localStorage.getItem('token'); // ✅ Get token from localStorage (or service)
+    const token = sessionStorage.getItem('token'); // ✅ Get token from sessionStorage (or service)
     return new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
   }
   
   // login(request: any) {
-  //   // localStorage.setItem(this.TOKEN_KEY, token);
+  //   // sessionStorage.setItem(this.TOKEN_KEY, token);
   // }
 
   // login(request: any): Observable<any> {
@@ -61,15 +61,15 @@ getReport(requestdata:any): Observable<any> {
 
 
   logout() {
-    localStorage.removeItem(this.TOKEN_KEY);
+    sessionStorage.removeItem(this.TOKEN_KEY);
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem(this.TOKEN_KEY);
+    return !!sessionStorage.getItem(this.TOKEN_KEY);
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.TOKEN_KEY);
+    return sessionStorage.getItem(this.TOKEN_KEY);
   }
 
 

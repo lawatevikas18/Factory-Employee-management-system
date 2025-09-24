@@ -52,7 +52,7 @@ export class LoginComponent {
       this.loader.show()
       this.authService.login(this.loginForm.value).subscribe({
         next: res => {
-          localStorage.setItem('token', res.token);
+          sessionStorage.setItem('token', res.token);
           this.message = 'Login successful!';
           this.loader.hide()
            this.router.navigate(['/dashboard']);

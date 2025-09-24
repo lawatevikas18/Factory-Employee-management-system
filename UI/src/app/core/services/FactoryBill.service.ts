@@ -13,7 +13,7 @@ export class FactoryBillService {
   constructor(private http: HttpClient) {}
 
   private getHeaders() {
-    const token = localStorage.getItem('token'); // ✅ Get token from localStorage (or service)
+    const token = sessionStorage.getItem('token'); // ✅ Get token from sessionStorage (or service)
     return new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });

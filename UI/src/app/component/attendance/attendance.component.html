@@ -1,4 +1,4 @@
-<div class="attendance-page container py-3" style="padding-bottom:96px;">
+<div class="attendance-page container py-5" >
 
   <!-- date header -->
   <div class="d-flex align-items-center justify-content-between mb-2">
@@ -219,16 +219,16 @@
         </div>
          <div class="col-6 col-md-3">
     <div class="col-6 col-md-3">
-  <div class="dropdown w-100">
-    <button class="btn w-100 btn-option dropdown-toggle"
-            [class.btn-warning]="emp.ot"
-            [class.btn-outline-warning]="!emp.ot"
+  <div class="dropdown ">
+    <button class="btn btn-option dropdown-toggle" style="width: 68px;"
+            [class.btn-secondary]="emp.ot"
+            [class.btn-outline-secondary]="!emp.ot"
             type="button"
             id="dropdownMenuButton"
             data-bs-toggle="dropdown"
             aria-expanded="false"
             [disabled]="UserRole === 'Admin' || emp.status !== 'Present'">
-      OT {{ emp.ot ? '('+emp.ot+'hr)' : '' }}
+      OT {{ emp.ot ? '-'+emp.ot+'hr' : '' }}
     </button>
     <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
       <li><a class="dropdown-item" (click)="setOT(emp, 2)">2hr</a></li>

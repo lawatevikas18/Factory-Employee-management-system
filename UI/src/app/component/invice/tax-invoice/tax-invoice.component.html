@@ -1,4 +1,31 @@
-<div class="container-fluid p-4">
+<!-- Action Buttons -->
+<div class="container-fluid p-2 d-print-none bg-light border-bottom">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+      <div class="d-flex gap-2 justify-content-end">
+        <button 
+          type="button" 
+          class="btn btn-outline-secondary btn-sm"
+          (click)="onPrint()"
+          [disabled]="isGeneratingPdf">
+          <i class="bi bi-printer me-1"></i>
+          Print
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-primary btn-sm"
+          (click)="onDownloadPdf()"
+          [disabled]="isGeneratingPdf">
+          <span *ngIf="isGeneratingPdf" class="spinner-border spinner-border-sm me-2" role="status"></span>
+          <i *ngIf="!isGeneratingPdf" class="bi bi-download me-1"></i>
+          {{ isGeneratingPdf ? 'Generating...' : 'Download PDF' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid p-4" #invoiceContent>
   <div class="row justify-content-center">
     <div class="col-12 col-lg-10">
       <!-- Invoice Header -->

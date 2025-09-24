@@ -39,6 +39,36 @@
   line-height: 1.25;
 }
 
+/* Hide action buttons from print and PDF */
+.d-print-none {
+  display: block;
+}
+
+@media print {
+  .d-print-none {
+    display: none !important;
+  }
+}
+
+/* PDF generation specific styles */
+.pdf-generating {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.pdf-generating * {
+  background-color: transparent !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.pdf-generating .table-bordered td,
+.pdf-generating .table-bordered th {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
 /* Print styles */
 @media print {
   .container-fluid {
