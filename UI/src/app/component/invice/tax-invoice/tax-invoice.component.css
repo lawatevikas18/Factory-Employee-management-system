@@ -1,3 +1,10 @@
+/* Page border container */
+.page-border {
+  border: 2px solid #000000;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
 .invoice-header {
   background-color: #ffffff;
 }
@@ -8,12 +15,42 @@
   margin-bottom: 0.5rem;
 }
 
+/* Section headers */
+.section-header {
+  background-color: #f8f9fa;
+}
+
+/* Header box styling */
+.header-box {
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
+/* Details section styling */
+.details-section {
+  background-color: #ffffff;
+}
+
+/* Tax header styling */
+.tax-header {
+  background-color: #e9ecef;
+}
+
+/* Total row styling */
+.total-row {
+  background-color: #f8f9fa;
+}
+
 .text-xs {
   font-size: 0.75rem;
 }
 
 .small {
   font-size: 0.875rem;
+}
+
+.text-muted {
+  color: #6c757d;
 }
 
 .border-dark {
@@ -69,10 +106,78 @@
   border: 1px solid #000000 !important;
 }
 
+.pdf-generating .page-border {
+  border: 2px solid #000000 !important;
+  background-color: #ffffff !important;
+}
+
+.pdf-generating .section-header {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+}
+
+.pdf-generating .header-box {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.pdf-generating .details-section {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.pdf-generating .tax-header {
+  background-color: #e9ecef !important;
+  color: #000000 !important;
+}
+
+.pdf-generating .total-row {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+}
+
 /* Print styles */
 @media print {
   .container-fluid {
     padding: 0 !important;
+  }
+  
+  .page-border {
+    border: 2px solid #000000 !important;
+    background-color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .section-header {
+    background-color: #f8f9fa !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .header-box {
+    background-color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .details-section {
+    background-color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .tax-header {
+    background-color: #e9ecef !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .total-row {
+    background-color: #f8f9fa !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
   }
   
   .invoice-header {
@@ -99,7 +204,8 @@
   
   .col-12,
   .col-md-6,
-  .col-lg-10 {
+  .col-lg-10,
+  .col-4 {
     padding: 0;
   }
   
@@ -113,7 +219,9 @@
   .table {
     font-size: 0.75rem;
   }
-  
+  .display{
+    display: none;
+  }
   .table td,
   .table th {
     padding: 0.25rem;
@@ -172,12 +280,20 @@
   display: inline-block;
 }
 
+.d-block {
+  display: block;
+}
+
 .ms-auto {
   margin-left: auto;
 }
 
 .ms-2 {
   margin-left: 0.5rem;
+}
+
+.ms-4 {
+  margin-left: 1.5rem;
 }
 
 .me-3 {
@@ -203,3 +319,52 @@
 .p-3 {
   padding: 1rem;
 }
+
+.p-4 {
+  padding: 1.5rem;
+}
+
+.g-0 > * {
+  padding: 0 !important;
+}
+
+.g-4 > * {
+  padding: 1rem;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.border-2 {
+  border-width: 2px !important;
+}
+
+.border-end {
+  border-right: 1px solid;
+}
+
+.border-bottom {
+  border-bottom: 1px solid;
+}
+
+.border-top {
+  border-top: 1px solid;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.d-flex {
+  display: flex;
+}
+.golden-text {
+  color: #FFD700; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2); 
+}
+.border-dark-empty {
+   /* border-color: #575757 !important; */
+   border-bottom:#575757 !important;;
+}
+

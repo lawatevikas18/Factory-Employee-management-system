@@ -205,6 +205,28 @@ export class TaxInvoiceComponent {
     element.style.backgroundColor = '#ffffff';
     element.style.color = '#000000';
 
+    // Apply page border
+    const pageBorder = element.querySelector('.page-border');
+    if (pageBorder) {
+      (pageBorder as HTMLElement).style.border = '4px solid #000000';
+      (pageBorder as HTMLElement).style.backgroundColor = '#ffffff';
+    }
+
+    // Apply section header styles
+    const sectionHeaders = element.querySelectorAll('.section-header');
+    sectionHeaders.forEach(header => {
+      (header as HTMLElement).style.backgroundColor = '#f8f9fa';
+      (header as HTMLElement).style.color = '#000000';
+      (header as HTMLElement).style.border = '1px solid #000000';
+    });
+
+    // Apply total row styles
+    const totalRows = element.querySelectorAll('.total-row');
+    totalRows.forEach(row => {
+      (row as HTMLElement).style.backgroundColor = '#f8f9fa';
+      (row as HTMLElement).style.color = '#000000';
+    });
+
     // Ensure table borders are visible
     const tables = element.querySelectorAll('table');
     tables.forEach(table => {
@@ -238,7 +260,8 @@ export class TaxInvoiceComponent {
       customerState: "Maharashtra",
       customerStateCode: "27",
       workOrderNo: "100/F",
-      workingPeriod: "01/03/03 TO 17/11/2005",
+      workingPeriodFrom: "",
+       workingPeriodTo: "",
       items: [
         {
           srNo: 1,

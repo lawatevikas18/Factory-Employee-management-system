@@ -24,7 +24,8 @@ export interface InvoiceFormData {
   customerState: string;
   customerStateCode: string;
   workOrderNo: string;
-  workingPeriod: string;
+  workingPeriodFrom: string;
+  workingPeriodTo: string;
   items: InvoiceItem[];
   igstRate: number;
   cgstRate?: number;

@@ -4,11 +4,9 @@
     <div class="col-12">
       <div class="d-flex gap-2 mb-3 no-print">
         <button class="btn btn-outline-primary" (click)="onBackToForm()">
-          <i class="fas fa-arrow-left me-2"></i>Back to Form
+          <i class="fas fa-arrow-left me-2"></i>Back 
         </button>
-        <button class="btn btn-primary" (click)="onPrintInvoice()">
-          <i class="fas fa-print me-2"></i>Print Invoice
-        </button>
+       
       </div>
       <app-tax-invoice [invoiceData]="invoiceData"></app-tax-invoice>
     </div>
@@ -17,7 +15,12 @@
 
 <!-- Form Mode -->
 <div *ngIf="!showPreview" class="container-fluid p-4">
+  
   <div class="row justify-content-center">
+    <div class="row align-items-center">
+    <div class="col"><button class="btn btn-secondary" (click)="addFactoryDetails()">+Add Factory Details</button></div>
+    <div class="col"><button class="btn btn-secondary" (click)="addItems()">+Add Items Info</button></div>
+  </div>
     <div class="col-12 col-xl-10">
       <!-- Header -->
       <div class="d-flex justify-content-between align-items-start mb-4">
@@ -193,14 +196,28 @@
             </div>
 
             <div class="row g-3 mt-2">
-              <div class="col-12">
-                <label for="workingPeriod" class="form-label">Working Period *</label>
+              <div class="col-6">
+                <label for="workingPeriod" class="form-label">Working Period From*</label>
                 <input 
-                  type="text" 
+                  type="date" 
                   class="form-control"
                   [class.is-invalid]="isFieldInvalid('workingPeriod')"
                   id="workingPeriod" 
-                  formControlName="workingPeriod"
+                  formControlName="workingPeriodFrom"
+                  placeholder="Enter working period (e.g., 01/03/03 TO 17/11/2005)">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('workingPeriod')">
+                  {{ getFieldErrorMessage('workingPeriod') }}
+                </div>
+              </div>
+
+               <div class="col-6">
+                <label for="workingPeriod" class="form-label">Working Period To*</label>
+                <input 
+                  type="date" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('workingPeriod')"
+                  id="workingPeriod" 
+                  formControlName="workingPeriodTo"
                   placeholder="Enter working period (e.g., 01/03/03 TO 17/11/2005)">
                 <div class="invalid-feedback" *ngIf="isFieldInvalid('workingPeriod')">
                   {{ getFieldErrorMessage('workingPeriod') }}

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { InvoiceFormData, InvoiceTotals } from 'src/app/model/invoice.model';
 
-
 @Component({
   selector: 'app-tax-invoice-form',
   templateUrl: './tax-invoice-form.component.html',
@@ -34,7 +33,8 @@ export class TaxInvoiceFormComponent implements OnInit {
       invoiceNo: ['25', Validators.required],
       invoiceDate: ['2025-11-25', Validators.required],
       workOrderNo: ['100/F', Validators.required],
-      workingPeriod: ['01/03/03 TO 17/11/2005', Validators.required],
+      workingPeriodFrom: ['', Validators.required],
+      workingPeriodTo: ['', Validators.required],
 
       // Customer Information
       customerName: ['Directeur Sukhoi Kausthanu Uri', Validators.required],
@@ -44,7 +44,7 @@ export class TaxInvoiceFormComponent implements OnInit {
       customerStateCode: ['27', Validators.required],
 
       // Tax Configuration
-      igstRate: [18, [Validators.required, Validators.min(0), Validators.max(100)]],
+      igstRate: [null],
       cgstRate: [null, [Validators.min(0), Validators.max(100)]],
       sgstRate: [null, [Validators.min(0), Validators.max(100)]],
 
@@ -208,5 +208,12 @@ export class TaxInvoiceFormComponent implements OnInit {
       return 'Value must be less than or equal to 100';
     }
     return '';
+  }
+
+  addFactoryDetails(){
+
+  }
+  addItems(){
+    
   }
 }
