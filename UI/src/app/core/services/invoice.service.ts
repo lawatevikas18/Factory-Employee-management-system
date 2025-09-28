@@ -41,7 +41,6 @@ private getHeaders() {
     return this.http.get<Invoice[]>(`${this.apiBase}/all`, this.headers());
     return this.http.get<Invoice[]>(`${this.apiBase}/all`, { headers: this.getHeaders() });
   }
-
     
   getById(id: number) {
     return this.http.get<Invoice>(`${this.apiBase}/${id}`, this.headers());
