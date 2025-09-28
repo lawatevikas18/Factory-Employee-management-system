@@ -1,96 +1,71 @@
 .attendance-table {
   overflow-x: auto;
-  white-space: nowrap;
-  border-radius: 8px;
-}
 
-.attendance-table th,
-.attendance-table td {
-  min-width: 70px;
-  vertical-align: middle;
-}
+  table {
+    min-width: 900px;
+  }
 
-/* Sticky Sr. No. */
-.sticky-col-1 {
-  position: sticky;
-  left: 0;
-  z-index: 5;
-  background: #f8f9fa; /* matches table header bg */
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  width: 70px;
-}
+  th, td {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    padding: 6px;
+  }
 
-/* Sticky Employee Name */
-.sticky-col-2 {
-  position: sticky;
-  left: 70px; /* same as width of first col */
-  z-index: 5;
-  background: #fff;
-  min-width: 160px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-}
-
-/* Attendance coloring */
-.present {
-  background-color: #d1f7d1;
-  color: #0b7300;
-  font-weight: 600;
-}
-
-.absent {
-  background-color: #fddcdc;
-  color: #c30000;
-  font-weight: 600;
-}
-
-.halfday {
-  background-color: #fff6d1;
-  color: #9a6c00;
-  font-weight: 600;
-}
-.NotMarked {
-  background-color: #fff6d1;
-  color: #212121;
-  font-weight: 600;
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: #fafafa;
-}
-
-.table tbody tr:hover {
-  background-color: #f1f7ff;
-}
-.card {
-  border-radius: 12px;
-}
-
-.card-body {
-  padding: 1.25rem;
-}
-
-.form-label {
-  font-size: 0.9rem;
-  color: #444;
-}
-
-.btn {
-  font-weight: 500;
-}
-
-/* Mobile view adjustments */
-@media (max-width: 768px) {
-  .attendance-table th,
-  .attendance-table td {
-    min-width: 50px;
-    font-size: 12px;
-    padding: 4px;
+  .sticky-col-1 {
+    position: sticky;
+    left: 0;
+    background: #fff;
+    z-index: 2;
   }
 
   .sticky-col-2 {
-    min-width: 120px;
+    position: sticky;
+    left: 60px;
+    background: #fff;
+    z-index: 2;
   }
-  .form-control{
-font-size: 12px;
+
+  .summary-col {
+    background: #f8f9fa;
+    font-weight: 600;
   }
+
+  .present {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+  }
+
+  .absent {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+  }
+
+  .halfday {
+    background-color: #fff3cd;
+    color: #856404;
+    font-weight: bold;
+  }
+
+  .not-marked {
+    background-color: #e9ecef;
+    color: #6c757d;
+  }
+}
+
+.legend {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 22px;
+  font-weight: bold;
+  margin-right: 4px;
+
+  &.present { background: #d4edda; color: #155724; }
+  &.absent { background: #f8d7da; color: #721c24; }
+  &.halfday { background: #fff3cd; color: #856404; }
+  &.not-marked { background: #e9ecef; color: #6c757d; }
 }

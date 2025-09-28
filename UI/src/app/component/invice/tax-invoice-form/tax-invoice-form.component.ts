@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { InvoiceService } from 'src/app/core/services/invoice.service';
 import { InvoiceFormData, InvoiceTotals } from 'src/app/model/invoice.model';
 
 @Component({
@@ -9,13 +10,20 @@ import { InvoiceFormData, InvoiceTotals } from 'src/app/model/invoice.model';
 })
 export class TaxInvoiceFormComponent implements OnInit {
   invoiceForm!: FormGroup;
+  factoryDetailsForm!: FormGroup;
+  itemDetailsForm!:FormGroup;
   showPreview = false;
   invoiceData: InvoiceFormData | null = null;
+  showItemForm:boolean=false
+  showFactoryDetalsForm:boolean=false
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+    private invoiceService:InvoiceService
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm();
+    this.loadAll()
   }
 
   private initializeForm(): void {
@@ -52,6 +60,36 @@ export class TaxInvoiceFormComponent implements OnInit {
       items: this.fb.array([])
     });
 
+    this.factoryDetailsForm = this.fb.group({
+      // Company Information
+      companyName: ['NAGAPPA KANTEPPA SHIVUR', Validators.required],
+      address: ['At. Post. Chandkavathe, Tal. Sindagi, Dist. Vijayapur - 586128', Validators.required],
+      description: ['Sugar House & Sugar Godwn Work Bill', Validators.required],
+      gstin: ['29ANAPS7778BZZR', Validators.required],
+      panNo: ['ANAPS7771B', Validators.required],
+      stateCode: ['29', Validators.required],
+      state: ['KARNATAKA', Validators.required],
+
+      // Invoice Details
+      invoiceNo: ['25', Validators.required],
+     
+      workOrderNo: ['100/F', Validators.required],
+     
+
+      // Customer Information
+      // customerName: ['Directeur Sukhoi Kausthanu Uri', Validators.required],
+      // customerAddress: ['Gokikarirama - Tal Sindagi', Validators.required],
+      // customerGstin: ['27AAOCP5704 DXZ1', Validators.required],
+      // customerState: ['Maharashtra', Validators.required],
+      // customerStateCode: ['27', Validators.required],
+
+    
+      
+    });
+    this.itemDetailsForm = this.fb.group({
+     items: this.fb.array([])
+
+    });
     // Add initial item
     this.addItem();
 
@@ -100,7 +138,8 @@ export class TaxInvoiceFormComponent implements OnInit {
       quantity: [0, [Validators.required, Validators.min(0)]],
       unit: ['MT', Validators.required],
       rate: [0, [Validators.required, Validators.min(0)]],
-      amount: [0]
+      amount: [0],
+      itemCode: [0]
     });
 
     // Setup auto-calculation for this item
@@ -152,6 +191,7 @@ export class TaxInvoiceFormComponent implements OnInit {
   }
 
   onPreviewInvoice(): void {
+    console.log("invoice data"+this.invoiceData)
     if (this.invoiceForm.valid) {
       this.invoiceData = this.invoiceForm.value;
       this.showPreview = true;
@@ -211,9 +251,35 @@ export class TaxInvoiceFormComponent implements OnInit {
   }
 
   addFactoryDetails(){
-
+this.showFactoryDetalsForm=true
+this.showItemForm=false
   }
   addItems(){
+this.showFactoryDetalsForm=false
+this.showItemForm=true
+  }
+  onsubmitinfo(){
+this.showFactoryDetalsForm=false
+  }
+
+  calcel(){
+    this.showFactoryDetalsForm=false
+  }
+
+  calcelIemForm(){
+    this.showItemForm=false
+  }
+  onsubmitIteminfo(){
+this.showItemForm=false
+  }
+
+  loadAll() {
     
+    this.invoiceService.getAll()
+      
+      .subscribe({
+        next: (list) => ( console.log(list)),
+        // error: (err) => alert(err?.message || 'Failed to load invoices')
+      });
   }
 }

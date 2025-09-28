@@ -1,4 +1,7 @@
 import { Component, Input, ElementRef, ViewChild } from '@angular/core';
+import { finalize } from 'rxjs';
+import { InvoiceService } from 'src/app/core/services/invoice.service';
+import { InvoiceDTO } from 'src/app/model/invoice-data.model';
 import { InvoiceFormData, InvoiceTotals } from 'src/app/model/invoice.model';
 
 
@@ -13,6 +16,9 @@ export class TaxInvoiceComponent {
   
   isGeneratingPdf = false;
 
+constructor(private invoiceService:InvoiceService){
+
+}
   get data(): InvoiceFormData {
     return this.invoiceData || this.getDefaultData();
   }
@@ -46,6 +52,8 @@ export class TaxInvoiceComponent {
   }
 
   async onDownloadPdf(): Promise<void> {
+    console.log(this.invoiceData)
+    this.saveInvoiceInDb()
     if (this.isGeneratingPdf) {
       return;
     }
@@ -293,5 +301,51 @@ export class TaxInvoiceComponent {
       ],
       igstRate: 18
     };
+  }
+
+  saveInvoiceInDb(){
+    const dto: InvoiceDTO = {
+      address: this.invoiceData?.address,
+      description: this.invoiceData?.description,
+      gstin: this.invoiceData?.gstin,
+      panNo: this.invoiceData?.panNo,
+      stateCode: this.invoiceData?.stateCode,
+      state: this.invoiceData?.state,
+      invoiceNo: this.invoiceData?.invoiceNo,
+      invoiceDate: this.invoiceData?.invoiceDate,
+      workOrderNo: this.invoiceData?.workOrderNo,
+      workingPeriodFrom: this.invoiceData?.workingPeriodFrom,
+      workingPeriodTo: this.invoiceData?.workingPeriodTo,
+      customerName: this.invoiceData?.customerName,
+      customerAddress: this.invoiceData?.customerAddress,
+      customerGSTIN: this.invoiceData?.customerGstin,
+      customerState: this.invoiceData?.customerState,
+      customerStateCode: this.invoiceData?.customerStateCode,
+      igstRate: this.invoiceData?.igstRate || 0,
+      cgstRate: this.invoiceData?.cgstRate || 0,
+      sgstRate: this.invoiceData?.sgstRate || 0,
+      items: this.invoiceData?.items.map((g, i) => ({
+        srNo: g.srNo,
+        description: g.description,
+        serviceCode: g.serviceCode,
+        quantity: g.quantity,
+        unit: g.unit,
+        rate: g.rate,
+        amount: g.amount
+      }))
+    };
+this.invoiceService.create(dto).subscribe({
+  next:(data)=>(console.log(data))
+})
+  }
+
+  loadAll() {
+    
+    this.invoiceService.getAll()
+      
+      .subscribe({
+        next: (list) => ( console.log(list)),
+        error: (err) => alert(err?.message || 'Failed to load invoices')
+      });
   }
 }

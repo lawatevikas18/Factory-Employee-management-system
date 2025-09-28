@@ -1,87 +1,94 @@
-<div class="container-fluid mt-4 attendance-report">
+<div class="attendance-report container-fluid mt-4">
 
-  
+  <!-- Header -->
+  <div class="text-center mb-4">
+    <h2 class="fw-bold">
+      <i class="bi bi-calendar-check me-2"></i> Attendance Report
+    </h2>
+    <p class="text-muted">Generate comprehensive attendance reports with PDF export</p>
+  </div>
 
-  <!-- Filter Section -->
+  <!-- Report Filters -->
   <div class="card shadow-sm mb-4">
-     <div class="card-body">
-    <form class="row g-3 align-items-end">
-      <!-- From Date -->
-      <div class="col-6 col-md-3">
-        <label class="form-label fw-semibold">From Date</label>
-        <div class="input-group">
-          <input class="form-control"
-                 placeholder="yyyy-mm-dd"
-                 name="fromDate"
-                 ngbDatepicker
-                 #d1="ngbDatepicker"
-                 [(ngModel)]="fromDate">
-          <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">📅</button>
+    <div class="card-body">
+      <form class="row g-3 align-items-end">
+
+        <!-- Quick Filters -->
+        <div class="col-12 d-flex gap-2 flex-wrap mb-2">
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="setDateRange('thisMonth')">This Month</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="setDateRange('lastMonth')">Last Month</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="setDateRange('last7')">Last 7 Days</button>
         </div>
-      </div>
 
-      <!-- To Date -->
-      <div class="col-6 col-md-3">
-        <label class="form-label fw-semibold">To Date</label>
-        <div class="input-group">
-          <input class="form-control"
-                 placeholder="yyyy-mm-dd"
-                 name="toDate"
-                 ngbDatepicker
-                 #d2="ngbDatepicker"
-                 [(ngModel)]="toDate">
-          <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">📅</button>
+        <!-- From Date -->
+        <div class="col-6 col-md-3">
+          <label class="form-label fw-semibold">From Date</label>
+          <input class="form-control" type="date" [(ngModel)]="fromDate" name="fromDate">
         </div>
-      </div>
 
-      <!-- Employee Code -->
-      <div class="col-6 col-md-3">
-        <label class="form-label fw-semibold">Employee Code (Optional)</label>
-        <input type="text"
-               class="form-control"
-               [(ngModel)]="employeeCode"
-               placeholder="E101">
-      </div>
+        <!-- To Date -->
+        <div class="col-6 col-md-3">
+          <label class="form-label fw-semibold">To Date</label>
+          <input class="form-control" type="date" [(ngModel)]="toDate" name="toDate">
+        </div>
 
-      <!-- Actions -->
-      <div class="col-6 col-md-3 d-flex gap-2">
-        <button class="btn btn-primary flex-fill" (click)="fetchReport()">Get Report</button>
-        <!-- Uncomment for PDF download -->
-        <button class="btn btn-outline-success flex-fill" (click)="downloadReportPdf()">⬇ PDF</button>
-      </div>
-    </form>
+        <!-- Employee Code -->
+        <div class="col-6 col-md-3">
+          <label class="form-label fw-semibold">Employee Code (Optional)</label>
+          <input type="text" class="form-control" [(ngModel)]="employeeCode" name="employeeCode" placeholder="E101">
+        </div>
+
+        <!-- Actions -->
+        <div class="col-6 col-md-3 d-flex gap-2">
+          <button type="button" class="btn btn-dark flex-fill" (click)="fetchReport()">Get Report</button>
+          <button type="button" class="btn btn-outline-success flex-fill" (click)="downloadReportPdf()">⬇ PDF</button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <!-- Attendance Table -->
- <div class="table-responsive attendance-table shadow-sm rounded">
-  <table class="table table-bordered table-sm align-middle text-center mb-0">
-    <thead class="table-primary">
-      <tr>
-        <th class="sticky-col-1">Sr. No.</th>
-        <th class="sticky-col-2">Employee Name</th>
-        <th *ngFor="let day of [].constructor(daysInMonth); let i=index">{{ i+1 }}</th>
-        <th>Absent</th>
-        <th>Present</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let emp of reportData; let i=index">
-        <td class="sticky-col-1">{{ i+1 }}</td>
-        <td class="sticky-col-2 text-start">{{ emp.employeeName }}</td>
-        <td *ngFor="let day of emp.days"
-            [ngClass]="{
-              'present': day === 'P',
-              'absent': day === 'A',
-              'halfday': day === 'H',
-              'NotMarked': day === 'NA'
-            }">
-          {{ day }}
-        </td>
-        <td class="fw-bold text-danger">{{ emp.absentCount }}</td>
-        <td class="fw-bold text-success">{{ emp.presentCount }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="card shadow-sm mb-3" *ngIf="reportData.length > 0">
+    <div class="card-body attendance-table table-responsive" #reportContent>
+      <table class="table table-bordered table-sm align-middle text-center mb-0">
+        <thead class="table-light">
+          <tr>
+            <th class="sticky-col-1">Sr.</th>
+            <th class="sticky-col-2">Employee</th>
+            <th *ngFor="let day of [].constructor(daysInMonth); let i=index">{{ i+1 }}</th>
+            <th class="summary-col">Absent</th>
+            <th class="summary-col">Present</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of reportData; let i=index">
+            <td class="sticky-col-1">{{ i+1 }}</td>
+            <td class="sticky-col-2 text-start">
+              <div class="fw-semibold">{{ emp.employeeName }}</div>
+              <small class="text-muted">{{ emp.employeeCode }}</small>
+            </td>
+            <td *ngFor="let day of emp.days"
+                [ngClass]="{
+                  'present': day === 'P',
+                  'absent': day === 'A',
+                  'halfday': day === 'H',
+                  'not-marked': day === 'NA'
+                }">
+              {{ day }}
+            </td>
+            <td class="fw-bold text-danger">{{ emp.absentCount }}</td>
+            <td class="fw-bold text-success">{{ emp.presentCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
+  <!-- Legend -->
+  <div class="d-flex gap-4 flex-wrap small mt-3">
+    <span><span class="legend present">P</span> Present</span>
+    <span><span class="legend absent">A</span> Absent</span>
+    <span><span class="legend halfday">H</span> Half Day</span>
+    <span><span class="legend not-marked">-</span> Not Marked</span>
+  </div>
 </div>

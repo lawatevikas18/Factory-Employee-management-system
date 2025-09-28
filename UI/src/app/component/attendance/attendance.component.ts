@@ -300,4 +300,7 @@ export class AttendanceComponent {
     this.selectedDate = new Date(date.year, date.month - 1, date.day);
     this.showDatepicker = false;
   }
+  report(){
+    this.router.navigate(['/reports'])
+  }
 }

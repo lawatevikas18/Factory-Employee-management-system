@@ -1,148 +1,182 @@
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from 'src/app/core/services/auth.service';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-attendance-report',
   templateUrl: './attendance-report.component.html',
+  styleUrls: ['./attendance-report.component.scss']
 })
-export class AttendanceReportComponent implements OnInit {
-   fromDate: NgbDateStruct | null = null;
-  toDate: NgbDateStruct | null = null;
+export class AttendanceReportComponent {
+  fromDate: string = '';
+  toDate: string = '';
   employeeCode: string = '';
 
+  daysInMonth = 31;
   reportData: any[] = [];
-  groupedData: { [key: string]: any[] } = {};
+  
+  isGeneratingPdf = false;
 
-daysInMonth: number = 31;
-  loading = false;
-  error = '';
+  @ViewChild('reportContent', { static: false }) reportContent!: ElementRef;
 
-  constructor(private authService: AuthService,
-    private http:HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
-    // Default: current month
+  setDateRange(range: string) {
     const today = new Date();
-    const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
-    const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
-    this.fromDate = {
-      year: firstDay.getFullYear(),
-      month: firstDay.getMonth() + 1,
-      day: firstDay.getDate(),
-    };
-    this.toDate = {
-      year: lastDay.getFullYear(),
-      month: lastDay.getMonth() + 1,
-      day: lastDay.getDate(),
-    };
-
-   // this.loadReport();
+    if (range === 'thisMonth') {
+      const first = new Date(today.getFullYear(), today.getMonth(), 1);
+      const last = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+      this.fromDate = first.toISOString().split('T')[0];
+      this.toDate = last.toISOString().split('T')[0];
+    } else if (range === 'lastMonth') {
+      const first = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+      const last = new Date(today.getFullYear(), today.getMonth(), 0);
+      this.fromDate = first.toISOString().split('T')[0];
+      this.toDate = last.toISOString().split('T')[0];
+    } else if (range === 'last7') {
+      const last = new Date(today);
+      const first = new Date(today);
+      first.setDate(today.getDate() - 7);
+      this.fromDate = first.toISOString().split('T')[0];
+      this.toDate = last.toISOString().split('T')[0];
+    }
   }
 
   fetchReport() {
-    if (!this.fromDate || !this.toDate) {
-      this.error = 'Please select both From and To dates';
-      return;
-    }
+    const request = {
+      fromDate: this.fromDate,
+      toDate: this.toDate,
+      employeeCode: this.employeeCode || ''
+    };
 
-    this.error = '';
-    this.loading = true;
-
-    // const from = this.formatDate(this.fromDate);
-    // const to = this.formatDate(this.toDate);
-    // const day=''
- let requestdata={
- fromDate:this.formatDate(this.fromDate),
- toDate:this.formatDate(this.toDate),
- employeeCode:this.employeeCode || '',
- day:''
-  }
-    this.authService.getReport(requestdata)
-  .subscribe({
-    next: (res) => {
-      if (res.statusCode === 200) {
-        this.reportData = res.jsonStr;
-        // calculate number of days in selected month
-        const startDate = new Date(requestdata.fromDate);
-        this.daysInMonth = new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0).getDate();
-
-        this.groupByEmployee();
-      } else {
-        this.error = res.msg;
-      }
-      this.loading = false;
-    },
-    error: () => {
-      this.error = 'Error fetching report';
-      this.loading = false;
-    }
-  });
+    this.http.post<any>('https://localhost:44392/api/Auth/attendanceReport', request)
+      .subscribe(res => {
+        if (res.statusCode === 200) {
+          this.reportData = res.jsonStr;
+        }
+      });
   }
 
-  private formatDate(date: NgbDateStruct): string {
-    return `${date.year}-${String(date.month).padStart(2, '0')}-${String(date.day).padStart(2, '0')}`;
-  }
+   async downloadReportPdf(): Promise<void> {
+    if (this.isGeneratingPdf) return;
+    this.isGeneratingPdf = true;
 
-  private groupByEmployee() {
-    const grouped: any = {};
-        this.reportData .forEach((row: any) => {
-          if (!grouped[row.employeeCode]) {
-            grouped[row.employeeCode] = {
-              employeeCode: row.employeeCode,
-              employeeName: row.employeeName,
-              designation: row.designation,
-              days: Array(this.daysInMonth).fill(''),
-              presentCount: 0,
-              absentCount: 0
-            };
-          }
+    try {
+      // Dynamic import
+      const [
+        { default: jsPDF },
+        { default: html2canvas }
+      ] = await Promise.all([
+        import('jspdf'),
+        import('html2canvas')
+      ]);
 
-          const day = new Date(row.reportDate).getDate();
-          grouped[row.employeeCode].days[day - 1] = row.status;
+      const element = this.reportContent.nativeElement;
 
-          if (row.status === 'Full Day') grouped[row.employeeCode].presentCount++;
-          else if (row.status === 'Absent') grouped[row.employeeCode].absentCount++;
+      // Clone element for PDF
+      const clonedElement = element.cloneNode(true) as HTMLElement;
+      this.applyPdfStyles(clonedElement);
+
+      // Temporary container
+      const tempContainer = document.createElement('div');
+      tempContainer.style.position = 'fixed';
+      tempContainer.style.top = '-9999px';
+      tempContainer.style.left = '-9999px';
+      tempContainer.style.width = '210mm';
+      tempContainer.style.background = '#ffffff';
+      tempContainer.appendChild(clonedElement);
+      document.body.appendChild(tempContainer);
+
+      try {
+        // High quality canvas
+        const canvas = await html2canvas(clonedElement, {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+          removeContainer: false,
+          logging: false,
+          width: clonedElement.scrollWidth,
+          height: clonedElement.scrollHeight
         });
 
-        this.reportData = Object.values(grouped);
+        if (!canvas || canvas.width === 0 || canvas.height === 0) {
+          throw new Error('Failed to generate canvas');
+        }
+
+        // PDF export
+        const imgData = canvas.toDataURL('image/png', 1.0);
+        const pdf = new jsPDF({
+          orientation: 'landscape', // for wide tables
+          unit: 'mm',
+          format: 'a4'
+        });
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const imgWidth = pageWidth - 20;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        if (imgHeight <= pageHeight - 20) {
+          pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+        } else {
+          const scaledHeight = pageHeight - 20;
+          const scaledWidth = (canvas.width * scaledHeight) / canvas.height;
+          pdf.addImage(imgData, 'PNG', 10, 10, scaledWidth, scaledHeight);
+        }
+
+        const currentDate = new Date().toISOString().split('T')[0];
+        const filename = `attendance-report-${currentDate}.pdf`;
+        pdf.save(filename);
+
+      } finally {
+        document.body.removeChild(tempContainer);
+      }
+
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('PDF generation failed. Please try again.');
+    } finally {
+      this.isGeneratingPdf = false;
+    }
   }
 
-  downloadReportPdf() {
-  const request = {
-    fromDate:"2025-09-01",
-    toDate:"2025-09-30",
-     employeeCode:this.employeeCode || '',
- day:''
-  };
+  private applyPdfStyles(element: HTMLElement): void {
+    // Normalize colors/borders
+    const applyStyles = (el: HTMLElement) => {
+      el.style.backgroundColor = '#ffffff';
+      el.style.color = '#000000';
+      el.style.borderColor = '#000000';
+      el.style.backgroundImage = 'none';
+      el.style.boxShadow = 'none';
+      el.style.fontFamily = 'Arial, sans-serif';
 
-  // this.http.post('https://localhost:5001/api/reports/attendanceReport/pdf', request, {
-  //   responseType: 'blob'
-  // }).subscribe((blob: Blob) => {
-  //   const url = window.URL.createObjectURL(blob);
-  //   const a = document.createElement('a');
-  //   a.href = url;
-  //   a.download = 'AttendanceReport.pdf';
-  //   a.click();
-  //   window.URL.revokeObjectURL(url);
-  // });
-  this.http.post('https://localhost:44392/api/Auth/attendanceReport/pdf', request, {
-    responseType: 'blob'  // 👈 Important
-  }).subscribe((res: Blob) => {
-    const blob = new Blob([res], { type: 'application/pdf' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'AttendanceReport.pdf';
-    a.click();
-    window.URL.revokeObjectURL(url);
-  });
+      Array.from(el.children).forEach(child => {
+        if (child instanceof HTMLElement) applyStyles(child);
+      });
+    };
 
-}
+    applyStyles(element);
 
+    element.style.maxWidth = '297mm'; // landscape A4 width
+    element.style.margin = '0';
+    element.style.padding = '20px';
+    element.style.fontSize = '11px';
+    element.style.lineHeight = '1.3';
 
+    // Fix table borders
+    const tables = element.querySelectorAll('table');
+    tables.forEach(table => {
+      (table as HTMLElement).style.borderCollapse = 'collapse';
+      (table as HTMLElement).style.border = '1px solid #000000';
+      const cells = table.querySelectorAll('td, th');
+      cells.forEach(cell => {
+        (cell as HTMLElement).style.border = '1px solid #000000';
+        (cell as HTMLElement).style.padding = '6px';
+        (cell as HTMLElement).style.backgroundColor = '#ffffff';
+        (cell as HTMLElement).style.color = '#000000';
+      });
+    });
+  }
 }

@@ -14,19 +14,19 @@
 </div>
 
 <!-- Form Mode -->
-<div *ngIf="!showPreview" class="container-fluid p-4">
+<div *ngIf="!showPreview && !showFactoryDetalsForm &&!showItemForm" class="container-fluid p-4" >
   
   <div class="row justify-content-center">
-    <div class="row align-items-center">
-    <div class="col"><button class="btn btn-secondary" (click)="addFactoryDetails()">+Add Factory Details</button></div>
+    <div class="row ">
+    <div class="col text-end"><button class="btn btn-secondary" (click)="addFactoryDetails()">+Factory Details</button></div>
     <div class="col"><button class="btn btn-secondary" (click)="addItems()">+Add Items Info</button></div>
   </div>
-    <div class="col-12 col-xl-10">
+    <div class="col-12 col-xl-10 mt-5">
       <!-- Header -->
       <div class="d-flex justify-content-between align-items-start mb-4">
         <div>
-          <h1 class="h3 mb-2">Tax Invoice Generator</h1>
-          <p class="text-muted">Enter invoice details to generate a professional tax invoice</p>
+          <h1 class="h3 mb-2">Tax Invoice </h1>
+          
         </div>
         <button 
           class="btn btn-primary"
@@ -40,7 +40,7 @@
         <!-- Company Information -->
         <div class="card mb-4">
           <div class="card-header">
-            <h5 class="card-title mb-0">Company Information</h5>
+            <h5 class="card-title mb-0">Factory Information</h5>
           </div>
           <div class="card-body">
             <div class="row g-3">
@@ -493,13 +493,13 @@
 
         <!-- Action Buttons -->
         <div class="d-flex justify-content-end gap-3">
-          <button 
+          <!-- <button 
             type="button" 
             class="btn btn-outline-primary"
             (click)="onPreviewInvoice()"
             [disabled]="invoiceForm.invalid">
             <i class="fas fa-eye me-2"></i>Preview Invoice
-          </button>
+          </button> -->
           <button 
             type="button" 
             class="btn btn-primary"
@@ -512,3 +512,232 @@
     </div>
   </div>
 </div>
+
+<!-- factory Details form  -->
+<div *ngIf="showFactoryDetalsForm" class="container-fluid p-4">
+ <form [formGroup]="factoryDetailsForm" novalidate>
+        <!-- Company Information -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Factory Information</h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="companyName" class="form-label">Company Name *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('companyName')"
+                  id="companyName" 
+                  formControlName="companyName"
+                  placeholder="Enter company name">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('companyName')">
+                  {{ getFieldErrorMessage('companyName') }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="gstin" class="form-label">GSTIN *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('gstin')"
+                  id="gstin" 
+                  formControlName="gstin"
+                  placeholder="Enter GSTIN">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('gstin')">
+                  {{ getFieldErrorMessage('gstin') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-12">
+                <label for="address" class="form-label">Address *</label>
+                <textarea 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('address')"
+                  id="address" 
+                  formControlName="address"
+                  rows="2"
+                  placeholder="Enter complete address"></textarea>
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('address')">
+                  {{ getFieldErrorMessage('address') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-12">
+                <label for="description" class="form-label">Business Description *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('description')"
+                  id="description" 
+                  formControlName="description"
+                  placeholder="Enter business description">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('description')">
+                  {{ getFieldErrorMessage('description') }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-md-4">
+                <label for="panNo" class="form-label">PAN No. *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('panNo')"
+                  id="panNo" 
+                  formControlName="panNo"
+                  placeholder="Enter PAN number">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('panNo')">
+                  {{ getFieldErrorMessage('panNo') }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="state" class="form-label">State *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('state')"
+                  id="state" 
+                  formControlName="state"
+                  placeholder="Enter state">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('state')">
+                  {{ getFieldErrorMessage('state') }}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="stateCode" class="form-label">State Code *</label>
+                <input 
+                  type="text" 
+                  class="form-control"
+                  [class.is-invalid]="isFieldInvalid('stateCode')"
+                  id="stateCode" 
+                  formControlName="stateCode"
+                  placeholder="Enter state code">
+                <div class="invalid-feedback" *ngIf="isFieldInvalid('stateCode')">
+                  {{ getFieldErrorMessage('stateCode') }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-end"><button 
+            type="button" 
+            class="btn btn-primary"
+            (click)="onsubmitinfo()"
+            [disabled]="factoryDetailsForm.invalid">
+            <i class="fas fa-file-alt me-2"></i>Submit Details
+          </button>
+        </div>
+            <div class="col">
+               <button 
+            type="button" 
+            class="btn btn-primary"
+            (click)="calcel()"
+            [disabled]="factoryDetailsForm.invalid">
+            <i class=" me-2"></i>Cancel
+          </button>
+            </div>
+          </div>
+         
+        </div>
+
+        </form>
+</div>
+
+<!-- items details -->
+ <div class="container-fluid p-4" *ngIf="showItemForm">
+<form [formGroup]="itemDetailsForm" novalidate>
+        
+         <!-- Invoice Items -->
+        <div class="card mb-4">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Invoice Items</h5>
+            <button type="button" class="btn btn-sm btn-success" (click)="addItem()">
+              <i class="fas fa-plus me-2"></i>Add Item
+            </button>
+          </div>
+          <div class="card-body">
+            <div *ngFor="let itemForm of items.controls; let i = index" class="border rounded p-3 mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="mb-0">Item {{ i + 1 }}</h6>
+                <button 
+                  *ngIf="items.length > 1"
+                  type="button" 
+                  class="btn btn-sm btn-danger"
+                  (click)="removeItem(i)">
+                  <i class="fas fa-minus me-2"></i>Remove
+                </button>
+              </div>
+
+              <div [formGroup]="getItemFormGroup(i)">
+                <div class="row g-3">
+                  <div class="col-md-5">
+                    <label class="form-label">Description *</label>
+                    <textarea 
+                      class="form-control"
+                      [class.is-invalid]="isItemFieldInvalid(i, 'description')"
+                      formControlName="description"
+                      rows="2"
+                      placeholder="Enter service description"></textarea>
+                  </div>
+                  <!-- <div class="col-md-4">
+                    <label class="form-label">Service Code</label>
+                    <input 
+                      type="text" 
+                      class="form-control"
+                      formControlName="serviceCode"
+                      placeholder="Enter service code">
+                  </div> -->
+                  <div class="col-md-4">
+                    <label class="form-label">Item Code</label>
+                    <input 
+                      type="text" 
+                      class="form-control"
+                      formControlName="itemCode"
+                      placeholder="Enter item code code">
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Rate *</label>
+                    <input 
+                      type="number" 
+                      class="form-control"
+                      [class.is-invalid]="isItemFieldInvalid(i, 'rate')"
+                      formControlName="rate"
+                      step="0.01"
+                      min="0"
+                      placeholder="0.00">
+                  </div>
+                </div>
+
+               
+              </div>
+            </div>
+          </div>
+        </div>
+<div class="row">
+            <div class="col text-end"><button 
+            type="button" 
+            class="btn btn-primary"
+            (click)="onsubmitIteminfo()"
+            [disabled]="itemDetailsForm.invalid">
+            <i class="fas fa-file-alt me-2"></i>Submit Details
+          </button>
+        </div>
+            <div class="col">
+               <button 
+            type="button" 
+            class="btn btn-primary"
+            (click)="calcelIemForm()"
+           >
+            <i class=" me-2"></i>Cancel
+          </button>
+            </div>
+          </div>
+        </form>
+ </div>

@@ -20,7 +20,7 @@ export interface AdvanceTransaction {
 })
 export class EmployeeAdvancesService {
    private getHeaders() {
-        const token = sessionStorage.getItem('token'); // ✅ Get token from sessionStorage (or service)
+        const token = sessionStorage.getItem('token'); 
         return new HttpHeaders({
           'Authorization': `Bearer ${token}`
         });

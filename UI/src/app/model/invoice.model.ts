@@ -39,3 +39,4 @@ export interface InvoiceTotals {
   sgstAmount?: number;
   total: number;
 }
+
