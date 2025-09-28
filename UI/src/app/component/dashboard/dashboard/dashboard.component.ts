@@ -52,11 +52,13 @@ export class DashboardComponent {
 
   attendancePercentage = 0;
   siteOperationalPercentage = 0;
+  getfactoryName: any;
 
   constructor(private loader:LoaderService,
     private employeeService:EmployeeService,
     private errormsg:ErrorPopUpService,
-    private authService:AuthService
+    private authService:AuthService,
+    private loaderService :LoaderService
   ) { }
 
   ngOnInit(): void {
@@ -111,7 +113,13 @@ export class DashboardComponent {
     this.employeeService.getDashBoardData().subscribe({
       next: (res) => {
         // this.employees = res;
-        console.log(res)
+        console.log(`res`,res.factoryName);
+        this.getfactoryName=res.factoryName;
+         const name = res.userName;
+    if (name) {
+      this.loaderService.setUserName(name);
+    }
+        console.log(res.userName);
         this.totalEmployees=res.employee_count
       this.presentEmployeesToday=res.attendance_count_today
       this.workingSitesToday=res.active_site.length

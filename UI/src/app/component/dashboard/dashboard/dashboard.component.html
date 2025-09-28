@@ -3,23 +3,30 @@
   <div class="container-fluid " style="max-width: 1280px;">
     <!-- Header -->
     <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
-      <div class="d-flex align-items-center gap-3  mb-md-0">
-        <!-- User Photo -->
-        <div class="ms-2">
-          <p class="text-muted mb-0">
-            Overview of all sites
-          </p>
-        </div>
-        <div class="d-flex align-items-center gap-3">
-          <div class="avatar-container">
-            <img src="assets/images/Nksboss.png" alt="Admin User" class="avatar-img">
-            <span class="avatar-fallback">AU</span>
-          </div>
+    
 
-        </div>
+    <div class="d-flex align-items-center justify-content-between w-100 mb-3">
+  <!-- Left: Text + Avatar -->
+  <div class="d-flex align-items-center gap-2">
+    <p class="text-muted mb-0">Overview of all sites</p>
+    <div class="avatar-container">
+      <img src="assets/images/Nksboss.png" alt="Admin User" class="avatar-img">
+      <span class="avatar-fallback">AU</span>
+    </div>
+  </div>
+
+  <!-- Right: Factory Name -->
+  <div class="text-end factory-name">
+    <p class="mb-0 text-muted">
+      <strong>Factory Name:</strong> {{ getfactoryName }}
+    </p>
+  </div>
+</div>
 
 
-      </div>
+
+
+
 
       
     </div>

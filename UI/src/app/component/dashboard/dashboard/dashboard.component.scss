@@ -1,17 +1,7 @@
 /* Admin Dashboard Component Styles */
 
 /* Avatar Styles */
-.avatar-container {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #f8f9fa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .avatar-img {
   width: 100%;
@@ -27,10 +17,7 @@
   color: #6c757d;
 }
 
-.avatar-container:has(.avatar-img:broken) .avatar-fallback,
-.avatar-container:not(:has(.avatar-img)) .avatar-fallback {
-  display: block;
-}
+
 
 /* Metric Cards */
 .metric-card {
@@ -218,6 +205,32 @@
   padding: 1rem;
 }
 
+.avatar-container {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-container:has(.avatar-img:broken) .avatar-fallback,
+.avatar-container:not(:has(.avatar-img)) .avatar-fallback {
+  display: block;
+}
+
+ .factory-name p {
+  font-weight: 600;
+  color: #495057;
+  margin: 0;
+}
+
+
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .avatar-container {
@@ -263,3 +276,4 @@
 .card-title{
   font-size: 12px;
   }
+
