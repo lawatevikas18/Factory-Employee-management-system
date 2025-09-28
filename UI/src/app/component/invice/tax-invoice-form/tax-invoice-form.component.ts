@@ -276,7 +276,6 @@ this.showItemForm=false
   loadAll() {
     
     this.invoiceService.getAll()
-      
       .subscribe({
         next: (list) => ( console.log(list)),
         // error: (err) => alert(err?.message || 'Failed to load invoices')
