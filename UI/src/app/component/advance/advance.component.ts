@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdvanceTransaction, EmployeeAdvancesService } from 'src/app/core/services/employee-advance.service';
 import { EmployeeService } from 'src/app/core/services/employee.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
@@ -43,7 +44,8 @@ showDetails:boolean=false
     private empService: EmployeeService,
     private advancesService: EmployeeAdvancesService,
     private fb: FormBuilder,
-    private loader:LoaderService
+    private loader:LoaderService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -142,6 +144,11 @@ showDetails:boolean=false
   }
   closeAdvanceDetails(){
     this.showDetails=false
+  }
+  openAddPopup() {
+    this.router.navigate(['/employee-details'], {
+    queryParams: { 'from': 'Advance' }
+  });
   }
 }
 

@@ -19,6 +19,7 @@ interface Employee {
   role: string;
   status: status;
  ot?: number | null;
+ photo:any
 
 }
 @Component({
@@ -52,6 +53,7 @@ export class AttendanceComponent {
  date: string = new Date().toISOString().substring(0, 10);
   showDatepicker = false;
    UserRole:any
+   
  constructor(private http: HttpClient,
   private authService:AuthService,
   private getAttendance:AttendanceService,
@@ -267,11 +269,21 @@ export class AttendanceComponent {
 
     
 
-     decreaseDate() {
+    decreaseDate() {
+  const today = new Date();
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(today.getDate() - 7);
+
+  // Only decrease if selectedDate is greater than sevenDaysAgo
+  if (this.selectedDate > sevenDaysAgo) {
     this.selectedDate = new Date(this.selectedDate.setDate(this.selectedDate.getDate() - 1));
     const formattedDate = this.selectedDate.toISOString().split('T')[0];
-    this.getEmplyees(formattedDate)
+    this.getEmplyees(formattedDate);
+  } else {
+    console.log("You can only view up to 7 days in the past.");
   }
+}
+
 
   increaseDate() {
   const today = new Date();
@@ -303,4 +315,22 @@ export class AttendanceComponent {
   report(){
     this.router.navigate(['/reports'])
   }
+
+ triggerFileInput(fileInput: HTMLInputElement) {
+  fileInput.click();
 }
+
+  // Handle file selection
+  onFileSelected(event: any, emp: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        emp.photo = e.target.result; // set base64 as photo
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+}
+ 

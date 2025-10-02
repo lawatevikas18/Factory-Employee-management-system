@@ -1,0 +1,17 @@
+<div class="upload-container">
+  <h2>📸 Image Upload</h2>
+
+  <!-- Upload Form -->
+  <div class="upload-box">
+    <input type="file" (change)="onFileSelected($event)">
+    <button (click)="uploadFile()" [disabled]="!selectedFile">Upload</button>
+  </div>
+
+  <!-- Show Uploaded Images -->
+  <div class="gallery">
+    <div class="image-card" *ngFor="let img of images">
+      <img [src]="img.filePath" alt="Uploaded Image">
+      <button class="delete-btn" (click)="deleteImage(img.id)">❌ Delete</button>
+    </div>
+  </div>
+</div>

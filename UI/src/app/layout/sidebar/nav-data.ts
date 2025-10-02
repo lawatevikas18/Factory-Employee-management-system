@@ -11,9 +11,10 @@ export const navbardata=[
    },
    {
     routerLink: 'employee-attendance',
-    icon: 'fa-solid fa-calendar-check', 
+    icon: 'fa-solid fa-clipboard-user', 
     label: 'MENU.attendance'
   },
+
   // {
   //   routerLink:'reports',
   //   icon:'fa-regular fa-file',
@@ -22,18 +23,21 @@ export const navbardata=[
 
     {
     routerLink:'advance',
-    icon:'fa-regular fa-file',
+    icon:'fa-solid fa-money-bill',
     label:'MENU.ADVANCE'  },
   //  {
   //   routerLink:'factory-bill',
   //   icon:'fa-regular fa-file',
   //   label:'MENU.FACTORY_BILL'  
+  
+  
   //  },
    {
     routerLink:'Invoice',
-    icon:'fa-regular fa-file',
+    icon:'fa-solid fa-receipt',
     label:'MENU.INVOICE'  
    },
+ 
   //   {
   //   routerLink:'auth',
   //   icon:'fa-regular fa-users',

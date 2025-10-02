@@ -26,7 +26,12 @@ export class EmployeeDetailsComponent implements OnInit {
   error = '';
   isemployeeForm = false;
   from:any
-
+ photoBase64: string | null = null;  
+  photoPreview: string | null = null;
+  selectedFile: File | null = null;
+  uploadResponse: string = '';
+  uploadedImageUrl: string | null = null;
+  uploadSuccess: boolean = false;
   private apiUrl = environment.apiUrl;
   private modalInstance: any;
 
@@ -53,7 +58,8 @@ export class EmployeeDetailsComponent implements OnInit {
       district: ['',Validators.required],
       state: ['',Validators.required],
       aadhaar: ['', [Validators.required,Validators.pattern('^[0-9]{12}$')]],
-      panCard: ['', [Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]]
+      panCard: ['', [Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]],
+       photo: ['']
     });
    this.router.queryParams.subscribe(params => {
      this.from = params['from']
@@ -157,4 +163,31 @@ viewEmployee(emp: any) {
 closeModal() {
   this.selectedEmployee = null;
 }
+onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    this.uploadedImageUrl = null; // reset preview until upload
+  }
+   onUpload() {
+    if (!this.selectedFile) {
+      this.uploadResponse = '❌ Please select a file first.';
+      this.uploadSuccess = false;
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile, this.selectedFile.name);
+
+    this.http.post("https://emp360-001-site1.stempurl.com/api/Upload", formData)
+      .subscribe({
+        next: (res: any) => {
+          this.uploadResponse = "✅ Uploaded successfully!";
+          this.uploadedImageUrl = "https://emp360-001-site1.stempurl.com" + res.path;
+          this.uploadSuccess = true;
+        },
+        error: (err) => {
+          this.uploadResponse = "❌ Upload failed!";
+          this.uploadSuccess = false;
+        }
+      });
+  }
 }

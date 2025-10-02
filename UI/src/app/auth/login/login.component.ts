@@ -48,7 +48,7 @@ export class LoginComponent {
   }
 
   login() {
-    debugger
+    
     if (this.loginForm.valid) {
       this.loader.show()
       this.authService.login(this.loginForm.value).subscribe({

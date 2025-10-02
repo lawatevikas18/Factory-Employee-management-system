@@ -161,9 +161,20 @@
         <!-- Left side -->
         <div class="d-flex align-items-center">
           <div class="me-3 fw-bold text-primary">{{ i + 1 }}.</div>
-          <div class="avatar me-3">
-            {{ emp.name.split(' ')[0]?.charAt(0) }}{{ emp.name.split(' ')[1]?.charAt(0) || '' }}
-          </div>
+          <div class="avatar me-3" >
+  <img *ngIf="emp.photo" [src]="emp.photo" alt="Employee Photo" class="avatar-img" />
+  <ng-container *ngIf="!emp.photo">
+    {{ emp.name.split(' ')[0]?.charAt(0) }}{{ emp.name.split(' ')[1]?.charAt(0) || '' }}
+  </ng-container>
+</div>
+
+<!-- Hidden file input -->
+<!-- <input type="file"
+       #fileInput
+       accept="image/*"
+       class="d-none"
+       (change)="onFileSelected($event, emp)" /> -->
+
           <div>
             <div class="fw-semibold">{{ emp.name }}</div>
             <div class="small text-muted">{{ emp.role }}</div>
