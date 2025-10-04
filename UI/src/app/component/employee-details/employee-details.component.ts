@@ -1,57 +1,80 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environment/environment';
+import { EmployeeService } from 'src/app/core/services/employee.service';
+import { Router,ActivatedRoute } from '@angular/router';
+import { LoaderService } from 'src/app/core/services/loader.service';
+import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
+
+declare var bootstrap: any; 
 
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
-  styleUrls: ['./employee-details.component.css']
- 
+  styleUrls: ['./employee-details.component.scss']
 })
 export class EmployeeDetailsComponent implements OnInit {
-  employeeForm: FormGroup;
+  employeeForm!: FormGroup;
   employees: any[] = [];
-  message = '';
-  error = '';
+  wallets: any[] = [];
   isEdit = false;
   selectedId: number | null = null;
+  selectedEmployee: any = null;  // ✅ For modal
+  loading = false;
+  message = '';
+  error = '';
+  isemployeeForm = false;
+  from:any
+ photoBase64: string | null = null;  
+  photoPreview: string | null = null;
   selectedFile: File | null = null;
-  selectedEmployee: any = null;
+  uploadResponse: string = '';
+  uploadedImageUrl: string | null = null;
+  uploadSuccess: boolean = false;
+  private apiUrl = environment.apiUrl;
+  private modalInstance: any;
 
-  apiUrl = 'https://localhost:7185/api'; // 🔹 तुझ्या backend URL नुसार बदल
-
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.employeeForm = this.fb.group({
-      name: ['', Validators.required],
-      address: [''],
-      village: [''],
-      taluka: [''],
-      district: [''],
-      state: [''],
-      role: [''],
-      aadhaar: ['', [Validators.required, Validators.minLength(12), Validators.maxLength(12)]],
-      panCard: [''],
-      mobile1: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      mobile2: [''],
-      monthlySalary: ['', Validators.required],
-      factoryName: ['']
-    });
-  }
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private employeeService: EmployeeService,
+    private route: Router,
+    private loader: LoaderService,
+    private router: ActivatedRoute,
+    private errormsg:ErrorPopUpService
+  ) {}
 
   ngOnInit(): void {
+    this.employeeForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      mobile1: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      mobile2: ['', [Validators.pattern('^[0-9]{10}$')]],
+      role: ['', Validators.required],
+      monthlySalary: [0, [Validators.required, Validators.min(1000)]],
+      address: ['',Validators.required],
+      village: ['',Validators.required],
+      taluka: ['',Validators.required],
+      district: ['',Validators.required],
+      state: ['',Validators.required],
+      aadhaar: ['', [Validators.required,Validators.pattern('^[0-9]{12}$')]],
+      panCard: ['', [Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]],
+       photo: ['']
+    });
+   this.router.queryParams.subscribe(params => {
+     this.from = params['from']
+    if(this.from=='Attendance' ||this.from=='Advance' ){
+        this.addNew()
+    }
+  });
     this.loadEmployees();
   }
 
-  // ✅ Load Employees
-  loadEmployees() {
-    this.http.get<any[]>(`${this.apiUrl}/Employee`, { headers: this.getAuthHeader() })
-      .subscribe({
-        next: res => this.employees = res,
-        error: err => this.error = 'Failed to load employees'
-      });
+  private getHeaders() {
+    const token = sessionStorage.getItem('token') || '';
+    return { headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }) };
   }
 
-  // ✅ Submit Add / Update
   submit() {
     if (this.employeeForm.invalid) {
       this.error = 'Please fix validation errors.';
@@ -59,85 +82,112 @@ export class EmployeeDetailsComponent implements OnInit {
     }
 
     this.error = '';
-    const formData = new FormData();
-    Object.keys(this.employeeForm.value).forEach(key => {
-      formData.append(key, this.employeeForm.value[key]);
-    });
-
-    if (this.selectedFile) {
-      formData.append("Image", this.selectedFile);
-    }
+    const body = this.employeeForm.value;
 
     if (this.isEdit && this.selectedId) {
-      formData.append("employeeId", this.selectedId.toString());
-      this.http.put(`${this.apiUrl}/Employee/${this.selectedId}`, formData, {
-        headers: this.getMultipartHeader()
-      }).subscribe({
-        next: () => {
-          this.message = 'Employee updated successfully';
-          this.resetForm();
-          this.loadEmployees();
-        },
-        error: err => this.error = err?.error?.message || 'Update failed'
-      });
-    } else {
-      this.http.post(`${this.apiUrl}/Employee`, formData, {
-        headers: this.getMultipartHeader()
-      }).subscribe({
-        next: () => {
-          this.message = 'Employee added successfully';
-          this.resetForm();
-          this.loadEmployees();
-        },
-        error: err => this.error = err?.error?.message || 'Add failed'
-      });
-    }
-  }
-
-  // ✅ Edit Employee
-  editEmployee(emp: any) {
-    this.isEdit = true;
-    this.selectedId = emp.employeeId;
-    this.selectedEmployee = emp;
-    this.employeeForm.patchValue(emp);
-  }
-
-  // ✅ Delete Employee
-  deleteEmployee(id: number) {
-    if (confirm('Are you sure you want to delete this employee?')) {
-      this.http.delete(`${this.apiUrl}/Employee/${id}`, { headers: this.getAuthHeader() })
+      this.http.put(`${this.apiUrl}/Employee/${this.selectedId}`, { ...body, employeeId: this.selectedId }, this.getHeaders())
         .subscribe({
           next: () => {
-            this.message = 'Employee deleted successfully';
+            this.message = 'Employee updated';
+            this.resetForm();
             this.loadEmployees();
           },
-          error: () => this.error = 'Delete failed'
+          error: err => this.error = err?.error?.message || 'Update failed'
+        });
+    } else {
+      this.http.post(`${this.apiUrl}/Employee`, body, this.getHeaders())
+        .subscribe({
+          next: () => {
+            this.message = 'Employee added';
+            this.resetForm();
+            this.loadEmployees();
+          },
+          error: err => this.error = err?.error?.message || 'Add failed'
         });
     }
   }
 
-  // ✅ Image File Select
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
+  edit(emp: any) {
+    this.isEdit = true;
+    this.selectedId = emp.employeeId;
+    this.employeeForm.patchValue(emp);
+    this.isemployeeForm = true;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // ✅ Reset
+  delete(empId: number) {
+    if (!confirm('Are you sure you want to delete this employee?')) return;
+    this.http.delete(`${this.apiUrl}/Employee/${empId}`, this.getHeaders())
+      .subscribe({
+        next: () => {
+          this.message = 'Employee deleted';
+          this.loadEmployees();
+        },
+        error: err => this.error = err?.error?.message || 'Delete failed'
+      });
+  }
+
   resetForm() {
-    this.employeeForm.reset();
     this.isEdit = false;
     this.selectedId = null;
-    this.selectedFile = null;
-    this.selectedEmployee = null;
+    this.employeeForm.reset({ monthlySalary: 0 });
+    this.isemployeeForm = false;
   }
 
-  // ✅ JWT Auth Header
-  private getAuthHeader() {
-    const token = sessionStorage.getItem('token') || '';
-    return { Authorization: `Bearer ${token}` };
+  addNew() {
+    this.isemployeeForm = true;
   }
 
-  private getMultipartHeader() {
-    const token = sessionStorage.getItem('token') || '';
-    return { Authorization: `Bearer ${token}` };
+  loadEmployees() {
+    this.loader.show();   
+    this.employeeService.getEmployees().subscribe({
+      next: (res) => {
+        this.employees = res;
+        this.loader.hide();   // ✅ Hide on success
+      },
+      error: (err) => {
+        this.loader.hide();
+        this.errormsg.showError(err?.error)
+        console.error('Error loading employees', err);
+      },
+      complete: () => {
+        this.loader.hide(); 
+      }
+    });
+  }
+
+  // ✅ Show modal with employee details
+viewEmployee(emp: any) {
+  this.selectedEmployee = emp;
+}
+closeModal() {
+  this.selectedEmployee = null;
+}
+onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    this.uploadedImageUrl = null; // reset preview until upload
+  }
+   onUpload() {
+    if (!this.selectedFile) {
+      this.uploadResponse = '❌ Please select a file first.';
+      this.uploadSuccess = false;
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile, this.selectedFile.name);
+
+    this.http.post("https://emp360-001-site1.stempurl.com/api/Upload", formData)
+      .subscribe({
+        next: (res: any) => {
+          this.uploadResponse = "✅ Uploaded successfully!";
+          this.uploadedImageUrl = "https://emp360-001-site1.stempurl.com" + res.path;
+          this.uploadSuccess = true;
+        },
+        error: (err) => {
+          this.uploadResponse = "❌ Upload failed!";
+          this.uploadSuccess = false;
+        }
+      });
   }
 }
