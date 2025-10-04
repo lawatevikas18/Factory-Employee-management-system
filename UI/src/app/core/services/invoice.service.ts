@@ -32,7 +32,6 @@ private getHeaders() {
   getAll(): Observable<Invoice[]> {
         return this.http.get<Invoice[]>(`${this.apiBase}/all`, { headers: this.getHeaders() });
   }
-
     
   getById(id: number) {
        return this.http.get<Invoice>(`${this.apiBase}/${id}`, { headers: this.getHeaders() });
