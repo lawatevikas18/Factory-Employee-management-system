@@ -2,27 +2,99 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { AttendanceService } from 'src/app/core/services/Attendance.Service';
 
+interface AttendanceApiData {
+  employeeId: number;
+  date: string;
+  status: string;
+}
+
+interface ProcessedEmployee {
+  employeeId: number;
+  employeeName: string;
+  employeeCode: string;
+  days: string[];
+  presentCount: number;
+  absentCount: number;
+}
 @Component({
   selector: 'app-attendance-report',
   templateUrl: './attendance-report.component.html',
   styleUrls: ['./attendance-report.component.scss']
 })
+
 export class AttendanceReportComponent {
   fromDate: string = '';
   toDate: string = '';
   employeeCode: string = '';
-
   daysInMonth = 31;
-  reportData: any[] = [];
-  
+  reportData: ProcessedEmployee[] = [];
+  loading = false;
   isGeneratingPdf = false;
+  maxDate: string = '';
 
   @ViewChild('reportContent', { static: false }) reportContent!: ElementRef;
 
-  constructor(private http: HttpClient) {}
+  // Generate dynamic mock data for current month
+  private generateMockData(): AttendanceApiData[] {
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth(); // This will be the month we're showing
+    const data: AttendanceApiData[] = [];
+    
+    // Generate data for 3 employees for the current month
+    for (let empId = 101; empId <= 103; empId++) {
+      // Generate attendance for first 20 days of month
+      for (let day = 1; day <= 20; day++) {
+        const date = new Date(currentYear, currentMonth, day);
+        let status = 'Present';
+        
+        // Add some variety to the data
+        if (empId === 101) {
+          if ([3, 7, 15].includes(day)) status = 'Absent';
+          if ([4, 12].includes(day)) status = 'HalfDay';
+        } else if (empId === 102) {
+          if ([2, 8, 18].includes(day)) status = 'Absent';
+          if ([6, 14].includes(day)) status = 'HalfDay';
+        } else if (empId === 103) {
+          if ([1, 9, 16].includes(day)) status = 'Absent';
+          if ([5, 11, 19].includes(day)) status = 'HalfDay';
+        }
+        
+        data.push({
+          employeeId: empId,
+          date: date.toISOString().split('T')[0],
+          status: status
+        });
+      }
+    }
+    
+    return data;
+  }
 
-  setDateRange(range: string) {
+  private mockAttendanceData = this.generateMockData();
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this.setDefaultLastMonth();
+    this.maxDate = new Date().toISOString().split('T')[0];
+    // Auto-fetch data when component loads
+    setTimeout(() => this.fetchReport(), 100);
+  }
+
+  private setDefaultLastMonth(): void {
+    const today = new Date();
+    // Use current month to match our mock data
+    const first = new Date(today.getFullYear(), today.getMonth(), 1);
+    const last = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+    this.fromDate = first.toISOString().split('T')[0];
+    this.toDate = last.toISOString().split('T')[0];
+  }
+
+  setDateRange(range: string): void {
     const today = new Date();
     if (range === 'thisMonth') {
       const first = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -43,107 +115,81 @@ export class AttendanceReportComponent {
     }
   }
 
-  fetchReport() {
-    const request = {
-      fromDate: this.fromDate,
-      toDate: this.toDate,
-      employeeCode: this.employeeCode || ''
-    };
+  fetchReport(): void {
+    if (!this.fromDate || !this.toDate) {
+      console.error('Please select both From and To dates');
+      return;
+    }
 
-    this.http.post<any>('https://localhost:44392/api/Auth/attendanceReport', request)
-      .subscribe(res => {
-        if (res.statusCode === 200) {
-          this.reportData = res.jsonStr;
-        }
-      });
-  }
-
-   async downloadReportPdf(): Promise<void> {
-    if (this.isGeneratingPdf) return;
-    this.isGeneratingPdf = true;
+    this.loading = true;
 
     try {
-      // Dynamic import
-      const [
-        { default: jsPDF },
-        { default: html2canvas }
-      ] = await Promise.all([
-        import('jspdf'),
-        import('html2canvas')
-      ]);
+      const startDate = new Date(this.fromDate);
+      const endDate = new Date(this.toDate);
+      
+      // Filter data by date range first
+      let filteredData = this.mockAttendanceData.filter(item => {
+        const itemDate = new Date(item.date);
+        return itemDate >= startDate && itemDate <= endDate;
+      });
 
-      const element = this.reportContent.nativeElement;
-
-      // Clone element for PDF
-      const clonedElement = element.cloneNode(true) as HTMLElement;
-      this.applyPdfStyles(clonedElement);
-
-      // Temporary container
-      const tempContainer = document.createElement('div');
-      tempContainer.style.position = 'fixed';
-      tempContainer.style.top = '-9999px';
-      tempContainer.style.left = '-9999px';
-      tempContainer.style.width = '210mm';
-      tempContainer.style.background = '#ffffff';
-      tempContainer.appendChild(clonedElement);
-      document.body.appendChild(tempContainer);
-
-      try {
-        // High quality canvas
-        const canvas = await html2canvas(clonedElement, {
-          scale: 2,
-          useCORS: true,
-          allowTaint: true,
-          backgroundColor: '#ffffff',
-          removeContainer: false,
-          logging: false,
-          width: clonedElement.scrollWidth,
-          height: clonedElement.scrollHeight
-        });
-
-        if (!canvas || canvas.width === 0 || canvas.height === 0) {
-          throw new Error('Failed to generate canvas');
-        }
-
-        // PDF export
-        const imgData = canvas.toDataURL('image/png', 1.0);
-        const pdf = new jsPDF({
-          orientation: 'landscape', // for wide tables
-          unit: 'mm',
-          format: 'a4'
-        });
-
-        const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = pdf.internal.pageSize.getHeight();
-        const imgWidth = pageWidth - 20;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-        if (imgHeight <= pageHeight - 20) {
-          pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
-        } else {
-          const scaledHeight = pageHeight - 20;
-          const scaledWidth = (canvas.width * scaledHeight) / canvas.height;
-          pdf.addImage(imgData, 'PNG', 10, 10, scaledWidth, scaledHeight);
-        }
-
-        const currentDate = new Date().toISOString().split('T')[0];
-        const filename = `attendance-report-${currentDate}.pdf`;
-        pdf.save(filename);
-
-      } finally {
-        document.body.removeChild(tempContainer);
+      // Filter by employee code if provided
+      if (this.employeeCode) {
+        filteredData = filteredData.filter(item => 
+          item.employeeId.toString().includes(this.employeeCode) || 
+          `E${item.employeeId}`.toLowerCase().includes(this.employeeCode.toLowerCase())
+        );
       }
 
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('PDF generation failed. Please try again.');
+      // Calculate days in selected period
+      const timeDiff = endDate.getTime() - startDate.getTime();
+      const daysCount = Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1;
+      this.daysInMonth = daysCount;
+
+      // Group by employee
+      const grouped: { [empId: number]: ProcessedEmployee } = {};
+      
+      filteredData.forEach(item => {
+        const itemDate = new Date(item.date);
+        const dayIndex = Math.floor((itemDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24));
+
+        if (!grouped[item.employeeId]) {
+          grouped[item.employeeId] = {
+            employeeId: item.employeeId,
+            employeeName: `Employee ${item.employeeId}`,
+            employeeCode: `E${item.employeeId}`,
+            days: Array(daysCount).fill('NA'),
+            presentCount: 0,
+            absentCount: 0
+          };
+        }
+
+        if (dayIndex >= 0 && dayIndex < daysCount) {
+          let statusChar = 'NA';
+          if (item.status === 'Present') statusChar = 'P';
+          else if (item.status === 'Absent') statusChar = 'A';
+          else if (item.status === 'HalfDay') statusChar = 'H';
+
+          grouped[item.employeeId].days[dayIndex] = statusChar;
+        }
+      });
+
+      // Calculate totals
+      Object.values(grouped).forEach((emp: ProcessedEmployee) => {
+        emp.presentCount = emp.days.filter((d: string) => d === 'P').length;
+        emp.absentCount = emp.days.filter((d: string) => d === 'A').length;
+      });
+
+      this.reportData = Object.values(grouped);
+    } catch (err) {
+      console.error('Error fetching report', err);
     } finally {
-      this.isGeneratingPdf = false;
+      this.loading = false;
     }
   }
 
   private applyPdfStyles(element: HTMLElement): void {
-    // Normalize colors/borders
+    // Normalize colors/borders for PDF
     const applyStyles = (el: HTMLElement) => {
       el.style.backgroundColor = '#ffffff';
       el.style.color = '#000000';
@@ -179,4 +225,46 @@ export class AttendanceReportComponent {
       });
     });
   }
+
+  async downloadReportPdf(): Promise<void> {
+    if (!this.reportContent) return;
+
+    this.isGeneratingPdf = true;
+    
+    try {
+      // Clone the element to avoid affecting the original
+      const element = this.reportContent.nativeElement.cloneNode(true) as HTMLElement;
+      document.body.appendChild(element);
+      
+      // Apply PDF-friendly styles
+      this.applyPdfStyles(element);
+      
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        width: element.scrollWidth,
+        height: element.scrollHeight
+      });
+
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('l', 'mm', 'a4'); // Landscape orientation
+      
+      const imgWidth = 297; // A4 width in mm (landscape)
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      pdf.save(`Attendance_Report_${this.fromDate}_to_${this.toDate}.pdf`);
+      
+      // Clean up
+      document.body.removeChild(element);
+    } catch (error) {
+      console.error('PDF generation failed:', error);
+      // Fallback to print dialog
+      window.print();
+    } finally {
+      this.isGeneratingPdf = false;
+    }
+  }
+
 }

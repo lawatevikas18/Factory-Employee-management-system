@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
 
@@ -53,5 +53,28 @@ getAll(date: any): Observable<any[]> {
   }
   saveAttendance(attendance: Attendance): Observable<any> {
     return this.http.post(`${this.baseUrl}/Add`, attendance,{ headers: this.getHeaders() });
+  }
+  // getAllAttendence(date: any): Observable<any[]> {
+
+  //   return this.http.get<any[]>(`${this.baseUrl}`, { headers: this.getHeaders() });
+  // }
+
+  getAllAttendence(employeeId?: any, fromDate?: any, toDate?: any): Observable<any[]> {
+    let params = new HttpParams();
+
+    if (employeeId) params = params.set('employeeId', employeeId.toString());
+    if (fromDate) params = params.set('fromDate', fromDate);
+    if (toDate) params = params.set('toDate', toDate);
+
+    return this.http.get<Attendance[]>(this.baseUrl, { params,headers: this.getHeaders() });
+  }
+  getAllAttendencePDF(employeeId?: any, fromDate?: any, toDate?: any): Observable<any[]> {
+    let params = new HttpParams();
+
+    if (employeeId) params = params.set('employeeId', employeeId.toString());
+    if (fromDate) params = params.set('fromDate', fromDate);
+    if (toDate) params = params.set('toDate', toDate);
+
+    return this.http.get<Attendance[]>(`${this.baseUrl}/downloadPdf`, { params,headers: this.getHeaders() });
   }
 }
