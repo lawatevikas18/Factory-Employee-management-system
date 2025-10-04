@@ -9,13 +9,13 @@
   <i class="fas" [ngClass]="isMobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
 </button>
   <div class="logo-container">
-    <ng-container *ngIf="screenWidth > 768 && collapsed">
-      <div class="logo-text">{{ adminData?.adminName?.split(' ')[0] }}</div>
-    </ng-container>
+    <!-- <ng-container *ngIf="screenWidth > 768 && collapsed">
+      <div class="logo-text">{{userName }}</div>
+    </ng-container> -->
 
-    <ng-container *ngIf="screenWidth <= 768 && collapsed">
-      <div class="logo-text">Vikas L</div>
-      <div class="btn-closes" (click)="closeSidenave()">
+    <ng-container>
+      <div class="logo-text">{{userName }}</div>
+      <div class="btn-closes" (click)="closeSidenave()" *ngIf="screenWidth <= 768 && collapsed">
         <span class="material-symbols-outlined">close</span>
       </div>
     </ng-container>
@@ -26,12 +26,15 @@
       <a class="side-nav-link"
          [routerLink]="[data.routerLink]"
          routerLinkActive="active"
-         [routerLinkActiveOptions]="{exact:true}">
+         [routerLinkActiveOptions]="{exact:true}" (click)="onNavLinkClick()">
+
         <i class="sidenav-link-icon" [class]="data.icon"></i>
 
-        <span class="sidenav-link-text" *ngIf="collapsed">
-          {{ data.label | translate }}
-        </span>
+      <span class="sidenav-link-text" *ngIf="collapsed || screenWidth <= 768">
+  {{ data.label | translate }}
+</span>
+
+
       </a>
     </li>
   </ul>

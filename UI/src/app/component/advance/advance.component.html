@@ -7,7 +7,8 @@
   <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
 
   <!-- ✅ Filter -->
-  <div class="mb-3">
+   <div class="row">
+  <div class="mb-2 col-8">
     <input
       type="text"
       class="form-control"
@@ -16,7 +17,14 @@
       (input)="filterEmployees()"
     /> 
   </div>
-
+ <div class="col-4 mb-2 d-flex justify-content-center align-items-center">
+      <button class="btn btn-sm btn-primary w-100 d-flex align-items-center justify-content-center gap-1"
+              (click)="openAddPopup()">
+        <span class="material-symbols-outlined">add</span>
+        <span class="d-none d-md-inline">Add Employee</span> <!-- hidden on mobile -->
+      </button>
+    </div>
+    </div>
   <!-- ✅ Employee Table -->
   <div class="table-responsive">
     <table class="table table-bordered table-hover shadow-sm">

@@ -15,4 +15,16 @@ export class LoaderService {
   hide() {
     this.loading.next(false);
   }
+   
+
+    //  get user name
+   private userNameSource = new BehaviorSubject<string>(localStorage.getItem('userName') || '');
+  userName$ = this.userNameSource.asObservable();
+
+  setUserName(name: string) {
+    localStorage.setItem('userName', name);
+    this.userNameSource.next(name);
+  }
+
+
 }
