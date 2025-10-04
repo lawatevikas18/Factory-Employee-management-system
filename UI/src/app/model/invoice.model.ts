@@ -34,7 +34,7 @@ export interface InvoiceFormData {
 
 export interface InvoiceTotals {
   subtotal: number;
-  igstAmount: number;
+  igstAmount: any;
   cgstAmount?: number;
   sgstAmount?: number;
   total: number;
