@@ -26,7 +26,7 @@ export class EmployeeDetailsComponent implements OnInit {
   error = '';
   isemployeeForm = false;
   from:any
- photoBase64: string | null = null;  
+  photoBase64: string | null = null;  
   photoPreview: string | null = null;
   selectedFile: File | null = null;
   uploadResponse: string = '';
@@ -52,11 +52,11 @@ export class EmployeeDetailsComponent implements OnInit {
       mobile2: ['', [Validators.pattern('^[0-9]{10}$')]],
       role: ['', Validators.required],
       monthlySalary: [0, [Validators.required, Validators.min(1000)]],
-      address: ['',Validators.required],
-      village: ['',Validators.required],
-      taluka: ['',Validators.required],
-      district: ['',Validators.required],
-      state: ['',Validators.required],
+      address: [''],
+      village: [''],
+      taluka: [''],
+      district: [''],
+      state: [''],
       aadhaar: ['', [Validators.required,Validators.pattern('^[0-9]{12}$')]],
       panCard: ['', [Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]],
        imagePath: ['']
@@ -112,7 +112,10 @@ export class EmployeeDetailsComponent implements OnInit {
           this.resetForm();
           this.loadEmployees();
         },
-        error: err => this.error = err?.error?.message || 'Add failed'
+        error: (err) => {
+          console.log(err);
+          this.error = err?.error?.message || 'Add failed'
+        }
       });
     }
   }

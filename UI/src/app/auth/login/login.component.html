@@ -1,44 +1,62 @@
 <div class="auth-wrapper">
   <div class="auth-card">
-    <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
+    <!-- Left Image -->
+    <div class="auth-left">
+      <img src="/assets/images/Nksboss.jpg" alt="Login Banner">
+    </div>
 
-    <!-- Login Form -->
-    <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="login()">
-      <input type="text" formControlName="mobileNumber" placeholder="Mobile Number">
-      
-      <div class="password-wrapper">
-        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Password">
-        <span class="toggle" (click)="togglePassword()">
-          {{ showPassword ? 'Hide' : 'Show' }}
-        </span>
-      </div>
+    <!-- Right Form -->
+    <div class="auth-right">
+      <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
 
-      <button type="submit">Login</button>
-      <!-- <p class="switch" (click)="toggleMode()">Don't have an account? Register</p> -->
-    </form>
+      <!-- Login Form -->
+      <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="login()">
+        <label>Mobile Number</label>
+        <input type="text" formControlName="mobileNumber" placeholder="Mobile Number">
+        
+        <label>Password</label>
+        <div class="password-wrapper">
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Password">
+          <span class="toggle" (click)="togglePassword()">
+            {{ showPassword ? 'Hide' : 'Show' }}
+          </span>
+        </div>
 
-    <!-- Register Form -->
-    <form *ngIf="!isLoginMode" [formGroup]="registerForm" (ngSubmit)="register()">
-      <input type="number" formControlName="adminId" placeholder="Admin ID">
-      <input type="text" formControlName="name" placeholder="Name">
-      <input type="text" formControlName="address" placeholder="Address">
-      <input type="text" formControlName="aadhaar" placeholder="Aadhaar">
-      <input type="text" formControlName="panCard" placeholder="Pan Card">
-      <input type="text" formControlName="mobileNumber" placeholder="Mobile Number">
-      <input type="text" formControlName="role" placeholder="Role">
-      <input type="text" formControlName="factoryName" placeholder="Factory Name">
+        <button type="submit">Login</button>
+      </form>
 
-      <div class="password-wrapper">
-        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Password">
-        <span class="toggle" (click)="togglePassword()">
-          {{ showPassword ? 'Hide' : 'Show' }}
-        </span>
-      </div>
+      <!-- Register Form -->
+      <form *ngIf="!isLoginMode" [formGroup]="registerForm" (ngSubmit)="register()">
+        <label>Admin ID</label>
+        <input type="number" formControlName="adminId" placeholder="Admin ID">
+        <label>Name</label>
+        <input type="text" formControlName="name" placeholder="Name">
+        <label>Address</label>
+        <input type="text" formControlName="address" placeholder="Address">
+        <label>Aadhaar</label>
+        <input type="text" formControlName="aadhaar" placeholder="Aadhaar">
+        <label>Pan Card</label>
+        <input type="text" formControlName="panCard" placeholder="Pan Card">
+        <label>Mobile Number</label>
+        <input type="text" formControlName="mobileNumber" placeholder="Mobile Number">
+        <label>Role</label>
+        <input type="text" formControlName="role" placeholder="Role">
+        <label>Factory Name</label>
+        <input type="text" formControlName="factoryName" placeholder="Factory Name">
 
-      <button type="submit">Register</button>
-      <p class="switch" (click)="toggleMode()">Already have an account? Login</p>
-    </form>
+        <label>Password</label>
+        <div class="password-wrapper">
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Password">
+          <span class="toggle" (click)="togglePassword()">
+            {{ showPassword ? 'Hide' : 'Show' }}
+          </span>
+        </div>
 
-    <p class="message">{{ message }}</p>
+        <button type="submit">Register</button>
+        <p class="switch" (click)="toggleMode()">Already have an account? Login</p>
+      </form>
+
+      <p class="message">{{ message }}</p>
+    </div>
   </div>
 </div>

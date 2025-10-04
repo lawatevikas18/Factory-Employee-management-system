@@ -4,35 +4,69 @@
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .auth-card {
+  display: flex;
   background: #fff;
-  padding: 35px 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 800px;
+  overflow: hidden;
 }
 
-.auth-card h2 {
+/* Left Image Section */
+.auth-left {
+  flex: 1;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-left img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Right Form Section */
+.auth-right {
+  flex: 1;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-right h2 {
   margin-bottom: 20px;
   color: #333;
+  text-align: left;
 }
 
-.auth-card input {
+.auth-right label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.auth-right input {
   width: 100%;
-  padding: 12px 10px;
-  margin: 8px 0;
+  padding: 10px 12px;
+  margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 14px;
   outline: none;
 }
 
-.auth-card input:focus {
+.auth-right input:focus {
   border-color: #4CAF50;
   box-shadow: 0 0 5px rgba(76,175,80,0.5);
 }
@@ -51,10 +85,10 @@
   font-weight: bold;
 }
 
-.auth-card button {
+.auth-right button {
   width: 100%;
   padding: 12px;
-  margin-top: 15px;
+  margin-top: 20px;
   border: none;
   border-radius: 6px;
   background-color: #4CAF50;
@@ -64,7 +98,7 @@
   transition: 0.3s;
 }
 
-.auth-card button:hover {
+.auth-right button:hover {
   background-color: #45a049;
 }
 
@@ -74,11 +108,56 @@
   cursor: pointer;
   font-size: 14px;
   text-decoration: underline;
+  text-align: center;
 }
 
 .message {
   margin-top: 15px;
   font-size: 14px;
   color: green;
+  text-align: center;
 }
- 
+
+/* Responsive */
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .auth-card {
+    flex-direction: column;
+    background: url('/assets/images/Nksboss.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 108px 20px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Remove white bg for form on mobile */
+  .auth-right {
+    background: transparent; /* remove white background */
+    border-radius: 0; /* remove rounded corners to blend with bg */
+    padding: 0; /* reduce padding */
+    width: 100%;
+    box-shadow: none; /* remove shadow */
+  }
+
+  /* Make labels black for readability */
+  .auth-right label {
+    color: #fff;
+  }
+
+  /* Center the h2 for mobile */
+  .auth-right h2 {
+    text-align: center;
+    color: #fff; /* optional: make title white for contrast */
+    margin-bottom: 20px;
+  }
+
+  /* Hide left image section */
+  .auth-left {
+    display: none;
+  }
+
+  .switch {
+    text-align: center;
+  }
+}
