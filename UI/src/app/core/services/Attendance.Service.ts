@@ -68,13 +68,30 @@ getAll(date: any): Observable<any[]> {
 
     return this.http.get<Attendance[]>(this.baseUrl, { params,headers: this.getHeaders() });
   }
-  getAllAttendencePDF(employeeId?: any, fromDate?: any, toDate?: any): Observable<any[]> {
-    let params = new HttpParams();
+//   getAllAttendencePDF(employeeId?: any, fromDate?: any, toDate?: any): Observable<any[]> {
+//     let params = new HttpParams();
 
+//     if (employeeId) params = params.set('employeeId', employeeId.toString());
+//     if (fromDate) params = params.set('fromDate', fromDate);
+//     if (toDate) params = params.set('toDate', toDate);
+// let headers=this.getHeaders()
+//     return this.http.get<Attendance[]>(`${this.baseUrl}/downloadPdf`, { params,headers,responseType: 'blob' });
+//   }
+  getAllAttendencePDF(employeeId?: number, fromDate?: string, toDate?: string) {
+    let params = new HttpParams();
     if (employeeId) params = params.set('employeeId', employeeId.toString());
     if (fromDate) params = params.set('fromDate', fromDate);
     if (toDate) params = params.set('toDate', toDate);
 
-    return this.http.get<Attendance[]>(`${this.baseUrl}/downloadPdf`, { params,headers: this.getHeaders() });
-  }
+   // const token = localStorage.getItem('token'); // ✅ Assume JWT is stored in localStorage
+    // const headers = new HttpHeaders({
+    //   'Authorization': `Bearer ${token}`
+    // });
+
+    return this.http.get(`${this.baseUrl}/downloadPdf`, {
+     headers: this.getHeaders(),
+      params,
+      responseType: 'blob' // ✅ Important for file download
+    });
+}
 }

@@ -34,6 +34,7 @@ export class EmployeeDetailsComponent implements OnInit {
   uploadSuccess: boolean = false;
    apiUrl = environment.apiUrl;
   private modalInstance: any;
+  photoUrl="https://emp360-001-site1.stempurl.com"
 
   constructor(
     private fb: FormBuilder,

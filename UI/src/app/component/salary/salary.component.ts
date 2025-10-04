@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environment/environment';
 
 interface Employee {
   id: number;
@@ -26,8 +27,8 @@ export class SalaryComponent implements OnInit {
   message = '';
   error = '';
 
-  private apiUrl = `${(window as any).__env?.apiUrl || ''}/api/Salary`;
-
+  // private apiUrl = `${(window as any).__env?.apiUrl || ''}/api/Salary`;
+private apiUrl=`${environment.apiUrl}/Salary`
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {

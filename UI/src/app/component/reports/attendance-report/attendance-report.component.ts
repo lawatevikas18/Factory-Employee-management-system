@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { AttendanceService } from 'src/app/core/services/Attendance.Service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-attendance-report',
@@ -12,7 +13,7 @@ import { AttendanceService } from 'src/app/core/services/Attendance.Service';
 export class AttendanceReportComponent {
   fromDate: string = '';
   toDate: string = '';
-  employeeCode: string = '';
+  employeeCode: any = '';
 
   daysInMonth = 31;
   reportData: any[] = [];
@@ -75,23 +76,17 @@ export class AttendanceReportComponent {
   //     });
   // }
 
-    downloadReportPdf() {
-   const request = {
-    fromDate: this.fromDate,
-    toDate: this.toDate,
-    employeeCode: this.employeeCode || ''
-  };
-
-  this.attendenceReport.getAllAttendencePDF(
-    request.employeeCode,
-    request.fromDate,
-    request.toDate
-  ).subscribe({
-    next: (res) => {
-      console.log(res)
-    }
+   downloadReportPdf() {
+    this.attendenceReport.getAllAttendencePDF(this.employeeCode, this.fromDate, this.toDate).subscribe({
+      next: (res: Blob) => {
+        const blob = new Blob([res], { type: 'application/pdf' });
+        saveAs(blob, 'attendance-report.pdf');
+      },
+      error: (err) => {
+        console.error('PDF download error:', err);
+      }
+    });
   }
-)}
 
   private applyPdfStyles(element: HTMLElement): void {
     // Normalize colors/borders

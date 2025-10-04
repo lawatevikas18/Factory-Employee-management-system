@@ -10,7 +10,7 @@
         <label class="form-label">Photo</label>
         <input type="file" class="form-control" (change)="onFileSelected($event)" />
         <div *ngIf="selectedEmployee?.imagePath" class="mt-2">
-          <img [src]="apiUrl + selectedEmployee.imagePath" width="80" height="80" class="rounded">
+          <img [src]="photoUrl + selectedEmployee.imagePath" width="80" height="80" class="rounded">
         </div>
       </div>
 
@@ -155,6 +155,9 @@
 <div class="custom-modal" *ngIf="selectedEmployee">
   <div class="custom-modal-content">
     <h5>Employee Details</h5>
+    <div *ngIf="selectedEmployee?.imagePath" class="mt-2">
+          <img [src]="photoUrl + selectedEmployee.imagePath" width="80" height="80" class="rounded">
+        </div>
     <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
     <p><strong>Designation:</strong> {{ selectedEmployee.role }}</p>
     <p><strong>Mobile:</strong> {{ selectedEmployee.mobile1 }}</p>
