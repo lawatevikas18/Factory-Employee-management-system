@@ -13,7 +13,8 @@
      "ADVANCE":"Advance",
      "INVOICE":"Invoice",
     "FACTORY_BILL": "Factory_Bill",
-     "AUTH": "Auth"
+     "AUTH": "Auth",
+     "PAYMENT": "Payment"
 
 
   },

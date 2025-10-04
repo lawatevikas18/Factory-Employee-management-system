@@ -25,23 +25,24 @@ export const navbardata=[
     routerLink:'advance',
     icon:'fa-solid fa-money-bill',
     label:'MENU.ADVANCE'  },
-  //  {
-  //   routerLink:'factory-bill',
-  //   icon:'fa-regular fa-file',
-  //   label:'MENU.FACTORY_BILL'  
+    
+   {
+    routerLink:'factory-bill',
+    icon:'fa-regular fa-file',
+    label:'MENU.FACTORY_BILL'  
   
   
-  //  },
+   },
    {
     routerLink:'Invoice',
     icon:'fa-solid fa-receipt',
     label:'MENU.INVOICE'  
    },
  
-  //   {
-  //   routerLink:'auth',
-  //   icon:'fa-regular fa-users',
-  //   label:'MENU.AUTH'
-  //  }
+    {
+    routerLink:'employee-salary',
+    icon:'fa-regular fa-users',
+    label:'MENU.PAYMENT'
+   }
    
 ]

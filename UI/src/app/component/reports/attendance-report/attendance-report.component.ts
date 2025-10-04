@@ -4,97 +4,29 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { AttendanceService } from 'src/app/core/services/Attendance.Service';
 
-interface AttendanceApiData {
-  employeeId: number;
-  date: string;
-  status: string;
-}
-
-interface ProcessedEmployee {
-  employeeId: number;
-  employeeName: string;
-  employeeCode: string;
-  days: string[];
-  presentCount: number;
-  absentCount: number;
-}
 @Component({
   selector: 'app-attendance-report',
   templateUrl: './attendance-report.component.html',
   styleUrls: ['./attendance-report.component.scss']
 })
-
 export class AttendanceReportComponent {
   fromDate: string = '';
   toDate: string = '';
   employeeCode: string = '';
+
   daysInMonth = 31;
-  reportData: ProcessedEmployee[] = [];
-  loading = false;
+  reportData: any[] = [];
+  
   isGeneratingPdf = false;
-  maxDate: string = '';
+   maxDate: string = ''; 
 
   @ViewChild('reportContent', { static: false }) reportContent!: ElementRef;
 
-  // Generate dynamic mock data for current month
-  private generateMockData(): AttendanceApiData[] {
-    const today = new Date();
-    const currentYear = today.getFullYear();
-    const currentMonth = today.getMonth(); // This will be the month we're showing
-    const data: AttendanceApiData[] = [];
-    
-    // Generate data for 3 employees for the current month
-    for (let empId = 101; empId <= 103; empId++) {
-      // Generate attendance for first 20 days of month
-      for (let day = 1; day <= 20; day++) {
-        const date = new Date(currentYear, currentMonth, day);
-        let status = 'Present';
-        
-        // Add some variety to the data
-        if (empId === 101) {
-          if ([3, 7, 15].includes(day)) status = 'Absent';
-          if ([4, 12].includes(day)) status = 'HalfDay';
-        } else if (empId === 102) {
-          if ([2, 8, 18].includes(day)) status = 'Absent';
-          if ([6, 14].includes(day)) status = 'HalfDay';
-        } else if (empId === 103) {
-          if ([1, 9, 16].includes(day)) status = 'Absent';
-          if ([5, 11, 19].includes(day)) status = 'HalfDay';
-        }
-        
-        data.push({
-          employeeId: empId,
-          date: date.toISOString().split('T')[0],
-          status: status
-        });
-      }
-    }
-    
-    return data;
-  }
+  constructor(private http: HttpClient,
+    private attendenceReport:AttendanceService
+  ) {}
 
-  private mockAttendanceData = this.generateMockData();
-
-  constructor() {}
-
-  ngOnInit(): void {
-    this.setDefaultLastMonth();
-    this.maxDate = new Date().toISOString().split('T')[0];
-    // Auto-fetch data when component loads
-    setTimeout(() => this.fetchReport(), 100);
-  }
-
-  private setDefaultLastMonth(): void {
-    const today = new Date();
-    // Use current month to match our mock data
-    const first = new Date(today.getFullYear(), today.getMonth(), 1);
-    const last = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
-    this.fromDate = first.toISOString().split('T')[0];
-    this.toDate = last.toISOString().split('T')[0];
-  }
-
-  setDateRange(range: string): void {
+  setDateRange(range: string) {
     const today = new Date();
     if (range === 'thisMonth') {
       const first = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -114,82 +46,55 @@ export class AttendanceReportComponent {
       this.toDate = last.toISOString().split('T')[0];
     }
   }
+    ngOnInit(): void {
+    this.setDefaultLastMonth();
+    this.maxDate = new Date().toISOString().split('T')[0]; // today’s date (yyyy-mm-dd)
+  }
+   private setDefaultLastMonth() {
+    const today = new Date();
+    const first = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+    const last = new Date(today.getFullYear(), today.getMonth(), 0);
 
-  fetchReport(): void {
-    if (!this.fromDate || !this.toDate) {
-      console.error('Please select both From and To dates');
-      return;
-    }
-
-    this.loading = true;
-
-    try {
-      const startDate = new Date(this.fromDate);
-      const endDate = new Date(this.toDate);
-      
-      // Filter data by date range first
-      let filteredData = this.mockAttendanceData.filter(item => {
-        const itemDate = new Date(item.date);
-        return itemDate >= startDate && itemDate <= endDate;
-      });
-
-      // Filter by employee code if provided
-      if (this.employeeCode) {
-        filteredData = filteredData.filter(item => 
-          item.employeeId.toString().includes(this.employeeCode) || 
-          `E${item.employeeId}`.toLowerCase().includes(this.employeeCode.toLowerCase())
-        );
-      }
-
-      // Calculate days in selected period
-      const timeDiff = endDate.getTime() - startDate.getTime();
-      const daysCount = Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1;
-      this.daysInMonth = daysCount;
-
-      // Group by employee
-      const grouped: { [empId: number]: ProcessedEmployee } = {};
-      
-      filteredData.forEach(item => {
-        const itemDate = new Date(item.date);
-        const dayIndex = Math.floor((itemDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24));
-
-        if (!grouped[item.employeeId]) {
-          grouped[item.employeeId] = {
-            employeeId: item.employeeId,
-            employeeName: `Employee ${item.employeeId}`,
-            employeeCode: `E${item.employeeId}`,
-            days: Array(daysCount).fill('NA'),
-            presentCount: 0,
-            absentCount: 0
-          };
-        }
-
-        if (dayIndex >= 0 && dayIndex < daysCount) {
-          let statusChar = 'NA';
-          if (item.status === 'Present') statusChar = 'P';
-          else if (item.status === 'Absent') statusChar = 'A';
-          else if (item.status === 'HalfDay') statusChar = 'H';
-
-          grouped[item.employeeId].days[dayIndex] = statusChar;
-        }
-      });
-
-      // Calculate totals
-      Object.values(grouped).forEach((emp: ProcessedEmployee) => {
-        emp.presentCount = emp.days.filter((d: string) => d === 'P').length;
-        emp.absentCount = emp.days.filter((d: string) => d === 'A').length;
-      });
-
-      this.reportData = Object.values(grouped);
-    } catch (err) {
-      console.error('Error fetching report', err);
-    } finally {
-      this.loading = false;
-    }
+    this.fromDate = first.toISOString().split('T')[0];
+    this.toDate = last.toISOString().split('T')[0];
   }
 
+  // fetchReport() {
+  //   this.getAllAttendanceReport()
+  //   const request = {
+  //     fromDate: this.fromDate,
+  //     toDate: this.toDate,
+  //     employeeCode: this.employeeCode || ''
+  //   };
+
+  //   this.http.post<any>('https://localhost:44392/api/Auth/attendanceReport', request)
+  //     .subscribe(res => {
+  //       if (res.statusCode === 200) {
+  //         // this.reportData = res.jsonStr;
+  //       }
+  //     });
+  // }
+
+    downloadReportPdf() {
+   const request = {
+    fromDate: this.fromDate,
+    toDate: this.toDate,
+    employeeCode: this.employeeCode || ''
+  };
+
+  this.attendenceReport.getAllAttendencePDF(
+    request.employeeCode,
+    request.fromDate,
+    request.toDate
+  ).subscribe({
+    next: (res) => {
+      console.log(res)
+    }
+  }
+)}
+
   private applyPdfStyles(element: HTMLElement): void {
-    // Normalize colors/borders for PDF
+    // Normalize colors/borders
     const applyStyles = (el: HTMLElement) => {
       el.style.backgroundColor = '#ffffff';
       el.style.color = '#000000';
@@ -226,45 +131,69 @@ export class AttendanceReportComponent {
     });
   }
 
-  async downloadReportPdf(): Promise<void> {
-    if (!this.reportContent) return;
+  fetchReport() {
+  const request = {
+    fromDate: this.fromDate,
+    toDate: this.toDate,
+    employeeCode: this.employeeCode || ''
+  };
 
-    this.isGeneratingPdf = true;
-    
-    try {
-      // Clone the element to avoid affecting the original
-      const element = this.reportContent.nativeElement.cloneNode(true) as HTMLElement;
-      document.body.appendChild(element);
-      
-      // Apply PDF-friendly styles
-      this.applyPdfStyles(element);
-      
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: '#ffffff',
-        width: element.scrollWidth,
-        height: element.scrollHeight
+  this.attendenceReport.getAllAttendence(
+    request.employeeCode,
+    request.fromDate,
+    request.toDate
+  ).subscribe({
+    next: (res: any[]) => {
+      if (!res || res.length === 0) {
+        this.reportData = [];
+        return;
+      }
+
+      // ✅ Take month from request.fromDate
+      const startDate = new Date(this.fromDate);
+      const year = startDate.getFullYear();
+      const month = startDate.getMonth();
+      this.daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // ✅ Group by employee
+      const grouped: { [empId: number]: any } = {};
+      res.forEach(item => {
+        const day = new Date(item.date).getDate();
+
+        if (!grouped[item.employeeId]) {
+          grouped[item.employeeId] = {
+            employeeId: item.employeeId,
+            employeeName: `Employee ${item.employeeId}`, // 👈 replace if API gives name
+            employeeCode: `E${item.employeeId}`,         // 👈 replace if API gives code
+            days: Array(this.daysInMonth).fill('NA'),
+            presentCount: 0,
+            absentCount: 0
+          };
+        }
+
+        let statusChar = 'NA';
+        if (item.status === 'Present') statusChar = 'P';
+        else if (item.status === 'Absent') statusChar = 'A';
+        else if (item.status === 'HalfDay') statusChar = 'H';
+
+        grouped[item.employeeId].days[day - 1] = statusChar;
       });
 
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('l', 'mm', 'a4'); // Landscape orientation
-      
-      const imgWidth = 297; // A4 width in mm (landscape)
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      pdf.save(`Attendance_Report_${this.fromDate}_to_${this.toDate}.pdf`);
-      
-      // Clean up
-      document.body.removeChild(element);
-    } catch (error) {
-      console.error('PDF generation failed:', error);
-      // Fallback to print dialog
-      window.print();
-    } finally {
-      this.isGeneratingPdf = false;
+      // ✅ Calculate totals
+      Object.values(grouped).forEach((emp: any) => {
+        emp.presentCount = emp.days.filter((d: string) => d === 'P').length;
+        emp.absentCount = emp.days.filter((d: string) => d === 'A').length;
+      });
+
+      this.reportData = Object.values(grouped);
+
+      console.log("Processed Data for Table:", this.reportData);
+    },
+    error: (err) => {
+      console.error('Error fetching report', err);
     }
-  }
+  });
+}
+
 
 }
