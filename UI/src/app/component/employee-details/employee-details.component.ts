@@ -32,7 +32,7 @@ export class EmployeeDetailsComponent implements OnInit {
   uploadResponse: string = '';
   uploadedImageUrl: string | null = null;
   uploadSuccess: boolean = false;
-  private apiUrl = environment.apiUrl;
+   apiUrl = environment.apiUrl;
   private modalInstance: any;
 
   constructor(
@@ -59,7 +59,7 @@ export class EmployeeDetailsComponent implements OnInit {
       state: ['',Validators.required],
       aadhaar: ['', [Validators.required,Validators.pattern('^[0-9]{12}$')]],
       panCard: ['', [Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]],
-       photo: ['']
+       imagePath: ['']
     });
    this.router.queryParams.subscribe(params => {
      this.from = params['from']
@@ -70,40 +70,50 @@ export class EmployeeDetailsComponent implements OnInit {
     this.loadEmployees();
   }
 
-  private getHeaders() {
+ private getMultipartHeader() {
     const token = sessionStorage.getItem('token') || '';
-    return { headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }) };
+    return { Authorization: `Bearer ${token}` };
   }
 
-  submit() {
+   submit() {
     if (this.employeeForm.invalid) {
       this.error = 'Please fix validation errors.';
       return;
     }
 
     this.error = '';
-    const body = this.employeeForm.value;
+    const formData = new FormData();
+    Object.keys(this.employeeForm.value).forEach(key => {
+      formData.append(key, this.employeeForm.value[key]);
+    });
+
+    if (this.selectedFile) {
+      formData.append("Image", this.selectedFile);
+    }
 
     if (this.isEdit && this.selectedId) {
-      this.http.put(`${this.apiUrl}/Employee/${this.selectedId}`, { ...body, employeeId: this.selectedId }, this.getHeaders())
-        .subscribe({
-          next: () => {
-            this.message = 'Employee updated';
-            this.resetForm();
-            this.loadEmployees();
-          },
-          error: err => this.error = err?.error?.message || 'Update failed'
-        });
+      formData.append("employeeId", this.selectedId.toString());
+      this.http.put(`${this.apiUrl}/Employee/${this.selectedId}`, formData, {
+        headers: this.getMultipartHeader()
+      }).subscribe({
+        next: () => {
+          this.message = 'Employee updated successfully';
+          this.resetForm();
+          this.loadEmployees();
+        },
+        error: err => this.error = err?.error?.message || 'Update failed'
+      });
     } else {
-      this.http.post(`${this.apiUrl}/Employee`, body, this.getHeaders())
-        .subscribe({
-          next: () => {
-            this.message = 'Employee added';
-            this.resetForm();
-            this.loadEmployees();
-          },
-          error: err => this.error = err?.error?.message || 'Add failed'
-        });
+      this.http.post(`${this.apiUrl}/Employee`, formData, {
+        headers: this.getMultipartHeader()
+      }).subscribe({
+        next: () => {
+          this.message = 'Employee added successfully';
+          this.resetForm();
+          this.loadEmployees();
+        },
+        error: err => this.error = err?.error?.message || 'Add failed'
+      });
     }
   }
 
@@ -115,16 +125,17 @@ export class EmployeeDetailsComponent implements OnInit {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  delete(empId: number) {
-    if (!confirm('Are you sure you want to delete this employee?')) return;
-    this.http.delete(`${this.apiUrl}/Employee/${empId}`, this.getHeaders())
-      .subscribe({
-        next: () => {
-          this.message = 'Employee deleted';
-          this.loadEmployees();
-        },
-        error: err => this.error = err?.error?.message || 'Delete failed'
-      });
+    delete(id: number) {
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.http.delete(`${this.apiUrl}/Employee/${id}`, { headers: this.getMultipartHeader() })
+        .subscribe({
+          next: () => {
+            this.message = 'Employee deleted successfully';
+            this.loadEmployees();
+          },
+          error: () => this.error = 'Delete failed'
+        });
+    }
   }
 
   resetForm() {
@@ -165,29 +176,5 @@ closeModal() {
 }
 onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
-    this.uploadedImageUrl = null; // reset preview until upload
-  }
-   onUpload() {
-    if (!this.selectedFile) {
-      this.uploadResponse = '❌ Please select a file first.';
-      this.uploadSuccess = false;
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('file', this.selectedFile, this.selectedFile.name);
-
-    this.http.post("https://emp360-001-site1.stempurl.com/api/Upload", formData)
-      .subscribe({
-        next: (res: any) => {
-          this.uploadResponse = "✅ Uploaded successfully!";
-          this.uploadedImageUrl = "https://emp360-001-site1.stempurl.com" + res.path;
-          this.uploadSuccess = true;
-        },
-        error: (err) => {
-          this.uploadResponse = "❌ Upload failed!";
-          this.uploadSuccess = false;
-        }
-      });
   }
 }

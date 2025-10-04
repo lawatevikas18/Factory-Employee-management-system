@@ -6,6 +6,7 @@ import { AttendanceService } from 'src/app/core/services/Attendance.Service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
 import { AttendanceRequest, EmployeeAttendance } from 'src/app/model/AttendanceRequest .model';
+import { environment } from 'src/environment/environment';
 declare var bootstrap: any;
 
 
@@ -19,7 +20,7 @@ interface Employee {
   role: string;
   status: status;
  ot?: number | null;
- photo:any
+ imagePath:any
 
 }
 @Component({
@@ -53,7 +54,8 @@ export class AttendanceComponent {
  date: string = new Date().toISOString().substring(0, 10);
   showDatepicker = false;
    UserRole:any
-   
+   apiUrl = environment.apiUrl;
+   photoUrl='https://emp360-001-site1.stempurl.com'
  constructor(private http: HttpClient,
   private authService:AuthService,
   private getAttendance:AttendanceService,

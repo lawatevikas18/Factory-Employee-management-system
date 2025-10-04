@@ -47,8 +47,8 @@ export class EmployeeService {
     return this.http.get<Employee>(`${this.apiUrl}/${id}`,{ headers: this.getHeaders() });
   }
 
-  addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.apiUrl, employee,{ headers: this.getHeaders() });
+  addEmployee(formdata:any): Observable<Employee> {
+    return this.http.post<Employee>(this.apiUrl, formdata,{ headers: this.getHeaders() });
   }
 
   updateEmployee(id: number, employee: Employee) {

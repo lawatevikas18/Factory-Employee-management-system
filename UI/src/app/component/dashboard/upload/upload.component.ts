@@ -13,7 +13,7 @@ export class UploadComponent {
   constructor(private uploadService: UploadService) {}
 
   ngOnInit(): void {
-    this.loadImages();
+    
   }
 
   onFileSelected(event: any) {
@@ -26,6 +26,7 @@ export class UploadComponent {
         next: (res) => {
           this.images.push(res);
           this.selectedFile = null;
+          this.loadImages();
         },
         error: (err) => console.error(err)
       });
