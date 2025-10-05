@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { EmployeeService } from 'src/app/core/services/employee.service';
 import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
+import { SessionService } from 'src/app/core/services/session.service';
 
 interface SiteData {
   id: string;
@@ -58,7 +59,8 @@ export class DashboardComponent {
     private employeeService:EmployeeService,
     private errormsg:ErrorPopUpService,
     private authService:AuthService,
-    private loaderService :LoaderService
+    private loaderService :LoaderService,
+    private session:SessionService
   ) { }
 
   ngOnInit(): void {
@@ -116,6 +118,7 @@ export class DashboardComponent {
         console.log(`res`,res.factoryName);
         this.getfactoryName=res.factoryName;
          const name = res.userName;
+         this.session.setUserDetails(res)
     if (name) {
       this.loaderService.setUserName(name);
     }
