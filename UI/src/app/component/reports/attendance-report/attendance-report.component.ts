@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 import { AttendanceService } from 'src/app/core/services/Attendance.Service';
 import { saveAs } from 'file-saver';
 
@@ -75,6 +74,7 @@ export class AttendanceReportComponent {
   //       }
   //     });
   // }
+  
 
    downloadReportPdf() {
     this.attendenceReport.getAllAttendencePDF(this.employeeCode, this.fromDate, this.toDate).subscribe({

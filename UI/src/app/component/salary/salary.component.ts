@@ -1,12 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-<<<<<<< Updated upstream
-import { environment } from 'src/environment/environment';
-=======
 import Swal from 'sweetalert2';
->>>>>>> Stashed changes
 
 interface Employee {
   id: number;
@@ -23,22 +18,15 @@ interface Employee {
   styleUrls: ['./salary.component.scss']
 })
 export class SalaryComponent implements OnInit {
-
-    salaryList: any[] = [];
+ salaryList: any[] = [];
   salaryHistory: any[] = [];
   selectedEmployee: any = null;
   salaryForm!: FormGroup;
   loading = false;
 
-<<<<<<< Updated upstream
-  // private apiUrl = `${(window as any).__env?.apiUrl || ''}/api/Salary`;
-private apiUrl=`${environment.apiUrl}/Salary`
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
-=======
   baseUrl = 'https://emp360-001-site1.stempurl.com/api/Salary'; // ✅ Change if needed
 
   constructor(private http: HttpClient, private fb: FormBuilder) { }
->>>>>>> Stashed changes
 
   ngOnInit(): void {
     this.loadSalaryPreview();
@@ -50,20 +38,19 @@ private apiUrl=`${environment.apiUrl}/Salary`
     });
   }
 
-  // Add this method to close the history modal
-closeHistoryModal() {
+closeHistoryModal(): void {
   const modal = document.getElementById('historyModal') as HTMLDialogElement;
   if (modal) {
     modal.close();
   }
 }
 
-closeGenerateModal() {
-  const modal = document.getElementById('generateModal') as HTMLDialogElement;
-  if (modal) {
-    modal.close();
+   closeGenerateModal() {
+    const modal: any = document.getElementById('generateModal');
+    if (modal) {
+      modal.close();
+    }
   }
-}
 
   loadSalaryPreview() {
     this.loading = true;
