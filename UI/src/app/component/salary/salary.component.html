@@ -1,71 +1,102 @@
-<div class="salary-container card">
-  <h2>Salary Management</h2>
+<div class="p-4 max-w-7xl mx-auto">
+  <h2 class="text-2xl font-semibold mb-4 text-center text-blue-600">💰 Employee Salary Preview</h2>
 
-  <!-- ✅ Salary Generate Form -->
-  <form [formGroup]="form" (ngSubmit)="generateSalary()" class="generate-form">
-    <div class="form-group">
-      <label>Employee ID</label>
-      <input type="number" formControlName="employeeId" placeholder="Enter Employee ID" />
-    </div>
+  <div *ngIf="loading" class="text-center py-8 text-gray-500">Loading...</div>
 
-    <div class="form-group">
-      <label>Start Date</label>
-      <input type="date" formControlName="startDate" />
-    </div>
+  <table class="w-full border border-gray-200 rounded-lg shadow-sm" *ngIf="!loading && salaryList.length">
+    <thead class="bg-blue-500 text-white">
+      <tr>
+        <th class="p-2">Employee</th>
+        <th class="p-2">Start Date</th>
+        <th class="p-2">End Date</th>
+        <th class="p-2">Present</th>
+        <th class="p-2">Absent</th>
+        <th class="p-2">Half</th>
+        <th class="p-2">OT</th>
+        <th class="p-2">Total</th>
+        <th class="p-2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of salaryList" class="border-b hover:bg-blue-50 transition">
+        <td class="p-2 font-semibold text-gray-700">{{ s.employeeName }}</td>
+        <td class="p-2">{{ s.startDate | date:'dd-MMM-yyyy' }}</td>
+        <td class="p-2">{{ s.endDate | date:'dd-MMM-yyyy' }}</td>
+        <td class="p-2 text-green-600 font-semibold">{{ s.presentDays }}</td>
+        <td class="p-2 text-red-600 font-semibold">{{ s.absentDays }}</td>
+        <td class="p-2 text-yellow-600 font-semibold">{{ s.halfDays }}</td>
+        <td class="p-2">{{ s.otHours }}</td>
+        <td class="p-2 text-blue-600 font-bold">₹{{ s.totalSalaryPreview | number:'1.0-2' }}</td>
+        <td class="p-2 flex flex-wrap gap-2 justify-center">
+          <button class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600"
+                  (click)="viewSalaryHistory(s)">View</button>
 
-    <div class="form-group">
-      <label>End Date</label>
-      <input type="date" formControlName="endDate" />
-    </div>
+          <button class="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600"
+                  (click)="openGenerateModal(s)">Generate</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    <button type="submit" [disabled]="submitting">Generate Salary</button>
-  </form>
+  <p *ngIf="!loading && !salaryList.length" class="text-center text-gray-500 py-6">
+    No salary data available.
+  </p>
+</div>
 
-  <div *ngIf="message" class="success">{{ message }}</div>
-  <div *ngIf="error" class="error">{{ error }}</div>
+<!-- 🧾 Salary History Modal -->
+<dialog id="historyModal" class="modal">
+  <div class="modal-box w-11/12 max-w-3xl bg-white rounded-lg p-6">
+    <h3 class="text-xl font-semibold mb-4 text-blue-600">
+      {{ selectedEmployee?.employeeName }} - Salary History
+    </h3>
 
-  <hr />
-
-  <!-- ✅ Salary List -->
-  <div class="salary-list">
-    <h3>Salary Transactions</h3>
-
-    <div *ngIf="loading" class="info">Loading...</div>
-    <table *ngIf="!loading && salaries.length" class="salary-table">
-      <thead>
+    <table class="w-full border border-gray-300">
+      <thead class="bg-gray-200">
         <tr>
-          <th>#</th>
-          <th>Emp ID</th>
-          <th>Start</th>
-          <th>End</th>
-          <th>Present</th>
-          <th>Half</th>
-          <th>Total</th>
-          <th>Advance</th>
-          <th>Final</th>
-          <th>Date</th>
+          <th class="p-2">Period</th>
+          <th class="p-2">Present</th>
+          <th class="p-2">Absent</th>
+          <th class="p-2">Half</th>
+          <th class="p-2">OT</th>
+          <th class="p-2">Final Salary</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let s of salaries; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ s.employeeId }}</td>
-          <td>{{ s.startDate | date }}</td>
-          <td>{{ s.endDate | date }}</td>
-          <td>{{ s.presentDays }}</td>
-          <td>{{ s.halfDays }}</td>
-          <td>{{ s.totalSalary | number:'1.2-2' }}</td>
-          <td>{{ s.advanceDeducted | number:'1.2-2' }}</td>
-          <td>{{ s.finalSalary | number:'1.2-2' }}</td>
-          <td>{{ s.date | date:'short' }}</td>
+        <tr *ngFor="let h of salaryHistory" class="border-b hover:bg-gray-100">
+          <td class="p-2">{{ h.startDate | date:'dd-MMM' }} - {{ h.endDate | date:'dd-MMM-yyyy' }}</td>
+          <td class="p-2">{{ h.presentDays }}</td>
+          <td class="p-2">{{ h.absentDays }}</td>
+          <td class="p-2">{{ h.halfDays }}</td>
+          <td class="p-2">{{ h.totalOTHours }}</td>
+          <td class="p-2 font-bold text-blue-600">₹{{ h.finalSalary | number:'1.0-2' }}</td>
         </tr>
       </tbody>
     </table>
 
-    <div *ngIf="!loading && !salaries.length" class="info">
-      No salary transactions found.
+    <div class="text-right mt-4">
+      <button class="bg-red-500 text-white px-4 py-1 rounded-md"
+              (click)="closeHistoryModal()">Close</button>
     </div>
   </div>
-</div>
+</dialog>
 
+<!-- 🆕 Generate Salary Modal -->
+<dialog id="generateModal" class="modal">
+  <div class="modal-box w-96 bg-white rounded-lg p-6">
+    <h3 class="text-lg font-semibold text-center text-green-600 mb-3">Generate Salary</h3>
 
+    <form [formGroup]="salaryForm" (ngSubmit)="generateSalary()">
+      <label class="block mb-2 font-semibold">Start Date</label>
+      <input type="date" formControlName="startDate" class="input-box mb-3" />
+
+      <label class="block mb-2 font-semibold">End Date</label>
+      <input type="date" formControlName="endDate" class="input-box mb-3" />
+
+      <div class="flex justify-between mt-4">
+        <button type="button" class="bg-gray-400 text-white px-4 py-1 rounded-md"
+                (click)="closeGenerateModal()">Cancel</button>
+        <button type="submit" class="bg-green-500 text-white px-4 py-1 rounded-md hover:bg-green-600">Generate</button>
+      </div>
+    </form>
+  </div>
+</dialog>

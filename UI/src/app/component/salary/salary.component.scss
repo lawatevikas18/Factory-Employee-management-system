@@ -1,70 +1,41 @@
-.card {
-  padding: 1rem;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  max-width: 900px;
-  margin: 1rem auto;
-}
-
-.generate-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-
-button {
-  grid-column: 1 / -1;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  background: #2b6cb0;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button[disabled] {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.salary-table {
-  width: 100%;
+/* Basic Layout */
+table {
   border-collapse: collapse;
-  margin-top: 1rem;
 }
 
-.salary-table th, .salary-table td {
-  padding: 0.5rem;
-  border-bottom: 1px solid #eee;
-  text-align: left;
+th, td {
+  text-align: center;
 }
 
-.success {
-  color: green;
-  margin: 0.5rem 0;
+.modal {
+  display: none;
 }
 
-.error {
-  color: #c62828;
-  margin: 0.5rem 0;
+.modal[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.info {
-  color: #555;
-  font-style: italic;
+.modal-box {
+  animation: popIn 0.3s ease;
 }
 
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
+/* Input Style */
+.input-box {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+}
+
+.input-box:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}

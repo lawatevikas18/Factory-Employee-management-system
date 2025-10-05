@@ -38,6 +38,13 @@ export const navbardata=[
     icon:'fa-solid fa-receipt',
     label:'MENU.INVOICE'  
    },
+
+    {
+    routerLink:'Invoice',
+    icon:'fa-solid fa-receipt',
+    label:'MENU.INVOICE'  
+   },
+ 
  
     {
     routerLink:'employee-salary',
