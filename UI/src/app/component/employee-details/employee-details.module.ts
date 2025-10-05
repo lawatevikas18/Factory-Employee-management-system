@@ -7,6 +7,7 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule   
+    SharedModule   ,
+    ImageCropperModule
   ]
 })
 export class EmployeeDetailsModule { }

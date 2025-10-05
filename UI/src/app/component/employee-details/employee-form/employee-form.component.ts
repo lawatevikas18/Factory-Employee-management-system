@@ -35,7 +35,7 @@ export class EmployeeFormComponent implements OnChanges {
       carNo: [''],
       panNo: ['', [Validators.pattern(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/)]],
       mobile1: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
-      mobile2: ['', [Validators.pattern(/^[6-9]\d{9}$/)]],
+      mobile2: ['',],
       village: ['', Validators.required],
       taluka: [''],
       district: [''],

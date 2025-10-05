@@ -334,5 +334,22 @@ export class AttendanceComponent {
     }
   }
 
+
+  isPhotoOpen = false;
+selectedPhoto: string | null = null;
+
+openPhoto(emp: any) {
+  if(emp.imagePath) {
+    this.selectedPhoto = this.photoUrl + emp.imagePath;
+    this.isPhotoOpen = true;
+  }
+}
+
+closePhoto() {
+  this.isPhotoOpen = false;
+  this.selectedPhoto = null;
+}
+
+
 }
  

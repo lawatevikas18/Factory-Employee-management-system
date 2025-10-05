@@ -269,3 +269,80 @@
 
 
 
+.avatar-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;               /* hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7); /* dark semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  padding: 10px; /* spacing for small screens */
+}
+
+.modal.show {
+  display: flex; /* show modal */
+}
+
+.modal-content {
+  position: relative;
+  max-width: 500px;
+  width: 100%; /* take full width on small screens */
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 28px;
+  color: black;
+  cursor: pointer;
+}
+
+/* Responsive tweaks for smaller devices */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%; /* slightly smaller on tablets and phones */
+  }
+
+  .modal-img {
+    max-height: 80vh; /* avoid overflowing screen height */
+    object-fit: contain; /* scale image without cropping */
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%; /* almost full width on small mobiles */
+  }
+
+  .modal-img {
+    max-height: 70vh;
+  }
+
+  .close {
+    font-size: 24px;
+  }
+}

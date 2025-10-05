@@ -23,10 +23,13 @@
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">Role *</label>
-          <input class="form-control" formControlName="role" />
+          <label class="form-label">Designation *</label>
+          <select class="form-select" formControlName="role">
+            <option value="" disabled selected>Select Designation</option>
+            <option *ngFor="let d of designations" [value]="d">{{ d }}</option>
+          </select>
           <div class="text-danger" *ngIf="employeeForm.controls['role'].touched && employeeForm.controls['role'].invalid">
-            Role is required
+            Designation is required
           </div>
         </div>
 
@@ -61,7 +64,7 @@
 
         <div class="col-md-6">
           <label class="form-label">PAN Card</label>
-          <input class="form-control" formControlName="panCard" />
+          <input class="form-control" formControlName="panCard" (input)="toUpperCase($event)" style="text-transform: uppercase"  />
           <div class="text-danger" *ngIf="employeeForm.controls['panCard'].touched && employeeForm.controls['panCard'].invalid">
             Invalid PAN format
           </div>

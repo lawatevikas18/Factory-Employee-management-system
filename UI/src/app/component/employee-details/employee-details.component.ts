@@ -6,6 +6,7 @@ import { EmployeeService } from 'src/app/core/services/employee.service';
 import { Router,ActivatedRoute } from '@angular/router';
 import { LoaderService } from 'src/app/core/services/loader.service';
 import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
+import { ToastrService } from 'ngx-toastr';
 
 declare var bootstrap: any; 
 
@@ -35,7 +36,14 @@ export class EmployeeDetailsComponent implements OnInit {
    apiUrl = environment.apiUrl;
   private modalInstance: any;
   photoUrl="https://emp360-001-site1.stempurl.com"
-
+  designations: string[] = [
+    'Manager',
+    'Supervisor',
+    'Worker',
+    'Accountant',
+    'Security',
+    'Driver'
+  ];
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -43,14 +51,15 @@ export class EmployeeDetailsComponent implements OnInit {
     private route: Router,
     private loader: LoaderService,
     private router: ActivatedRoute,
-    private errormsg:ErrorPopUpService
+    private errormsg:ErrorPopUpService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       mobile1: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      mobile2: ['', [Validators.pattern('^[0-9]{10}$')]],
+      mobile2: ['',],
       role: ['', Validators.required],
       monthlySalary: [0, [Validators.required, Validators.min(1000)]],
       address: [''],
@@ -78,11 +87,12 @@ export class EmployeeDetailsComponent implements OnInit {
 
    submit() {
     if (this.employeeForm.invalid) {
-      this.error = 'Please fix validation errors.';
-      return;
+      // this.error = 'Please fix validation errors.';
+       this.toastr.error('Please fix validation errors.', 'Error');
+    return;
     }
 
-    this.error = '';
+    // this.error = '';
     const formData = new FormData();
     Object.keys(this.employeeForm.value).forEach(key => {
       formData.append(key, this.employeeForm.value[key]);
@@ -98,24 +108,28 @@ export class EmployeeDetailsComponent implements OnInit {
         headers: this.getMultipartHeader()
       }).subscribe({
         next: () => {
-          this.message = 'Employee updated successfully';
+           this.toastr.success('Employee updated successfully!', 'Success');
           this.resetForm();
           this.loadEmployees();
         },
-        error: err => this.error = err?.error?.message || 'Update failed'
+        error: err =>
+          this.toastr.error(err?.error?.message || 'Update failed', 'Error')
+          //  this.error = err?.error?.message || 'Update failed'
       });
     } else {
       this.http.post(`${this.apiUrl}/Employee`, formData, {
         headers: this.getMultipartHeader()
       }).subscribe({
         next: () => {
-          this.message = 'Employee added successfully';
+          // this.message = 'Employee added successfully';
+          this.toastr.success('Employee added successfully!', 'Success');
           this.resetForm();
           this.loadEmployees();
         },
         error: (err) => {
           console.log(err);
-          this.error = err?.error?.message || 'Add failed'
+          // this.error = err?.error?.message || 'Add failed'
+          this.toastr.error(err?.error?.message || 'Update failed', 'Error');
         }
       });
     }
@@ -145,7 +159,7 @@ export class EmployeeDetailsComponent implements OnInit {
   resetForm() {
     this.isEdit = false;
     this.selectedId = null;
-    this.employeeForm.reset({ monthlySalary: 0 });
+    // this.employeeForm.reset({ monthlySalary: 0 });
     this.isemployeeForm = false;
   }
 
@@ -181,4 +195,9 @@ closeModal() {
 onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
+
+  toUpperCase(event: any) {
+  const value = event.target.value.toUpperCase();
+  this.employeeForm.get('panCard')?.setValue(value, { emitEvent: false });
+}
 }

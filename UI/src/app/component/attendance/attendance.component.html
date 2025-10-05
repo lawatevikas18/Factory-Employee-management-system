@@ -161,12 +161,22 @@
         <!-- Left side -->
         <div class="d-flex align-items-center">
           <div class="me-3 fw-bold text-primary">{{ i + 1 }}.</div>
-          <div class="avatar me-3" >
-  <img *ngIf="emp.imagePath" [src]="photoUrl+emp.imagePath" alt="Employee Photo" class="avatar-img" />
+   
+          <div class="avatar me-3" (click)="openPhoto(emp)">
+  <img *ngIf="emp.imagePath" [src]="photoUrl + emp.imagePath" alt="Employee Photo" class="avatar-img" />
   <ng-container *ngIf="!emp.imagePath">
     {{ emp.name.split(' ')[0]?.charAt(0) }}{{ emp.name.split(' ')[1]?.charAt(0) || '' }}
   </ng-container>
 </div>
+
+<!-- Modal -->
+<div class="modal" [class.show]="isPhotoOpen" (click)="closePhoto()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closePhoto()">&times;</span>
+    <img *ngIf="selectedPhoto" [src]="selectedPhoto" alt="Employee Photo" class="modal-img" />
+  </div>
+</div>
+
 
 <!-- Hidden file input -->
 <!-- <input type="file"
