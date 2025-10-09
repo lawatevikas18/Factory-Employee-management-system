@@ -43,15 +43,16 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     CoreModule,
     LayoutModule,
     EmployeeDetailsModule,
-    ToastrModule.forRoot({
-      positionClass: 'toast-top-center', // top-center
-      closeButton: false,                // no close button
-      timeOut: 3000,
-      progressBar: true,
-      progressAnimation: 'increasing',
-      preventDuplicates: true,
-      toastClass: 'ngx-toastr toast-top-custom' // custom width/height
-    }),
+   ToastrModule.forRoot({
+  positionClass: 'toast-center',   // custom class for center
+  closeButton: false,
+  timeOut: 3000,
+  progressBar: true,
+  progressAnimation: 'increasing',
+  preventDuplicates: true,
+  toastClass: 'ngx-toastr toast-center-custom' // custom width/height
+}),
+
      ReportsModule,
      AuthModule,
      InviceModule

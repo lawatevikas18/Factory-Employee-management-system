@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environment/environment';
 import { EmployeeService } from 'src/app/core/services/employee.service';
-import { Router,ActivatedRoute } from '@angular/router';
 import { LoaderService } from 'src/app/core/services/loader.service';
 import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
 import { ToastrService } from 'ngx-toastr';
-
-declare var bootstrap: any; 
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-details',
@@ -18,48 +16,33 @@ declare var bootstrap: any;
 export class EmployeeDetailsComponent implements OnInit {
   employeeForm!: FormGroup;
   employees: any[] = [];
-  wallets: any[] = [];
   isEdit = false;
   selectedId: number | null = null;
-  selectedEmployee: any = null;  // ✅ For modal
+  selectedEmployee: any = null;
   loading = false;
-  message = '';
-  error = '';
   isemployeeForm = false;
-  from:any
-  photoBase64: string | null = null;  
   photoPreview: string | null = null;
   selectedFile: File | null = null;
-  uploadResponse: string = '';
-  uploadedImageUrl: string | null = null;
-  uploadSuccess: boolean = false;
-   apiUrl = environment.apiUrl;
-  private modalInstance: any;
-  photoUrl="https://emp360-001-site1.stempurl.com"
-  designations: string[] = [
-    'Manager',
-    'Supervisor',
-    'Worker',
-    'Accountant',
-    'Security',
-    'Driver'
-  ];
+  photoUrl = "https://emp360-001-site1.stempurl.com";
+
+  designations: string[] = ['Manager','Supervisor','Worker','Accountant','Security','Driver'];
+
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private employeeService: EmployeeService,
-    private route: Router,
     private loader: LoaderService,
+    private errormsg: ErrorPopUpService,
+    private toastr: ToastrService,
     private router: ActivatedRoute,
-    private errormsg:ErrorPopUpService,
-    private toastr: ToastrService
+    private route: Router
   ) {}
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       mobile1: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      mobile2: ['',],
+      mobile2: [''],
       role: ['', Validators.required],
       monthlySalary: [0, [Validators.required, Validators.min(1000)]],
       address: [''],
@@ -67,32 +50,31 @@ export class EmployeeDetailsComponent implements OnInit {
       taluka: [''],
       district: [''],
       state: [''],
-      aadhaar: ['', [Validators.required,Validators.pattern('^[0-9]{12}$')]],
+      aadhaar: ['', [Validators.required, Validators.pattern('^[0-9]{12}$')]],
       panCard: ['', [Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]],
-       imagePath: ['']
+      imagePath: ['']
     });
-   this.router.queryParams.subscribe(params => {
-     this.from = params['from']
-    if(this.from=='Attendance' ||this.from=='Advance' ){
-        this.addNew()
-    }
-  });
+
+    this.router.queryParams.subscribe(params => {
+      if(params['from'] === 'Attendance' || params['from'] === 'Advance') {
+        this.addNew();
+      }
+    });
+
     this.loadEmployees();
   }
 
- private getMultipartHeader() {
+  private getMultipartHeader() {
     const token = sessionStorage.getItem('token') || '';
     return { Authorization: `Bearer ${token}` };
   }
 
-   submit() {
+  submit() {
     if (this.employeeForm.invalid) {
-      // this.error = 'Please fix validation errors.';
-       this.toastr.error('Please fix validation errors.', 'Error');
-    return;
+      this.toastr.error('Please fix validation errors.', 'Error');
+      return;
     }
 
-    // this.error = '';
     const formData = new FormData();
     Object.keys(this.employeeForm.value).forEach(key => {
       formData.append(key, this.employeeForm.value[key]);
@@ -104,54 +86,69 @@ export class EmployeeDetailsComponent implements OnInit {
 
     if (this.isEdit && this.selectedId) {
       formData.append("employeeId", this.selectedId.toString());
-      this.http.put(`${this.apiUrl}/Employee/${this.selectedId}`, formData, {
-        headers: this.getMultipartHeader()
-      }).subscribe({
-        next: () => {
-           this.toastr.success('Employee updated successfully!', 'Success');
-          this.resetForm();
-          this.loadEmployees();
-        },
-        error: err =>
-          this.toastr.error(err?.error?.message || 'Update failed', 'Error')
-          //  this.error = err?.error?.message || 'Update failed'
-      });
+      this.http.put(`${environment.apiUrl}/Employee/${this.selectedId}`, formData, { headers: this.getMultipartHeader() })
+        .subscribe({
+          next: () => {
+            this.toastr.success('Employee updated successfully!', 'Success');
+            this.resetForm();
+            this.loadEmployees();
+          },
+          error: err => this.toastr.error(err?.error?.message || 'Update failed', 'Error')
+        });
     } else {
-      this.http.post(`${this.apiUrl}/Employee`, formData, {
-        headers: this.getMultipartHeader()
-      }).subscribe({
-        next: () => {
-          // this.message = 'Employee added successfully';
-          this.toastr.success('Employee added successfully!', 'Success');
-          this.resetForm();
-          this.loadEmployees();
-        },
-        error: (err) => {
-          console.log(err);
-          // this.error = err?.error?.message || 'Add failed'
-          this.toastr.error(err?.error?.message || 'Update failed', 'Error');
-        }
-      });
+      this.http.post(`${environment.apiUrl}/Employee`, formData, { headers: this.getMultipartHeader() })
+        .subscribe({
+          next: () => {
+            this.toastr.success('Employee added successfully!', 'Success');
+            this.resetForm();
+            this.loadEmployees();
+          },
+          error: err => this.toastr.error(err?.error?.message || 'Add failed', 'Error')
+        });
     }
   }
 
-  edit(emp: any) {
-    this.isEdit = true;
-    this.selectedId = emp.employeeId;
-    this.employeeForm.patchValue(emp);
-    this.isemployeeForm = true;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  editPhotoEmployee: any = null;
+ edit(emp: any) {
+  this.isEdit = true;
+  this.selectedId = emp.employeeId;
+  this.employeeForm.patchValue(emp);
+
+  this.photoPreview = null;
+  this.selectedFile = null;
+  this.isemployeeForm = true;
+
+  // NEW: keep reference for photo display
+  this.editPhotoEmployee = emp;
+
+  this.selectedEmployee = null; // still modal should not open
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+  viewEmployee(emp: any) {
+    this.selectedEmployee = emp; // only for modal
   }
 
-    delete(id: number) {
+  closeModal() {
+    this.selectedEmployee = null;
+  }
+
+  addNew() {
+    this.isemployeeForm = true;
+    this.isEdit = false;
+    this.selectedEmployee = null;
+    this.photoPreview = null;
+    this.selectedFile = null;
+    this.employeeForm.reset({ monthlySalary: 0 });
+  }
+
+  delete(id: number) {
     if (confirm('Are you sure you want to delete this employee?')) {
-      this.http.delete(`${this.apiUrl}/Employee/${id}`, { headers: this.getMultipartHeader() })
+      this.http.delete(`${environment.apiUrl}/Employee/${id}`, { headers: this.getMultipartHeader() })
         .subscribe({
-          next: () => {
-            this.message = 'Employee deleted successfully';
-            this.loadEmployees();
-          },
-          error: () => this.error = 'Delete failed'
+          next: () => this.loadEmployees(),
+          error: () => this.toastr.error('Delete failed', 'Error')
         });
     }
   }
@@ -159,45 +156,41 @@ export class EmployeeDetailsComponent implements OnInit {
   resetForm() {
     this.isEdit = false;
     this.selectedId = null;
-    // this.employeeForm.reset({ monthlySalary: 0 });
     this.isemployeeForm = false;
-  }
+    this.selectedEmployee = null;
+    this.photoPreview = null;
+    this.selectedFile = null;
+    this.employeeForm.reset({ monthlySalary: 0 });
+    this.editPhotoEmployee = null;
 
-  addNew() {
-    this.isemployeeForm = true;
   }
 
   loadEmployees() {
-    this.loader.show();   
+    this.loader.show();
     this.employeeService.getEmployees().subscribe({
       next: (res) => {
         this.employees = res;
-        this.loader.hide();   // ✅ Hide on success
+        this.loader.hide();
       },
       error: (err) => {
         this.loader.hide();
-        this.errormsg.showError(err?.error)
-        console.error('Error loading employees', err);
+        this.errormsg.showError(err?.error);
       },
-      complete: () => {
-        this.loader.hide(); 
-      }
+      complete: () => this.loader.hide()
     });
   }
 
-  // ✅ Show modal with employee details
-viewEmployee(emp: any) {
-  this.selectedEmployee = emp;
-}
-closeModal() {
-  this.selectedEmployee = null;
-}
-onFileSelected(event: any) {
+  onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = e => this.photoPreview = reader.result as string;
+      reader.readAsDataURL(this.selectedFile);
+    }
   }
 
   toUpperCase(event: any) {
-  const value = event.target.value.toUpperCase();
-  this.employeeForm.get('panCard')?.setValue(value, { emitEvent: false });
-}
+    const value = event.target.value.toUpperCase();
+    this.employeeForm.get('panCard')?.setValue(value, { emitEvent: false });
+  }
 }

@@ -6,13 +6,25 @@
 
     <form [formGroup]="employeeForm" (ngSubmit)="submit()" novalidate>
       <div class="row g-3">
-      <div class="col-md-6">
-        <label class="form-label">Photo</label>
-        <input type="file" class="form-control" (change)="onFileSelected($event)" />
-        <div *ngIf="selectedEmployee?.imagePath" class="mt-2">
-          <img [src]="photoUrl + selectedEmployee.imagePath" width="80" height="80" class="rounded">
+
+        <!-- Photo Upload -->
+        <div class="col-md-6">
+          <label class="form-label">Photo</label>
+          <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)" />
+
+          <!-- Show newly selected image preview -->
+          <div *ngIf="photoPreview" class="mt-2">
+            <img [src]="photoPreview" width="80" height="80" class="rounded border" alt="Preview">
+          </div>
+
+          <!-- Show existing photo when editing (if no new photo selected) -->
+      <!-- Show existing photo when editing (if no new photo selected) -->
+<div *ngIf="!photoPreview && editPhotoEmployee?.imagePath" class="mt-2">
+  <img [src]="photoUrl + editPhotoEmployee.imagePath" width="80" height="80" class="rounded border" alt="Existing Photo">
+</div>
+
+
         </div>
-      </div>
 
         <div class="col-md-6">
           <label class="form-label">Name *</label>
@@ -64,7 +76,7 @@
 
         <div class="col-md-6">
           <label class="form-label">PAN Card</label>
-          <input class="form-control" formControlName="panCard" (input)="toUpperCase($event)" style="text-transform: uppercase"  />
+          <input class="form-control" formControlName="panCard" (input)="toUpperCase($event)" style="text-transform: uppercase" />
           <div class="text-danger" *ngIf="employeeForm.controls['panCard'].touched && employeeForm.controls['panCard'].invalid">
             Invalid PAN format
           </div>
@@ -74,10 +86,12 @@
           <label class="form-label">Address</label>
           <textarea class="form-control" formControlName="address"></textarea>
         </div>
-         <div class="col-md-6">
+
+        <div class="col-md-6">
           <label class="form-label">Village</label>
           <input class="form-control" formControlName="village" />
         </div>
+
         <div class="col-md-6">
           <label class="form-label">Taluka</label>
           <input class="form-control" formControlName="taluka" />
@@ -118,7 +132,6 @@
             <th>Name</th>
             <th>Mobile</th>
             <th>Salary</th>
-            <!-- <th>Aadhaar</th> -->
             <th>Designation</th>
             <th>Actions</th>
           </tr>
@@ -129,18 +142,14 @@
             <td>{{ emp.name }}</td>
             <td>{{ emp.mobile1 }}</td>
             <td>{{ emp.monthlySalary | number:'1.0-0' }}</td>
-            <!-- <td>{{ emp.aadhaar }}</td> -->
             <td>{{ emp.role }}</td>
             <td class="d-flex">
-              <!-- View -->
               <button class="btn btn-sm btn-info me-1" (click)="viewEmployee(emp)">
                 <i class="bi bi-eye"></i>
               </button>
-              <!-- Edit -->
               <button class="btn btn-sm btn-warning me-1" (click)="edit(emp)">
                 <i class="bi bi-pencil"></i>
               </button>
-              <!-- Delete -->
               <button class="btn btn-sm btn-danger" (click)="delete(emp.employeeId)">
                 <i class="bi bi-trash"></i>
               </button>
@@ -155,30 +164,29 @@
 
   <!-- Employee Details Modal -->
   <div class="custom-modal-backdrop" *ngIf="selectedEmployee"></div>
-<div class="custom-modal" *ngIf="selectedEmployee">
-  <div class="custom-modal-content">
-    <h5>Employee Details</h5>
-    <div *ngIf="selectedEmployee?.imagePath" class="mt-2">
-          <img [src]="photoUrl + selectedEmployee.imagePath" width="80" height="80" class="rounded">
-        </div>
-    <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
-    <p><strong>Designation:</strong> {{ selectedEmployee.role }}</p>
-    <p><strong>Mobile:</strong> {{ selectedEmployee.mobile1 }}</p>
-    <p><strong>Salary:</strong> {{ selectedEmployee.monthlySalary | currency:'INR' }}</p>
-    <p><strong>Factory:</strong> {{ selectedEmployee.factoryName }}</p>
-    <p><strong>Aadhaar:</strong> {{ selectedEmployee.aadhaar }}</p>
-    <p><strong>Address:</strong> {{ selectedEmployee.address }}</p>
+  <div class="custom-modal" *ngIf="selectedEmployee">
+    <div class="custom-modal-content">
+      <h5>Employee Details</h5>
+      <div *ngIf="selectedEmployee?.imagePath" class="mt-2">
+        <img [src]="photoUrl + selectedEmployee.imagePath" width="80" height="80" class="rounded">
+      </div>
+      <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
+      <p><strong>Designation:</strong> {{ selectedEmployee.role }}</p>
+      <p><strong>Mobile:</strong> {{ selectedEmployee.mobile1 }}</p>
+      <p><strong>Salary:</strong> {{ selectedEmployee.monthlySalary | currency:'INR' }}</p>
+      <p><strong>Factory:</strong> {{ selectedEmployee.factoryName }}</p>
+      <p><strong>Aadhaar:</strong> {{ selectedEmployee.aadhaar }}</p>
+      <p><strong>Address:</strong> {{ selectedEmployee.address }}</p>
       <p><strong>Village:</strong> {{ selectedEmployee.village }}</p>
-     <p><strong>Talika:</strong> {{ selectedEmployee.taluka }}</p>
-    <p><strong>District:</strong> {{ selectedEmployee.district }}</p>
-    <p><strong>State:</strong> {{ selectedEmployee.state }}</p>
-     <p><strong>Advance:</strong> {{ selectedEmployee.advanceBalance }}</p>
+      <p><strong>Taluka:</strong> {{ selectedEmployee.taluka }}</p>
+      <p><strong>District:</strong> {{ selectedEmployee.district }}</p>
+      <p><strong>State:</strong> {{ selectedEmployee.state }}</p>
+      <p><strong>Advance:</strong> {{ selectedEmployee.advanceBalance }}</p>
 
-    <div class="text-end">
-      <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+      <div class="text-end">
+        <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+      </div>
     </div>
   </div>
-</div>
-
 
 </div>
