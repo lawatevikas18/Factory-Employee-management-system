@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AdvanceTransaction, EmployeeAdvancesService } from 'src/app/core/services/employee-advance.service';
 import { EmployeeService } from 'src/app/core/services/employee.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
+import { SessionService } from 'src/app/core/services/session.service';
  
 
 export interface Employee {
@@ -40,18 +41,21 @@ export class AdvanceComponent {
   searchText = '';
 showDetails:boolean=false
  advanceHistory: any[] = [];
+ userData:any
   constructor(
     private empService: EmployeeService,
     private advancesService: EmployeeAdvancesService,
     private fb: FormBuilder,
     private loader:LoaderService,
-    private router:Router
+    private router:Router,
+    private session:SessionService
   ) {}
 
   ngOnInit(): void {
     this.loadEmployees();
     this.loadTransactions();
-
+     this.userData=this.session.geetUserDetails()
+     console.log( this.userData)
     this.advanceForm = this.fb.group({
       employeeId: ['', Validators.required],
       reason: ['', Validators.required],

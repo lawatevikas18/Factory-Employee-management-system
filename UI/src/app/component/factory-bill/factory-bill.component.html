@@ -3,49 +3,142 @@
 
   <!-- Form -->
   <form (ngSubmit)="saveBill()" class="form">
-    <input type="number" [(ngModel)]="newBill.userId" name="userId" placeholder="User ID" required />
-    <input type="text" [(ngModel)]="newBill.factoryName" name="factoryName" placeholder="Factory Name" required />
-    <input type="date" [(ngModel)]="newBill.fromDate" name="fromDate" required />
-    <input type="date" [(ngModel)]="newBill.toDate" name="toDate" required />
-    <input type="text" [(ngModel)]="newBill.workDescription" name="workDescription" placeholder="Work Description" />
-    <input type="number" [(ngModel)]="newBill.totalBill" name="totalBill" placeholder="Total Bill" required />
-    <input type="number" [(ngModel)]="newBill.paidAmount" name="paidAmount" placeholder="Paid Amount" required />
-    <input type="number" [(ngModel)]="newBill.pendingAmount" name="pendingAmount" placeholder="Pending Amount" required />
+    <div class="form-group">
+      <label for="userId">User ID</label>
+      <input readonly
+        type="text"
+        id="userId"
+        [(ngModel)]="newBill.userId"
+        name="userId"
+        required
+      />
+    </div>
 
-    <button type="submit" class="btn save">{{ isEditing ? 'Update' : 'Add' }} Bill</button>
-    <button type="button" *ngIf="isEditing" (click)="cancelEdit()" class="btn cancel">Cancel</button>
+    <div class="form-group">
+      <label for="factoryName">Factory Name</label>
+      <input
+        type="text" readonly
+        id="factoryName"
+        [(ngModel)]="newBill.factoryName"
+        name="factoryName"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="fromDate">From Date</label>
+      <input
+        type="date"
+        id="fromDate"
+        [(ngModel)]="newBill.fromDate"
+        name="fromDate"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="toDate">To Date</label>
+      <input
+        type="date"
+        id="toDate"
+        [(ngModel)]="newBill.toDate"
+        name="toDate"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="workDescription">Work Description</label>
+      <input
+        type="text"
+        id="workDescription"
+        [(ngModel)]="newBill.workDescription"
+        name="workDescription"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="totalBill">Total Bill</label>
+      <input
+        type="number"
+        id="totalBill"
+        [(ngModel)]="newBill.totalBill"
+        name="totalBill"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="paidAmount">Paid Amount</label>
+      <input
+        type="number"
+        id="paidAmount"
+        [(ngModel)]="newBill.paidAmount"
+        name="paidAmount"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="pendingAmount">Pending Amount</label>
+      <input
+        type="number"
+        id="pendingAmount"
+        [(ngModel)]="newBill.pendingAmount"
+        name="pendingAmount"
+        required
+      />
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit" class="btn save">
+        {{ isEditing ? "Update" : "Add" }} Bill
+      </button>
+      <button
+        type="button"
+        *ngIf="isEditing"
+        (click)="cancelEdit()"
+        class="btn cancel"
+      >
+        Cancel
+      </button>
+    </div>
   </form>
 
   <!-- Table -->
-  <table class="bill-table">
-    <thead>
-      <tr>
-        <th>Bill ID</th>
-        <th>User ID</th>
-        <th>Factory</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Total</th>
-        <th>Paid</th>
-        <th>Pending</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let bill of bills">
-        <td>{{ bill.billId }}</td>
-        <td>{{ bill.userId }}</td>
-        <td>{{ bill.factoryName }}</td>
-        <td>{{ bill.fromDate | date }}</td>
-        <td>{{ bill.toDate | date }}</td>
-        <td>{{ bill.totalBill }}</td>
-        <td>{{ bill.paidAmount }}</td>
-        <td>{{ bill.pendingAmount }}</td>
-        <td>
-          <button (click)="editBill(bill)" class="btn edit">✏️</button>
-          <button (click)="deleteBill(bill.billId!)" class="btn delete">🗑️</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="bill-table">
+      <thead>
+        <tr>
+          <th>Bill ID</th>
+          <th>User ID</th>
+          <th>Factory</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Total</th>
+          <th>Paid</th>
+          <th>Pending</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bill of bills">
+          <td>{{ bill.billId }}</td>
+          <td>{{ bill.userId }}</td>
+          <td>{{ bill.factoryName }}</td>
+          <td>{{ bill.fromDate | date }}</td>
+          <td>{{ bill.toDate | date }}</td>
+          <td>{{ bill.totalBill }}</td>
+          <td>{{ bill.paidAmount }}</td>
+          <td>{{ bill.pendingAmount }}</td>
+          <td>
+            <button (click)="editBill(bill)" class="btn edit">✏️</button>
+            <button (click)="deleteBill(bill.billId!)" class="btn delete">
+              🗑️
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FactoryBill } from 'src/app/model/FactoryBill.model';
 import { FactoryBillService } from 'src/app/core/services/FactoryBill.service';
+import { SessionService } from 'src/app/core/services/session.service';
 
 @Component({
   selector: 'app-factory-bill',
@@ -12,10 +13,16 @@ export class FactoryBillComponent {
   bills: FactoryBill[] = [];
   newBill: FactoryBill = this.resetForm();
   isEditing = false;
+  userDetails:any
 
-  constructor(private billService: FactoryBillService) {}
+  constructor(private billService: FactoryBillService,
+    private session:SessionService
+  ) {}
 
   ngOnInit(): void {
+    this.userDetails=this.session.geetUserDetails()
+    this.newBill.factoryName=this.userDetails.factoryName
+    this.newBill.userId=38
     this.loadBills();
   }
 
@@ -35,7 +42,7 @@ export class FactoryBillComponent {
     } else {
       this.billService.create(this.newBill).subscribe(() => {
         this.loadBills();
-        this.newBill = this.resetForm();
+       this.newBill = this.resetForm();
       });
     }
   }
@@ -52,9 +59,17 @@ export class FactoryBillComponent {
   }
 
   cancelEdit(): void {
-    this.isEditing = false;
-    this.newBill = this.resetForm();
-  }
+  const { userId, factoryName } = this.newBill; // preserve these values
+  this.isEditing = false;
+
+  // reset other fields only
+  this.newBill = {
+    ...this.resetForm(),
+    userId,
+    factoryName
+  };
+}
+
 
   resetForm(): FactoryBill {
     return {
