@@ -147,7 +147,10 @@ export class EmployeeDetailsComponent implements OnInit {
     if (confirm('Are you sure you want to delete this employee?')) {
       this.http.delete(`${environment.apiUrl}/Employee/${id}`, { headers: this.getMultipartHeader() })
         .subscribe({
-          next: () => this.loadEmployees(),
+          
+          next: () => {
+            this.toastr.success('Employee deleted successfully!', 'Success');
+             this.loadEmployees(),this.loadEmployees()} ,
           error: () => this.toastr.error('Delete failed', 'Error')
         });
     }

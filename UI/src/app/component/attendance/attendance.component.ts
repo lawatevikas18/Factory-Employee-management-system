@@ -60,7 +60,8 @@ export class AttendanceComponent {
   private authService:AuthService,
   private getAttendance:AttendanceService,
   private router:Router,
-  private loader:LoaderService
+  private loader:LoaderService,
+   private toastr: ToastrService,
 ){}
   ngOnInit(): void {
     this.UserRole=this.authService.getUserRole()
@@ -83,7 +84,8 @@ export class AttendanceComponent {
       },
        error: (err) => {
         this.loader.hide();
-        console.error('Error loading employees', err);
+        this.toastr.error(err?.error?.message ||  'Error loading employees')
+        
       },
       complete: () => {
         this.loader.hide(); 
@@ -178,12 +180,14 @@ export class AttendanceComponent {
     this.getAttendance.saveAttendance(attendanceList).subscribe({
       next: (res) => {
         this.loader.hide()
-        if (res.statusCode === 200) {
-          alert('Attendance saved successfully!');
-        }
+        
+          
+          this.toastr.success('Attendance saved successfully!', 'Success');
+        
       },
       
-      error: err => console.error('Error saving attendance', err)
+      error: err =>this.toastr.error(err?.error?.message || 'Error saving attendance', 'Error')
+        //  console.error('Error saving attendance', err)
       
     });
   }
@@ -274,7 +278,7 @@ export class AttendanceComponent {
     decreaseDate() {
   const today = new Date();
   const sevenDaysAgo = new Date();
-  sevenDaysAgo.setDate(today.getDate() - 7);
+  sevenDaysAgo.setDate(today.getDate() - 2);
 
   // Only decrease if selectedDate is greater than sevenDaysAgo
   if (this.selectedDate > sevenDaysAgo) {

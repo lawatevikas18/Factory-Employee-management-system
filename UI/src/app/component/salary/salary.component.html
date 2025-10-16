@@ -18,6 +18,8 @@
             <th>A</th>
             <th>H</th>
             <th>OT</th>
+            <th>Advance</th>
+             <th>Salary</th>
             <th>Total</th>
             <th>Action</th>
           </tr>
@@ -31,6 +33,8 @@
             <td class="absent">{{ s.absentDays }}</td>
             <td class="half">{{ s.halfDays }}</td>
             <td>{{ s.otHours }}</td>
+            <td class="total">₹{{ s.totalSalaryPreview | number:'1.0-2' }}</td>
+             <td class="total">₹{{ s.totalSalaryPreview | number:'1.0-2' }}</td>
             <td class="total">₹{{ s.totalSalaryPreview | number:'1.0-2' }}</td>
             <td>
               <button class="btn-view" (click)="viewSalaryHistory(s)">View</button>

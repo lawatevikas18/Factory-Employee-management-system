@@ -42,7 +42,7 @@
         <tr *ngFor="let emp of filteredEmployees">
           <td>{{ emp.name }}</td>
           <td>{{ emp.mobile1 }}</td>
-          <td>{{ emp.advanceBalance | currency }}</td>
+          <td>₹ {{ emp.advanceBalance  }}</td>
           <td class="d-flex">
             <button class="btn btn-sm btn-primary me-1" (click)="viewEmployee(emp)">
                 <i class="bi bi-eye"></i>
