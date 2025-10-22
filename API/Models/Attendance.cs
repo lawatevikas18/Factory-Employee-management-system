@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using FEMS_API.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FEMS_API.Models
 {
@@ -15,9 +15,14 @@ namespace FEMS_API.Models
         public int UserId { get; set; }
 
         [Required]
-        public AttendanceStatus Status { get; set; } // Enum => Present, Absent, HalfDay, Leave
+        [Column(TypeName = "nvarchar(20)")] // ✅ Store as string
+        public string Status { get; set; }
 
         [Required]
+        [Column(TypeName = "date")] // ✅ Store only DATE (no time)
         public DateTime Date { get; set; }
+
+        public int OT { get; set; } = 0;
+        public DateTime createdAT { get; set; } = DateTime.Now;
     }
 }

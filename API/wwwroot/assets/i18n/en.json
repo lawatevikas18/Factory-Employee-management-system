@@ -8,7 +8,15 @@
     "attendance": "Attendance",
     "salary":"salary",
     "SETTINGS": "Settings",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+     "REPORTS": "Reports",
+     "ADVANCE":"Advance",
+     "INVOICE":"Invoice",
+    "FACTORY_BILL": "Factory_Bill",
+     "AUTH": "Auth",
+     "PAYMENT": "Payment"
+
+
   },
   "LOGIN": {
     "TITLE": "Welcome",

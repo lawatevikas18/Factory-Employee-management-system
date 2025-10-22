@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using FEMS_API.Enums;
 
 namespace FEMS_API.DTOS
 {
@@ -9,9 +8,12 @@ namespace FEMS_API.DTOS
         public int EmployeeId { get; set; }
 
         [Required(ErrorMessage = "Status is required.")]
-        public AttendanceStatus Status { get; set; } // Enum (Dropdown in Swagger)
+        public string Status { get; set; }  // ✅ Now string (no enum)
 
         [Required(ErrorMessage = "Date is required.")]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
+
+        public int OT { get; set; } = 0;
     }
 }

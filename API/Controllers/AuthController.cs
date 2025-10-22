@@ -15,29 +15,49 @@ namespace FEMS_API.Controllers
     {
         private readonly FEMS_DbContext _db;
         private readonly TokenService _tokenService;
+        private readonly IWebHostEnvironment _env;
 
-        public AuthController(FEMS_DbContext db, TokenService tokenService)
+        public AuthController(FEMS_DbContext db, TokenService tokenService, IWebHostEnvironment env)
         {
             _db = db;
             _tokenService = tokenService;
+            _env = env;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserRegisterDto dto)
+        public async Task<IActionResult> Register([FromForm] UserRegisterDto dto)
         {
             if (await _db.Users.AnyAsync(u => u.MobileNumber == dto.MobileNumber))
-                return BadRequest("User already exists./Mobile number are same");
+                return BadRequest("User already exists. (Mobile number already used)");
             if (await _db.Users.AnyAsync(u => u.Aadhaar == dto.Aadhaar))
-                return BadRequest("User already exists./Adhar number are same");
+                return BadRequest("User already exists. (Aadhaar number already used)");
             if (await _db.Users.AnyAsync(u => u.FactoryName == dto.FactoryName))
-                return BadRequest("User already exists./ One user not for 2 factory");
+                return BadRequest("Factory name already assigned to another user.");
 
             CreatePasswordHash(dto.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            // ✅ Handle Image Upload
+            string? imagePath = null;
+            if (dto.Image != null && dto.Image.Length > 0)
+            {
+                var uploadFolder = Path.Combine(_env.WebRootPath, "UserImages");
+                if (!Directory.Exists(uploadFolder))
+                    Directory.CreateDirectory(uploadFolder);
+
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(dto.Image.FileName)}";
+                var filePath = Path.Combine(uploadFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await dto.Image.CopyToAsync(stream);
+                }
+
+                imagePath = $"/UserImages/{fileName}";
+            }
 
             var user = new User
             {
                 Name = dto.Name,
-                AdminId = dto.AdminId,
                 Address = dto.Address,
                 Aadhaar = dto.Aadhaar,
                 PanCard = dto.PanCard,
@@ -45,7 +65,8 @@ namespace FEMS_API.Controllers
                 Role = dto.Role,
                 FactoryName = dto.FactoryName,
                 PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt
+                PasswordSalt = passwordSalt,
+                ImagePath = imagePath
             };
 
             _db.Users.Add(user);
@@ -59,11 +80,11 @@ namespace FEMS_API.Controllers
 
             await _db.SaveChangesAsync();
 
-            return Ok(new { message = "User registered successfully" });
+            return Ok(new { message = "✅ User registered successfully!", image = imagePath });
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserLoginDto dto)
+        public async Task<IActionResult> Login([FromBody] UserLoginDto dto)
         {
             var user = await _db.Users.FirstOrDefaultAsync(u => u.MobileNumber == dto.MobileNumber);
             if (user == null) return Unauthorized("Invalid credentials");
@@ -72,7 +93,18 @@ namespace FEMS_API.Controllers
                 return Unauthorized("Invalid credentials");
 
             var token = _tokenService.GenerateToken(user);
-            return Ok(new { token });
+            return Ok(new
+            {
+                token,
+                user = new
+                {
+                    user.UserId,
+                    user.Name,
+                    user.Role,
+                    user.FactoryName,
+                    user.ImagePath
+                }
+            });
         }
 
         #region Password Hashing

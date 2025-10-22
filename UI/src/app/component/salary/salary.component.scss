@@ -3,56 +3,28 @@
   max-width: 100%;
   margin: 0 auto;
 
-  .heading {
-    text-align: center;
-    color: #2563eb;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-  }
-
-  .loading {
-    text-align: center;
-    color: gray;
-  }
-
-  .table-wrapper {
-    overflow-x: auto;
-  }
+  .heading { text-align: center; color: #2563eb; font-weight: 700; margin-bottom: 1rem; font-size: 1.4rem; }
+  .loading { text-align: center; color: gray; }
+  .table-wrapper { overflow-x: auto; }
 
   table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
 
-    th, td {
-      padding: 8px;
-      text-align: center;
-      border: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #2563eb;
-      color: white;
-      font-weight: 600;
-    }
-
-    tr:hover {
-      background-color: #eef6ff;
-    }
+    th, td { padding: 8px; text-align: center; border: 1px solid #ddd; }
+    th { background-color: #2563eb; color: white; font-weight: 600; }
+    tr:hover { background-color: #eef6ff; }
 
     .present { color: #16a34a; font-weight: bold; }
     .absent { color: #dc2626; font-weight: bold; }
     .half { color: #ca8a04; }
+    .advance { color: #9333ea; font-weight: bold; }
     .total { color: #2563eb; font-weight: 600; }
   }
 
-  .no-data {
-    text-align: center;
-    color: gray;
-    padding: 1.5rem;
-  }
+  .no-data { text-align: center; color: gray; padding: 1.5rem; }
 
   button {
     cursor: pointer;
@@ -63,35 +35,19 @@
     transition: 0.2s ease;
   }
 
-  .btn-view {
-    background: #2563eb;
-    color: white;
-    &:hover { background: #1e40af; }
-  }
-
-  .btn-generate {
-    background: #16a34a;
-    color: white;
-    &:hover { background: #15803d; }
-  }
-
-  .btn-close {
-    background: #dc2626;
-    color: white;
-    &:hover { background: #b91c1c; }
-  }
+  .btn-view { background: #2563eb; color: white; &:hover { background: #1e40af; } }
+  .btn-generate { background: #16a34a; color: white; &:hover { background: #15803d; } }
 
   .modal-backdrop {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     z-index: 100;
   }
 
   .modal-content {
+    position: relative;
     background: white;
     padding: 1rem;
     border-radius: 8px;
@@ -103,85 +59,68 @@
 
     &.small { max-width: 400px; }
 
-    h3 {
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #2563eb;
-    }
+    label { font-weight: 600; margin-top: 8px; display: block; }
+    input { width: 100%; padding: 6px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; }
 
-    label {
-      font-weight: 600;
-      margin-top: 8px;
-      display: block;
-    }
-
-    input {
+    .readonly-input {
       width: 100%;
       padding: 6px;
       margin-bottom: 8px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      background: #f9f9f9;
+      color: #333;
     }
 
-    .actions {
-      text-align: right;
-      margin-top: 10px;
+    .actions { text-align: right; margin-top: 10px; button { margin-left: 8px; } }
 
-      button {
-        margin-left: 8px;
-      }
-    }
-  }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
 
-  /* ✅ Mobile responsive styles */
-  @media (max-width: 768px) {
-    .desktop-view {
-      display: none;
-    }
+      h3 { flex: 1; min-width: 150px; color: #2563eb; margin: 0; font-size: 1.2rem; }
 
-    .mobile-view {
-      display: block;
-    }
-
-    .salary-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-
-      h4 {
-        color: #2563eb;
-        margin-bottom: 5px;
-      }
-
-      p {
-        font-size: 13px;
-        margin: 2px 0;
-      }
-
-      .total {
-        margin-top: 4px;
-        font-weight: 600;
-      }
-
-      .actions {
+      .header-actions {
         display: flex;
-        justify-content: space-between;
-        margin-top: 8px;
+        gap: 8px;
+        align-items: center;
 
-        button {
-          flex: 1;
-          margin: 0 4px;
+        .btn-report {
+          background: #9333ea; color: white; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;
+          display: flex; align-items: center; gap: 4px; transition: all 0.2s ease;
+
+          i.fa-download { font-size: 14px; }
+
+          &:hover { background: #7e22ce; transform: translateY(-1px); box-shadow: 0 4px 6px rgba(0,0,0,0.15); }
+        }
+
+        .btn-close {
+          background: #dc2626; color: white; width: 36px; height: 36px; font-size: 18px; font-weight: 700;
+          border-radius: 50%; border: none; display: flex; justify-content: center; align-items: center;
+          cursor: pointer; transition: all 0.2s ease;
+
+          &:hover { background: #b91c1c; transform: translateY(-1px); box-shadow: 0 4px 6px rgba(0,0,0,0.15); }
         }
       }
     }
   }
 
-  @media (min-width: 769px) {
+  @media (max-width: 768px) {
+    .desktop-view { display: none; }
     .mobile-view {
-      display: none;
+      display: block;
+      .salary-card {
+        background: white; border: 1px solid #ddd; border-radius: 8px; padding: 10px; margin-bottom: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        h4 { color: #2563eb; margin-bottom: 5px; }
+        p { font-size: 13px; margin: 2px 0; }
+        .total { margin-top: 4px; font-weight: 600; }
+        .actions { display: flex; justify-content: space-between; margin-top: 8px; button { flex: 1; margin: 0 4px; } }
+      }
     }
   }
+
+  @media (min-width: 769px) { .mobile-view { display: none; } }
 }

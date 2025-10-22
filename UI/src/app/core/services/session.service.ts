@@ -9,6 +9,7 @@ userdtails:any
 
   setUserDetails(userDeatils:any){
     this.userdtails=userDeatils
+    
   }
   geetUserDetails(){
     return this.userdtails

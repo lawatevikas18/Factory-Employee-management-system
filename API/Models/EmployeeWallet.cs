@@ -12,5 +12,8 @@ namespace FEMS_API.Models
 
         [Required]
         public decimal AdvanceBalance { get; set; } = 0;
+
+        [Required]
+        public DateTime CreatedAT { get; set; }= DateTime.Now;
     }
 }

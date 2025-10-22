@@ -11,10 +11,38 @@ var builder = WebApplication.CreateBuilder(args);
 // -------------------------
 // 1️⃣ Add Services
 // -------------------------
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "FEMS API", Version = "v1" });
+
+    // 🔐 Add JWT Bearer Authorization
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter: Bearer {your JWT token}"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 // Database Context
 builder.Services.AddDbContext<FEMS_DbContext>(options =>
@@ -57,63 +85,47 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy
-                .WithOrigins("http://localhost:4200")   // You can replace with .WithOrigins("http://localhost:4200") for stricter security
-                .AllowAnyMethod()
-                .AllowAnyHeader();
+                .WithOrigins("https://emp360-001-site1.stempurl.com") // Angular URL on SmarterASP.NET
+                .AllowAnyHeader()
+                .AllowAnyMethod();
         });
-});
-
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "FEMS API", Version = "v1" });
-
-    // 🔑 JWT Authentication configuration
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        In = ParameterLocation.Header,
-        Description = "Enter 'Bearer' [space] and then your valid token.\n\nExample: Bearer eyJhbGciOiJIUzI1...",
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
-    });
-
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            new string[] {}
-        }
-    });
 });
 
 var app = builder.Build();
 
-
-app.UseDefaultFiles();   // Automatically looks for index.html
-app.UseStaticFiles();
-
 // -------------------------
 // 2️⃣ Configure Middleware
 // -------------------------
-app.UseSwagger();
-    app.UseSwaggerUI();
 
+// Serve Angular SPA from wwwroot
+app.UseDefaultFiles();   // looks for index.html by default
+app.UseStaticFiles();
+
+// Swagger (API documentation)
+app.UseSwagger();
+
+
+
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "FEMS API v1");
+    c.RoutePrefix = "swagger"; // /swagger URL
+});
+
+// HTTPS redirection
 app.UseHttpsRedirection();
 
-// ✅ CORS must be placed early
+// CORS (must come before Authentication/Authorization)
 app.UseCors("AllowAngularApp");
 
-// ✅ Add Authentication before Authorization
+// Authentication & Authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Map API Controllers
 app.MapControllers();
+
+// Angular SPA fallback
+app.MapFallbackToFile("index.html");
 
 app.Run();

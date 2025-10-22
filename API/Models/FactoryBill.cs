@@ -14,9 +14,11 @@ namespace FEMS_API.Models
         public string FactoryName { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime FromDate { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime ToDate { get; set; }
 
         public string WorkDescription { get; set; }

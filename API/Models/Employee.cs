@@ -1,53 +1,50 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿  using System.ComponentModel.DataAnnotations;
 
-namespace FEMS_API.Models
-{
-    public class Employee
+    namespace FEMS_API.Models
     {
-        [Key]
-        public int EmployeeId { get; set; }
+        public class Employee
+        {
+            [Key]
+            public int EmployeeId { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
+            [Required]
+            public int UserId { get; set; }
 
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; }
+            [Required]
+            public string? Name { get; set; }  // ← made nullable to handle DB null safely
 
-        [MaxLength(250)]
-        public string Address { get; set; }
+            public string? Address { get; set; }
+            public string? Village { get; set; }
+            public string? Taluka { get; set; }
+            public string? District { get; set; }
+            public string? State { get; set; }
 
-        [MaxLength(100)]
-        public string Village { get; set; }
+            [Required]
+            public string? Role { get; set; }  // ← made nullable
 
-        [MaxLength(100)]
-        public string Taluka { get; set; }
+            [Required]
+            [MaxLength(12)]
+            public string? Aadhaar { get; set; }  // ← made nullable
 
-        [MaxLength(100)]
-        public string District { get; set; }
+            public string? PanCard { get; set; }
 
-        [MaxLength(50)]
-        public string State { get; set; }
+            [Required]
+            [MaxLength(10)]
+            public string? Mobile1 { get; set; }  // ← made nullable
 
-        [MaxLength(50)]
-        public string Role { get; set; }
+            [MaxLength(10)]
+            public string? Mobile2 { get; set; }
 
-        [MaxLength(12)]
-        public string Aadhaar { get; set; }
+            [Required]
+            public decimal MonthlySalary { get; set; }
 
-        [MaxLength(10)]
-        public string PanCard { get; set; }
+            [Required]
+            public string? FactoryName { get; set; }  // ← made nullable
 
-        [MaxLength(15)]
-        public string Mobile1 { get; set; }
+            public DateTime createdAT { get; set; } = DateTime.Now;
 
-        [MaxLength(15)]
-        public string Mobile2 { get; set; }
+            public string? ImagePath { get; set; }
 
-        [Required]
-        public decimal MonthlySalary { get; set; }
-
-        [MaxLength(100)]
-        public string FactoryName { get; set; }
+            public bool IsActive { get; set; } = true;
+        }
     }
-}

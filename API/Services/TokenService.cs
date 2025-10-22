@@ -27,7 +27,9 @@ namespace FEMS_API.Services
                 new Claim("userId", user.UserId.ToString()),
                 new Claim("adminId", user.AdminId.ToString()),
                 new Claim(ClaimTypes.Role, user.Role ?? ""),
-                new Claim("factoryName", user.FactoryName ?? "")
+                new Claim("factoryName", user.FactoryName ?? ""),
+                new Claim("adminId", user.Name.ToString()),
+
             };
 
             var token = new JwtSecurityToken(

@@ -6,6 +6,8 @@ C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\FEMS_API.runtim
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\FEMS_API.pdb
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
+C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\BouncyCastle.Cryptography.dll
+C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\iTextSharp.LGPLv2.Core.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
@@ -30,6 +32,7 @@ C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Microsoft.Ident
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\SkiaSharp.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -48,6 +51,10 @@ C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win-ar
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\osx\native\libSkiaSharp.dylib
+C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win-x64\native\libSkiaSharp.dll
+C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win-x86\native\libSkiaSharp.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\ECommerceMicroservices\FEMS_API\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
