@@ -30,9 +30,9 @@ export const navbardata=[
     routerLink:'factory-bill',
     icon:'fa-regular fa-file',
     label:'MENU.FACTORY_BILL'  
-  
-  
    },
+
+
    {
     routerLink:'Invoice',
     icon:'fa-solid fa-receipt',
@@ -43,6 +43,12 @@ export const navbardata=[
     routerLink:'employee-salary',
     icon:'fa-regular fa-users',
     label:'MENU.PAYMENT'
+   },
+
+    {
+    routerLink:'Superwiser',
+    icon:'fa-regular fa-users',
+    label:'MENU.SUPERWISER'  
    }
    
 ]

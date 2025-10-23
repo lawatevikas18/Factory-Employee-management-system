@@ -437,10 +437,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "AdminId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
                   "Name": {
                     "type": "string"
                   },
@@ -472,9 +468,6 @@
                 }
               },
               "encoding": {
-                "AdminId": {
-                  "style": "form"
-                },
                 "Name": {
                   "style": "form"
                 },
@@ -2169,71 +2162,19 @@
               "text/plain": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
+                  "items": { }
                 }
               },
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
+                  "items": { }
                 }
               },
               "text/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "items": { }
                 }
               }
             }
@@ -2241,148 +2182,7 @@
         }
       }
     },
-    "/api/User/UserWallet/{userId}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserWallet"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserWallet"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserWallet"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/User/{id}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/User_wallete": {
+    "/api/User/superwisedata": {
       "get": {
         "tags": [
           "User"
@@ -2394,63 +2194,19 @@
               "text/plain": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserWallet"
-                  }
+                  "items": { }
                 }
               },
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserWallet"
-                  }
+                  "items": { }
                 }
               },
               "text/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserWallet"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/User/employee_wallete": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EmployeeWallet"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EmployeeWallet"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EmployeeWallet"
-                  }
+                  "items": { }
                 }
               }
             }
@@ -2470,25 +2226,19 @@
               "text/plain": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AdminWallet"
-                  }
+                  "items": { }
                 }
               },
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AdminWallet"
-                  }
+                  "items": { }
                 }
               },
               "text/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AdminWallet"
-                  }
+                  "items": { }
                 }
               }
             }
@@ -2536,33 +2286,6 @@
             "format": "date"
           },
           "createdAT": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AdminWallet": {
-        "required": [
-          "adminId",
-          "balance",
-          "createdDate"
-        ],
-        "type": "object",
-        "properties": {
-          "adminWalletId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "adminId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "balance": {
-            "type": "number",
-            "format": "double"
-          },
-          "createdDate": {
             "type": "string",
             "format": "date-time"
           }
@@ -3344,79 +3067,6 @@
         },
         "additionalProperties": false
       },
-      "User": {
-        "required": [
-          "aadhaar",
-          "adminId",
-          "factoryName",
-          "mobileNumber",
-          "name",
-          "role"
-        ],
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "adminId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "maxLength": 100,
-            "minLength": 1,
-            "type": "string"
-          },
-          "address": {
-            "maxLength": 250,
-            "type": "string",
-            "nullable": true
-          },
-          "aadhaar": {
-            "maxLength": 12,
-            "minLength": 1,
-            "type": "string"
-          },
-          "panCard": {
-            "maxLength": 10,
-            "type": "string",
-            "nullable": true
-          },
-          "mobileNumber": {
-            "maxLength": 10,
-            "minLength": 1,
-            "type": "string"
-          },
-          "role": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "factoryName": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "imagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "passwordHash": {
-            "type": "string",
-            "format": "byte",
-            "nullable": true
-          },
-          "passwordSalt": {
-            "type": "string",
-            "format": "byte",
-            "nullable": true
-          },
-          "createdAT": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
       "UserLoginDto": {
         "type": "object",
         "properties": {
@@ -3427,33 +3077,6 @@
           "password": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserWallet": {
-        "required": [
-          "balance",
-          "createdAT",
-          "userId"
-        ],
-        "type": "object",
-        "properties": {
-          "userWalletId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "balance": {
-            "type": "number",
-            "format": "double"
-          },
-          "createdAT": {
-            "type": "string",
-            "format": "date-time"
           }
         },
         "additionalProperties": false

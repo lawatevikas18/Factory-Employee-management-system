@@ -1,22 +1,22 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\132.2200a2ade6b7aa97.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\132.6326d28da637c417.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FEMS_API</BasePath>
-      <RelativePath>132.2200a2ade6b7aa97.js</RelativePath>
+      <RelativePath>132.6326d28da637c417.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hqpcvlnxbx</Fingerprint>
-      <Integrity>t099r9ovWQn9eiOt1V2L80KatQPPrx2foDOQtLPtRCo=</Integrity>
+      <Fingerprint>jdhizwp3lu</Fingerprint>
+      <Integrity>iQTdVYVXeWP6/pgCzLZvuCA30YnGTaAFwlclv60YNYQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\132.2200a2ade6b7aa97.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\132.6326d28da637c417.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\159.26db771fe5cb6f16.js'))">
       <SourceType>Package</SourceType>
@@ -36,23 +36,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\159.26db771fe5cb6f16.js'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\213.40877e2c86d0a525.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\213.077f1c9c007b03e7.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FEMS_API</BasePath>
-      <RelativePath>213.40877e2c86d0a525.js</RelativePath>
+      <RelativePath>213.077f1c9c007b03e7.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>y99b6yp1pf</Fingerprint>
-      <Integrity>tmHnrrNpT0hq/pRJBdVvK5ewaunBV+j92P2sf/Fb+c4=</Integrity>
+      <Fingerprint>5zwkj7ljbe</Fingerprint>
+      <Integrity>D50xIWR2EX6hW+bnGVpCq/vF/7SAWRV9K/VwHEz5yTA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\213.40877e2c86d0a525.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\213.077f1c9c007b03e7.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\226.2ef2caafaeda6e86.js'))">
       <SourceType>Package</SourceType>
@@ -72,23 +72,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\226.2ef2caafaeda6e86.js'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\348.c92e4d2054d0fbda.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\348.214f65080cdcd275.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FEMS_API</BasePath>
-      <RelativePath>348.c92e4d2054d0fbda.js</RelativePath>
+      <RelativePath>348.214f65080cdcd275.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q7z69s2p49</Fingerprint>
-      <Integrity>Og8gN20pdU/eUt6+99F9Xl2agdITx0oirsbIPsGt1Mc=</Integrity>
+      <Fingerprint>s0msl76g7m</Fingerprint>
+      <Integrity>fG8Wzayw1mkeSQ0k9AGK9kH7IDCo3iv26f3qg/cw92U=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\348.c92e4d2054d0fbda.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\348.214f65080cdcd275.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\3rdpartylicenses.txt'))">
       <SourceType>Package</SourceType>
@@ -108,6 +108,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\3rdpartylicenses.txt'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\589.f06cb4704799dfce.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>FEMS_API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FEMS_API</BasePath>
+      <RelativePath>589.f06cb4704799dfce.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dcjwxqnumt</Fingerprint>
+      <Integrity>7YJJYqvGPCF4YWlKNv037WOXt8xexm4X1c0taBFRIQs=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\589.f06cb4704799dfce.js'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\603.39ee9d88ab8d0309.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
@@ -126,23 +144,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\603.39ee9d88ab8d0309.js'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\641.d80877b8488984af.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\641.d452e7972ea884ab.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FEMS_API</BasePath>
-      <RelativePath>641.d80877b8488984af.js</RelativePath>
+      <RelativePath>641.d452e7972ea884ab.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>31m2ulhd05</Fingerprint>
-      <Integrity>B36P6RBOTUEaxOqnh/x3boCrKnpgLj3ZnYP3hEFZjUc=</Integrity>
+      <Fingerprint>lw3oqz39ij</Fingerprint>
+      <Integrity>O6AEcnuIRrLPmdK4td68Nj2SgnSL6g02Uk/MUnG4pyg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\641.d80877b8488984af.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\641.d452e7972ea884ab.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\658.080392396272c85b.js'))">
       <SourceType>Package</SourceType>
@@ -162,23 +180,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\658.080392396272c85b.js'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\661.00ea2605b6f16e3c.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\661.bc2c5965ceba7c4b.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FEMS_API</BasePath>
-      <RelativePath>661.00ea2605b6f16e3c.js</RelativePath>
+      <RelativePath>661.bc2c5965ceba7c4b.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hkf7007ub9</Fingerprint>
-      <Integrity>b8Wm6KUF10DCAMwVkHWi5Zpkz9lb9w040E0OwH6OVQY=</Integrity>
+      <Fingerprint>n3a22m0fdo</Fingerprint>
+      <Integrity>o7khcRUHNg1qoNyWdAQrUEdlouLf1GNvoXMOwt81Jt8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\661.00ea2605b6f16e3c.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\661.bc2c5965ceba7c4b.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\678.a692154067596467.js'))">
       <SourceType>Package</SourceType>
@@ -198,23 +216,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\678.a692154067596467.js'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\951.90cb3ec7730131dc.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\951.b2cf6710903b2884.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FEMS_API</BasePath>
-      <RelativePath>951.90cb3ec7730131dc.js</RelativePath>
+      <RelativePath>951.b2cf6710903b2884.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>fgy1qfldbs</Fingerprint>
-      <Integrity>URXUJuaDZqzBx/omOL0sJgJfDi3MvfXjIe9ZDeG2afw=</Integrity>
+      <Fingerprint>ujomewidny</Fingerprint>
+      <Integrity>Nix9jCDWOpSbV5VhzRtVec0liwtV1ts4+v0OdrQooiM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\951.90cb3ec7730131dc.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\951.b2cf6710903b2884.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\i18n\en.json'))">
       <SourceType>Package</SourceType>
@@ -228,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vjy120xitv</Fingerprint>
-      <Integrity>1chANQUOF5DiBIeEXj6iQN5JCDP/CdZR3z+KT+Pbdlk=</Integrity>
+      <Fingerprint>zj1tctdven</Fingerprint>
+      <Integrity>H13UEF8DFjohypFH14nHidpPo2DPja8Gb39vEGxQWX0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\i18n\en.json'))</OriginalItemSpec>
@@ -462,29 +480,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>crjbvaebt5</Fingerprint>
-      <Integrity>OECSsgGCMVmPcSsZdgdnvJFsnfQbWRIjrkkqjFos0bE=</Integrity>
+      <Fingerprint>mni2e4ir5q</Fingerprint>
+      <Integrity>8gjw1y2OB7UKj9du+PbeF0dC/WYd3A68nI3FM+xkrRc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\main.a5f7c1d5cad98b5c.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\main.e0385f78b7472bea.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FEMS_API</BasePath>
-      <RelativePath>main.a5f7c1d5cad98b5c.js</RelativePath>
+      <RelativePath>main.e0385f78b7472bea.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>oxzj43wztz</Fingerprint>
-      <Integrity>VJPtpzzUbo+kFYllZd8o9k8ajHElAChnVhb1lkJQZnE=</Integrity>
+      <Fingerprint>pxbnqb8v5l</Fingerprint>
+      <Integrity>070k5fXcGon5hA8Rdl4T8UTAxYZw96ub5GYJytBJLLs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\main.a5f7c1d5cad98b5c.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\main.e0385f78b7472bea.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\polyfills.6dcd853f16b77d1e.js'))">
       <SourceType>Package</SourceType>
@@ -936,23 +954,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\roboto-latin-900italic.9c1f80840351fa12.woff2'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\runtime.b7b8ae9f8546cafb.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\runtime.b567f6ecc155e920.js'))">
       <SourceType>Package</SourceType>
       <SourceId>FEMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FEMS_API</BasePath>
-      <RelativePath>runtime.b7b8ae9f8546cafb.js</RelativePath>
+      <RelativePath>runtime.b567f6ecc155e920.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9itpbtj5u3</Fingerprint>
-      <Integrity>X6+fjY+zMrGOkpxv3bryhNQDfQFIV69px3jOH6vas9U=</Integrity>
+      <Fingerprint>tkuj7nxzvq</Fingerprint>
+      <Integrity>jRRBjkOMKpUKarQqKPMhU8qsgl3RW/LxwPygyJvyig0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\runtime.b7b8ae9f8546cafb.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\runtime.b567f6ecc155e920.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\scripts.dfb889cef33f36ee.js'))">
       <SourceType>Package</SourceType>
@@ -989,6 +1007,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\styles.173769f9d41d22c0.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UserImages\bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>FEMS_API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FEMS_API</BasePath>
+      <RelativePath>UserImages/bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>itwkpaiijo</Fingerprint>
+      <Integrity>2lvz3qdn5MWk6MHVx9dnMczTSimFEfJO/ExWPBnS6Wo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UserImages\bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

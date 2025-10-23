@@ -1,0 +1,50 @@
+<div class="user-list-root">
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <h2>Users — FEMS</h2>
+    <div class="controls">
+      <input type="search" placeholder="Search by name, factory, mobile or id" [(ngModel)]="search" />
+      <button (click)="exportCsv()" class="btn primary">Export CSV</button>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button [disabled]="loading" [class.active]="activeTab==='supervised'" (click)="setTab('supervised')">Supervised Data</button>
+    <button [disabled]="loading" [class.active]="activeTab==='admin'" (click)="setTab('admin')">Admin Wallets</button>
+  </nav>
+
+  <!-- Body -->
+  <section class="body">
+    <div *ngIf="loading" class="loading">Loading...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+    <div *ngIf="!loading && !error && filteredRows.length === 0" class="empty">No records found.</div>
+
+    <!-- Table -->
+    <div class="table-responsive" *ngIf="filteredRows.length > 0">
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Factory</th>
+            <th>Mobile</th>
+            <th>Advance</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of filteredRows">
+            <td>{{ u.Name }}</td>
+            <td>{{ u.Role || '—' }}</td>
+            <td>{{ u.FactoryName || '—' }}</td>
+            <td>{{ u.MobileNumber || '—' }}</td>
+            <td>{{ u.AdvanceBalance ?? 0 | number:'1.0-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>

@@ -114,17 +114,21 @@
       </div>
 
       <form [formGroup]="salaryForm" (ngSubmit)="generateSalary()">
-  
-        <label> Name - {{  selectedEmployee?.employeeName }}  <br>  Advance Available - {{ selectedEmployee?.advance | number:'1.0-2' }}</label> 
+
+        <label>
+          Name: {{ selectedEmployee?.employeeName }} <br>
+          Advance Available: {{ selectedEmployee?.advance | number:'1.0-2' }}
+        </label> 
 
         <label>Advance to Deduct</label>
         <input type="number" formControlName="manualAdvanceDeduct" />
 
         <label>Start Date</label>
-        <input type="date" formControlName="startDate" />
+        <input type="date" formControlName="startDate" readonly />
 
         <label>End Date</label>
-        <input type="date" formControlName="endDate" />
+        <input type="date" formControlName="endDate" (change)="checkEndDate()" />
+        <div class="error" *ngIf="endDateError">{{ endDateError }}</div>
 
         <div class="actions">
           <button type="submit" class="btn-generate">Generate</button>

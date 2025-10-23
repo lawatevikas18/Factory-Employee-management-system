@@ -71,7 +71,10 @@ namespace FEMS_API.Controllers
                     attendance_count_today = factoryWisePresent.Sum(x => x.PresentCount),
                     active_site = factoryWisePresent,
                     total_site = totalUsers,
-                    total_balance = totalbalance?.Balance ?? 0
+                    total_balance = totalbalance?.Balance ?? 0,
+                    imageurl = user.ImagePath
+
+
                 });
             }
             else
@@ -99,7 +102,8 @@ namespace FEMS_API.Controllers
                     attendance_count_today = factoryWisePresent.Sum(x => x.PresentCount),
                     active_site = factoryWisePresent,
                     total_site = 1,
-                    total_balance = totalbalance?.Balance ?? 0
+                    total_balance = totalbalance?.Balance ?? 0,
+                    imageurl=user.ImagePath
                 });
             }
         }

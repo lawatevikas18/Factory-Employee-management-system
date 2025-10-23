@@ -728,9 +728,6 @@ namespace FEMS_API.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FactoryName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -1,52 +1,60 @@
 {
   "Files": [
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.2200a2ade6b7aa97.js",
-      "PackagePath": "staticwebassets\\132.2200a2ade6b7aa97.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.6326d28da637c417.js",
+      "PackagePath": "staticwebassets\\132.6326d28da637c417.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\159.26db771fe5cb6f16.js",
       "PackagePath": "staticwebassets\\159.26db771fe5cb6f16.js"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\213.40877e2c86d0a525.js",
-      "PackagePath": "staticwebassets\\213.40877e2c86d0a525.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\213.077f1c9c007b03e7.js",
+      "PackagePath": "staticwebassets\\213.077f1c9c007b03e7.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\226.2ef2caafaeda6e86.js",
       "PackagePath": "staticwebassets\\226.2ef2caafaeda6e86.js"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\348.c92e4d2054d0fbda.js",
-      "PackagePath": "staticwebassets\\348.c92e4d2054d0fbda.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\348.214f65080cdcd275.js",
+      "PackagePath": "staticwebassets\\348.214f65080cdcd275.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
       "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
     },
     {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\589.f06cb4704799dfce.js",
+      "PackagePath": "staticwebassets\\589.f06cb4704799dfce.js"
+    },
+    {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\603.39ee9d88ab8d0309.js",
       "PackagePath": "staticwebassets\\603.39ee9d88ab8d0309.js"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.d80877b8488984af.js",
-      "PackagePath": "staticwebassets\\641.d80877b8488984af.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.d452e7972ea884ab.js",
+      "PackagePath": "staticwebassets\\641.d452e7972ea884ab.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\658.080392396272c85b.js",
       "PackagePath": "staticwebassets\\658.080392396272c85b.js"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.00ea2605b6f16e3c.js",
-      "PackagePath": "staticwebassets\\661.00ea2605b6f16e3c.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.bc2c5965ceba7c4b.js",
+      "PackagePath": "staticwebassets\\661.bc2c5965ceba7c4b.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\678.a692154067596467.js",
       "PackagePath": "staticwebassets\\678.a692154067596467.js"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\951.90cb3ec7730131dc.js",
-      "PackagePath": "staticwebassets\\951.90cb3ec7730131dc.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\951.b2cf6710903b2884.js",
+      "PackagePath": "staticwebassets\\951.b2cf6710903b2884.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\UserImages\\bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png",
+      "PackagePath": "staticwebassets\\UserImages\\bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\en.json",
@@ -105,8 +113,8 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.a5f7c1d5cad98b5c.js",
-      "PackagePath": "staticwebassets\\main.a5f7c1d5cad98b5c.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.e0385f78b7472bea.js",
+      "PackagePath": "staticwebassets\\main.e0385f78b7472bea.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\polyfills.6dcd853f16b77d1e.js",
@@ -209,8 +217,8 @@
       "PackagePath": "staticwebassets\\roboto-latin-900italic.9c1f80840351fa12.woff2"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.b7b8ae9f8546cafb.js",
-      "PackagePath": "staticwebassets\\runtime.b7b8ae9f8546cafb.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.b567f6ecc155e920.js",
+      "PackagePath": "staticwebassets\\runtime.b567f6ecc155e920.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\scripts.dfb889cef33f36ee.js",

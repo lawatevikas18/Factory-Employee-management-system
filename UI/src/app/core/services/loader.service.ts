@@ -21,7 +21,7 @@ export class LoaderService {
    private userNameSource = new BehaviorSubject<string>(localStorage.getItem('userName') || '');
   userName$ = this.userNameSource.asObservable();
 
-  setUserName(name: string,factoryname:string) {
+  setUserName(name: string,factoryname:string,role:string) {
     localStorage.setItem('userName', name);
     localStorage.setItem('factoryName', factoryname);
 

@@ -31,8 +31,12 @@ namespace FEMS_API.Controllers
                 return BadRequest("User already exists. (Mobile number already used)");
             if (await _db.Users.AnyAsync(u => u.Aadhaar == dto.Aadhaar))
                 return BadRequest("User already exists. (Aadhaar number already used)");
-            if (await _db.Users.AnyAsync(u => u.FactoryName == dto.FactoryName))
-                return BadRequest("Factory name already assigned to another user.");
+            if (dto.Role != "Admin")
+            {
+                if (await _db.Users.AnyAsync(u => u.FactoryName == dto.FactoryName))
+                    return BadRequest("Factory name already assigned to another user.");
+            }
+            
 
             CreatePasswordHash(dto.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
@@ -93,18 +97,7 @@ namespace FEMS_API.Controllers
                 return Unauthorized("Invalid credentials");
 
             var token = _tokenService.GenerateToken(user);
-            return Ok(new
-            {
-                token,
-                user = new
-                {
-                    user.UserId,
-                    user.Name,
-                    user.Role,
-                    user.FactoryName,
-                    user.ImagePath
-                }
-            });
+            return Ok(new { token });
         }
 
         #region Password Hashing

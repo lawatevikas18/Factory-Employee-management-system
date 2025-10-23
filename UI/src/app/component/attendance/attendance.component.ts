@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
 import { AttendanceRequest, EmployeeAttendance } from 'src/app/model/AttendanceRequest .model';
 import { environment } from 'src/environment/environment';
+import Swal from 'sweetalert2';
 declare var bootstrap: any;
 
 
@@ -168,6 +169,8 @@ export class AttendanceComponent {
 
   // Save attendance (hook this to API)
   saveAttendance(): void {
+  if (localStorage.getItem('role') == 'Admin') { Swal.fire('Access Denied', 'Admins are not allowed to add attendance.', 'warning'); return; }
+    
   if(this.UserRole !== 'Admin'){
     const attendanceList: any = this.employees.map(emp => ({
       employeeId: emp.employeeId,

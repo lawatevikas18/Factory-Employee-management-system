@@ -51,7 +51,7 @@ namespace FEMS_API.Controllers
                 if (!mySalary.Any())
                     return NotFound("You have no salary transactions yet.");
 
-              
+
 
                 return Ok(mySalary);
             }
@@ -62,13 +62,20 @@ namespace FEMS_API.Controllers
         public async Task<IActionResult> PreviewAllSalary()
         {
             var today = DateTime.Today;
+            var employees = new List<Employee>();
 
-            if (CurrentUserRole == "Admin")
-                return Forbid("Admins cannot preview salary calculations.");
+            if (CurrentUserRole != "Admin")
+            {
+                employees = await _context.Employees
+                                .Where(e => e.UserId == CurrentUserId)
+                                .ToListAsync();
+            }
+            else
+            {
+                employees = await _context.Employees
+                                .ToListAsync();
+            }
 
-            var employees = await _context.Employees
-                .Where(e => e.UserId == CurrentUserId)
-                .ToListAsync();
 
             if (!employees.Any())
                 return NotFound("No employees found for this user.");
@@ -162,7 +169,7 @@ namespace FEMS_API.Controllers
                                     + (halfDays * (perDaySalary / 2))
                                     + (totalOTHours * perHourSalary);
 
-                var employee_advance= await _context.EmployeeWallets.FirstOrDefaultAsync(a => a.EmployeeId==employee.EmployeeId);
+                var employee_advance = await _context.EmployeeWallets.FirstOrDefaultAsync(a => a.EmployeeId == employee.EmployeeId);
 
                 salaryPreviews.Add(new
                 {
@@ -191,7 +198,7 @@ namespace FEMS_API.Controllers
             try
             {
                 var employee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
-                var advance= await _context.EmployeeWallets.FirstOrDefaultAsync(e=>e.EmployeeId == employeeId);
+                var advance = await _context.EmployeeWallets.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
 
                 if (employee == null)
                     return NotFound("Employee not found");
@@ -322,137 +329,265 @@ namespace FEMS_API.Controllers
             }
         }
 
- 
+
+
+        //[HttpPost("GenerateSalary")]
+        //public async Task<IActionResult> GenerateSalary([FromBody] GenerateSalaryDTO dto)
+        //{
+        //    var today = DateTime.Today.Date;
+
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
+
+        //    if (CurrentUserRole == "Admin")
+        //        return Forbid("Admins are not allowed to generate salary.");
+
+        //    if (dto.EndDate.Date > today)
+        //        return BadRequest("End date must not be a future date.");
+
+        //    if (dto.EndDate.Date < dto.StartDate.Date)
+        //        return BadRequest("End date must be greater than or equal to start date.");
+
+        //    // ✅ Check overlapping salary transactions
+        //    bool alreadyProcessed = await _context.SalaryTransactions
+        //        .AnyAsync(s => s.EmployeeId == dto.EmployeeId &&
+        //                       s.UserId == CurrentUserId &&
+        //                       s.StartDate.Date <= dto.EndDate.Date &&
+        //                       s.EndDate.Date >= dto.StartDate.Date);
+
+        //    if (alreadyProcessed)
+        //        return Conflict("Salary already processed for this employee for overlapping date range.");
+
+        //    // ✅ Fetch employee (must belong to current user)
+        //    var employee = await _context.Employees
+        //        .FirstOrDefaultAsync(e => e.EmployeeId == dto.EmployeeId && e.UserId == CurrentUserId);
+
+        //    if (employee == null)
+        //        return Forbid("You are not allowed to generate salary for this employee.");
+
+        //    // ✅ Fetch attendance within date range
+        //    var attendances = await _context.Attendances
+        //        .Where(a => a.EmployeeId == dto.EmployeeId &&
+        //                    a.Date.Date >= dto.StartDate.Date &&
+        //                    a.Date.Date <= dto.EndDate.Date)
+        //        .ToListAsync();
+
+        //    if (!attendances.Any())
+        //        return BadRequest("No attendance records found in the selected date range.");
+
+        //    // ✅ Count Present / Absent / HalfDay
+        //    int presentDays = attendances.Count(a => a.Status == "Present");
+        //    int absentDays = attendances.Count(a => a.Status == "Absent");
+        //    int halfDays = attendances.Count(a => a.Status == "HalfDay");
+
+        //    // ✅ Calculate OT
+        //    int totalOTHours = attendances.Sum(a => a.OT); // from attendance table
+
+        //    // ✅ Salary calculation
+        //    decimal perDaySalary = employee.MonthlySalary / 30;
+        //    decimal perHourSalary = perDaySalary / 8; // Assuming 8 working hours
+        //    decimal totalSalary = (presentDays * perDaySalary)
+        //                        + (halfDays * (perDaySalary / 2))
+        //                        + (totalOTHours * perHourSalary);
+
+        //    // ✅ Wallet logic
+        //    var employeeWallet = await _context.EmployeeWallets
+        //        .FirstOrDefaultAsync(w => w.EmployeeId == dto.EmployeeId);
+        //    var userWallet = await _context.UserWallets
+        //        .FirstOrDefaultAsync(w => w.UserId == CurrentUserId);
+
+        //    if (employeeWallet == null)
+        //        return BadRequest("Employee wallet not found.");
+        //    if (userWallet == null)
+        //        return BadRequest("User wallet not found.");
+
+        //    // ✅ Manual advance deduction logic
+        //    decimal manualAdvance = dto.ManualAdvanceDeduct;
+        //    if (manualAdvance < 0)
+        //        return BadRequest("Advance deduction cannot be negative.");
+
+        //    if (manualAdvance > employeeWallet.AdvanceBalance)
+        //        return BadRequest("Advance deduction exceeds employee’s available advance balance.");
+
+        //    decimal finalSalary = totalSalary - manualAdvance;
+        //    if (finalSalary < 0)
+        //        return BadRequest("Advance deduction exceeds employee’s Salary.");
+
+        //    // ✅ Wallet adjustments
+        //    employeeWallet.AdvanceBalance -= manualAdvance;
+
+        //    if (userWallet.Balance < finalSalary)
+        //        return BadRequest("Insufficient balance in user wallet.");
+
+        //    userWallet.Balance -= finalSalary;
+
+        //    _context.EmployeeWallets.Update(employeeWallet);
+        //    _context.UserWallets.Update(userWallet);
+
+        //    // ✅ Create salary transaction
+        //    var salaryTransaction = new SalaryTransaction
+        //    {
+        //        EmployeeId = dto.EmployeeId,
+        //        UserId = CurrentUserId,
+        //        StartDate = dto.StartDate.Date,
+        //        EndDate = dto.EndDate.Date,
+        //        Month = dto.EndDate.ToString("MMMM"),
+        //        PresentDays = presentDays,
+        //        AbsentDays = absentDays,
+        //        HalfDays = halfDays,
+        //        TotalOTHours = totalOTHours,
+        //        TotalSalary = totalSalary,
+        //        AdvanceDeducted = manualAdvance, // ✅ Manual value
+        //        FinalSalary = finalSalary,
+        //        CreatedAT = DateTime.Now
+        //    };
+
+        //    _context.SalaryTransactions.Add(salaryTransaction);
+        //    await _context.SaveChangesAsync();
+
+        //    return Ok(new
+        //    {
+        //        Message = "✅ Salary processed successfully (manual advance deduction).",
+        //        SalaryPeriod = $"{dto.StartDate:dd-MMM-yyyy} to {dto.EndDate:dd-MMM-yyyy}",
+        //        PresentDays = presentDays,
+        //        AbsentDays = absentDays,
+        //        HalfDays = halfDays,
+        //        OTHours = totalOTHours,
+        //        TotalSalaryCalculated = totalSalary,
+        //        ManualAdvanceDeducted = manualAdvance,
+        //        FinalSalaryPaid = finalSalary,
+        //        RemainingAdvance = employeeWallet.AdvanceBalance,
+        //        RemainingUserWalletBalance = userWallet.Balance,
+        //        SalaryTransaction = salaryTransaction
+        //    });
+        //}
+
 
         [HttpPost("GenerateSalary")]
         public async Task<IActionResult> GenerateSalary([FromBody] GenerateSalaryDTO dto)
         {
-            var today = DateTime.Today.Date;
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            if (CurrentUserRole == "Admin")
-                return Forbid("Admins are not allowed to generate salary.");
-
-            if (dto.EndDate.Date > today)
-                return BadRequest("End date must not be a future date.");
-
-            if (dto.EndDate.Date < dto.StartDate.Date)
-                return BadRequest("End date must be greater than or equal to start date.");
-
-            // ✅ Check overlapping salary transactions
-            bool alreadyProcessed = await _context.SalaryTransactions
-                .AnyAsync(s => s.EmployeeId == dto.EmployeeId &&
-                               s.UserId == CurrentUserId &&
-                               s.StartDate.Date <= dto.EndDate.Date &&
-                               s.EndDate.Date >= dto.StartDate.Date);
-
-            if (alreadyProcessed)
-                return Conflict("Salary already processed for this employee for overlapping date range.");
-
-            // ✅ Fetch employee (must belong to current user)
-            var employee = await _context.Employees
-                .FirstOrDefaultAsync(e => e.EmployeeId == dto.EmployeeId && e.UserId == CurrentUserId);
-
-            if (employee == null)
-                return Forbid("You are not allowed to generate salary for this employee.");
-
-            // ✅ Fetch attendance within date range
-            var attendances = await _context.Attendances
-                .Where(a => a.EmployeeId == dto.EmployeeId &&
-                            a.Date.Date >= dto.StartDate.Date &&
-                            a.Date.Date <= dto.EndDate.Date)
-                .ToListAsync();
-
-            if (!attendances.Any())
-                return BadRequest("No attendance records found in the selected date range.");
-
-            // ✅ Count Present / Absent / HalfDay
-            int presentDays = attendances.Count(a => a.Status == "Present");
-            int absentDays = attendances.Count(a => a.Status == "Absent");
-            int halfDays = attendances.Count(a => a.Status == "HalfDay");
-
-            // ✅ Calculate OT
-            int totalOTHours = attendances.Sum(a => a.OT); // from attendance table
-
-            // ✅ Salary calculation
-            decimal perDaySalary = employee.MonthlySalary / 30;
-            decimal perHourSalary = perDaySalary / 8; // Assuming 8 working hours
-            decimal totalSalary = (presentDays * perDaySalary)
-                                + (halfDays * (perDaySalary / 2))
-                                + (totalOTHours * perHourSalary);
-
-            // ✅ Wallet logic
-            var employeeWallet = await _context.EmployeeWallets
-                .FirstOrDefaultAsync(w => w.EmployeeId == dto.EmployeeId);
-            var userWallet = await _context.UserWallets
-                .FirstOrDefaultAsync(w => w.UserId == CurrentUserId);
-
-            if (employeeWallet == null)
-                return BadRequest("Employee wallet not found.");
-            if (userWallet == null)
-                return BadRequest("User wallet not found.");
-
-            // ✅ Manual advance deduction logic
-            decimal manualAdvance = dto.ManualAdvanceDeduct;
-            if (manualAdvance < 0)
-                return BadRequest("Advance deduction cannot be negative.");
-
-            if (manualAdvance > employeeWallet.AdvanceBalance)
-                return BadRequest("Advance deduction exceeds employee’s available advance balance.");
-
-            decimal finalSalary = totalSalary - manualAdvance;
-            if (finalSalary < 0)
-                return BadRequest("Advance deduction exceeds employee’s Salary.");
-
-            // ✅ Wallet adjustments
-            employeeWallet.AdvanceBalance -= manualAdvance;
-
-            if (userWallet.Balance < finalSalary)
-                return BadRequest("Insufficient balance in user wallet.");
-
-            userWallet.Balance -= finalSalary;
-
-            _context.EmployeeWallets.Update(employeeWallet);
-            _context.UserWallets.Update(userWallet);
-
-            // ✅ Create salary transaction
-            var salaryTransaction = new SalaryTransaction
+            try
             {
-                EmployeeId = dto.EmployeeId,
-                UserId = CurrentUserId,
-                StartDate = dto.StartDate.Date,
-                EndDate = dto.EndDate.Date,
-                Month = dto.EndDate.ToString("MMMM"),
-                PresentDays = presentDays,
-                AbsentDays = absentDays,
-                HalfDays = halfDays,
-                TotalOTHours = totalOTHours,
-                TotalSalary = totalSalary,
-                AdvanceDeducted = manualAdvance, // ✅ Manual value
-                FinalSalary = finalSalary,
-                CreatedAT = DateTime.Now
-            };
+                var today = DateTime.Today;
 
-            _context.SalaryTransactions.Add(salaryTransaction);
-            await _context.SaveChangesAsync();
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            return Ok(new
+                if (CurrentUserRole == "Admin")
+                    return StatusCode(403, new { message = "Admins cannot generate salary." });
+
+                if (dto.EndDate.Date > today)
+                    return BadRequest(new { message = "End date cannot be a future date." });
+
+                if (dto.EndDate.Date < dto.StartDate.Date)
+                    return BadRequest(new { message = "End date must be greater than or equal to start date." });
+
+                bool alreadyProcessed = await _context.SalaryTransactions
+                    .AnyAsync(s => s.EmployeeId == dto.EmployeeId &&
+                                   s.UserId == CurrentUserId &&
+                                   s.StartDate.Date <= dto.EndDate.Date &&
+                                   s.EndDate.Date >= dto.StartDate.Date);
+
+                if (alreadyProcessed)
+                    return Conflict(new { message = "Salary already processed for this employee for overlapping period." });
+
+                var employee = await _context.Employees
+                    .FirstOrDefaultAsync(e => e.EmployeeId == dto.EmployeeId && e.UserId == CurrentUserId);
+
+                if (employee == null)
+                    return StatusCode(403, new { message = "You are not allowed to generate salary for this employee." });
+
+                var attendances = await _context.Attendances
+                    .Where(a => a.EmployeeId == dto.EmployeeId &&
+                                a.Date.Date >= dto.StartDate.Date &&
+                                a.Date.Date <= dto.EndDate.Date)
+                    .ToListAsync();
+
+                if (!attendances.Any())
+                    return BadRequest(new { message = "No attendance records found for selected period." });
+
+                int presentDays = attendances.Count(a => a.Status == "Present");
+                int absentDays = attendances.Count(a => a.Status == "Absent");
+                int halfDays = attendances.Count(a => a.Status == "HalfDay");
+                int totalOTHours = attendances.Sum(a => a.OT);
+
+                decimal perDaySalary = employee.MonthlySalary / 30;
+                decimal perHourSalary = perDaySalary / 8;
+                decimal totalSalary = (presentDays * perDaySalary)
+                                    + (halfDays * (perDaySalary / 2))
+                                    + (totalOTHours * perHourSalary);
+
+                var employeeWallet = await _context.EmployeeWallets.FirstOrDefaultAsync(w => w.EmployeeId == dto.EmployeeId);
+                var userWallet = await _context.UserWallets.FirstOrDefaultAsync(w => w.UserId == CurrentUserId);
+
+                if (employeeWallet == null)
+                    return BadRequest(new { message = "Employee wallet not found." });
+                if (userWallet == null)
+                    return BadRequest(new { message = "User wallet not found." });
+
+                decimal manualAdvance = dto.ManualAdvanceDeduct;
+                if (manualAdvance < 0)
+                    return BadRequest(new { message = "Advance deduction cannot be negative." });
+
+                if (manualAdvance > employeeWallet.AdvanceBalance)
+                    return BadRequest(new { message = "Advance deduction exceeds employee’s available advance balance." });
+
+                decimal finalSalary = totalSalary - manualAdvance;
+                if (finalSalary < 0)
+                    return BadRequest(new { message = "Advance deduction exceeds employee’s salary." });
+
+                employeeWallet.AdvanceBalance -= manualAdvance;
+
+                if (userWallet.Balance < finalSalary)
+                    return BadRequest(new { message = "Insufficient balance in user wallet." });
+
+                userWallet.Balance -= finalSalary;
+
+                _context.EmployeeWallets.Update(employeeWallet);
+                _context.UserWallets.Update(userWallet);
+
+                var salaryTransaction = new SalaryTransaction
+                {
+                    EmployeeId = dto.EmployeeId,
+                    UserId = CurrentUserId,
+                    StartDate = dto.StartDate.Date,
+                    EndDate = dto.EndDate.Date,
+                    Month = dto.EndDate.ToString("MMMM"),
+                    PresentDays = presentDays,
+                    AbsentDays = absentDays,
+                    HalfDays = halfDays,
+                    TotalOTHours = totalOTHours,
+                    TotalSalary = totalSalary,
+                    AdvanceDeducted = manualAdvance,
+                    FinalSalary = finalSalary,
+                    CreatedAT = DateTime.Now
+                };
+
+                _context.SalaryTransactions.Add(salaryTransaction);
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    message = "✅ Salary processed successfully.",
+                    SalaryPeriod = $"{dto.StartDate:dd-MMM-yyyy} to {dto.EndDate:dd-MMM-yyyy}",
+                    PresentDays = presentDays,
+                    AbsentDays = absentDays,
+                    HalfDays = halfDays,
+                    OTHours = totalOTHours,
+                    TotalSalaryCalculated = totalSalary,
+                    ManualAdvanceDeducted = manualAdvance,
+                    FinalSalaryPaid = finalSalary,
+                    RemainingAdvance = employeeWallet.AdvanceBalance,
+                    RemainingUserWalletBalance = userWallet.Balance,
+                    SalaryTransaction = salaryTransaction
+                });
+            }
+            catch (Exception ex)
             {
-                Message = "✅ Salary processed successfully (manual advance deduction).",
-                SalaryPeriod = $"{dto.StartDate:dd-MMM-yyyy} to {dto.EndDate:dd-MMM-yyyy}",
-                PresentDays = presentDays,
-                AbsentDays = absentDays,
-                HalfDays = halfDays,
-                OTHours = totalOTHours,
-                TotalSalaryCalculated = totalSalary,
-                ManualAdvanceDeducted = manualAdvance,
-                FinalSalaryPaid = finalSalary,
-                RemainingAdvance = employeeWallet.AdvanceBalance,
-                RemainingUserWalletBalance = userWallet.Balance,
-                SalaryTransaction = salaryTransaction
-            });
+                Console.WriteLine("[GenerateSalary Error] " + ex);
+                return StatusCode(500, new { message = "Internal server error", details = ex.Message });
+            }
         }
+
     }
 }

@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   userName = '';
   factoryName = '';
   role = '';
+  imageurl = ''
 
   attendancePercentage = 0;
   siteOperationalPercentage = 0;
@@ -51,6 +52,7 @@ export class DashboardComponent implements OnInit {
     this.employeeService.getDashBoardData().subscribe({
       next: (res) => {
         this.userName = res.userName;
+        this.imageurl = res.imagePath;
         this.factoryName = res.factoryName;
         this.role = res.role;
         this.totalEmployees = res.employee_count;
@@ -58,6 +60,12 @@ export class DashboardComponent implements OnInit {
         this.workingSitesToday = res.active_site?.length || 0;
         this.totalSites = res.total_site;
         this.totalBalance = res.total_balance || 0;
+
+    localStorage.setItem('userName', this.userName);
+    localStorage.setItem('factoryName', this.factoryName);
+    localStorage.setItem('role', this.role);
+
+
 
         this.authService.setUserRole(this.role);
         this.session.setUserDetails(res);
