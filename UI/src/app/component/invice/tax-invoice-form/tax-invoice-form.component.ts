@@ -192,6 +192,8 @@ export class TaxInvoiceFormComponent implements OnInit {
 
   onPreviewInvoice(): void {
     console.log("invoice data"+this.invoiceData)
+    console.log("invoice data", this.invoiceData)
+    console.log("form data", this.invoiceForm.value)
     if (this.invoiceForm.valid) {
       this.invoiceData = this.invoiceForm.value;
       this.showPreview = true;

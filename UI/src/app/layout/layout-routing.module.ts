@@ -17,7 +17,6 @@ const routes: Routes = [
     { path: 'Invoice', loadChildren: () => import('../component/invice/invice.module').then(m => m.InviceModule)},
     { path: 'Superwiser', loadChildren: () => import('../component/user-list/user-list.module').then(m => m.UserListModule)},
 
-
     ]
   }
 ];
