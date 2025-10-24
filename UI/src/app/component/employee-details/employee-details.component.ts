@@ -40,7 +40,7 @@ export class EmployeeDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.role=localStorage.getItem('role')=='Admin'?false:true;
+    this.role=sessionStorage.getItem('role')=='Admin'?false:true;
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       mobile1: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],

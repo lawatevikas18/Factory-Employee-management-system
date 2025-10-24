@@ -18,12 +18,12 @@ export class LoaderService {
    
 
     //  get user name
-   private userNameSource = new BehaviorSubject<string>(localStorage.getItem('userName') || '');
+   private userNameSource = new BehaviorSubject<string>(sessionStorage.getItem('userName') || '');
   userName$ = this.userNameSource.asObservable();
 
   setUserName(name: string,factoryname:string,role:string) {
-    localStorage.setItem('userName', name);
-    localStorage.setItem('factoryName', factoryname);
+    sessionStorage.setItem('userName', name);
+    sessionStorage.setItem('factoryName', factoryname);
 
     this.userNameSource.next(name);
   }

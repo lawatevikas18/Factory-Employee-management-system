@@ -62,9 +62,10 @@ export class DashboardComponent {
         this.totalSites = res.total_site;
         this.totalBalance = res.total_balance || 0;
 
-    localStorage.setItem('userName', this.userName);
-    localStorage.setItem('factoryName', this.factoryName);
-    localStorage.setItem('role', this.role);
+    sessionStorage.setItem('userName', this.userName);
+    sessionStorage.setItem('factoryName', this.factoryName);
+    sessionStorage.setItem('role', this.role);
+    
 
 
 

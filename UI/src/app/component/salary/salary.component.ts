@@ -82,7 +82,7 @@ export class SalaryComponent implements OnInit {
   }
 
   openGenerateModal(emp: any) {
-    if (localStorage.getItem('role') == 'Admin') { Swal.fire('Access Denied', 'Admins are not allowed to generate salary.', 'warning'); return; }
+    if (sessionStorage.getItem('role') == 'Admin') { Swal.fire('Access Denied', 'Admins are not allowed to generate salary.', 'warning'); return; }
     this.selectedEmployee = emp;
 
     // Start Date comes from API

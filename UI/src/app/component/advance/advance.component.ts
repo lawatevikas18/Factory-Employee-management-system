@@ -47,7 +47,7 @@ export class AdvanceComponent {
   ) {}
 
   ngOnInit(): void {
-    this.role=localStorage.getItem('role')=='Admin'?false:true;
+    this.role=sessionStorage.getItem('role')=='Admin'?false:true;
     this.loadEmployees();
     this.loadTransactions();
     this.userData = this.session.geetUserDetails();

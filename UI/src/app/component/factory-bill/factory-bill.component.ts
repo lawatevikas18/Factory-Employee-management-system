@@ -24,9 +24,9 @@ export class FactoryBillComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.username = localStorage.getItem('userName');
-    this.factoryname = localStorage.getItem('factoryName');
-    this.role = localStorage.getItem('role') == 'Admin' ? false : true;
+    this.username = sessionStorage.getItem('userName');
+    this.factoryname = sessionStorage.getItem('factoryName');
+    this.role = sessionStorage.getItem('role') == 'Admin' ? false : true;
     console.log('User Details:', this.username);
     if (!this.username) {
       Swal.fire('Error', 'User session expired. Please log in again.', 'error');
@@ -79,7 +79,7 @@ export class FactoryBillComponent implements OnInit {
   }
 
   editBill(bill: FactoryBill): void {
-      if (localStorage.getItem('role') == 'Admin') {
+      if (sessionStorage.getItem('role') == 'Admin') {
       Swal.fire('inform', 'Admin can not Edit', 'error');
       return;
     }
@@ -88,7 +88,7 @@ export class FactoryBillComponent implements OnInit {
   }
 
   deleteBill(id: number): void {
-       if (localStorage.getItem('role') == 'Admin') {
+       if (sessionStorage.getItem('role') == 'Admin') {
       Swal.fire('Error', 'Admin can not Delete', 'error');
       return;
     }

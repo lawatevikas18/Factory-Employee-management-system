@@ -40,7 +40,7 @@ export class HeaderComponent {
       if (result.isConfirmed) {
            sessionStorage.removeItem('adminData');
            sessionStorage.clear();
-            localStorage.clear();
+            sessionStorage.clear();
      this.router.navigate(['/login'])
       }
     });

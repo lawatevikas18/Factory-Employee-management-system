@@ -40,7 +40,7 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
 
-  if (localStorage.getItem('role') != 'Admin') { Swal.fire('Access Denied', 'Only for Admin.', 'warning'); return; }
+  if (sessionStorage.getItem('role') != 'Admin') { Swal.fire('Access Denied', 'Only for Admin.', 'warning'); return; }
     
     this.loadActiveTab();
   }
@@ -57,7 +57,7 @@ export class UserListComponent implements OnInit {
   }
 
   private loadActiveTab() {
-  if (localStorage.getItem('role') != 'Admin') { Swal.fire('Access Denied', 'Only for Admin.', 'warning'); return; }
+  if (sessionStorage.getItem('role') != 'Admin') { Swal.fire('Access Denied', 'Only for Admin.', 'warning'); return; }
 
     this.error = null;
     if (this.activeTab === 'supervised') this.fetchSupervised();
@@ -66,7 +66,7 @@ export class UserListComponent implements OnInit {
 
 
   private fetchSupervised() {
-  if (localStorage.getItem('role') != 'Admin') { Swal.fire('Access Denied', 'Only for Admin.', 'warning'); return; }
+  if (sessionStorage.getItem('role') != 'Admin') { Swal.fire('Access Denied', 'Only for Admin.', 'warning'); return; }
 
     this.loading = true;
     this.http.get<any[]>(`${this.apiBase}/superwisedata`, { headers: this.getHeaders() })

@@ -83,7 +83,7 @@ getAll(date: any): Observable<any[]> {
     if (fromDate) params = params.set('fromDate', fromDate);
     if (toDate) params = params.set('toDate', toDate);
 
-   // const token = localStorage.getItem('token'); // ✅ Assume JWT is stored in localStorage
+   // const token = sessionStorage.getItem('token'); // ✅ Assume JWT is stored in sessionStorage
     // const headers = new HttpHeaders({
     //   'Authorization': `Bearer ${token}`
     // });
