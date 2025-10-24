@@ -1,0 +1,104 @@
+.user-list-root {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Inter', 'Roboto', sans-serif;
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h2 { font-size: 1.5rem; color: #1e293b; }
+
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+
+      input[type="search"] {
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        width: 250px;
+        font-size: 0.95rem;
+        &:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 2px rgba(59,130,246,0.2); }
+      }
+
+      .btn.primary { background: #3b82f6; color: #fff; font-weight: 600; border-radius: 8px; padding: 0.5rem 0.8rem; cursor: pointer; }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    button {
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      font-weight: 600;
+      color: #64748b;
+      cursor: pointer;
+
+      &.active { background: #eef2ff; border-color: #c7d2fe; color: #1e3a8a; }
+      &:disabled { opacity: 0.6; cursor: not-allowed; }
+    }
+  }
+
+  .body {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+
+  .loading, .error, .empty {
+    text-align: center;
+    padding: 1rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  .error { color: #b91c1c; }
+
+  .table-responsive {
+    overflow-x: auto;
+    margin-top: 1rem;
+
+    .user-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+
+      thead {
+        background: #eef2ff;
+        color: #1e3a8a;
+        font-weight: 600;
+
+        th {
+          padding: 0.75rem 0.5rem;
+          text-align: left;
+          border-bottom: 2px solid #c7d2fe;
+        }
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #e5e7eb;
+        transition: background 0.2s;
+        &:hover { background: #f1f5ff; }
+
+        td {
+          padding: 0.6rem 0.5rem;
+          color: #0f172a;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .topbar { flex-direction: column; gap: 0.5rem; }
+    .table-responsive { font-size: 0.85rem; }
+  }
+}

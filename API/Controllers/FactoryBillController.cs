@@ -38,36 +38,6 @@ namespace FEMS_API.Controllers
             return Ok(await query.ToListAsync());
         }
 
-        // 2️⃣ Get Bill By Id
-        [HttpGet("{id}")]
-        public async Task<ActionResult<FactoryBill>> GetById(int id)
-        {
-            var bill = await _context.FactoryBills.FindAsync(id);
-            if (bill == null)
-                return NotFound("Factory Bill not found.");
-
-            if (CurrentRole != "Admin" && bill.UserId != CurrentUserId)
-                return Forbid();
-
-            return bill;
-        }
-
-        // 3️⃣ Get Bills By FactoryName - Admin can filter, User only own
-        [HttpGet("ByFactory/{factoryName}")]
-        public async Task<ActionResult<IEnumerable<FactoryBill>>> GetByFactory(string factoryName)
-        {
-            IQueryable<FactoryBill> query = _context.FactoryBills
-                .Where(b => b.FactoryName.ToLower() == factoryName.ToLower());
-
-            if (CurrentRole != "Admin")
-                query = query.Where(b => b.UserId == CurrentUserId);
-
-            var bills = await query.ToListAsync();
-            if (!bills.Any())
-                return NotFound($"No bills found for FactoryName: {factoryName}");
-
-            return bills;
-        }
 
         // 4️⃣ Create Bill (Only User can create)
         [HttpPost]
@@ -83,7 +53,7 @@ namespace FEMS_API.Controllers
             _context.FactoryBills.Add(bill);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = bill.BillId }, bill);
+            return Ok( bill);
         }
 
         // 5️⃣ Update Bill (Only User can update own)

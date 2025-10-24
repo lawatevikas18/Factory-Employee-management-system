@@ -5,22 +5,13 @@ import { AdvanceTransaction, EmployeeAdvancesService } from 'src/app/core/servic
 import { EmployeeService } from 'src/app/core/services/employee.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
 import { SessionService } from 'src/app/core/services/session.service';
- 
 
 export interface Employee {
   employeeId?: number;
   name: string;
-  address?: string;
-  village?: string;
-  taluka?: string;
-  district?: string;
-  state?: string;
-  role?: string;
-  aadhaar?: string;
-  panCard?: string;
   mobile1?: string;
-  mobile2?: string;
-  monthlySalary: number;
+  monthlySalary?: number;
+  advanceBalance?: number;
 }
 
 @Component({
@@ -29,53 +20,58 @@ export interface Employee {
   styleUrls: ['./advance.component.scss']
 })
 export class AdvanceComponent {
-    employees: Employee[] = [];
-  filteredEmployees: any = [];
+  employees: Employee[] = [];
+  filteredEmployees: Employee[] = [];
   transactions: AdvanceTransaction[] = [];
-  sendAdvanceForm:boolean=false
+  sendAdvanceForm = false;
+  showDetails = false;
+  advanceHistory: any[] = [];
+  userData: any;
+  selectedEmployee?: Employee;
+  selectedHistoryEmployee?: Employee;
+   role:boolean=true;
 
   advanceForm!: FormGroup;
   loading = false;
   successMessage = '';
   errorMessage = '';
   searchText = '';
-showDetails:boolean=false
- advanceHistory: any[] = [];
- userData:any
+
   constructor(
     private empService: EmployeeService,
     private advancesService: EmployeeAdvancesService,
     private fb: FormBuilder,
-    private loader:LoaderService,
-    private router:Router,
-    private session:SessionService
+    private loader: LoaderService,
+    private router: Router,
+    private session: SessionService
   ) {}
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role')=='Admin'?false:true;
     this.loadEmployees();
     this.loadTransactions();
-     this.userData=this.session.geetUserDetails()
-     console.log( this.userData)
+    this.userData = this.session.geetUserDetails();
+
     this.advanceForm = this.fb.group({
       employeeId: ['', Validators.required],
       reason: ['', Validators.required],
       paymentMode: ['Cash', Validators.required],
       amount: ['', [Validators.required, Validators.min(1)]],
-       date: ['', Validators.required],
-       payment_catagaory: ['', Validators.required],
+      date: ['', Validators.required],
+      payment_catagaory: ['', Validators.required],
     });
   }
 
   loadEmployees() {
-    this.loader.show()
+    this.loader.show();
     this.empService.getAllEmployees().subscribe({
       next: (data) => {
-        this.loader.hide()
+        this.loader.hide();
         this.employees = data;
         this.filteredEmployees = data;
       },
       error: () => {
-        this.loader.hide()
+        this.loader.hide();
         this.errorMessage = 'Failed to load employees';
       }
     });
@@ -95,64 +91,56 @@ showDetails:boolean=false
   }
 
   selectEmployee(emp: Employee) {
-    this.advanceForm.patchValue({
-      employeeId: emp.employeeId
-    });
-    this.sendAdvanceForm=!this.sendAdvanceForm
+    this.selectedEmployee = emp;
+    this.advanceForm.patchValue({ employeeId: emp.employeeId });
+    this.sendAdvanceForm = true;
   }
 
+  closeForm() {
+    this.sendAdvanceForm = false;
+    this.selectedEmployee = undefined;
+  }
 
-  
   onSubmit() {
-    console.log(this.advanceForm.value);
     if (this.advanceForm.invalid) return;
-   this.loader.show()
+    this.loader.show();
     this.advancesService.sendAdvance(this.advanceForm.value).subscribe({
       next: (res) => {
-        this.loader.hide()
+        this.loader.hide();
         this.successMessage = res.message;
         this.loadTransactions();
+        this.loadEmployees();
         this.advanceForm.reset({ paymentMode: 'Cash' });
         setTimeout(() => (this.successMessage = ''), 3000);
-        this.loadEmployees();
-        this.sendAdvanceForm=!this.sendAdvanceForm
+        this.closeForm();
       },
       error: (err) => {
-        this.loader.hide()
+        this.loader.hide();
         this.errorMessage = err.error || 'Failed to send advance';
         setTimeout(() => (this.errorMessage = ''), 3000);
       }
     });
   }
-  closeForm(){
-    this.sendAdvanceForm=!this.sendAdvanceForm
-  }
-  viewEmployee(e:any){
-    this.loader.show()
-  this.advancesService.getAdvanceDetail(e.employeeId)
-  .subscribe({
-    next: (res) => {
-      this.showDetails=true
-      this.advanceHistory = res;
-     console.log(res)
-        this.loader.hide(); 
-      },
-       error: (err) => {
+
+  viewEmployee(emp: Employee) {
+    this.loader.show();
+    this.selectedHistoryEmployee = emp;
+    this.advancesService.getAdvanceDetail(emp.employeeId).subscribe({
+      next: (res) => {
+        this.showDetails = true;
+        this.advanceHistory = res;
         this.loader.hide();
-        console.error('Error loading employees details', err);
       },
-      complete: () => {
-        this.loader.hide(); 
-      }
-    })
+      error: () => this.loader.hide()
+    });
   }
-  closeAdvanceDetails(){
-    this.showDetails=false
+
+  closeAdvanceDetails() {
+    this.showDetails = false;
+    this.selectedHistoryEmployee = undefined;
   }
+
   openAddPopup() {
-    this.router.navigate(['/employee-details'], {
-    queryParams: { 'from': 'Advance' }
-  });
+    this.router.navigate(['/employee-details'], { queryParams: { from: 'Advance' } });
   }
 }
-

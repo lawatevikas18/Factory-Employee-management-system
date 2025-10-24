@@ -7,8 +7,6 @@ namespace FEMS_API.Models
         [Key]
         public int UserId { get; set; }
 
-        [Required]
-        public int AdminId { get; set; }
 
         [Required]
         [MaxLength(100)]
@@ -29,10 +27,12 @@ namespace FEMS_API.Models
         public string MobileNumber { get; set; }
         [Required] public string Role { get; set; }
         [Required] public string FactoryName { get; set; }
+
+        public string? ImagePath { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
 
-
+        public DateTime createdAT { get; set; }= DateTime.Now;
     }
 }
  

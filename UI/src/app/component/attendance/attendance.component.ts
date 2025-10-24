@@ -171,6 +171,8 @@ export class AttendanceComponent {
 
   // Save attendance (hook this to API)
   saveAttendance(): void {
+  if (localStorage.getItem('role') == 'Admin') { Swal.fire('Access Denied', 'Admins are not allowed to add attendance.', 'warning'); return; }
+    
   if(this.UserRole !== 'Admin'){
      if (this.hasPresent) {
           Swal.fire({

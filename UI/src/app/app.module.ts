@@ -25,7 +25,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   declarations: [
     AppComponent,
     LoaderComponent,
-    ErrorPopUpComponent
+    ErrorPopUpComponent,
   ],
   imports: [
     BrowserModule,

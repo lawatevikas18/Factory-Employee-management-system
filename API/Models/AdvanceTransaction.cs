@@ -19,10 +19,18 @@ namespace FEMS_API.Models
         [MaxLength(50)]
         public string PaymentMode { get; set; }
 
+
+        [Required]
+        public string payment_catagaory { get; set; }
+
         [Required]
         public decimal Amount { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
+
+        [Required] 
+        public DateTime CreatedAT { get; set; }= DateTime.Now;
     }
 }

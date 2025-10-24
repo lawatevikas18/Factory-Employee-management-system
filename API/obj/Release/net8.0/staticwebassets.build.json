@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "F7eeGo1PpOMcXH2dNU+dJUIhZOGUb6Sc4iV1kqrIzuY=",
+  "Hash": "m3joNLGIFNTvDRpXxfhuWAeWJ0lcEiLIE1tuQtqMRbs=",
   "Source": "FEMS_API",
   "BasePath": "_content/FEMS_API",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.dbdb0a598122f17e.js",
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.6326d28da637c417.js",
       "SourceId": "FEMS_API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
       "BasePath": "_content/FEMS_API",
-      "RelativePath": "132.dbdb0a598122f17e#[.{fingerprint}]?.js",
+      "RelativePath": "132.6326d28da637c417#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,11 +31,95 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "k0q9k39vu7",
-      "Integrity": "DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU=",
+      "Fingerprint": "jdhizwp3lu",
+      "Integrity": "iQTdVYVXeWP6/pgCzLZvuCA30YnGTaAFwlclv60YNYQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\132.dbdb0a598122f17e.js"
+      "OriginalItemSpec": "wwwroot\\132.6326d28da637c417.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\159.26db771fe5cb6f16.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "159.26db771fe5cb6f16#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yly5yl2hj9",
+      "Integrity": "ios9FIFWwUnNQUGb4vNJew2us3m2dICLFU0bZ9qGXI0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\159.26db771fe5cb6f16.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\213.077f1c9c007b03e7.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "213.077f1c9c007b03e7#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5zwkj7ljbe",
+      "Integrity": "D50xIWR2EX6hW+bnGVpCq/vF/7SAWRV9K/VwHEz5yTA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\213.077f1c9c007b03e7.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\226.2ef2caafaeda6e86.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "226.2ef2caafaeda6e86#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tmr6e2nqa8",
+      "Integrity": "mygog/0cax6sYdgr/m5vmp3Jy8DOhoAZn0Y8jem2RBc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\226.2ef2caafaeda6e86.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\348.214f65080cdcd275.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "348.214f65080cdcd275#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s0msl76g7m",
+      "Integrity": "fG8Wzayw1mkeSQ0k9AGK9kH7IDCo3iv26f3qg/cw92U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\348.214f65080cdcd275.js"
     },
     {
       "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
@@ -52,19 +136,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xcz5uz3zia",
-      "Integrity": "v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM=",
+      "Fingerprint": "2iyasskzfx",
+      "Integrity": "KllygWY+WfBNP4xpyZV3Y/szp/2nVYVjHzaCh4z65fY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\3rdpartylicenses.txt"
     },
     {
-      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.b93da0ab18589729.js",
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\589.f06cb4704799dfce.js",
       "SourceId": "FEMS_API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
       "BasePath": "_content/FEMS_API",
-      "RelativePath": "641.b93da0ab18589729#[.{fingerprint}]?.js",
+      "RelativePath": "589.f06cb4704799dfce#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -73,19 +157,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9xlujuokfy",
-      "Integrity": "g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU=",
+      "Fingerprint": "dcjwxqnumt",
+      "Integrity": "7YJJYqvGPCF4YWlKNv037WOXt8xexm4X1c0taBFRIQs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\641.b93da0ab18589729.js"
+      "OriginalItemSpec": "wwwroot\\589.f06cb4704799dfce.js"
     },
     {
-      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.cbf8a298c287e938.js",
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\603.39ee9d88ab8d0309.js",
       "SourceId": "FEMS_API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
       "BasePath": "_content/FEMS_API",
-      "RelativePath": "661.cbf8a298c287e938#[.{fingerprint}]?.js",
+      "RelativePath": "603.39ee9d88ab8d0309#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -94,11 +178,116 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "r17pu290gd",
-      "Integrity": "EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0=",
+      "Fingerprint": "wwa3lsg97n",
+      "Integrity": "AL/aW/IHmAssS6Zzx9YTjPhHFZdlynp4Xg2eftnYmyw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\661.cbf8a298c287e938.js"
+      "OriginalItemSpec": "wwwroot\\603.39ee9d88ab8d0309.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.d452e7972ea884ab.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "641.d452e7972ea884ab#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lw3oqz39ij",
+      "Integrity": "O6AEcnuIRrLPmdK4td68Nj2SgnSL6g02Uk/MUnG4pyg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\641.d452e7972ea884ab.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\658.080392396272c85b.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "658.080392396272c85b#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sg9jmnad49",
+      "Integrity": "VNehyUT8OCiKno6fn2f2EVUTL+WT2YcaGFMF4IYdR6c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\658.080392396272c85b.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.bc2c5965ceba7c4b.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "661.bc2c5965ceba7c4b#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n3a22m0fdo",
+      "Integrity": "o7khcRUHNg1qoNyWdAQrUEdlouLf1GNvoXMOwt81Jt8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\661.bc2c5965ceba7c4b.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\678.a692154067596467.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "678.a692154067596467#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "esdqyjah0b",
+      "Integrity": "ssnGNZHzvWSxlxNXoTl2nM/epfKRBk+gBf9q8Zy1fBE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\678.a692154067596467.js"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\951.b2cf6710903b2884.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "951.b2cf6710903b2884#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ujomewidny",
+      "Integrity": "Nix9jCDWOpSbV5VhzRtVec0liwtV1ts4+v0OdrQooiM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\951.b2cf6710903b2884.js"
     },
     {
       "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\en.json",
@@ -115,8 +304,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "sj8v3gwkqm",
-      "Integrity": "+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw=",
+      "Fingerprint": "zj1tctdven",
+      "Integrity": "H13UEF8DFjohypFH14nHidpPo2DPja8Gb39vEGxQWX0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\i18n\\en.json"
@@ -162,6 +351,111 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\i18n\\mr.json"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\images\\Nksboss.jpg",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "assets/images/Nksboss#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xm6wotcrak",
+      "Integrity": "mRXSRWtgvJxofH6FVdCydsa44LQcyHnDEASJFt2JdMY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\Nksboss.jpg"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\images\\Nksboss.png",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "assets/images/Nksboss#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bb5pgi3xth",
+      "Integrity": "J+/vqplUV6NG2gmIYA0kZTPJDO/IIRlQElKRmjW+owc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\Nksboss.png"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\bootstrap-icons.154365acf3010d96.woff2",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "bootstrap-icons.154365acf3010d96#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "od0yn6f0e3",
+      "Integrity": "bHVxA2ShylYEJncW9tKJl7JjGf2weM8R4LQqtm/y6mE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap-icons.154365acf3010d96.woff2"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\bootstrap-icons.ac1a99b3d05d8232.woff",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "bootstrap-icons.ac1a99b3d05d8232#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7dn3lb52f1",
+      "Integrity": "9VUTt7WRy4SjuH/w406iTUgx1v7cIuVLkRymS1tUShU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap-icons.ac1a99b3d05d8232.woff"
+    },
+    {
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\common.bbc5413922101d4c.js",
+      "SourceId": "FEMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
+      "BasePath": "_content/FEMS_API",
+      "RelativePath": "common.bbc5413922101d4c#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "egzjvq7n16",
+      "Integrity": "wm7ITEilc9rTBwshsM33GmDwnZKD1xYjlMD0+vUT49Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\common.bbc5413922101d4c.js"
     },
     {
       "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-brands-400.b56d441c57a13e5a.woff2",
@@ -283,19 +577,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "7pf5thznx4",
-      "Integrity": "RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8=",
+      "Fingerprint": "mni2e4ir5q",
+      "Integrity": "8gjw1y2OB7UKj9du+PbeF0dC/WYd3A68nI3FM+xkrRc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.f5dc612673fa6d1f.js",
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.e0385f78b7472bea.js",
       "SourceId": "FEMS_API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
       "BasePath": "_content/FEMS_API",
-      "RelativePath": "main.f5dc612673fa6d1f#[.{fingerprint}]?.js",
+      "RelativePath": "main.e0385f78b7472bea#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -304,11 +598,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ou5y6ae1em",
-      "Integrity": "IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo=",
+      "Fingerprint": "pxbnqb8v5l",
+      "Integrity": "070k5fXcGon5hA8Rdl4T8UTAxYZw96ub5GYJytBJLLs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\main.f5dc612673fa6d1f.js"
+      "OriginalItemSpec": "wwwroot\\main.e0385f78b7472bea.js"
     },
     {
       "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\polyfills.6dcd853f16b77d1e.js",
@@ -836,12 +1130,12 @@
       "OriginalItemSpec": "wwwroot\\roboto-latin-900italic.9c1f80840351fa12.woff2"
     },
     {
-      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.05012fe890b26458.js",
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.b567f6ecc155e920.js",
       "SourceId": "FEMS_API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
       "BasePath": "_content/FEMS_API",
-      "RelativePath": "runtime.05012fe890b26458#[.{fingerprint}]?.js",
+      "RelativePath": "runtime.b567f6ecc155e920#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -850,11 +1144,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "lwjezhjaxi",
-      "Integrity": "uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk=",
+      "Fingerprint": "tkuj7nxzvq",
+      "Integrity": "jRRBjkOMKpUKarQqKPMhU8qsgl3RW/LxwPygyJvyig0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\runtime.05012fe890b26458.js"
+      "OriginalItemSpec": "wwwroot\\runtime.b567f6ecc155e920.js"
     },
     {
       "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\scripts.dfb889cef33f36ee.js",
@@ -878,12 +1172,12 @@
       "OriginalItemSpec": "wwwroot\\scripts.dfb889cef33f36ee.js"
     },
     {
-      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.b40217b712af49d9.css",
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.173769f9d41d22c0.css",
       "SourceId": "FEMS_API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
       "BasePath": "_content/FEMS_API",
-      "RelativePath": "styles.b40217b712af49d9#[.{fingerprint}]?.css",
+      "RelativePath": "styles.173769f9d41d22c0#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -892,19 +1186,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "j7rsz08hx1",
-      "Integrity": "vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg=",
+      "Fingerprint": "qu89xchpbz",
+      "Integrity": "ElYPvaEZJmUymvqCh2MDZJNxUW7h3AXheAnx3e//sNE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\styles.b40217b712af49d9.css"
+      "OriginalItemSpec": "wwwroot\\styles.173769f9d41d22c0.css"
     },
     {
-      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\web.config",
+      "Identity": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\UserImages\\bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png",
       "SourceId": "FEMS_API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\",
       "BasePath": "_content/FEMS_API",
-      "RelativePath": "web#[.{fingerprint}]?.config",
+      "RelativePath": "UserImages/bc9417e4-8d4a-451a-ae46-fc8bccce97f9#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -913,17 +1207,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "yst1sfuzhi",
-      "Integrity": "IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA=",
+      "Fingerprint": "itwkpaiijo",
+      "Integrity": "2lvz3qdn5MWk6MHVx9dnMczTSimFEfJO/ExWPBnS6Wo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\web.config"
+      "OriginalItemSpec": "wwwroot\\UserImages\\bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png"
     }
   ],
   "Endpoints": [
     {
-      "Route": "132.dbdb0a598122f17e.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.dbdb0a598122f17e.js",
+      "Route": "132.6326d28da637c417.jdhizwp3lu.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.6326d28da637c417.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -932,7 +1226,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "873"
+          "Value": "6986"
         },
         {
           "Name": "Content-Type",
@@ -940,48 +1234,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU=\""
+          "Value": "\"iQTdVYVXeWP6/pgCzLZvuCA30YnGTaAFwlclv60YNYQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU="
-        }
-      ]
-    },
-    {
-      "Route": "132.dbdb0a598122f17e.k0q9k39vu7.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.dbdb0a598122f17e.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "873"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -991,15 +1248,425 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "k0q9k39vu7"
+          "Value": "jdhizwp3lu"
         },
         {
           "Name": "label",
-          "Value": "132.dbdb0a598122f17e.js"
+          "Value": "132.6326d28da637c417.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-DETN3llAEwL4I7C+LAYgBei7qwgw/HOeLivjKdUfzvU="
+          "Value": "sha256-iQTdVYVXeWP6/pgCzLZvuCA30YnGTaAFwlclv60YNYQ="
+        }
+      ]
+    },
+    {
+      "Route": "132.6326d28da637c417.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.6326d28da637c417.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6986"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iQTdVYVXeWP6/pgCzLZvuCA30YnGTaAFwlclv60YNYQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iQTdVYVXeWP6/pgCzLZvuCA30YnGTaAFwlclv60YNYQ="
+        }
+      ]
+    },
+    {
+      "Route": "159.26db771fe5cb6f16.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\159.26db771fe5cb6f16.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "200128"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ios9FIFWwUnNQUGb4vNJew2us3m2dICLFU0bZ9qGXI0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ios9FIFWwUnNQUGb4vNJew2us3m2dICLFU0bZ9qGXI0="
+        }
+      ]
+    },
+    {
+      "Route": "159.26db771fe5cb6f16.yly5yl2hj9.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\159.26db771fe5cb6f16.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "200128"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ios9FIFWwUnNQUGb4vNJew2us3m2dICLFU0bZ9qGXI0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yly5yl2hj9"
+        },
+        {
+          "Name": "label",
+          "Value": "159.26db771fe5cb6f16.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ios9FIFWwUnNQUGb4vNJew2us3m2dICLFU0bZ9qGXI0="
+        }
+      ]
+    },
+    {
+      "Route": "213.077f1c9c007b03e7.5zwkj7ljbe.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\213.077f1c9c007b03e7.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13687"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"D50xIWR2EX6hW+bnGVpCq/vF/7SAWRV9K/VwHEz5yTA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5zwkj7ljbe"
+        },
+        {
+          "Name": "label",
+          "Value": "213.077f1c9c007b03e7.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-D50xIWR2EX6hW+bnGVpCq/vF/7SAWRV9K/VwHEz5yTA="
+        }
+      ]
+    },
+    {
+      "Route": "213.077f1c9c007b03e7.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\213.077f1c9c007b03e7.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13687"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"D50xIWR2EX6hW+bnGVpCq/vF/7SAWRV9K/VwHEz5yTA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-D50xIWR2EX6hW+bnGVpCq/vF/7SAWRV9K/VwHEz5yTA="
+        }
+      ]
+    },
+    {
+      "Route": "226.2ef2caafaeda6e86.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\226.2ef2caafaeda6e86.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "78209"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mygog/0cax6sYdgr/m5vmp3Jy8DOhoAZn0Y8jem2RBc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mygog/0cax6sYdgr/m5vmp3Jy8DOhoAZn0Y8jem2RBc="
+        }
+      ]
+    },
+    {
+      "Route": "226.2ef2caafaeda6e86.tmr6e2nqa8.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\226.2ef2caafaeda6e86.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "78209"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mygog/0cax6sYdgr/m5vmp3Jy8DOhoAZn0Y8jem2RBc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tmr6e2nqa8"
+        },
+        {
+          "Name": "label",
+          "Value": "226.2ef2caafaeda6e86.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mygog/0cax6sYdgr/m5vmp3Jy8DOhoAZn0Y8jem2RBc="
+        }
+      ]
+    },
+    {
+      "Route": "348.214f65080cdcd275.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\348.214f65080cdcd275.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12391"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fG8Wzayw1mkeSQ0k9AGK9kH7IDCo3iv26f3qg/cw92U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fG8Wzayw1mkeSQ0k9AGK9kH7IDCo3iv26f3qg/cw92U="
+        }
+      ]
+    },
+    {
+      "Route": "348.214f65080cdcd275.s0msl76g7m.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\348.214f65080cdcd275.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12391"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fG8Wzayw1mkeSQ0k9AGK9kH7IDCo3iv26f3qg/cw92U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s0msl76g7m"
+        },
+        {
+          "Name": "label",
+          "Value": "348.214f65080cdcd275.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fG8Wzayw1mkeSQ0k9AGK9kH7IDCo3iv26f3qg/cw92U="
+        }
+      ]
+    },
+    {
+      "Route": "3rdpartylicenses.2iyasskzfx.txt",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71714"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KllygWY+WfBNP4xpyZV3Y/szp/2nVYVjHzaCh4z65fY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2iyasskzfx"
+        },
+        {
+          "Name": "label",
+          "Value": "3rdpartylicenses.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KllygWY+WfBNP4xpyZV3Y/szp/2nVYVjHzaCh4z65fY="
         }
       ]
     },
@@ -1014,7 +1681,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22782"
+          "Value": "71714"
         },
         {
           "Name": "Content-Type",
@@ -1022,11 +1689,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM=\""
+          "Value": "\"KllygWY+WfBNP4xpyZV3Y/szp/2nVYVjHzaCh4z65fY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1036,13 +1703,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM="
+          "Value": "sha256-KllygWY+WfBNP4xpyZV3Y/szp/2nVYVjHzaCh4z65fY="
         }
       ]
     },
     {
-      "Route": "3rdpartylicenses.xcz5uz3zia.txt",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
+      "Route": "589.f06cb4704799dfce.dcjwxqnumt.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\589.f06cb4704799dfce.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1051,19 +1718,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22782"
+          "Value": "9765"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/plain"
+          "Value": "text/javascript"
         },
         {
           "Name": "ETag",
-          "Value": "\"v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM=\""
+          "Value": "\"7YJJYqvGPCF4YWlKNv037WOXt8xexm4X1c0taBFRIQs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1073,21 +1740,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xcz5uz3zia"
+          "Value": "dcjwxqnumt"
         },
         {
           "Name": "label",
-          "Value": "3rdpartylicenses.txt"
+          "Value": "589.f06cb4704799dfce.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-v4OcNr0OqqTYNILKIqztKbBbWHFf+1x9jtDgr6maBuM="
+          "Value": "sha256-7YJJYqvGPCF4YWlKNv037WOXt8xexm4X1c0taBFRIQs="
         }
       ]
     },
     {
-      "Route": "641.b93da0ab18589729.9xlujuokfy.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.b93da0ab18589729.js",
+      "Route": "589.f06cb4704799dfce.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\589.f06cb4704799dfce.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1096,7 +1763,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8144"
+          "Value": "9765"
         },
         {
           "Name": "Content-Type",
@@ -1104,56 +1771,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU=\""
+          "Value": "\"7YJJYqvGPCF4YWlKNv037WOXt8xexm4X1c0taBFRIQs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "9xlujuokfy"
-        },
-        {
-          "Name": "label",
-          "Value": "641.b93da0ab18589729.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU="
-        }
-      ]
-    },
-    {
-      "Route": "641.b93da0ab18589729.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.b93da0ab18589729.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8144"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1163,13 +1785,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-g4qmz/K65fHtndM8FjKC/lO1efXvomPZfYsEZg9JhwU="
+          "Value": "sha256-7YJJYqvGPCF4YWlKNv037WOXt8xexm4X1c0taBFRIQs="
         }
       ]
     },
     {
-      "Route": "661.cbf8a298c287e938.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.cbf8a298c287e938.js",
+      "Route": "603.39ee9d88ab8d0309.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\603.39ee9d88ab8d0309.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1178,7 +1800,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "17794"
+          "Value": "156885"
         },
         {
           "Name": "Content-Type",
@@ -1186,11 +1808,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0=\""
+          "Value": "\"AL/aW/IHmAssS6Zzx9YTjPhHFZdlynp4Xg2eftnYmyw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1200,13 +1822,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0="
+          "Value": "sha256-AL/aW/IHmAssS6Zzx9YTjPhHFZdlynp4Xg2eftnYmyw="
         }
       ]
     },
     {
-      "Route": "661.cbf8a298c287e938.r17pu290gd.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.cbf8a298c287e938.js",
+      "Route": "603.39ee9d88ab8d0309.wwa3lsg97n.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\603.39ee9d88ab8d0309.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1215,7 +1837,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "17794"
+          "Value": "156885"
         },
         {
           "Name": "Content-Type",
@@ -1223,11 +1845,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0=\""
+          "Value": "\"AL/aW/IHmAssS6Zzx9YTjPhHFZdlynp4Xg2eftnYmyw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1237,15 +1859,425 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "r17pu290gd"
+          "Value": "wwa3lsg97n"
         },
         {
           "Name": "label",
-          "Value": "661.cbf8a298c287e938.js"
+          "Value": "603.39ee9d88ab8d0309.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-EVrsH4KoclS+DWK8Qqd9FdDLI50v7lMbyroLDVrXgO0="
+          "Value": "sha256-AL/aW/IHmAssS6Zzx9YTjPhHFZdlynp4Xg2eftnYmyw="
+        }
+      ]
+    },
+    {
+      "Route": "641.d452e7972ea884ab.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.d452e7972ea884ab.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18952"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O6AEcnuIRrLPmdK4td68Nj2SgnSL6g02Uk/MUnG4pyg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-O6AEcnuIRrLPmdK4td68Nj2SgnSL6g02Uk/MUnG4pyg="
+        }
+      ]
+    },
+    {
+      "Route": "641.d452e7972ea884ab.lw3oqz39ij.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.d452e7972ea884ab.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18952"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O6AEcnuIRrLPmdK4td68Nj2SgnSL6g02Uk/MUnG4pyg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lw3oqz39ij"
+        },
+        {
+          "Name": "label",
+          "Value": "641.d452e7972ea884ab.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-O6AEcnuIRrLPmdK4td68Nj2SgnSL6g02Uk/MUnG4pyg="
+        }
+      ]
+    },
+    {
+      "Route": "658.080392396272c85b.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\658.080392396272c85b.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "412796"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VNehyUT8OCiKno6fn2f2EVUTL+WT2YcaGFMF4IYdR6c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VNehyUT8OCiKno6fn2f2EVUTL+WT2YcaGFMF4IYdR6c="
+        }
+      ]
+    },
+    {
+      "Route": "658.080392396272c85b.sg9jmnad49.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\658.080392396272c85b.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "412796"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VNehyUT8OCiKno6fn2f2EVUTL+WT2YcaGFMF4IYdR6c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sg9jmnad49"
+        },
+        {
+          "Name": "label",
+          "Value": "658.080392396272c85b.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VNehyUT8OCiKno6fn2f2EVUTL+WT2YcaGFMF4IYdR6c="
+        }
+      ]
+    },
+    {
+      "Route": "661.bc2c5965ceba7c4b.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.bc2c5965ceba7c4b.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24467"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o7khcRUHNg1qoNyWdAQrUEdlouLf1GNvoXMOwt81Jt8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-o7khcRUHNg1qoNyWdAQrUEdlouLf1GNvoXMOwt81Jt8="
+        }
+      ]
+    },
+    {
+      "Route": "661.bc2c5965ceba7c4b.n3a22m0fdo.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.bc2c5965ceba7c4b.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24467"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o7khcRUHNg1qoNyWdAQrUEdlouLf1GNvoXMOwt81Jt8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n3a22m0fdo"
+        },
+        {
+          "Name": "label",
+          "Value": "661.bc2c5965ceba7c4b.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-o7khcRUHNg1qoNyWdAQrUEdlouLf1GNvoXMOwt81Jt8="
+        }
+      ]
+    },
+    {
+      "Route": "678.a692154067596467.esdqyjah0b.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\678.a692154067596467.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22090"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ssnGNZHzvWSxlxNXoTl2nM/epfKRBk+gBf9q8Zy1fBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "esdqyjah0b"
+        },
+        {
+          "Name": "label",
+          "Value": "678.a692154067596467.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ssnGNZHzvWSxlxNXoTl2nM/epfKRBk+gBf9q8Zy1fBE="
+        }
+      ]
+    },
+    {
+      "Route": "678.a692154067596467.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\678.a692154067596467.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22090"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ssnGNZHzvWSxlxNXoTl2nM/epfKRBk+gBf9q8Zy1fBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ssnGNZHzvWSxlxNXoTl2nM/epfKRBk+gBf9q8Zy1fBE="
+        }
+      ]
+    },
+    {
+      "Route": "951.b2cf6710903b2884.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\951.b2cf6710903b2884.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6207"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Nix9jCDWOpSbV5VhzRtVec0liwtV1ts4+v0OdrQooiM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Nix9jCDWOpSbV5VhzRtVec0liwtV1ts4+v0OdrQooiM="
+        }
+      ]
+    },
+    {
+      "Route": "951.b2cf6710903b2884.ujomewidny.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\951.b2cf6710903b2884.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6207"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Nix9jCDWOpSbV5VhzRtVec0liwtV1ts4+v0OdrQooiM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ujomewidny"
+        },
+        {
+          "Name": "label",
+          "Value": "951.b2cf6710903b2884.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Nix9jCDWOpSbV5VhzRtVec0liwtV1ts4+v0OdrQooiM="
         }
       ]
     },
@@ -1260,7 +2292,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1806"
+          "Value": "2020"
         },
         {
           "Name": "Content-Type",
@@ -1268,11 +2300,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw=\""
+          "Value": "\"H13UEF8DFjohypFH14nHidpPo2DPja8Gb39vEGxQWX0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 07 Sep 2025 18:22:58 GMT"
+          "Value": "Thu, 23 Oct 2025 14:59:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1282,12 +2314,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw="
+          "Value": "sha256-H13UEF8DFjohypFH14nHidpPo2DPja8Gb39vEGxQWX0="
         }
       ]
     },
     {
-      "Route": "assets/i18n/en.sj8v3gwkqm.json",
+      "Route": "assets/i18n/en.zj1tctdven.json",
       "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\en.json",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1297,7 +2329,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1806"
+          "Value": "2020"
         },
         {
           "Name": "Content-Type",
@@ -1305,11 +2337,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw=\""
+          "Value": "\"H13UEF8DFjohypFH14nHidpPo2DPja8Gb39vEGxQWX0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 07 Sep 2025 18:22:58 GMT"
+          "Value": "Thu, 23 Oct 2025 14:59:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1319,7 +2351,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "sj8v3gwkqm"
+          "Value": "zj1tctdven"
         },
         {
           "Name": "label",
@@ -1327,7 +2359,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+J9BvpbchuSvK9ogIz/BapfDGPf2xVuuAqvzZSd7WVw="
+          "Value": "sha256-H13UEF8DFjohypFH14nHidpPo2DPja8Gb39vEGxQWX0="
         }
       ]
     },
@@ -1354,7 +2386,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+          "Value": "Sun, 21 Sep 2025 10:43:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1399,7 +2431,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+          "Value": "Sun, 21 Sep 2025 10:43:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1436,7 +2468,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+          "Value": "Sun, 21 Sep 2025 10:43:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1481,7 +2513,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+          "Value": "Sun, 21 Sep 2025 10:43:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1492,6 +2524,416 @@
         {
           "Name": "integrity",
           "Value": "sha256-2t+JNT1CXml4D5zUQckoXpcawNV9cOuvPH8AMqB6WCQ="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/Nksboss.bb5pgi3xth.png",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\images\\Nksboss.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1015058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J+/vqplUV6NG2gmIYA0kZTPJDO/IIRlQElKRmjW+owc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Sep 2025 04:47:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bb5pgi3xth"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/Nksboss.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J+/vqplUV6NG2gmIYA0kZTPJDO/IIRlQElKRmjW+owc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/Nksboss.jpg",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\images\\Nksboss.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "111868"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mRXSRWtgvJxofH6FVdCydsa44LQcyHnDEASJFt2JdMY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 23 Sep 2025 14:43:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mRXSRWtgvJxofH6FVdCydsa44LQcyHnDEASJFt2JdMY="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/Nksboss.png",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\images\\Nksboss.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1015058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J+/vqplUV6NG2gmIYA0kZTPJDO/IIRlQElKRmjW+owc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Sep 2025 04:47:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J+/vqplUV6NG2gmIYA0kZTPJDO/IIRlQElKRmjW+owc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/Nksboss.xm6wotcrak.jpg",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\images\\Nksboss.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "111868"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mRXSRWtgvJxofH6FVdCydsa44LQcyHnDEASJFt2JdMY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 23 Sep 2025 14:43:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xm6wotcrak"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/Nksboss.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mRXSRWtgvJxofH6FVdCydsa44LQcyHnDEASJFt2JdMY="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap-icons.154365acf3010d96.od0yn6f0e3.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\bootstrap-icons.154365acf3010d96.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "134044"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bHVxA2ShylYEJncW9tKJl7JjGf2weM8R4LQqtm/y6mE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "od0yn6f0e3"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap-icons.154365acf3010d96.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bHVxA2ShylYEJncW9tKJl7JjGf2weM8R4LQqtm/y6mE="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap-icons.154365acf3010d96.woff2",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\bootstrap-icons.154365acf3010d96.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "134044"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bHVxA2ShylYEJncW9tKJl7JjGf2weM8R4LQqtm/y6mE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bHVxA2ShylYEJncW9tKJl7JjGf2weM8R4LQqtm/y6mE="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap-icons.ac1a99b3d05d8232.7dn3lb52f1.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\bootstrap-icons.ac1a99b3d05d8232.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "180288"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9VUTt7WRy4SjuH/w406iTUgx1v7cIuVLkRymS1tUShU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7dn3lb52f1"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap-icons.ac1a99b3d05d8232.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9VUTt7WRy4SjuH/w406iTUgx1v7cIuVLkRymS1tUShU="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap-icons.ac1a99b3d05d8232.woff",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\bootstrap-icons.ac1a99b3d05d8232.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "180288"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9VUTt7WRy4SjuH/w406iTUgx1v7cIuVLkRymS1tUShU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9VUTt7WRy4SjuH/w406iTUgx1v7cIuVLkRymS1tUShU="
+        }
+      ]
+    },
+    {
+      "Route": "common.bbc5413922101d4c.egzjvq7n16.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\common.bbc5413922101d4c.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "379"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wm7ITEilc9rTBwshsM33GmDwnZKD1xYjlMD0+vUT49Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "egzjvq7n16"
+        },
+        {
+          "Name": "label",
+          "Value": "common.bbc5413922101d4c.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wm7ITEilc9rTBwshsM33GmDwnZKD1xYjlMD0+vUT49Y="
+        }
+      ]
+    },
+    {
+      "Route": "common.bbc5413922101d4c.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\common.bbc5413922101d4c.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "379"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wm7ITEilc9rTBwshsM33GmDwnZKD1xYjlMD0+vUT49Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wm7ITEilc9rTBwshsM33GmDwnZKD1xYjlMD0+vUT49Y="
         }
       ]
     },
@@ -1518,7 +2960,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1563,7 +3005,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1600,7 +3042,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1645,7 +3087,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1682,7 +3124,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1727,7 +3169,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1764,7 +3206,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1809,7 +3251,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1846,7 +3288,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+          "Value": "Sun, 21 Sep 2025 10:43:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1883,7 +3325,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 18:21:25 GMT"
+          "Value": "Sun, 21 Sep 2025 10:43:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1906,51 +3348,6 @@
       ]
     },
     {
-      "Route": "index.7pf5thznx4.html",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9467"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "7pf5thznx4"
-        },
-        {
-          "Name": "label",
-          "Value": "index.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8="
-        }
-      ]
-    },
-    {
       "Route": "index.html",
       "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\index.html",
       "Selectors": [],
@@ -1969,11 +3366,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8=\""
+          "Value": "\"8gjw1y2OB7UKj9du+PbeF0dC/WYd3A68nI3FM+xkrRc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:45 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1983,13 +3380,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-RRDYUtW4iozuEYSu6uLTXqlkXl1JVBL45FH0nzdWJH8="
+          "Value": "sha256-8gjw1y2OB7UKj9du+PbeF0dC/WYd3A68nI3FM+xkrRc="
         }
       ]
     },
     {
-      "Route": "main.f5dc612673fa6d1f.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.f5dc612673fa6d1f.js",
+      "Route": "index.mni2e4ir5q.html",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1998,56 +3395,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "384652"
+          "Value": "9467"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/javascript"
+          "Value": "text/html"
         },
         {
           "Name": "ETag",
-          "Value": "\"IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo=\""
+          "Value": "\"8gjw1y2OB7UKj9du+PbeF0dC/WYd3A68nI3FM+xkrRc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo="
-        }
-      ]
-    },
-    {
-      "Route": "main.f5dc612673fa6d1f.ou5y6ae1em.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.f5dc612673fa6d1f.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "384652"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2057,15 +3417,97 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ou5y6ae1em"
+          "Value": "mni2e4ir5q"
         },
         {
           "Name": "label",
-          "Value": "main.f5dc612673fa6d1f.js"
+          "Value": "index.html"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IKAzSW63eppIr1qjqEh9xGyiUBq2qF5PWO5Hd5HkZKo="
+          "Value": "sha256-8gjw1y2OB7UKj9du+PbeF0dC/WYd3A68nI3FM+xkrRc="
+        }
+      ]
+    },
+    {
+      "Route": "main.e0385f78b7472bea.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.e0385f78b7472bea.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "606234"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"070k5fXcGon5hA8Rdl4T8UTAxYZw96ub5GYJytBJLLs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-070k5fXcGon5hA8Rdl4T8UTAxYZw96ub5GYJytBJLLs="
+        }
+      ]
+    },
+    {
+      "Route": "main.e0385f78b7472bea.pxbnqb8v5l.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.e0385f78b7472bea.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "606234"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"070k5fXcGon5hA8Rdl4T8UTAxYZw96ub5GYJytBJLLs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pxbnqb8v5l"
+        },
+        {
+          "Name": "label",
+          "Value": "main.e0385f78b7472bea.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-070k5fXcGon5hA8Rdl4T8UTAxYZw96ub5GYJytBJLLs="
         }
       ]
     },
@@ -2092,7 +3534,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2129,7 +3571,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2174,7 +3616,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2219,7 +3661,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2256,7 +3698,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2301,7 +3743,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2338,7 +3780,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2383,7 +3825,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2420,7 +3862,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2465,7 +3907,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2502,7 +3944,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2547,7 +3989,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2584,7 +4026,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2629,7 +4071,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2666,7 +4108,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2711,7 +4153,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2748,7 +4190,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2793,7 +4235,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2830,7 +4272,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2875,7 +4317,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2912,7 +4354,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2949,7 +4391,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2994,7 +4436,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3039,7 +4481,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3076,7 +4518,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3113,7 +4555,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3158,7 +4600,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3203,7 +4645,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3240,7 +4682,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3285,7 +4727,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3322,7 +4764,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3367,7 +4809,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3404,7 +4846,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3449,7 +4891,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3486,7 +4928,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3531,7 +4973,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3568,7 +5010,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3613,7 +5055,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3650,7 +5092,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3695,7 +5137,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3732,7 +5174,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3777,7 +5219,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3814,7 +5256,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3859,7 +5301,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3896,7 +5338,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3941,7 +5383,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3978,7 +5420,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4023,7 +5465,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4060,7 +5502,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4105,7 +5547,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4120,8 +5562,8 @@
       ]
     },
     {
-      "Route": "runtime.05012fe890b26458.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.05012fe890b26458.js",
+      "Route": "runtime.b567f6ecc155e920.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.b567f6ecc155e920.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4130,7 +5572,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2740"
+          "Value": "3509"
         },
         {
           "Name": "Content-Type",
@@ -4138,11 +5580,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk=\""
+          "Value": "\"jRRBjkOMKpUKarQqKPMhU8qsgl3RW/LxwPygyJvyig0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4152,13 +5594,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk="
+          "Value": "sha256-jRRBjkOMKpUKarQqKPMhU8qsgl3RW/LxwPygyJvyig0="
         }
       ]
     },
     {
-      "Route": "runtime.05012fe890b26458.lwjezhjaxi.js",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.05012fe890b26458.js",
+      "Route": "runtime.b567f6ecc155e920.tkuj7nxzvq.js",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.b567f6ecc155e920.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4167,7 +5609,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2740"
+          "Value": "3509"
         },
         {
           "Name": "Content-Type",
@@ -4175,11 +5617,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk=\""
+          "Value": "\"jRRBjkOMKpUKarQqKPMhU8qsgl3RW/LxwPygyJvyig0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4189,15 +5631,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "lwjezhjaxi"
+          "Value": "tkuj7nxzvq"
         },
         {
           "Name": "label",
-          "Value": "runtime.05012fe890b26458.js"
+          "Value": "runtime.b567f6ecc155e920.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-uwyKUtKQv9u3iNuTusvaQRE9Er+WS/nX4NSZrGH6Rqk="
+          "Value": "sha256-jRRBjkOMKpUKarQqKPMhU8qsgl3RW/LxwPygyJvyig0="
         }
       ]
     },
@@ -4224,7 +5666,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4269,7 +5711,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4284,8 +5726,8 @@
       ]
     },
     {
-      "Route": "styles.b40217b712af49d9.css",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.b40217b712af49d9.css",
+      "Route": "styles.173769f9d41d22c0.css",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.173769f9d41d22c0.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4294,7 +5736,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "302084"
+          "Value": "387144"
         },
         {
           "Name": "Content-Type",
@@ -4302,11 +5744,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg=\""
+          "Value": "\"ElYPvaEZJmUymvqCh2MDZJNxUW7h3AXheAnx3e//sNE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4316,13 +5758,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg="
+          "Value": "sha256-ElYPvaEZJmUymvqCh2MDZJNxUW7h3AXheAnx3e//sNE="
         }
       ]
     },
     {
-      "Route": "styles.b40217b712af49d9.j7rsz08hx1.css",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.b40217b712af49d9.css",
+      "Route": "styles.173769f9d41d22c0.qu89xchpbz.css",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.173769f9d41d22c0.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4331,7 +5773,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "302084"
+          "Value": "387144"
         },
         {
           "Name": "Content-Type",
@@ -4339,11 +5781,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg=\""
+          "Value": "\"ElYPvaEZJmUymvqCh2MDZJNxUW7h3AXheAnx3e//sNE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:18:43 GMT"
+          "Value": "Thu, 23 Oct 2025 19:12:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4353,21 +5795,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "j7rsz08hx1"
+          "Value": "qu89xchpbz"
         },
         {
           "Name": "label",
-          "Value": "styles.b40217b712af49d9.css"
+          "Value": "styles.173769f9d41d22c0.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vztFE73dGwcFtXaNhVQd0kxc+HuSq8h/cQCTMOA1glg="
+          "Value": "sha256-ElYPvaEZJmUymvqCh2MDZJNxUW7h3AXheAnx3e//sNE="
         }
       ]
     },
     {
-      "Route": "web.config",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\web.config",
+      "Route": "UserImages/bc9417e4-8d4a-451a-ae46-fc8bccce97f9.itwkpaiijo.png",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\UserImages\\bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4376,56 +5818,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "586"
+          "Value": "967912"
         },
         {
           "Name": "Content-Type",
-          "Value": "application/octet-stream"
+          "Value": "image/png"
         },
         {
           "Name": "ETag",
-          "Value": "\"IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA=\""
+          "Value": "\"2lvz3qdn5MWk6MHVx9dnMczTSimFEfJO/ExWPBnS6Wo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:20:34 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA="
-        }
-      ]
-    },
-    {
-      "Route": "web.yst1sfuzhi.config",
-      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\web.config",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "586"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 07:20:34 GMT"
+          "Value": "Thu, 23 Oct 2025 03:38:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4435,15 +5840,52 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "yst1sfuzhi"
+          "Value": "itwkpaiijo"
         },
         {
           "Name": "label",
-          "Value": "web.config"
+          "Value": "UserImages/bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IiWOal13/uww0iN1xcJHqInn+lLhfu2K3mM6Rc0B7QA="
+          "Value": "sha256-2lvz3qdn5MWk6MHVx9dnMczTSimFEfJO/ExWPBnS6Wo="
+        }
+      ]
+    },
+    {
+      "Route": "UserImages/bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png",
+      "AssetFile": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\UserImages\\bc9417e4-8d4a-451a-ae46-fc8bccce97f9.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "967912"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2lvz3qdn5MWk6MHVx9dnMczTSimFEfJO/ExWPBnS6Wo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Oct 2025 03:38:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2lvz3qdn5MWk6MHVx9dnMczTSimFEfJO/ExWPBnS6Wo="
         }
       ]
     }

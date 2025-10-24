@@ -1,50 +1,69 @@
-/* Page border container */
+/* Container & Page Border */
 .page-border {
-  border: 2px solid #000000;
+  border: 2px solid #000;
+  border-radius: 8px;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
+/* Invoice Header */
 .invoice-header {
-  background-color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.invoice-header h1,
+.invoice-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #212529;
+}
+
 .invoice-header h2 {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #495057;
 }
 
 /* Section headers */
 .section-header {
-  background-color: #f8f9fa;
+  background-color: #f1f3f5;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #000;
 }
 
-/* Header box styling */
-.header-box {
-  background-color: #ffffff;
-  border-color: #000000;
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
 }
 
-/* Details section styling */
-.details-section {
-  background-color: #ffffff;
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #000;
+  padding: 0.5rem;
+  vertical-align: middle;
 }
 
-/* Tax header styling */
-.tax-header {
-  background-color: #e9ecef;
+.table-responsive {
+  overflow-x: auto;
 }
 
 /* Total row styling */
 .total-row {
   background-color: #f8f9fa;
+  font-weight: 600;
+  color: #212529;
 }
 
-.text-xs {
-  font-size: 0.75rem;
+/* Details section */
+.details-section {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
 }
 
+<<<<<<< HEAD
 .small {
   font-size: 0.875rem;
 }
@@ -64,41 +83,79 @@
 
 .table td,
 .table th {
+=======
+.details-section .row > div {
+>>>>>>> 9ae7ec781a7f8d4e1f4a0eb5f23ca4d6245064a3
   padding: 0.5rem;
-  vertical-align: middle;
 }
 
-.fw-medium {
-  font-weight: 500;
+/* Tax & totals section */
+.tax-header,
+.total-row div {
+  text-align: right;
+  font-weight: 600;
 }
 
-.lh-sm {
-  line-height: 1.25;
-}
-
-/* Hide action buttons from print and PDF */
+/* Buttons */
 .d-print-none {
-  display: block;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
+button.btn {
+  border-radius: 4px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .table td,
+  .table th {
+    padding: 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  .invoice-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .invoice-header h2 {
+    font-size: 1rem;
+  }
+
+  .details-section .row > div {
+    padding: 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  .page-border {
+    padding: 1rem;
+  }
+
+  .text-end {
+    text-align: left !important;
+  }
+}
+
+/* PDF/Print adjustments */
 @media print {
   .d-print-none {
     display: none !important;
   }
 }
 
-/* PDF generation specific styles */
-.pdf-generating {
-  background-color: #ffffff !important;
-  color: #000000 !important;
+
+ /* Make details section scrollable horizontally on small screens */
+.details-section-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
 }
 
-.pdf-generating * {
-  background-color: transparent !important;
-  color: #000000 !important;
-  border-color: #000000 !important;
+.details-section-wrapper .details-section {
+  min-width: 800px; /* ensure horizontal scroll if container is smaller */
 }
 
+<<<<<<< HEAD
 .pdf-generating .table-bordered td,
 .pdf-generating .table-bordered th {
   background-color: #ffffff !important;
@@ -367,4 +424,6 @@
    
    border-bottom:#FFFF !important;;
 } */
+=======
+>>>>>>> 9ae7ec781a7f8d4e1f4a0eb5f23ca4d6245064a3
 

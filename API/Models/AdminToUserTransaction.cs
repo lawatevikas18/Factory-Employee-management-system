@@ -19,7 +19,12 @@ namespace FEMS_API.Models
         [MaxLength(250)]
         public string? Reason { get; set; }
 
+
         [Required]
-        public DateTime Date { get; set; }
+        public DateTime Date_of_transfer { get; set; }
+
+
+        [Required]
+        public DateTime CreatedAT { get; set; }= DateTime.Now;
     }
 }

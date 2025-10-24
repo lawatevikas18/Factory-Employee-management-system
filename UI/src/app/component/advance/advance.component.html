@@ -1,175 +1,166 @@
 <div class="container">
   <div *ngIf="!showDetails">
-  <h2 class="title">Employee Advances</h2>
-<div *ngIf="!sendAdvanceForm">
-  <!-- ✅ Alerts -->
-  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
-  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+    <h2 class="title">Employee Advances</h2>
 
-  <!-- ✅ Filter -->
-   <div class="row">
-  <div class="mb-2 col-8">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Search by employee name..."
-      [(ngModel)]="searchText"
-      (input)="filterEmployees()"
-    /> 
-  </div>
- <div class="col-4 mb-2 d-flex justify-content-center align-items-center">
-      <button class="btn btn-sm btn-primary w-100 d-flex align-items-center justify-content-center gap-1"
-              (click)="openAddPopup()">
-        <span class="material-symbols-outlined">add</span>
-        <span class="d-none d-md-inline">Add Employee</span> <!-- hidden on mobile -->
-      </button>
-    </div>
-    </div>
-  <!-- ✅ Employee Table -->
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover shadow-sm">
-      <thead class="table-dark">
-        <tr>
-          <th>Name</th>
-          <th>Mobile</th>
-          <th>Advance Balance</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div *ngIf="!sendAdvanceForm">
+      <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
 
-    
-        <tr *ngFor="let emp of filteredEmployees">
-          <td>{{ emp.name }}</td>
-          <td>{{ emp.mobile1 }}</td>
-          <td>₹ {{ emp.advanceBalance  }}</td>
-          <td class="d-flex">
-            <button class="btn btn-sm btn-primary me-1" (click)="viewEmployee(emp)">
-                <i class="bi bi-eye"></i>
-              </button>
-            <button class="btn btn-sm btn-primary" (click)="selectEmployee(emp)">
-              Select
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-  <!-- ✅ Advance Form -->
-  <div class="card shadow p-3 mt-4 position-relative" *ngIf="sendAdvanceForm">
-  <!-- Close button -->
-  <button 
-    type="button" 
-    class="btn-close position-absolute top-0 end-0 m-2" 
-    aria-label="Close" 
-    (click)="closeForm()">
-  </button>
+      <div class="row">
+        <div class="mb-2 col-8">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by employee name..."
+            [(ngModel)]="searchText"
+            (input)="filterEmployees()" />
+        </div>
+        <div class="col-4 mb-2 d-flex justify-content-center align-items-center">
+          <button  *ngIf="role" class="btn btn-sm btn-primary w-100 d-flex align-items-center justify-content-center gap-1"
+                  (click)="openAddPopup()">
+            <span class="material-symbols-outlined"> add</span>
+            <!-- <span class="d-none d-md-inline">Add Employee</span> -->
+          </button>
+        </div>
+      </div>
 
-  <h4>Send Advance</h4>
-  <form [formGroup]="advanceForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label>Employee ID</label>
-      <input type="number" class="form-control" formControlName="employeeId" readonly />
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover shadow-sm">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Mobile</th>
+              <th>Advance Balance</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let emp of filteredEmployees">
+              <td>{{ emp.name }}</td>
+              <td>{{ emp.mobile1 }}</td>
+              <td>₹ {{ emp.advanceBalance }}</td>
+              <td class="d-flex justify-content-center">
+                <button class="btn btn-sm btn-outline-primary me-1" (click)="viewEmployee(emp)">
+                  <i class="bi bi-eye"></i>
+                </button>
+                <button  *ngIf="role" class="btn btn-sm btn-success" (click)="selectEmployee(emp)">
+                  Select
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="mb-3">
-      <label>Reason</label>
-      <input type="text" class="form-control" formControlName="reason" />
-    </div>
+    <!-- ✅ Advance Form Modal -->
+    <div class="modal-overlay" *ngIf="sendAdvanceForm">
+      <div class="modal-card shadow-lg animate__animated animate__fadeInUp">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3"
+                (click)="closeForm()"></button>
 
-    <div class="mb-3">
-      <label>Payment Mode</label>
-      <select class="form-select" formControlName="paymentMode">
-        <option value="Cash">Cash</option>
-        <option value="Bank Transfer">Bank Transfer</option>
-        <option value="UPI">UPI</option>
-      </select>
-    </div>
+        <h4 class="text-primary mb-3 text-center">Send Advance</h4>
+        <div class="selected-emp mb-3 text-center" *ngIf="selectedEmployee">
+          <strong>{{ selectedEmployee.name }}</strong> 
+        </div>
 
-    <div class="mb-3">
-      <label>Amount</label>
-      <input type="number" class="form-control" formControlName="amount" />
-    </div>
+        <form [formGroup]="advanceForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" formControlName="employeeId" />
 
-    <div class="mb-3">
-      <label>Date</label>
-      <input type="date" class="form-control" formControlName="date" />
-    </div>
+          <div class="mb-3">
+            <label>Reason</label>
+            <input type="text" class="form-control" formControlName="reason" placeholder="Enter reason" />
+          </div>
 
-    <div class="mb-3">
-      <label>Payment Category</label>
-      <select class="form-select" formControlName="payment_catagaory">
-        <option value="debit">Send To Employee</option>
-        <option value="credit">Get From Employee</option>
-      </select>
-    </div>
+          <div class="mb-3">
+            <label>Payment Mode</label>
+            <select class="form-select" formControlName="paymentMode">
+              <option value="Cash">Cash</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="UPI">UPI</option>
+            </select>
+          </div>
 
-    <button class="btn btn-success w-100" [disabled]="advanceForm.invalid">
-      Send Advance
-    </button>
-  </form>
-</div>
-</div>
-<div *ngIf="showDetails">
-<div class="card shadow p-3 mt-4">
-  <h4>Advance History</h4>
-<button 
-    type="button" 
-    class="btn-close position-absolute top-0 end-0 m-2" 
-    aria-label="Close" 
-    (click)="closeAdvanceDetails()">
-  </button>
-  <!-- If no data -->
-  <div *ngIf="advanceHistory?.length === 0" class="alert alert-info">
-    No advance history available.
-  </div>
+          <div class="mb-3">
+            <label>Amount</label>
+            <input type="number" class="form-control" formControlName="amount" placeholder="Enter amount" />
+          </div>
 
-  <!-- Table for Desktop -->
-  <div class="table-responsive d-none d-md-block">
-    <table class="table table-bordered table-striped align-middle">
-      <thead>
-        <tr>
-          <th>Advance ID</th>
-          <th>Reason</th>
-          <th>Payment Mode</th>
-          <th>Category</th>
-          <th>Amount</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let adv of advanceHistory">
-          <td>{{ adv.advanceId }}</td>
-          <td>{{ adv.reason }}</td>
-          <td>{{ adv.paymentMode }}</td>
-          <td [ngClass]="{'debit-text': adv.payment_catagaory === 'debit', 'credit-text': adv.payment_catagaory === 'credit'}">
-            {{ adv.payment_catagaory }}
-          </td>
-          <td class="amount">₹ {{ adv.amount }}</td>
-          <td>{{ adv.date | date:'yyyy-MM-dd' }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          <div class="mb-3">
+            <label>Date</label>
+            <input type="date" class="form-control" formControlName="date" />
+          </div>
 
-  <!-- Card Layout for Mobile -->
-  <div class="d-md-none">
-    <div class="mobile-card" *ngFor="let adv of advanceHistory">
-      <p><strong>Advance ID:</strong> {{ adv.advanceId }}</p>
-      <p><strong>Reason:</strong> {{ adv.reason }}</p>
-      <p><strong>Payment Mode:</strong> {{ adv.paymentMode }}</p>
-      <p>
-        <strong>Category:</strong>
-        <span [ngClass]="{'debit-text': adv.payment_catagaory === 'debit', 'credit-text': adv.payment_catagaory === 'credit'}">
-          {{ adv.payment_catagaory }}
-        </span>
-      </p>
-      <p class="amount"><strong>Amount:</strong> ₹ {{ adv.amount }}</p>
-      <p><strong>Date:</strong> {{ adv.date | date:'yyyy-MM-dd' }}</p>
+          <div class="mb-3">
+            <label>Payment Category</label>
+            <select class="form-select" formControlName="payment_catagaory">
+              <option value="debit">Send To Employee</option>
+              <option value="credit">Get From Employee</option>
+            </select>
+          </div>
+
+          <button class="btn btn-primary w-100 mt-2" [disabled]="advanceForm.invalid">
+            Send Advance
+          </button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-</div>
+  <!-- ✅ Advance History -->
+  <div *ngIf="showDetails">
+    <div class="card shadow p-3 mt-4 position-relative">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-2"
+              (click)="closeAdvanceDetails()"></button>
+      <h4 class="text-primary mb-2">Advance History</h4>
+
+      <div *ngIf="selectedHistoryEmployee" class="selected-emp mb-3">
+        <strong>{{ selectedHistoryEmployee.name }}</strong> 
+      </div>
+
+      <div *ngIf="advanceHistory?.length === 0" class="alert alert-info">
+        No advance history available.
+      </div>
+
+      <div class="table-responsive d-none d-md-block">
+        <table class="table table-bordered table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Reason</th>
+              <th>Payment Mode</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let adv of advanceHistory">
+              <td>{{ adv.reason }}</td>
+              <td>{{ adv.paymentMode }}</td>
+              <td [ngClass]="{'debit-text': adv.payment_catagaory === 'debit', 'credit-text': adv.payment_catagaory === 'credit'}">
+                {{ adv.payment_catagaory }}
+              </td>
+              <td class="amount">₹ {{ adv.amount }}</td>
+              <td>{{ adv.date | date:'yyyy-MM-dd' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="d-md-none">
+        <div class="mobile-card" *ngFor="let adv of advanceHistory">
+          <p><strong>Reason:</strong> {{ adv.reason }}</p>
+          <p><strong>Payment Mode:</strong> {{ adv.paymentMode }}</p>
+          <p>
+            <strong>Category:</strong>
+            <span [ngClass]="{'debit-text': adv.payment_catagaory === 'debit', 'credit-text': adv.payment_catagaory === 'credit'}">
+              {{ adv.payment_catagaory }}
+            </span>
+          </p>
+          <p class="amount"><strong>Amount:</strong> ₹ {{ adv.amount }}</p>
+          <p><strong>Date:</strong> {{ adv.date | date:'yyyy-MM-dd' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

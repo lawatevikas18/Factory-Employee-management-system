@@ -5,8 +5,8 @@
   "MENU": {
     "DASHBOARD": "Dashboard",
     "EMPLOYEES": "Employees",
-    "attendance": "Attendance",
-    "salary":"salary",
+    "ATTENDANCE": "Attendance",
+    "salary":"Salary",
     "SETTINGS": "Settings",
     "LOGOUT": "Logout",
      "REPORTS": "Reports",
@@ -14,7 +14,9 @@
      "INVOICE":"Invoice",
     "FACTORY_BILL": "Factory_Bill",
      "AUTH": "Auth",
-     "PAYMENT": "Payment"
+     "PAYMENT": "Payment",
+     "SUPERWISER": "Superwiser"
+     
 
 
   },

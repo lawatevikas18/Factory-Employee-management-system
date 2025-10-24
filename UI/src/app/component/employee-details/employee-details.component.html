@@ -119,7 +119,7 @@
   <div *ngIf="!isemployeeForm" class="card shadow p-3 mt-3">
     <div class="d-flex justify-content-between align-items-center">
       <h4>Employee List</h4>
-      <button class="btn btn-primary" (click)="addNew()">Add New</button>
+      <button *ngIf="role" class="btn btn-primary" (click)="addNew()">Add New</button>
     </div>
 
     <div *ngIf="loading" class="text-info my-2">Loading...</div>

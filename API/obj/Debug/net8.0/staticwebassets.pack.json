@@ -1,20 +1,48 @@
 {
   "Files": [
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.dbdb0a598122f17e.js",
-      "PackagePath": "staticwebassets\\132.dbdb0a598122f17e.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\132.ecdef90c36577938.js",
+      "PackagePath": "staticwebassets\\132.ecdef90c36577938.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\159.26db771fe5cb6f16.js",
+      "PackagePath": "staticwebassets\\159.26db771fe5cb6f16.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\213.f9cc9d8da570a148.js",
+      "PackagePath": "staticwebassets\\213.f9cc9d8da570a148.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\348.237c6c931fb0e933.js",
+      "PackagePath": "staticwebassets\\348.237c6c931fb0e933.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\3rdpartylicenses.txt",
       "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.b93da0ab18589729.js",
-      "PackagePath": "staticwebassets\\641.b93da0ab18589729.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\603.39ee9d88ab8d0309.js",
+      "PackagePath": "staticwebassets\\603.39ee9d88ab8d0309.js"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.cbf8a298c287e938.js",
-      "PackagePath": "staticwebassets\\661.cbf8a298c287e938.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\641.f46075bfcfa4b77f.js",
+      "PackagePath": "staticwebassets\\641.f46075bfcfa4b77f.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\658.080392396272c85b.js",
+      "PackagePath": "staticwebassets\\658.080392396272c85b.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\661.5fee7eccd55e08a0.js",
+      "PackagePath": "staticwebassets\\661.5fee7eccd55e08a0.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\678.a692154067596467.js",
+      "PackagePath": "staticwebassets\\678.a692154067596467.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\951.90cb3ec7730131dc.js",
+      "PackagePath": "staticwebassets\\951.90cb3ec7730131dc.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\en.json",
@@ -27,6 +55,42 @@
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\i18n\\mr.json",
       "PackagePath": "staticwebassets\\assets\\i18n\\mr.json"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\images\\Nksboss.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\Nksboss.jpg"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\assets\\images\\Nksboss.png",
+      "PackagePath": "staticwebassets\\assets\\images\\Nksboss.png"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\bootstrap-icons.154365acf3010d96.woff2",
+      "PackagePath": "staticwebassets\\bootstrap-icons.154365acf3010d96.woff2"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\bootstrap-icons.ac1a99b3d05d8232.woff",
+      "PackagePath": "staticwebassets\\bootstrap-icons.ac1a99b3d05d8232.woff"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\common.bbc5413922101d4c.js",
+      "PackagePath": "staticwebassets\\common.bbc5413922101d4c.js"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\employee_images\\32e0c939-cd51-4f5d-a094-699524f157b2_Bapu.jpeg",
+      "PackagePath": "staticwebassets\\employee_images\\32e0c939-cd51-4f5d-a094-699524f157b2_Bapu.jpeg"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\employee_images\\8c5a169d-c72f-48dc-aeb8-b188f653ae63_download.jfif",
+      "PackagePath": "staticwebassets\\employee_images\\8c5a169d-c72f-48dc-aeb8-b188f653ae63_download.jfif"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\employee_images\\d999f76c-012b-4df4-a8e3-13540a8229e1_download.jfif",
+      "PackagePath": "staticwebassets\\employee_images\\d999f76c-012b-4df4-a8e3-13540a8229e1_download.jfif"
+    },
+    {
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\employee_images\\f9076c6d-3778-40d7-ac4d-55bca5f9174e_download.jfif",
+      "PackagePath": "staticwebassets\\employee_images\\f9076c6d-3778-40d7-ac4d-55bca5f9174e_download.jfif"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\fa-brands-400.b56d441c57a13e5a.woff2",
@@ -53,8 +117,8 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.f5dc612673fa6d1f.js",
-      "PackagePath": "staticwebassets\\main.f5dc612673fa6d1f.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\main.ebc340409909b8de.js",
+      "PackagePath": "staticwebassets\\main.ebc340409909b8de.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\polyfills.6dcd853f16b77d1e.js",
@@ -157,20 +221,16 @@
       "PackagePath": "staticwebassets\\roboto-latin-900italic.9c1f80840351fa12.woff2"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.05012fe890b26458.js",
-      "PackagePath": "staticwebassets\\runtime.05012fe890b26458.js"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\runtime.931234e252a31739.js",
+      "PackagePath": "staticwebassets\\runtime.931234e252a31739.js"
     },
     {
       "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\scripts.dfb889cef33f36ee.js",
       "PackagePath": "staticwebassets\\scripts.dfb889cef33f36ee.js"
     },
     {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.b40217b712af49d9.css",
-      "PackagePath": "staticwebassets\\styles.b40217b712af49d9.css"
-    },
-    {
-      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\web.config",
-      "PackagePath": "staticwebassets\\web.config"
+      "Id": "C:\\ECommerceMicroservices\\FEMS_API\\wwwroot\\styles.197f7a050b584858.css",
+      "PackagePath": "staticwebassets\\styles.197f7a050b584858.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FEMS_API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

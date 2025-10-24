@@ -1,144 +1,212 @@
-<div class="container">
-  <h1>🏭 Factory Bills</h1>
-
-  <!-- Form -->
-  <form (ngSubmit)="saveBill()" class="form">
-    <div class="form-group">
-      <label for="userId">User ID</label>
-      <input readonly
-        type="text"
-        id="userId"
-        [(ngModel)]="newBill.userId"
-        name="userId"
-        required
-      />
+<div class="bill-container">
+  <div class="card shadow p-3 p-md-4 mt-3">
+    <div class="header-section text-center mb-4">
+      <h4 class="gradient-text mb-1">🏭 Factory Bill Management</h4>
+      <h6 class="text-muted">
+        {{ username }} — <span class="factory-name">{{ factoryname }}</span>
+      </h6>
     </div>
 
-    <div class="form-group">
-      <label for="factoryName">Factory Name</label>
-      <input
-        type="text" readonly
-        id="factoryName"
-        [(ngModel)]="newBill.factoryName"
-        name="factoryName"
-        required
-      />
-    </div>
+    <form *ngIf="role"
+      #billForm="ngForm"
+      (ngSubmit)="saveBill()"
+      class="row g-3"
+      novalidate
+    >
+      <!-- From Date -->
+      <div class="col-md-6">
+        <label class="form-label">From Date</label>
+        <input
+          type="date"
+          class="form-control"
+          name="fromDate"
+          required
+          [(ngModel)]="newBill.fromDate"
+          #fromDate="ngModel"
+        />
+        <div
+          *ngIf="fromDate.invalid && fromDate.touched"
+          class="text-danger small"
+        >
+          From date is required.
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label for="fromDate">From Date</label>
-      <input
-        type="date"
-        id="fromDate"
-        [(ngModel)]="newBill.fromDate"
-        name="fromDate"
-        required
-      />
-    </div>
+      <!-- To Date -->
+      <div class="col-md-6">
+        <label class="form-label">To Date</label>
+        <input
+          type="date"
+          class="form-control"
+          name="toDate"
+          required
+          [(ngModel)]="newBill.toDate"
+          [min]="newBill.fromDate"
+          #toDate="ngModel"
+        />
+        <div *ngIf="toDate.invalid && toDate.touched" class="text-danger small">
+          To date is required.
+        </div>
+        <div
+          *ngIf="
+            newBill.fromDate &&
+            newBill.toDate &&
+            newBill.toDate < newBill.fromDate
+          "
+          class="text-danger small"
+        >
+          To date cannot be earlier than from date.
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label for="toDate">To Date</label>
-      <input
-        type="date"
-        id="toDate"
-        [(ngModel)]="newBill.toDate"
-        name="toDate"
-        required
-      />
-    </div>
+      <!-- Work Description -->
+      <div class="col-12">
+        <label class="form-label">Work Description</label>
+        <textarea
+          class="form-control"
+          name="workDescription"
+          rows="2"
+          placeholder="Enter work details..."
+          required
+          minlength="5"
+          [(ngModel)]="newBill.workDescription"
+          #workDescription="ngModel"
+        ></textarea>
+        <div
+          *ngIf="workDescription.invalid && workDescription.touched"
+          class="text-danger small"
+        >
+          Work description is required (min 5 characters).
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label for="workDescription">Work Description</label>
-      <input
-        type="text"
-        id="workDescription"
-        [(ngModel)]="newBill.workDescription"
-        name="workDescription"
-      />
-    </div>
+      <!-- Total Bill -->
+      <div class="col-md-4">
+        <label class="form-label">Total Bill</label>
+        <input
+          type="number"
+          class="form-control"
+          name="totalBill"
+          required
+          min="1"
+          (input)="calculatePending()"
+          [(ngModel)]="newBill.totalBill"
+          #totalBill="ngModel"
+        />
+        <div
+          *ngIf="totalBill.invalid && totalBill.touched"
+          class="text-danger small"
+        >
+          Enter a valid total amount greater than 0.
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label for="totalBill">Total Bill</label>
-      <input
-        type="number"
-        id="totalBill"
-        [(ngModel)]="newBill.totalBill"
-        name="totalBill"
-        required
-      />
-    </div>
+      <!-- Paid Amount -->
+      <div class="col-md-4">
+        <label class="form-label">Paid Amount</label>
+        <input
+          type="number"
+          class="form-control"
+          name="paidAmount"
+          required
+          min="0"
+          (input)="calculatePending()"
+          [(ngModel)]="newBill.paidAmount"
+          #paidAmount="ngModel"
+        />
+        <div
+          *ngIf="paidAmount.invalid && paidAmount.touched"
+          class="text-danger small"
+        >
+          Enter a valid paid amount.
+        </div>
+        <div
+          *ngIf="newBill.paidAmount > newBill.totalBill"
+          class="text-danger small"
+        >
+          Paid amount cannot exceed total bill.
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label for="paidAmount">Paid Amount</label>
-      <input
-        type="number"
-        id="paidAmount"
-        [(ngModel)]="newBill.paidAmount"
-        name="paidAmount"
-        required
-      />
-    </div>
+      <!-- Pending Amount -->
+      <div class="col-md-4">
+        <label class="form-label">Pending Amount</label>
+        <input
+          type="number"
+          class="form-control"
+          name="pendingAmount"
+          [(ngModel)]="newBill.pendingAmount"
+          readonly
+        />
+      </div>
 
-    <div class="form-group">
-      <label for="pendingAmount">Pending Amount</label>
-      <input
-        type="number"
-        id="pendingAmount"
-        [(ngModel)]="newBill.pendingAmount"
-        name="pendingAmount"
-        required
-      />
-    </div>
+      <!-- Buttons -->
+      <div class="text-center mt-3">
+        <button
+          type="submit"
+          class="btn primary-btn px-4"
+          [disabled]="
+            billForm.invalid ||
+            newBill.toDate < newBill.fromDate ||
+            newBill.paidAmount > newBill.totalBill
+          "
+        >
+          {{ isEditing ? "Update Bill" : "Add Bill" }}
+        </button>
+        <button
+          type="button"
+          *ngIf="isEditing"
+          (click)="cancelEdit()"
+          class="btn secondary-btn ms-2 px-4"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
 
-    <div class="form-buttons">
-      <button type="submit" class="btn save">
-        {{ isEditing ? "Update" : "Add" }} Bill
-      </button>
-      <button
-        type="button"
-        *ngIf="isEditing"
-        (click)="cancelEdit()"
-        class="btn cancel"
-      >
-        Cancel
-      </button>
+  <!-- Bill List Table -->
+  <div class="card shadow mt-4">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table custom-table table-hover mb-0">
+          <thead>
+            <tr>
+              <th>From</th>
+              <th>To</th>
+              <th>Work Description</th>
+              <th>Total</th>
+              <th>Paid</th>
+              <th>Pending</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bill of bills">
+              <td>{{ bill.fromDate | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ bill.toDate | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ bill.workDescription }}</td>
+              <td>₹{{ bill.totalBill }}</td>
+              <td>₹{{ bill.paidAmount }}</td>
+              <td>₹{{ bill.pendingAmount }}</td>
+              <td>
+                <button (click)="editBill(bill)" class="btn btn-sm edit-btn">
+                  ✏️
+                </button>
+                <button
+                  (click)="deleteBill(bill.billId!)"
+                  class="btn btn-sm delete-btn"
+                >
+                  🗑️
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="bills.length === 0">
+              <td colspan="7" class="text-muted py-3">No bills available</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </form>
-
-  <!-- Table -->
-  <div class="table-responsive">
-    <table class="bill-table">
-      <thead>
-        <tr>
-          <th>Bill ID</th>
-          <th>User ID</th>
-          <th>Factory</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Total</th>
-          <th>Paid</th>
-          <th>Pending</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let bill of bills">
-          <td>{{ bill.billId }}</td>
-          <td>{{ bill.userId }}</td>
-          <td>{{ bill.factoryName }}</td>
-          <td>{{ bill.fromDate | date }}</td>
-          <td>{{ bill.toDate | date }}</td>
-          <td>{{ bill.totalBill }}</td>
-          <td>{{ bill.paidAmount }}</td>
-          <td>{{ bill.pendingAmount }}</td>
-          <td>
-            <button (click)="editBill(bill)" class="btn edit">✏️</button>
-            <button (click)="deleteBill(bill.billId!)" class="btn delete">
-              🗑️
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>

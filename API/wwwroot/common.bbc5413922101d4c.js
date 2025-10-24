@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkFE_MS=self.webpackChunkFE_MS||[]).push([[592],{2821:(o,a,e)=>{e.d(a,{m:()=>c});var u=e(4650);let c=(()=>{const t=class{constructor(){}setUserDetails(r){this.userdtails=r}geetUserDetails(){return this.userdtails}};let s=t;return t.\u0275fac=function(n){return new(n||t)},t.\u0275prov=u.Yz7({token:t,factory:t.\u0275fac,providedIn:"root"}),s})()}}]);

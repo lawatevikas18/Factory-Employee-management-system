@@ -1,5 +1,3 @@
-import { AuthModule } from './../auth/auth.module';
-import { FactoryBill } from './../model/FactoryBill.model';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
@@ -16,7 +14,9 @@ const routes: Routes = [
      { path: 'advance', loadChildren: () => import('../component/advance/advance.module').then(m=>m.AdvanceModule)},
      { path: 'factory-bill', loadChildren: () => import('../component/factory-bill/factory-bill.module').then(m => m.FactoryBillModule)},
      { path: 'auth', loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)},
-      { path: 'Invoice', loadChildren: () => import('../component/invice/invice.module').then(m => m.InviceModule)},
+    { path: 'Invoice', loadChildren: () => import('../component/invice/invice.module').then(m => m.InviceModule)},
+    { path: 'Superwiser', loadChildren: () => import('../component/user-list/user-list.module').then(m => m.UserListModule)},
+
 
     ]
   }

@@ -1,5 +1,4 @@
 ﻿using FEMS_API.Models;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -25,9 +24,10 @@ namespace FEMS_API.Services
             var claims = new List<Claim>
             {
                 new Claim("userId", user.UserId.ToString()),
-                new Claim("adminId", user.AdminId.ToString()),
                 new Claim(ClaimTypes.Role, user.Role ?? ""),
-                new Claim("factoryName", user.FactoryName ?? "")
+                new Claim("factoryName", user.FactoryName ?? ""),
+                new Claim("adminId", user.Name.ToString()),
+
             };
 
             var token = new JwtSecurityToken(

@@ -14,12 +14,14 @@ namespace FEMS_API.Models
         public int UserId { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
-        public string Month { get; set; } // e.g., "2025-09"
+        public string Month { get; set; }
 
         [Required]
         public int PresentDays { get; set; }
@@ -30,6 +32,8 @@ namespace FEMS_API.Models
         [Required]
         public int HalfDays { get; set; }
 
+        public int TotalOTHours { get; set; }
+
         [Required]
         public decimal TotalSalary { get; set; }
 
@@ -39,8 +43,8 @@ namespace FEMS_API.Models
         [Required]
         public decimal FinalSalary { get; set; }
 
-        [Required]
-        public DateTime Date { get; set; }
-    }
 
+        [Required]
+        public DateTime CreatedAT { get; set; }= DateTime.Now;
+    }
 }

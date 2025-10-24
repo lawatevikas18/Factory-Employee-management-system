@@ -145,4 +145,10 @@ C:\ECommerceMicroservices\FEMS_API\obj\Debug\net8.0\FEMS_API.genruntimeconfig.ca
 C:\ECommerceMicroservices\FEMS_API\obj\Debug\net8.0\ref\FEMS_API.dll
 C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\FEMS_API.staticwebassets.runtime.json
-C:\ECommerceMicroservices\FEMS_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\iTextSharp.LGPLv2.Core.dll
+C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\SkiaSharp.dll
+C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\runtimes\osx\native\libSkiaSharp.dylib
+C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\runtimes\win-x64\native\libSkiaSharp.dll
+C:\ECommerceMicroservices\FEMS_API\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll

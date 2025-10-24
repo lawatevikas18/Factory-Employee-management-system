@@ -10,6 +10,7 @@ import { environment } from 'src/environment/environment';
 export class FactoryBillService {
   private apiUrl = `${environment.apiUrl}/FactoryBill`;
 
+
   constructor(private http: HttpClient) {}
 
   private getHeaders() {
@@ -27,8 +28,8 @@ export class FactoryBillService {
     return this.http.get<FactoryBill>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }
 
-  getByUser(userId: number): Observable<FactoryBill[]> {
-    return this.http.get<FactoryBill[]>(`${this.apiUrl}/ByUser/${userId}`, { headers: this.getHeaders() });
+  getByUser(): Observable<FactoryBill[]> {
+    return this.http.get<FactoryBill[]>(`${this.apiUrl}/ByUser}`, { headers: this.getHeaders() });
   }
 
   create(bill: FactoryBill): Observable<FactoryBill> {

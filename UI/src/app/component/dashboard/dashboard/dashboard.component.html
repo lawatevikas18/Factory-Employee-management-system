@@ -1,29 +1,95 @@
-<!-- Admin Dashboard Component Template -->
+<div class="dashboard-container py-3 py-md-4">
+  <div class="container-fluid" style="max-width: 1280px;">
 
-<!-- <app-upload></app-upload> -->
-<div class="min-vh-100 bg-light">
-  <div class="container-fluid " style="max-width: 1280px;">
     <!-- Header -->
-    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
-    
-
-    <div class="d-flex align-items-center justify-content-between w-100 mb-3">
-  <!-- Left: Text + Avatar -->
-  <div class="d-flex align-items-center gap-2">
-    <p class="text-muted mb-0">Overview of all sites</p>
-    <div class="avatar-container">
-      <img src="assets/images/Nksboss.png" alt="Admin User" class="avatar-img">
-      <span class="avatar-fallback">AU</span>
+    <div class="dashboard-header card shadow-sm border-0 p-3 p-md-4 mb-3">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+        <div class="d-flex align-items-center gap-3 text-center text-md-start">
+          <img src="assets/default-avatar.png" alt="Admin" class="avatar-img" />
+          <div>
+            <h5 class="fw-bold mb-0">{{ userName }}</h5>
+            <small class="text-muted d-block">{{ role }}</small>
+          </div>
+        </div>
+        <div class="text-center text-md-end">
+          <p class="mb-0 fw-semibold text-primary">{{ factoryName }}</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- Right: Factory Name -->
-  <div class="text-end factory-name">
-    <p class="mb-0 text-muted">
-      <strong>Factory Name:</strong> {{ getfactoryName }}
-    </p>
+    <!-- Summary Cards -->
+    <div class="row g-3 mb-3">
+      <div class="col-6 col-sm-6 col-md-3" *ngFor="let metric of [
+        { title: 'Total Sites', value: totalSites, icon: 'bi-building', color: 'text-primary' },
+        { title: 'Active Sites', value: workingSitesToday, icon: 'bi-check-circle', color: 'text-success' },
+        { title: 'Total Employees', value: totalEmployees, icon: 'bi-people', color: 'text-info' },
+        { title: 'Present Today', value: presentEmployeesToday, icon: 'bi-person-check', color: 'text-success' }
+      ]">
+        <div class="metric-card card shadow-sm border-0 text-center py-3 h-100">
+          <i class="bi {{ metric.icon }} fs-3 mb-2" [ngClass]="metric.color"></i>
+          <div class="fw-bold fs-5">{{ metric.value }}</div>
+          <div class="text-muted small">{{ metric.title }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Balance Card -->
+    <div class="card shadow-sm border-0 mb-3 p-3 p-md-4">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div class="text-center text-md-start mb-2 mb-md-0">
+          <h6 class="fw-bold mb-1">Total Factory Balance</h6>
+          <p class="text-muted small mb-0">As of today</p>
+        </div>
+        <div class="text-center text-md-end">
+          <h3 class="fw-bold text-success mb-0">₹{{ totalBalance | number : '1.2-2' }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Section -->
+    <div class="row g-3">
+      <div class="col-12 col-md-6">
+        <div class="card shadow-sm border-0 p-3">
+          <h6 class="fw-bold mb-2 text-center text-md-start">Attendance Rate</h6>
+          <div class="progress-wrapper">
+            <div class="progress">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                [style.width.%]="attendancePercentage"
+                [attr.aria-valuenow]="attendancePercentage"
+                aria-valuemin="0"
+                aria-valuemax="100">
+              </div>
+            </div>
+            <div class="progress-label">{{ attendancePercentage }}%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="card shadow-sm border-0 p-3">
+          <h6 class="fw-bold mb-2 text-center text-md-start">Active Site Ratio</h6>
+          <div class="progress-wrapper">
+            <div class="progress">
+              <div
+                class="progress-bar bg-primary"
+                role="progressbar"
+                [style.width.%]="siteOperationalPercentage"
+                [attr.aria-valuenow]="siteOperationalPercentage"
+                aria-valuemin="0"
+                aria-valuemax="100">
+              </div>
+            </div>
+            <div class="progress-label">{{ siteOperationalPercentage }}%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
+<<<<<<< HEAD
 
 
 
@@ -118,3 +184,5 @@
       </div>
    </div>
   </div>
+=======
+>>>>>>> 9ae7ec781a7f8d4e1f4a0eb5f23ca4d6245064a3

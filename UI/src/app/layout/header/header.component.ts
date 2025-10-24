@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -27,11 +28,23 @@ export class HeaderComponent {
   }
 
   logout() {
-    sessionStorage.removeItem('adminData');
-  sessionStorage.clear();
-    // window.location.href = '/login';
+ Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to logout!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#e74c3c',
+      cancelButtonColor: '#7f8c8d',
+      confirmButtonText: 'Yes,  logout!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+           sessionStorage.removeItem('adminData');
+           sessionStorage.clear();
+            localStorage.clear();
      this.router.navigate(['/login'])
-  }
+      }
+    });
+  } 
 
   toggleSettingsPopup() {
     this.showSettingsPopup = !this.showSettingsPopup;

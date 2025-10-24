@@ -14,9 +14,11 @@ namespace FEMS_API.Models
         public int UserId { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }  // रिपोर्ट सुरू होण्याची तारीख
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }  // रिपोर्ट संपण्याची तारीख
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;  // रिपोर्ट तयार झाल्याची तारीख (Default: Now)
