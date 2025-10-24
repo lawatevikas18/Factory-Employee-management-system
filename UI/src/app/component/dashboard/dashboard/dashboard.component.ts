@@ -10,7 +10,6 @@ import { SessionService } from 'src/app/core/services/session.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-<<<<<<< HEAD
 export class DashboardComponent {
  totalSites:any=0;
   workingSitesToday:any=0;
@@ -19,15 +18,6 @@ export class DashboardComponent {
   absentEmployeesToday = 14;
   lateEmployeesToday = 8;
   totalBalance:any=0
-=======
-export class DashboardComponent implements OnInit {
->>>>>>> 9ae7ec781a7f8d4e1f4a0eb5f23ca4d6245064a3
-
-  totalSites = 0;
-  workingSitesToday = 0;
-  totalEmployees = 0;
-  presentEmployeesToday = 0;
-  totalBalance = 0;
   userName = '';
   factoryName = '';
   role = '';
@@ -35,11 +25,6 @@ export class DashboardComponent implements OnInit {
 
   attendancePercentage = 0;
   siteOperationalPercentage = 0;
-<<<<<<< HEAD
-  getfactoryName: any;
-  userName:any
-=======
->>>>>>> 9ae7ec781a7f8d4e1f4a0eb5f23ca4d6245064a3
 
   constructor(
     private loader: LoaderService,
@@ -67,24 +52,6 @@ export class DashboardComponent implements OnInit {
     this.loader.show();
     this.employeeService.getDashBoardData().subscribe({
       next: (res) => {
-<<<<<<< HEAD
-        // this.employees = res;
-        console.log(`res`,res.factoryName);
-        this.getfactoryName=res.factoryName;
-        this.totalBalance=res.total_balance
-          this.userName = res.userName;
-         this.session.setUserDetails(res)
-    if (this.userName) {
-      this.loaderService.setUserName(this.userName);
-    }
-        console.log(res.userName);
-        this.totalEmployees=res.employee_count
-      this.presentEmployeesToday=res.attendance_count_today
-      this.workingSitesToday=res.active_site.length
-      this.totalSites=res.total_site
-          this.authService.setUserRole(res.role)
-        this.loader.hide();   // ✅ Hide on success
-=======
         this.userName = res.userName;
         this.imageurl = res.imagePath;
         this.factoryName = res.factoryName;
@@ -104,7 +71,6 @@ export class DashboardComponent implements OnInit {
         this.authService.setUserRole(this.role);
         this.session.setUserDetails(res);
         this.calculatePercentages();
->>>>>>> 9ae7ec781a7f8d4e1f4a0eb5f23ca4d6245064a3
       },
       error: (err) => {
         this.errorMsg.showError(err?.error);
