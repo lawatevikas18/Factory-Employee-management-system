@@ -29,6 +29,7 @@ export class AdvanceComponent {
   userData: any;
   selectedEmployee?: Employee;
   selectedHistoryEmployee?: Employee;
+   role:boolean=true;
 
   advanceForm!: FormGroup;
   loading = false;
@@ -46,6 +47,7 @@ export class AdvanceComponent {
   ) {}
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role')=='Admin'?false:true;
     this.loadEmployees();
     this.loadTransactions();
     this.userData = this.session.geetUserDetails();

@@ -5,8 +5,8 @@
   "MENU": {
     "DASHBOARD": "Dashboard",
     "EMPLOYEES": "Employees",
-    "attendance": "Attendance",
-    "salary":"salary",
+    "ATTENDANCE": "Attendance",
+    "salary":"Salary",
     "SETTINGS": "Settings",
     "LOGOUT": "Logout",
      "REPORTS": "Reports",

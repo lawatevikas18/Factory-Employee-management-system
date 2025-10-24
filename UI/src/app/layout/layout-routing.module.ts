@@ -1,5 +1,3 @@
-import { AuthModule } from './../auth/auth.module';
-import { FactoryBill } from './../model/FactoryBill.model';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';

@@ -24,6 +24,7 @@ export class EmployeeDetailsComponent implements OnInit {
   photoPreview: string | null = null;
   selectedFile: File | null = null;
   photoUrl = "https://emp360-001-site1.stempurl.com";
+  role:boolean=true;
 
   designations: string[] = ['Manager','Supervisor','Worker','Accountant','Security','Driver'];
 
@@ -39,6 +40,7 @@ export class EmployeeDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role')=='Admin'?false:true;
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       mobile1: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],

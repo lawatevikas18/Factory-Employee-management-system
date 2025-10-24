@@ -16,10 +16,10 @@
             (input)="filterEmployees()" />
         </div>
         <div class="col-4 mb-2 d-flex justify-content-center align-items-center">
-          <button class="btn btn-sm btn-primary w-100 d-flex align-items-center justify-content-center gap-1"
+          <button  *ngIf="role" class="btn btn-sm btn-primary w-100 d-flex align-items-center justify-content-center gap-1"
                   (click)="openAddPopup()">
-            <span class="material-symbols-outlined">add</span>
-            <span class="d-none d-md-inline">Add Employee</span>
+            <span class="material-symbols-outlined"> add</span>
+            <!-- <span class="d-none d-md-inline">Add Employee</span> -->
           </button>
         </div>
       </div>
@@ -43,7 +43,7 @@
                 <button class="btn btn-sm btn-outline-primary me-1" (click)="viewEmployee(emp)">
                   <i class="bi bi-eye"></i>
                 </button>
-                <button class="btn btn-sm btn-success" (click)="selectEmployee(emp)">
+                <button  *ngIf="role" class="btn btn-sm btn-success" (click)="selectEmployee(emp)">
                   Select
                 </button>
               </td>

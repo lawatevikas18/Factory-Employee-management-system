@@ -3,82 +3,154 @@
     <div class="header-section text-center mb-4">
       <h4 class="gradient-text mb-1">🏭 Factory Bill Management</h4>
       <h6 class="text-muted">
-        {{ username}} — <span class="factory-name">{{ factoryname}}</span>
+        {{ username }} — <span class="factory-name">{{ factoryname }}</span>
       </h6>
     </div>
 
-    <form (ngSubmit)="saveBill()" class="row g-3">
+    <form *ngIf="role"
+      #billForm="ngForm"
+      (ngSubmit)="saveBill()"
+      class="row g-3"
+      novalidate
+    >
+      <!-- From Date -->
       <div class="col-md-6">
         <label class="form-label">From Date</label>
         <input
           type="date"
-          [(ngModel)]="newBill.fromDate"
-          name="fromDate"
           class="form-control"
+          name="fromDate"
           required
+          [(ngModel)]="newBill.fromDate"
+          #fromDate="ngModel"
         />
+        <div
+          *ngIf="fromDate.invalid && fromDate.touched"
+          class="text-danger small"
+        >
+          From date is required.
+        </div>
       </div>
 
+      <!-- To Date -->
       <div class="col-md-6">
         <label class="form-label">To Date</label>
         <input
           type="date"
-          [(ngModel)]="newBill.toDate"
-          name="toDate"
           class="form-control"
+          name="toDate"
           required
+          [(ngModel)]="newBill.toDate"
+          [min]="newBill.fromDate"
+          #toDate="ngModel"
         />
+        <div *ngIf="toDate.invalid && toDate.touched" class="text-danger small">
+          To date is required.
+        </div>
+        <div
+          *ngIf="
+            newBill.fromDate &&
+            newBill.toDate &&
+            newBill.toDate < newBill.fromDate
+          "
+          class="text-danger small"
+        >
+          To date cannot be earlier than from date.
+        </div>
       </div>
 
+      <!-- Work Description -->
       <div class="col-12">
         <label class="form-label">Work Description</label>
         <textarea
-          [(ngModel)]="newBill.workDescription"
-          name="workDescription"
           class="form-control"
+          name="workDescription"
           rows="2"
           placeholder="Enter work details..."
           required
+          minlength="5"
+          [(ngModel)]="newBill.workDescription"
+          #workDescription="ngModel"
         ></textarea>
+        <div
+          *ngIf="workDescription.invalid && workDescription.touched"
+          class="text-danger small"
+        >
+          Work description is required (min 5 characters).
+        </div>
       </div>
 
+      <!-- Total Bill -->
       <div class="col-md-4">
         <label class="form-label">Total Bill</label>
         <input
           type="number"
-          [(ngModel)]="newBill.totalBill"
-          name="totalBill"
-          (input)="calculatePending()"
           class="form-control"
+          name="totalBill"
           required
+          min="1"
+          (input)="calculatePending()"
+          [(ngModel)]="newBill.totalBill"
+          #totalBill="ngModel"
         />
+        <div
+          *ngIf="totalBill.invalid && totalBill.touched"
+          class="text-danger small"
+        >
+          Enter a valid total amount greater than 0.
+        </div>
       </div>
 
+      <!-- Paid Amount -->
       <div class="col-md-4">
         <label class="form-label">Paid Amount</label>
         <input
           type="number"
-          [(ngModel)]="newBill.paidAmount"
-          name="paidAmount"
-          (input)="calculatePending()"
           class="form-control"
+          name="paidAmount"
           required
+          min="0"
+          (input)="calculatePending()"
+          [(ngModel)]="newBill.paidAmount"
+          #paidAmount="ngModel"
         />
+        <div
+          *ngIf="paidAmount.invalid && paidAmount.touched"
+          class="text-danger small"
+        >
+          Enter a valid paid amount.
+        </div>
+        <div
+          *ngIf="newBill.paidAmount > newBill.totalBill"
+          class="text-danger small"
+        >
+          Paid amount cannot exceed total bill.
+        </div>
       </div>
 
+      <!-- Pending Amount -->
       <div class="col-md-4">
         <label class="form-label">Pending Amount</label>
         <input
           type="number"
-          [(ngModel)]="newBill.pendingAmount"
-          name="pendingAmount"
           class="form-control"
+          name="pendingAmount"
+          [(ngModel)]="newBill.pendingAmount"
           readonly
         />
       </div>
 
+      <!-- Buttons -->
       <div class="text-center mt-3">
-        <button type="submit" class="btn primary-btn px-4">
+        <button
+          type="submit"
+          class="btn primary-btn px-4"
+          [disabled]="
+            billForm.invalid ||
+            newBill.toDate < newBill.fromDate ||
+            newBill.paidAmount > newBill.totalBill
+          "
+        >
           {{ isEditing ? "Update Bill" : "Add Bill" }}
         </button>
         <button
@@ -93,6 +165,7 @@
     </form>
   </div>
 
+  <!-- Bill List Table -->
   <div class="card shadow mt-4">
     <div class="card-body p-0">
       <div class="table-responsive">
@@ -117,8 +190,15 @@
               <td>₹{{ bill.paidAmount }}</td>
               <td>₹{{ bill.pendingAmount }}</td>
               <td>
-                <button (click)="editBill(bill)" class="btn btn-sm edit-btn">✏️</button>
-                <button (click)="deleteBill(bill.billId!)" class="btn btn-sm delete-btn">🗑️</button>
+                <button (click)="editBill(bill)" class="btn btn-sm edit-btn">
+                  ✏️
+                </button>
+                <button
+                  (click)="deleteBill(bill.billId!)"
+                  class="btn btn-sm delete-btn"
+                >
+                  🗑️
+                </button>
               </td>
             </tr>
             <tr *ngIf="bills.length === 0">

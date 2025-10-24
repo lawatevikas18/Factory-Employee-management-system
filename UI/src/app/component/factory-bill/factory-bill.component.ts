@@ -16,6 +16,7 @@ export class FactoryBillComponent implements OnInit {
   isEditing = false;
   username: any;
   factoryname: any;
+  role:boolean = true;
 
   constructor(
     private billService: FactoryBillService,
@@ -25,6 +26,7 @@ export class FactoryBillComponent implements OnInit {
   ngOnInit(): void {
     this.username = localStorage.getItem('userName');
     this.factoryname = localStorage.getItem('factoryName');
+    this.role = localStorage.getItem('role') == 'Admin' ? false : true;
     console.log('User Details:', this.username);
     if (!this.username) {
       Swal.fire('Error', 'User session expired. Please log in again.', 'error');
@@ -77,11 +79,19 @@ export class FactoryBillComponent implements OnInit {
   }
 
   editBill(bill: FactoryBill): void {
+      if (localStorage.getItem('role') == 'Admin') {
+      Swal.fire('inform', 'Admin can not Edit', 'error');
+      return;
+    }
     this.newBill = { ...bill };
     this.isEditing = true;
   }
 
   deleteBill(id: number): void {
+       if (localStorage.getItem('role') == 'Admin') {
+      Swal.fire('Error', 'Admin can not Delete', 'error');
+      return;
+    }
     Swal.fire({
       title: 'Are you sure?',
       text: 'This bill will be deleted permanently!',
