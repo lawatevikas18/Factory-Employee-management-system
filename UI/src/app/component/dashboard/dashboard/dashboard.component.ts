@@ -34,6 +34,7 @@ export class DashboardComponent {
   presentEmployeesToday:any=0;
   absentEmployeesToday = 14;
   lateEmployeesToday = 8;
+  totalBalance:any=0
 
   // sites: SiteData[] = [
   //   { id: '1', name: 'Factory Unit A', status: 'active', employeeCount: 45, presentToday: 42, location: 'Pandharpur' },
@@ -54,6 +55,7 @@ export class DashboardComponent {
   attendancePercentage = 0;
   siteOperationalPercentage = 0;
   getfactoryName: any;
+  userName:any
 
   constructor(private loader:LoaderService,
     private employeeService:EmployeeService,
@@ -117,10 +119,11 @@ export class DashboardComponent {
         // this.employees = res;
         console.log(`res`,res.factoryName);
         this.getfactoryName=res.factoryName;
-         const name = res.userName;
+        this.totalBalance=res.total_balance
+          this.userName = res.userName;
          this.session.setUserDetails(res)
-    if (name) {
-      this.loaderService.setUserName(name);
+    if (this.userName) {
+      this.loaderService.setUserName(this.userName);
     }
         console.log(res.userName);
         this.totalEmployees=res.employee_count

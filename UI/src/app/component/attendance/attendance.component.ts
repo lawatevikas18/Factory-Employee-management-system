@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
 import { AttendanceRequest, EmployeeAttendance } from 'src/app/model/AttendanceRequest .model';
 import { environment } from 'src/environment/environment';
+import Swal from 'sweetalert2';
 declare var bootstrap: any;
 
 
@@ -55,7 +56,8 @@ export class AttendanceComponent {
   showDatepicker = false;
    UserRole:any
    apiUrl = environment.apiUrl;
-   photoUrl='https://emp360-001-site1.stempurl.com'
+   photoUrl='https://emp360-001-site1.stempurl.com';
+   hasPresent:any
  constructor(private http: HttpClient,
   private authService:AuthService,
   private getAttendance:AttendanceService,
@@ -80,6 +82,7 @@ export class AttendanceComponent {
   .subscribe({
     next: (res) => {
       this.employees = res;
+      this.hasPresent = this.employees.some(emp => emp.status === 'Present');
         this.loader.hide(); 
       },
        error: (err) => {
@@ -169,6 +172,47 @@ export class AttendanceComponent {
   // Save attendance (hook this to API)
   saveAttendance(): void {
   if(this.UserRole !== 'Admin'){
+     if (this.hasPresent) {
+          Swal.fire({
+            title: 'Modify Attendance?',
+            text: 'Some employees are already marked as Present. Do you want to modify attendance?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, modify',
+            cancelButtonText: 'No, cancel',
+            confirmButtonColor: '#0d6efd',
+            cancelButtonColor: '#6c757d'
+          }).then(result => {
+            if (result.isConfirmed) {
+               const attendanceList: any = this.employees.map(emp => ({
+      employeeId: emp.employeeId,
+      status: emp.status || 'NotMarked',
+       
+      date: this.date,
+      ot: emp.ot || 0
+    }));
+    this.loader.show()
+    this.getAttendance.saveAttendance(attendanceList).subscribe({
+      next: (res) => {
+        this.loader.hide()
+        
+          
+          this.toastr.success('Attendance saved successfully!', 'Success');
+        
+      },
+      
+      error: err =>this.toastr.error(err?.error?.message || 'Error saving attendance', 'Error')
+        //  console.error('Error saving attendance', err)
+      
+    });
+              console.log('User chose to modify attendance');
+            } else {
+              console.log('User cancelled modification');
+            }
+          });
+        }else{
+
+        
     const attendanceList: any = this.employees.map(emp => ({
       employeeId: emp.employeeId,
       status: emp.status || 'NotMarked',
@@ -191,6 +235,7 @@ export class AttendanceComponent {
       
     });
   }
+}
 }
 
   // Helpers for template (optional)
@@ -353,6 +398,7 @@ closePhoto() {
   this.isPhotoOpen = false;
   this.selectedPhoto = null;
 }
+
 
 
 }

@@ -16,7 +16,19 @@ export class TaxInvoiceFormComponent implements OnInit {
   invoiceData: InvoiceFormData | null = null;
   showItemForm:boolean=false
   showFactoryDetalsForm:boolean=false
-
+showFactorySection = true;
+showInvoiceSection = true;
+showCustomerSection = true;
+showTaxSection = true;
+showSummarySection = true;
+expandedSections:any = {
+  factory: true,
+  invoice: true,
+  customer: true,
+  items: true,
+  tax: true,
+  summary: true
+};
   constructor(private fb: FormBuilder,
     private invoiceService:InvoiceService
   ) {}
@@ -281,4 +293,8 @@ this.showItemForm=false
         // error: (err) => alert(err?.message || 'Failed to load invoices')
       });
   }
+  
+toggleSection(section: string) {
+  this.expandedSections[section] = !this.expandedSections[section];
+}
 }
