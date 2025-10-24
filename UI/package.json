@@ -31,7 +31,7 @@
     "ngx-image-cropper": "^7.2.1",
     "ngx-toastr": "^15.2.2",
     "rxjs": "~7.8.0",
-    "sweetalert2": "^11.23.0",
+    "sweetalert2": "^11.26.3",
     "tslib": "^2.3.0",
     "typeface-roboto": "^1.1.13",
     "zone.js": "~0.12.0"

@@ -10,13 +10,14 @@ import { SessionService } from 'src/app/core/services/session.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-
-  totalSites = 0;
-  workingSitesToday = 0;
-  totalEmployees = 0;
-  presentEmployeesToday = 0;
-  totalBalance = 0;
+export class DashboardComponent {
+ totalSites:any=0;
+  workingSitesToday:any=0;
+  totalEmployees:any=0;
+  presentEmployeesToday:any=0;
+  absentEmployeesToday = 14;
+  lateEmployeesToday = 8;
+  totalBalance:any=0
   userName = '';
   factoryName = '';
   role = '';
