@@ -1,3 +1,4 @@
+import { FactoryDetailModule } from './../component/factory-detail/factory-detail.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
@@ -16,6 +17,8 @@ const routes: Routes = [
      { path: 'auth', loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)},
     { path: 'Invoice', loadChildren: () => import('../component/invice/invice.module').then(m => m.InviceModule)},
     { path: 'Superwiser', loadChildren: () => import('../component/user-list/user-list.module').then(m => m.UserListModule)},
+    { path: 'factorydetails', loadChildren: () => import('../component/factory-detail/factory-detail.module').then(m => m.FactoryDetailModule)},
+
 
     ]
   }
