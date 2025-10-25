@@ -11,10 +11,10 @@
         <i *ngIf="!isGeneratingPdf" class="bi bi-download me-1"></i>
         {{ isGeneratingPdf ? 'Generating...' : 'Download PDF' }}
       </button>
-      <button  type="button" 
+      <!-- <button  type="button" 
         class="btn btn-primary btn-sm"(click)=saveInvoiceInDb()
-        [disabled]="isGeneratingPdf">Save</button>
-    </div>
+        [disabled]="isGeneratingPdf">Save</button>-->
+    </div> 
   </div>
 </div>
 
@@ -215,11 +215,11 @@
         <!-- Totals Section -->
         <div class="row g-0 mb-4">
           <div class="col-6 border-end border-dark">
-            <div class="border-bottom border-dark p-3">
+            <!-- <div class="border-bottom border-dark p-3">
               <div class="small fw-medium">Total IGST Amount: {{totals.igstAmount}}</div>
               <div class="small fw-medium">Total IGST Amount: {{totals.cgstAmount}}</div>
               <div class="small fw-medium">Total IGST Amount: {{totals.sgstAmount}}</div>
-            </div>
+            </div> -->
             <div class="section-header border-bottom border-dark p-3">
               <div class="small fw-medium">Total Invoice Amount: {{totals.total}}</div>
             </div>
@@ -229,13 +229,13 @@
               <div class="small fw-medium text-center">Total</div>
             </div>
             <div class="tax-header border-bottom border-dark p-3">
-              <div class="small fw-medium">CGST @ {{ data.cgstRate || 0 }}%</div>
+              <div class="small fw-medium"><span class="pe-2">{{totals.cgstAmount}}</span>CGST @ {{ data.cgstRate || 0 }}%</div>
             </div>
             <div class="tax-header border-bottom border-dark p-3">
-              <div class="small fw-medium">SGST @ {{ data.sgstRate || 0 }}%</div>
+              <div class="small fw-medium"> <span class="pe-2">{{totals.sgstAmount}}</span>SGST @ {{ data.sgstRate || 0 }}%</div>
             </div>
             <div class="tax-header border-bottom border-dark p-3">
-              <div class="small fw-medium">IGST @ {{ data.igstRate || 0 }}%</div>
+              <div class="small fw-medium"><span class="pe-2">{{totals.igstAmount}}</span>IGST @ {{ data.igstRate || 0 }}%</div>
             </div>
             <div class="border-bottom border-dark p-3">
               <div class="small fw-medium">Total Invoice Value: {{totals.total}}</div>

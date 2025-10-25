@@ -53,7 +53,7 @@ constructor(private invoiceService:InvoiceService){
 
   async onDownloadPdf(): Promise<void> {
     console.log(this.invoiceData)
-    
+    this.saveInvoiceInDb()
     if (this.isGeneratingPdf) {
       return;
     }
