@@ -1,57 +1,58 @@
 .factory-container {
-  padding: 20px;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
-  .header {
-    h2 {
-      font-weight: 600;
-    }
-    input {
-      border-radius: 6px;
-      padding: 5px 10px;
-    }
+  h4 {
+    color: #2563eb;
+    font-weight: 600;
   }
 
-  table {
-    border-radius: 10px;
-    overflow: hidden;
-    th, td {
-      vertical-align: middle;
-    }
+  .form-control {
+    border-radius: 8px;
   }
 
-  .modal-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal-box {
+  .table-wrapper {
     background: #fff;
-    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+
+  table th {
+    background-color: #2563eb !important;
+    color: #fff !important;
+    font-weight: 600;
+  }
+
+  table td {
+    vertical-align: middle;
+    font-size: 0.95rem;
+  }
+
+  .btn-sm i {
+    font-size: 0.85rem;
+  }
+
+  .custom-modal-backdrop {
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    right: 2%;
+    bottom: 2%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+  }
+
+  .custom-modal-content {
+    background: #fff;
     border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 800px;
     width: 90%;
-    max-width: 900px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
     animation: fadeIn 0.3s ease-in-out;
-
-    h4 {
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    label {
-      font-size: 0.9rem;
-    }
-
-    input {
-      border-radius: 6px;
-    }
   }
 
   @keyframes fadeIn {

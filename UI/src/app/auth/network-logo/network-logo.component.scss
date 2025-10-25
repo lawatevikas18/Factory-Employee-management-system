@@ -1,0 +1,230 @@
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.network-logo {
+  display: block;
+  overflow: visible;
+}
+
+/* Fade in animation on load */
+.logo-container.animated .network-logo {
+  animation: fadeInScale 0.8s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Connection lines animations */
+.logo-container.animated .connection-lines .line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawLine 2s ease-out forwards;
+}
+
+.logo-container.animated .connection-lines .line-1 {
+  animation-delay: 0.2s;
+}
+
+.logo-container.animated .connection-lines .line-2 {
+  animation-delay: 0.3s;
+}
+
+.logo-container.animated .connection-lines .line-3 {
+  animation-delay: 0.4s;
+}
+
+.logo-container.animated .connection-lines .line-4 {
+  animation-delay: 0.5s;
+}
+
+.logo-container.animated .connection-lines .line-5 {
+  animation-delay: 0.6s;
+}
+
+.logo-container.animated .connection-lines .line-6 {
+  animation-delay: 0.7s;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Node animations */
+.logo-container.animated .node-v {
+  animation: slideInFromLeft 0.6s ease-out;
+}
+
+.logo-container.animated .node-d {
+  animation: slideInFromRight 0.6s ease-out 0.2s backwards;
+}
+
+.logo-container.animated .node-s {
+  animation: slideInFromBottom 0.6s ease-out 0.4s backwards;
+}
+
+.logo-container.animated .center-hub {
+  animation: scaleIn 0.6s ease-out 0.6s backwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Text animations */
+.logo-container.animated .node-text,
+.logo-container.animated .hub-text {
+  animation: fadeIn 0.4s ease-out 1s backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Small nodes bounce in */
+.logo-container.animated .small-nodes circle {
+  animation: bounceIn 0.5s ease-out 1.2s backwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Subtle rotation for the entire logo (optional - can be removed) */
+.logo-container.animated .network-logo:hover {
+  animation: subtleRotate 20s linear infinite;
+}
+
+@keyframes subtleRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse effect on hover */
+.logo-container.animated:hover .node-circle,
+.logo-container.animated:hover .hub-circle {
+  filter: url(#glow) drop-shadow(0 0 8px currentColor);
+}
+
+/* Logo text animations */
+.logo-text {
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 1.4s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-text h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.logo-text p {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .logo-container.animated .network-logo,
+  .logo-container.animated .node-v,
+  .logo-container.animated .node-d,
+  .logo-container.animated .node-s,
+  .logo-container.animated .center-hub,
+  .logo-container.animated .connection-lines .line,
+  .logo-text {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .network-logo circle animate,
+  .network-logo line animate {
+    display: none;
+  }
+}

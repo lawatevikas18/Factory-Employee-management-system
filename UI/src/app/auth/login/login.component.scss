@@ -161,3 +161,151 @@
     text-align: center;
   }
 }
+/* Add these styles to your existing auth component CSS */
+
+/* Logo Section Styles */
+.logo-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* For Option 2 - Left Section with Logo */
+.left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  height: 100%;
+}
+
+/* For Option 3 - Header with Logo */
+.header-with-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.header-with-logo h2 {
+  margin: 0;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .auth-card {
+    flex-direction: column;
+    background: url('/assets/images/Nksboss.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 108px 20px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Add semi-transparent overlay for better readability */
+  .auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
+
+  /* Ensure content is above overlay */
+  .auth-right {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  /* Logo styling for mobile */
+  .logo-section {
+    margin-bottom: 20px;
+  }
+
+  .mobile-logo {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  /* Make labels white for readability */
+  .auth-right label {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  /* Make title white */
+  .auth-right h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hide left image section on mobile */
+  .auth-left {
+    display: none;
+  }
+
+  /* Center switch text */
+  .switch {
+    text-align: center;
+    color: #fff;
+  }
+
+  /* Input fields with better visibility */
+  .auth-right input {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Button enhancement for mobile */
+  .auth-right button {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Header with logo mobile adjustment */
+  .header-with-logo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header-with-logo h2 {
+    margin-bottom: 10px;
+  }
+}
+
+/* Desktop: Keep left section with centered logo */
+@media (min-width: 769px) {
+  .left-content {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+}
+
+/* Animation for logo (optional) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+

@@ -86,5 +86,7 @@ export class LoginComponent {
   togglePassword() {
     this.showPassword = !this.showPassword;
   }
-
+isMobile(){
+  return false
+}
 }

@@ -1,0 +1,117 @@
+<div class="logo-container" [class.animated]="animated">
+  <!-- Logo SVG -->
+  <svg 
+    [attr.width]="size" 
+    [attr.height]="size" 
+    viewBox="0 0 200 200" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    class="network-logo"
+  >
+    <!-- Glow effects (animated) -->
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      
+      <!-- Gradient for lines -->
+      <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" [attr.stop-color]="colors.v" stop-opacity="0.6">
+          <animate attributeName="stop-opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+        </stop>
+        <stop offset="100%" [attr.stop-color]="colors.d" stop-opacity="0.6">
+          <animate attributeName="stop-opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+        </stop>
+      </linearGradient>
+    </defs>
+    
+    <!-- Connection lines with animation -->
+    <g class="connection-lines">
+      <line x1="60" y1="60" x2="100" y2="100" stroke="url(#lineGradient)" stroke-width="3" class="line line-1">
+        <animate attributeName="stroke-opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
+      </line>
+      <line x1="140" y1="60" x2="100" y2="100" stroke="url(#lineGradient)" stroke-width="3" class="line line-2">
+        <animate attributeName="stroke-opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/>
+      </line>
+      <line x1="60" y1="140" x2="100" y2="100" stroke="url(#lineGradient)" stroke-width="3" class="line line-3">
+        <animate attributeName="stroke-opacity" values="0.4;0.9;0.4" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+      </line>
+      <line x1="140" y1="140" x2="100" y2="100" stroke="url(#lineGradient)" stroke-width="3" class="line line-4">
+        <animate attributeName="stroke-opacity" values="0.9;0.4;0.9" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+      </line>
+      <line x1="60" y1="60" x2="140" y2="60" stroke="url(#lineGradient)" stroke-width="3" class="line line-5">
+        <animate attributeName="stroke-opacity" values="0.3;0.7;0.3" dur="3s" begin="1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="60" y1="140" x2="140" y2="140" stroke="url(#lineGradient)" stroke-width="3" class="line line-6">
+        <animate attributeName="stroke-opacity" values="0.7;0.3;0.7" dur="3s" begin="1s" repeatCount="indefinite"/>
+      </line>
+    </g>
+    
+    <!-- Corner nodes - VDS with pulse animation -->
+    <g class="node-v">
+      <circle cx="60" cy="60" r="25" [attr.fill]="colors.v" class="node-circle" filter="url(#glow)">
+        <animate attributeName="r" values="25;27;25" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="60" cy="60" r="25" [attr.fill]="colors.v" opacity="0.3" class="pulse-ring">
+        <animate attributeName="r" values="25;35;25" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="60" y="70" font-size="24" font-weight="bold" fill="white" text-anchor="middle" class="node-text">V</text>
+    </g>
+    
+    <g class="node-d">
+      <circle cx="140" cy="60" r="25" [attr.fill]="colors.d" class="node-circle" filter="url(#glow)">
+        <animate attributeName="r" values="25;27;25" dur="2s" begin="0.66s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="140" cy="60" r="25" [attr.fill]="colors.d" opacity="0.3" class="pulse-ring">
+        <animate attributeName="r" values="25;35;25" dur="2s" begin="0.66s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" begin="0.66s" repeatCount="indefinite"/>
+      </circle>
+      <text x="140" y="70" font-size="24" font-weight="bold" fill="white" text-anchor="middle" class="node-text">D</text>
+    </g>
+    
+    <g class="node-s">
+      <circle cx="100" cy="140" r="25" [attr.fill]="colors.s" class="node-circle" filter="url(#glow)">
+        <animate attributeName="r" values="25;27;25" dur="2s" begin="1.33s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="140" r="25" [attr.fill]="colors.s" opacity="0.3" class="pulse-ring">
+        <animate attributeName="r" values="25;35;25" dur="2s" begin="1.33s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" begin="1.33s" repeatCount="indefinite"/>
+      </circle>
+      <text x="100" y="150" font-size="24" font-weight="bold" fill="white" text-anchor="middle" class="node-text">S</text>
+    </g>
+    
+    <!-- Center hub with rotation -->
+    <g class="center-hub">
+      <circle cx="100" cy="100" r="30" [attr.fill]="colors.center" class="hub-circle" filter="url(#glow)">
+        <animate attributeName="r" values="30;32;30" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="100" r="30" [attr.fill]="colors.center" opacity="0.2" class="hub-pulse">
+        <animate attributeName="r" values="30;45;30" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <text x="100" y="95" font-size="16" font-weight="bold" fill="white" text-anchor="middle" class="hub-text">EMP</text>
+      <text x="100" y="110" font-size="12" fill="white" text-anchor="middle" class="hub-text">MGMT</text>
+    </g>
+    
+    <!-- Additional employee nodes with bounce -->
+    <g class="small-nodes">
+      <circle cx="60" cy="140" r="8" [attr.fill]="colors.dots" class="small-node">
+        <animate attributeName="cy" values="140;137;140" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="140" cy="140" r="8" [attr.fill]="colors.dots" class="small-node">
+        <animate attributeName="cy" values="140;137;140" dur="2s" begin="1s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </svg>
+
+  <!-- Optional Text -->
+  <div *ngIf="showText" class="logo-text" [style.color]="colors.text">
+    <h3>Employee Management</h3>
+    <p>By Vikas, Datta & Santosh</p>
+  </div>
+</div>

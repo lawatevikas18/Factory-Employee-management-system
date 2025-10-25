@@ -1,66 +1,87 @@
-<div class="factory-container">
-  <div class="header d-flex justify-content-between align-items-center mb-3">
-    <h2>🏭 Factory Details</h2>
-    <div>
+<div class="container py-4 factory-container">
+
+  <!-- 🔹 Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-semibold text-primary">
+      <i class="bi bi-building-gear me-2"></i> Factory Details
+    </h4>
+    <div class="d-flex align-items-center gap-2">
       <input
         type="text"
-        placeholder="🔍 Search..."
+        placeholder="Search factory..."
         [(ngModel)]="searchTerm"
         (input)="filterData()"
-        class="form-control d-inline w-auto me-2"
+        class="form-control form-control-sm"
+        style="max-width: 250px;"
       />
-      <button class="btn btn-primary" (click)="addNew()">
-        ➕ Add Factory
+      <button class="btn btn-primary btn-sm" (click)="addNew()">
+        <i class="bi bi-plus-circle me-1"></i> Add Factory
       </button>
     </div>
   </div>
 
-  <div *ngIf="loading" class="text-center py-3">
-    <i class="fa fa-spinner fa-spin"></i> Loading...
+  <!-- 🔹 Loader -->
+  <div *ngIf="loading" class="text-center py-4 text-muted">
+    <i class="fa fa-spinner fa-spin"></i> Loading factory data...
   </div>
 
-  <div *ngIf="!loading && filteredList.length">
-    <table class="table table-bordered table-striped table-hover">
-      <thead class="table-dark">
-        <tr>
-          <th>#</th>
-          <th>Factory Name</th>
-          <th>Address</th>
-          <th>Customer</th>
-          <th>GSTIN</th>
-          <th>State</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let f of filteredList; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ f.FactoryName }}</td>
-          <td>{{ f.Address }}</td>
-          <td>{{ f.CustomerName }}</td>
-          <td>{{ f.GSTIN }}</td>
-          <td>{{ f.State }}</td>
-          <td>
-            <button class="btn btn-sm btn-info me-2" (click)="editItem(f)">✏️</button>
-            <button class="btn btn-sm btn-danger" (click)="deleteItem(f.factorydetailsID)">🗑️</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- 🔹 Factory Table -->
+  <div *ngIf="!loading && filteredList.length; else noData">
+    <div class="table-wrapper">
+      <table class="table table-hover align-middle text-center">
+        <thead class="table-primary">
+          <tr>
+            <th>#</th>
+            <th>Factory Name</th>
+            <th>Address</th>
+            <th>Customer</th>
+            <th>GSTIN</th>
+            <th>State</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let f of filteredList; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td class="fw-semibold">{{ f.FactoryName }}</td>
+            <td>{{ f.Address }}</td>
+            <td>{{ f.CustomerName }}</td>
+            <td>{{ f.GSTIN }}</td>
+            <td>{{ f.State }}</td>
+            <td>
+              <div class="d-flex justify-content-center gap-2">
+                <button class="btn btn-outline-primary btn-sm" (click)="editItem(f)">
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-outline-danger btn-sm" (click)="deleteItem(f.factorydetailsID)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <div *ngIf="!loading && !filteredList.length" class="text-center text-muted">
-    No records found.
-  </div>
+  <!-- 🔹 No Data Template -->
+  <ng-template #noData>
+    <div class="text-center text-muted py-4">
+      No factory records found.
+    </div>
+  </ng-template>
 
   <!-- 🔹 Add/Edit Modal -->
-  <div *ngIf="selected" class="modal-overlay">
-    <div class="modal-box">
-      <h4>{{ selected.factorydetailsID ? 'Edit Factory' : 'Add Factory' }}</h4>
+  <div *ngIf="selected" class="custom-modal-backdrop">
+    <div class="custom-modal-content large">
+      <h5 class="text-primary fw-semibold mb-3">
+        <i class="bi bi-gear me-2"></i>
+        {{ selected.factorydetailsID ? 'Edit Factory' : 'Add Factory' }}
+      </h5>
 
-      <div class="row g-2">
+      <div class="row g-3">
         <div class="col-md-6" *ngFor="let field of fieldList">
-          <label class="form-label fw-medium">{{ field.label }}</label>
+          <label class="form-label">{{ field.label }}</label>
           <input
             [(ngModel)]="selected[field.key]"
             class="form-control"
@@ -70,8 +91,12 @@
       </div>
 
       <div class="text-end mt-4">
-        <button class="btn btn-success me-2" (click)="save()">💾 Save</button>
-        <button class="btn btn-secondary" (click)="cancel()">❌ Cancel</button>
+        <button class="btn btn-success me-2" (click)="save()">
+          <i class="bi bi-save me-1"></i> Save
+        </button>
+        <button class="btn btn-secondary" (click)="cancel()">
+          <i class="bi bi-x-circle me-1"></i> Cancel
+        </button>
       </div>
     </div>
   </div>

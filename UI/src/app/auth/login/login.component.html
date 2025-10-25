@@ -1,3 +1,4 @@
+<!-- OPTION 1: Logo Above the Title (Recommended) -->
 <div class="auth-wrapper">
   <div class="auth-card">
     <!-- Left Image -->
@@ -7,6 +8,11 @@
 
     <!-- Right Form -->
     <div class="auth-right">
+      <!-- Logo at the top -->
+      <div class="logo-section">
+        <app-network-logo [size]="100" [showText]="false" [colorScheme]="'default'"></app-network-logo>
+      </div>
+
       <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
 
       <!-- Login Form -->
@@ -60,3 +66,5 @@
     </div>
   </div>
 </div>
+
+
