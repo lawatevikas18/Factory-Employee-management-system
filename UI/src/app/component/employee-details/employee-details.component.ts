@@ -16,6 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EmployeeDetailsComponent implements OnInit {
   employeeForm!: FormGroup;
   employees: any[] = [];
+  filteredEmployees: any[] = [];
   isEdit = false;
   selectedId: number | null = null;
   selectedEmployee: any = null;
@@ -27,7 +28,7 @@ export class EmployeeDetailsComponent implements OnInit {
   role:boolean=true;
 
   designations: string[] = ['Manager','Supervisor','Worker','Accountant','Security','Driver'];
-
+searchText:any
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -175,6 +176,7 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employeeService.getEmployees().subscribe({
       next: (res) => {
         this.employees = res;
+        this.filteredEmployees=this.employees
         this.loader.hide();
       },
       error: (err) => {
@@ -197,5 +199,11 @@ export class EmployeeDetailsComponent implements OnInit {
   toUpperCase(event: any) {
     const value = event.target.value.toUpperCase();
     this.employeeForm.get('panCard')?.setValue(value, { emitEvent: false });
+  }
+
+  filterEmployees() {
+    this.filteredEmployees = this.employees.filter(emp =>
+      emp.name.toLowerCase().includes(this.searchText.toLowerCase())
+    );
   }
 }

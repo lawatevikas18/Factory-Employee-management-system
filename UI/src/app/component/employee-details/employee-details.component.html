@@ -117,14 +117,21 @@
 
   <!-- Employee Table -->
   <div *ngIf="!isemployeeForm" class="card shadow p-3 mt-3">
-    <div class="d-flex justify-content-between align-items-center">
-      <h4>Employee List</h4>
-      <button *ngIf="role" class="btn btn-primary" (click)="addNew()">Add New</button>
+    <div class="d-flex justify-content-between align-items-center row">
+      <div class="col-4"> <h4>Employee List</h4></div>
+     <div class="col-6"><input
+            type="text"
+            class="form-control"
+            placeholder="Search by employee name..."
+            [(ngModel)]="searchText"
+            (input)="filterEmployees()" /></div>
+      <div class="col-2"> <button *ngIf="role" class="btn btn-primary" (click)="addNew()">Add New</button></div>
+     
     </div>
 
     <div *ngIf="loading" class="text-info my-2">Loading...</div>
 
-    <div class="table-responsive mt-3" *ngIf="employees.length">
+    <div class="table-responsive mt-3" *ngIf="filteredEmployees.length">
       <table class="table table-bordered table-hover align-middle text-center">
         <thead class="table-light">
           <tr>
@@ -137,7 +144,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let emp of employees; let i = index">
+          <tr *ngFor="let emp of filteredEmployees; let i = index">
             <td>{{ i + 1 }}</td>
             <td>{{ emp.name }}</td>
             <td>{{ emp.mobile1 }}</td>
@@ -159,7 +166,7 @@
       </table>
     </div>
 
-    <div *ngIf="!loading && !employees.length" class="text-muted">No employees found.</div>
+    <div *ngIf="!loading && !filteredEmployees.length" class="text-muted">No employees found.</div>
   </div>
 
   <!-- Employee Details Modal -->
