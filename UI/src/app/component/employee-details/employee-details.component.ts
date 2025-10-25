@@ -27,7 +27,7 @@ export class EmployeeDetailsComponent implements OnInit {
   photoUrl = "https://emp360-001-site1.stempurl.com";
   role:boolean=true;
 
-  designations: string[] = ['Manager','Supervisor','Worker','Accountant','Security','Driver'];
+  designations: string[] = ['Assam Hamal','Assam Mukadum','Bihari Hamal','Bihari Mukadum','U.P.Hamal','U.P.Mukadum','Zarkhand Hamal','Zarkhand Mukadum','Shugar House Mukadum','Shugar House Shilai Mukadum','Conveyor Belt Jali Mukadum','Conveyor Belt Jali Labour','Hamal Kandevali','Hamal General','Shugar House Labour','Shugar House Shilai Labour'];
 searchText:any
   constructor(
     private fb: FormBuilder,
@@ -46,7 +46,7 @@ searchText:any
       name: ['', [Validators.required, Validators.minLength(3)]],
       mobile1: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       mobile2: [''],
-      role: ['', Validators.required],
+      role: ['Select Designation', Validators.required],
       monthlySalary: [0, [Validators.required, Validators.min(1000)]],
       address: [''],
       village: [''],

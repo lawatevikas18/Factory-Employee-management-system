@@ -32,7 +32,7 @@ interface Employee {
 export class AttendanceComponent {
   employees: any[] = [];
   selectedDate: Date = new Date();
-  roles: string[] = ['Supervisor', 'Manager', 'Driver', 'Worker'];
+  roles: string[] = ['Assam Hamal','Assam Mukadum','Bihari Hamal','Bihari Mukadum','U.P.Hamal','U.P.Mukadum','Zarkhand Hamal','Zarkhand Mukadum','Shugar House Mukadum','Shugar House Shilai Mukadum','Conveyor Belt Jali Mukadum','Conveyor Belt Jali Labour','Hamal Kandevali','Hamal General','Shugar House Labour','Shugar House Shilai Labour'];
   selectedDates: string[] = [];
   isAddPopupOpen = false;
   // UI state'
