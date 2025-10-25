@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { InvoiceService } from 'src/app/core/services/invoice.service';
 import { InvoiceFormData, InvoiceTotals } from 'src/app/model/invoice.model';
 
@@ -31,7 +32,8 @@ expandedSections:any = {
   
 };
   constructor(private fb: FormBuilder,
-    private invoiceService:InvoiceService
+    private invoiceService:InvoiceService,
+    private route:Router
   ) {}
 
   ngOnInit(): void {
@@ -265,8 +267,9 @@ expandedSections:any = {
   }
 
   addFactoryDetails(){
-this.showFactoryDetalsForm=true
-this.showItemForm=false
+// this.showFactoryDetalsForm=true
+// this.showItemForm=false
+this.route.navigateByUrl('/factorydetails')
   }
   addItems(){
 this.showFactoryDetalsForm=false
