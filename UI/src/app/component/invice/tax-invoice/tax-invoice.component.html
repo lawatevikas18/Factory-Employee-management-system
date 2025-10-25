@@ -11,6 +11,9 @@
         <i *ngIf="!isGeneratingPdf" class="bi bi-download me-1"></i>
         {{ isGeneratingPdf ? 'Generating...' : 'Download PDF' }}
       </button>
+      <button  type="button" 
+        class="btn btn-primary btn-sm"(click)=saveInvoiceInDb()
+        [disabled]="isGeneratingPdf">Save</button>
     </div>
   </div>
 </div>
@@ -214,6 +217,8 @@
           <div class="col-6 border-end border-dark">
             <div class="border-bottom border-dark p-3">
               <div class="small fw-medium">Total IGST Amount: {{totals.igstAmount}}</div>
+              <div class="small fw-medium">Total IGST Amount: {{totals.cgstAmount}}</div>
+              <div class="small fw-medium">Total IGST Amount: {{totals.sgstAmount}}</div>
             </div>
             <div class="section-header border-bottom border-dark p-3">
               <div class="small fw-medium">Total Invoice Amount: {{totals.total}}</div>

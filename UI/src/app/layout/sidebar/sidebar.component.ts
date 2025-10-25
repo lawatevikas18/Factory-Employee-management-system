@@ -36,7 +36,7 @@ export class SidebarComponent implements OnInit {
   this.loaderService.userName$.subscribe(name => {
   this.userName = name;
 });
-   
+   console.log(this.navdata)
  
   }
 

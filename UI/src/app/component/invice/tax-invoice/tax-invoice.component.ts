@@ -53,7 +53,7 @@ constructor(private invoiceService:InvoiceService){
 
   async onDownloadPdf(): Promise<void> {
     console.log(this.invoiceData)
-    this.saveInvoiceInDb()
+    
     if (this.isGeneratingPdf) {
       return;
     }
@@ -321,9 +321,9 @@ constructor(private invoiceService:InvoiceService){
       customerGSTIN: this.invoiceData?.customerGstin,
       customerState: this.invoiceData?.customerState,
       customerStateCode: this.invoiceData?.customerStateCode,
-      igstRate: this.invoiceData?.igstRate || 0,
-      cgstRate: this.invoiceData?.cgstRate || 0,
-      sgstRate: this.invoiceData?.sgstRate || 0,
+      igstRate: this.data?.igstRate || 0,
+      cgstRate: this.data?.cgstRate || 0,
+      sgstRate: this.data?.sgstRate || 0,
       items: this.invoiceData?.items.map((g, i) => ({
         srNo: g.srNo,
         description: g.description,
@@ -348,4 +348,5 @@ this.invoiceService.create(dto).subscribe({
         error: (err) => alert(err?.message || 'Failed to load invoices')
       });
   }
+ 
 }
