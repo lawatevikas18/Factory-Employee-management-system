@@ -95,7 +95,7 @@ export class FactoryDetailComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then(result => {
       if (result.isConfirmed) {
-        this.http.delete(`${this.baseUrl}/${id}`).subscribe({
+        this.http.delete(`${this.baseUrl}/${id}`,{ headers: this.getHeaders() }).subscribe({
           next: () => {
             Swal.fire('Deleted', 'Factory detail deleted successfully.', 'success');
             this.loadData();
