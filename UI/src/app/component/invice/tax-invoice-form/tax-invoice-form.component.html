@@ -37,277 +37,298 @@
       </div>
 
       <form [formGroup]="invoiceForm" novalidate>
-        <!-- Company Information -->
-        <div class="card mb-4">
-          <div class="card-header">
-            <h5 class="card-title mb-0">Factory Information</h5>
-          </div>
-          <div class="card-body">
-            <div class="row g-3">
-              <div class="col-md-5">
-                <label for="companyName" class="form-label">Company Name *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('companyName')"
-                  id="companyName" 
-                  formControlName="companyName"
-                  placeholder="Enter company name">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('companyName')">
-                  {{ getFieldErrorMessage('companyName') }}
-                </div>
-              </div>
-              <div class="col-md-5">
-                <label for="gstin" class="form-label">GSTIN *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('gstin')"
-                  id="gstin" 
-                  formControlName="gstin"
-                  placeholder="Enter GSTIN">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('gstin')">
-                  {{ getFieldErrorMessage('gstin') }}
-                </div>
-              </div>
-            </div>
+        <!-- Factory Information -->
+<div class="card mb-4">
+  <div 
+    class="card-header d-flex justify-content-between align-items-center cursor-pointer"
+    (click)="toggleSection('factory')"
+  >
+    <h5 class="card-title mb-0">Factory Information</h5>
+    <i class="bi" [ngClass]="expandedSections.factory ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+  </div>
 
-            <div class="row g-3 mt-2">
-              <div class="col-12">
-                <label for="address" class="form-label">Address *</label>
-                <textarea 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('address')"
-                  id="address" 
-                  formControlName="address"
-                  rows="2"
-                  placeholder="Enter complete address"></textarea>
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('address')">
-                  {{ getFieldErrorMessage('address') }}
-                </div>
-              </div>
-            </div>
-
-            <div class="row g-3 mt-2">
-              <div class="col-12">
-                <label for="description" class="form-label">Business Description *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('description')"
-                  id="description" 
-                  formControlName="description"
-                  placeholder="Enter business description">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('description')">
-                  {{ getFieldErrorMessage('description') }}
-                </div>
-              </div>
-            </div>
-
-            <div class="row g-3 mt-2">
-              <div class="col-md-4">
-                <label for="panNo" class="form-label">PAN No. *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('panNo')"
-                  id="panNo" 
-                  formControlName="panNo"
-                  placeholder="Enter PAN number">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('panNo')">
-                  {{ getFieldErrorMessage('panNo') }}
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="state" class="form-label">State *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('state')"
-                  id="state" 
-                  formControlName="state"
-                  placeholder="Enter state">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('state')">
-                  {{ getFieldErrorMessage('state') }}
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="stateCode" class="form-label">State Code *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('stateCode')"
-                  id="stateCode" 
-                  formControlName="stateCode"
-                  placeholder="Enter state code">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('stateCode')">
-                  {{ getFieldErrorMessage('stateCode') }}
-                </div>
-              </div>
-            </div>
-          </div>
+  <div class="card-body" *ngIf="expandedSections.factory">
+    <div class="row g-3">
+      <div class="col-md-5">
+        <label for="companyName" class="form-label">Company Name *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('companyName')"
+          id="companyName" 
+          formControlName="companyName"
+          placeholder="Enter company name">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('companyName')">
+          {{ getFieldErrorMessage('companyName') }}
         </div>
+      </div>
 
-        <!-- Invoice Details -->
-        <div class="card mb-4">
-          <div class="card-header">
-            <h5 class="card-title mb-0">Invoice Details</h5>
-          </div>
-          <div class="card-body">
-            <div class="row g-3">
-              <div class="col-md-3">
-                <label for="invoiceNo" class="form-label">Invoice No. *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('invoiceNo')"
-                  id="invoiceNo" 
-                  formControlName="invoiceNo"
-                  placeholder="Enter invoice number">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('invoiceNo')">
-                  {{ getFieldErrorMessage('invoiceNo') }}
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="invoiceDate" class="form-label">Invoice Date *</label>
-                <input 
-                  type="date" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('invoiceDate')"
-                  id="invoiceDate" 
-                  formControlName="invoiceDate">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('invoiceDate')">
-                  {{ getFieldErrorMessage('invoiceDate') }}
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="workOrderNo" class="form-label">Work Order No. *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('workOrderNo')"
-                  id="workOrderNo" 
-                  formControlName="workOrderNo"
-                  placeholder="Enter work order number">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('workOrderNo')">
-                  {{ getFieldErrorMessage('workOrderNo') }}
-                </div>
-              </div>
-            </div>
-
-            <div class="row g-3 mt-2">
-              <div class="col-6">
-                <label for="workingPeriod" class="form-label">Working Period From*</label>
-                <input 
-                  type="date" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('workingPeriod')"
-                  id="workingPeriod" 
-                  formControlName="workingPeriodFrom"
-                  placeholder="Enter working period (e.g., 01/03/03 TO 17/11/2005)">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('workingPeriod')">
-                  {{ getFieldErrorMessage('workingPeriod') }}
-                </div>
-              </div>
-
-               <div class="col-6">
-                <label for="workingPeriod" class="form-label">Working Period To*</label>
-                <input 
-                  type="date" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('workingPeriod')"
-                  id="workingPeriod" 
-                  formControlName="workingPeriodTo"
-                  placeholder="Enter working period (e.g., 01/03/03 TO 17/11/2005)">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('workingPeriod')">
-                  {{ getFieldErrorMessage('workingPeriod') }}
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="col-md-5">
+        <label for="gstin" class="form-label">GSTIN *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('gstin')"
+          id="gstin" 
+          formControlName="gstin"
+          placeholder="Enter GSTIN">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('gstin')">
+          {{ getFieldErrorMessage('gstin') }}
         </div>
+      </div>
+    </div>
 
-        <!-- Customer Information -->
-        <div class="card mb-4">
-          <div class="card-header">
-            <h5 class="card-title mb-0">Customer Information</h5>
-          </div>
-          <div class="card-body">
-            <div class="row g-3">
-              <div class="col-md-5">
-                <label for="customerName" class="form-label">Customer Name *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('customerName')"
-                  id="customerName" 
-                  formControlName="customerName"
-                  placeholder="Enter customer name">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerName')">
-                  {{ getFieldErrorMessage('customerName') }}
-                </div>
-              </div>
-              <div class="col-md-6">
-                <label for="customerGstin" class="form-label">Customer GSTIN *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('customerGstin')"
-                  id="customerGstin" 
-                  formControlName="customerGstin"
-                  placeholder="Enter customer GSTIN">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerGstin')">
-                  {{ getFieldErrorMessage('customerGstin') }}
-                </div>
-              </div>
-            </div>
-
-            <div class="row g-3 mt-2">
-              <div class="col-12">
-                <label for="customerAddress" class="form-label">Customer Address *</label>
-                <textarea 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('customerAddress')"
-                  id="customerAddress" 
-                  formControlName="customerAddress"
-                  rows="2"
-                  placeholder="Enter customer address"></textarea>
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerAddress')">
-                  {{ getFieldErrorMessage('customerAddress') }}
-                </div>
-              </div>
-            </div>
-
-            <div class="row g-3 mt-2">
-              <div class="col-md-5">
-                <label for="customerState" class="form-label">Customer State *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('customerState')"
-                  id="customerState" 
-                  formControlName="customerState"
-                  placeholder="Enter customer state">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerState')">
-                  {{ getFieldErrorMessage('customerState') }}
-                </div>
-              </div>
-              <div class="col-md-6">
-                <label for="customerStateCode" class="form-label">Customer State Code *</label>
-                <input 
-                  type="text" 
-                  class="form-control"
-                  [class.is-invalid]="isFieldInvalid('customerStateCode')"
-                  id="customerStateCode" 
-                  formControlName="customerStateCode"
-                  placeholder="Enter customer state code">
-                <div class="invalid-feedback" *ngIf="isFieldInvalid('customerStateCode')">
-                  {{ getFieldErrorMessage('customerStateCode') }}
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="row g-3 mt-2">
+      <div class="col-12">
+        <label for="address" class="form-label">Address *</label>
+        <textarea 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('address')"
+          id="address" 
+          formControlName="address"
+          rows="2"
+          placeholder="Enter complete address"></textarea>
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('address')">
+          {{ getFieldErrorMessage('address') }}
         </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-2">
+      <div class="col-12">
+        <label for="description" class="form-label">Business Description *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('description')"
+          id="description" 
+          formControlName="description"
+          placeholder="Enter business description">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('description')">
+          {{ getFieldErrorMessage('description') }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-4">
+        <label for="panNo" class="form-label">PAN No. *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('panNo')"
+          id="panNo" 
+          formControlName="panNo"
+          placeholder="Enter PAN number">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('panNo')">
+          {{ getFieldErrorMessage('panNo') }}
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="state" class="form-label">State *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('state')"
+          id="state" 
+          formControlName="state"
+          placeholder="Enter state">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('state')">
+          {{ getFieldErrorMessage('state') }}
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="stateCode" class="form-label">State Code *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('stateCode')"
+          id="stateCode" 
+          formControlName="stateCode"
+          placeholder="Enter state code">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('stateCode')">
+          {{ getFieldErrorMessage('stateCode') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Invoice Details -->
+<div class="card mb-4">
+  <div 
+    class="card-header d-flex justify-content-between align-items-center cursor-pointer"
+    (click)="toggleSection('invoice')"
+  >
+    <h5 class="card-title mb-0">Invoice Details</h5>
+    <i class="bi" [ngClass]="expandedSections.invoice ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+  </div>
+
+  <div class="card-body" *ngIf="expandedSections.invoice">
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label for="invoiceNo" class="form-label">Invoice No. *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('invoiceNo')"
+          id="invoiceNo" 
+          formControlName="invoiceNo"
+          placeholder="Enter invoice number">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('invoiceNo')">
+          {{ getFieldErrorMessage('invoiceNo') }}
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="invoiceDate" class="form-label">Invoice Date *</label>
+        <input 
+          type="date" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('invoiceDate')"
+          id="invoiceDate" 
+          formControlName="invoiceDate">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('invoiceDate')">
+          {{ getFieldErrorMessage('invoiceDate') }}
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="workOrderNo" class="form-label">Work Order No. *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('workOrderNo')"
+          id="workOrderNo" 
+          formControlName="workOrderNo"
+          placeholder="Enter work order number">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('workOrderNo')">
+          {{ getFieldErrorMessage('workOrderNo') }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-2">
+      <div class="col-6">
+        <label for="workingPeriodFrom" class="form-label">Working Period From *</label>
+        <input 
+          type="date" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('workingPeriodFrom')"
+          id="workingPeriodFrom" 
+          formControlName="workingPeriodFrom">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('workingPeriodFrom')">
+          {{ getFieldErrorMessage('workingPeriodFrom') }}
+        </div>
+      </div>
+
+      <div class="col-6">
+        <label for="workingPeriodTo" class="form-label">Working Period To *</label>
+        <input 
+          type="date" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('workingPeriodTo')"
+          id="workingPeriodTo" 
+          formControlName="workingPeriodTo">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('workingPeriodTo')">
+          {{ getFieldErrorMessage('workingPeriodTo') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Customer Information -->
+<div class="card mb-4">
+  <div 
+    class="card-header d-flex justify-content-between align-items-center cursor-pointer"
+    (click)="toggleSection('customer')"
+  >
+    <h5 class="card-title mb-0">Customer Information</h5>
+    <i class="bi" [ngClass]="expandedSections.customer ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+  </div>
+
+  <div class="card-body" *ngIf="expandedSections.customer">
+    <div class="row g-3">
+      <div class="col-md-5">
+        <label for="customerName" class="form-label">Customer Name *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('customerName')"
+          id="customerName" 
+          formControlName="customerName"
+          placeholder="Enter customer name">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('customerName')">
+          {{ getFieldErrorMessage('customerName') }}
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="customerGstin" class="form-label">Customer GSTIN *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('customerGstin')"
+          id="customerGstin" 
+          formControlName="customerGstin"
+          placeholder="Enter customer GSTIN">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('customerGstin')">
+          {{ getFieldErrorMessage('customerGstin') }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-2">
+      <div class="col-12">
+        <label for="customerAddress" class="form-label">Customer Address *</label>
+        <textarea 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('customerAddress')"
+          id="customerAddress" 
+          formControlName="customerAddress"
+          rows="2"
+          placeholder="Enter customer address"></textarea>
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('customerAddress')">
+          {{ getFieldErrorMessage('customerAddress') }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-5">
+        <label for="customerState" class="form-label">Customer State *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('customerState')"
+          id="customerState" 
+          formControlName="customerState"
+          placeholder="Enter customer state">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('customerState')">
+          {{ getFieldErrorMessage('customerState') }}
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="customerStateCode" class="form-label">Customer State Code *</label>
+        <input 
+          type="text" 
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('customerStateCode')"
+          id="customerStateCode" 
+          formControlName="customerStateCode"
+          placeholder="Enter customer state code">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('customerStateCode')">
+          {{ getFieldErrorMessage('customerStateCode') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         <!-- Invoice Items -->
         <div class="card mb-4">

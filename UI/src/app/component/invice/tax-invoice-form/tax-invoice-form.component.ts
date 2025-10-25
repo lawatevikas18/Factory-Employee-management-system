@@ -22,12 +22,13 @@ showCustomerSection = true;
 showTaxSection = true;
 showSummarySection = true;
 expandedSections:any = {
-  factory: true,
+  factory: false,
   invoice: true,
-  customer: true,
+  customer: false,
   items: true,
   tax: true,
   summary: true
+  
 };
   constructor(private fb: FormBuilder,
     private invoiceService:InvoiceService
@@ -295,7 +296,8 @@ this.showItemForm=false
       });
   }
   
-toggleSection(section: string) {
+
+toggleSection(section: any): void {
   this.expandedSections[section] = !this.expandedSections[section];
 }
 }
