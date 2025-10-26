@@ -18,6 +18,8 @@ const routes: Routes = [
     { path: 'Invoice', loadChildren: () => import('../component/invice/invice.module').then(m => m.InviceModule)},
     { path: 'Superwiser', loadChildren: () => import('../component/user-list/user-list.module').then(m => m.UserListModule)},
     { path: 'factorydetails', loadChildren: () => import('../component/factory-detail/factory-detail.module').then(m => m.FactoryDetailModule)},
+    { path: 'Resister', loadChildren: () => import('../register/register.module').then(m => m.RegisterModule)},
+
 
 
     ]

@@ -12,7 +12,7 @@ import { LoaderService } from 'src/app/core/services/loader.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  isLoginMode = false; // toggle between login and register
+  isLoginMode = true; // toggle between login and register
   loginForm: FormGroup;
   registerForm: FormGroup;
   message: string = '';

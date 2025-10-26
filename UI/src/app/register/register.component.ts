@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environment/environment';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,22 +16,23 @@ userForm!: FormGroup;
   selectedImage: File | null = null;
   previewUrl: string | ArrayBuffer | null = null;
   isSubmitting = false;
-  appurl=`${environment.apiUrl}/register`
+  message:any
+ // appurl=`${environment.apiUrl}/register`
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, 
+    private router: Router,private authService:AuthService) {}
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
-      adminId: ['', Validators.required],
-      name: ['', [Validators.required, Validators.maxLength(100)]],
-      address: [''],
-      aadhaar: ['', [Validators.required, Validators.pattern(/^\d{12}$/)]],
-      panCard: ['', [Validators.pattern(/^[A-Z]{5}\d{4}[A-Z]{1}$/)]],
-      mobileNumber: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
-      role: ['', Validators.required],
-      factoryName: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      image: [null]
+      Name: ['', [Validators.required, Validators.maxLength(100)]],
+      Address: [''],
+      Aadhaar: ['', [Validators.required, Validators.pattern(/^\d{12}$/)]],
+      PanCard: [''],
+      MobileNumber: ['', [Validators.required]],
+      Role: ['', Validators.required],
+      FactoryName: ['', Validators.required],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
+      Image: [null]
     });
   }
 
@@ -46,7 +48,7 @@ userForm!: FormGroup;
 
   submitForm(): void {
     console.log(this.userForm.invalid)
-    if (!this.userForm.invalid) return ;
+    if (this.userForm.invalid) return ;
 
     const formData = new FormData();
     Object.entries(this.userForm.value).forEach(([key, value]) => {
@@ -55,23 +57,20 @@ userForm!: FormGroup;
       }
     });
     if (this.selectedImage) {
-      formData.append('image', this.selectedImage);
+      formData.append('Image', this.selectedImage);
     }
 
-    this.isSubmitting = true;
-    this.http.post(this.appurl, formData).subscribe({
-      next: (res: any) => {
-        alert('✅ User added successfully!');
-        this.userForm.reset();
-        this.previewUrl = null;
-        this.isSubmitting = false;
-        this.router.navigate(['/user-list']);
-      },
-      error: (err) => {
-        alert('❌ ' + (err.error?.message || 'Something went wrong'));
-        this.isSubmitting = false;
-      }
-    });
+   
+     if (this.userForm.valid) {
+      this.authService.register(this.userForm.value).subscribe({
+        next: res => {
+          // this.message = res.message;
+          // this.registerForm.reset();
+          // this.isLoginMode = true;
+        },
+        error: err => this.message = err.error || 'Registration failed!'
+      });
+    }
   }
 
 }

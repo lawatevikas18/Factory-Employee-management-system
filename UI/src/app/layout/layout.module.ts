@@ -7,6 +7,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { BodyComponent } from './body/body.component';
+import { RegisterComponent } from '../register/register.component';
 
 
 

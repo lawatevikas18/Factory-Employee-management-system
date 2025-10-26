@@ -15,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
 import { LoaderComponent } from './layout/loader/loader.component';
 import { ErrorPopUpComponent } from './layout/error-pop-up/error-pop-up.component';
 import { InviceModule } from './component/invice/invice.module';
+import { RegisterModule } from './register/register.module';
 // app.module.ts
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     CoreModule,
     LayoutModule,
     EmployeeDetailsModule,
+    RegisterModule,
    ToastrModule.forRoot({
   positionClass: 'toast-center',   // custom class for center
   closeButton: false,

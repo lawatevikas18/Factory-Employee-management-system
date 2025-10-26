@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { EmployeeService } from 'src/app/core/services/employee.service';
 import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
@@ -33,7 +34,8 @@ export class DashboardComponent {
     private employeeService: EmployeeService,
     private errorMsg: ErrorPopUpService,
     private authService: AuthService,
-    private session: SessionService
+    private session: SessionService,
+    private route:Router
   ) {}
 
   ngOnInit(): void {
@@ -81,5 +83,8 @@ export class DashboardComponent {
       },
       complete: () => this.loader.hide()
     });
+  }
+  register(){
+    this.route.navigateByUrl('/Resister')
   }
 }
