@@ -3,28 +3,22 @@
   justify-content: center;
   align-items: flex-start;
   padding: 1rem;
-  background-color: #f9fafb;
   background-color: #f3f4f6;
   min-height: 100vh;
 }
 
 .form-card {
-  background: #fff;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 2rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   padding: 1.8rem 2rem;
   width: 100%;
   max-width: 600px;
-  transition: all 0.3s ease;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .title {
   text-align: center;
-  color: #2563eb;
   color: #1d4ed8;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -44,20 +38,16 @@
 label {
   font-weight: 600;
   color: #374151;
-  margin-bottom: 0.25rem;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
 }
 
 input,
 select {
-  padding: 0.6rem;
   padding: 0.6rem 0.8rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   outline: none;
-  font-size: 0.95rem;
-  transition: border-color 0.2s;
   font-size: 0.9rem;
   background-color: #f9fafb;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -66,7 +56,6 @@ select {
 input:focus,
 select:focus {
   border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
   background-color: #fff;
 }
@@ -103,7 +92,6 @@ select:focus {
   margin-top: 1.5rem;
   cursor: pointer;
   font-size: 1rem;
-  transition: background 0.3s;
   transition: background 0.3s ease, transform 0.2s;
 }
 
@@ -139,7 +127,6 @@ select:focus {
   }
 
   .form-card {
-    padding: 1.2rem;
     padding: 1.2rem 1rem;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);

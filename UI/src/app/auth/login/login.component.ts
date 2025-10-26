@@ -12,7 +12,6 @@ import { LoaderService } from 'src/app/core/services/loader.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  isLoginMode = true; // toggle between login and register
   // isLoginMode = true; // toggle between login and register
   loginForm: FormGroup;
   registerForm: FormGroup;
@@ -43,10 +42,6 @@ export class LoginComponent {
     });
   }
 
-  toggleMode() {
-    this.isLoginMode = !this.isLoginMode;
-    this.message = '';
-  }
   // toggleMode() {
   //   this.isLoginMode = !this.isLoginMode;
   //   this.message = '';
@@ -75,18 +70,6 @@ export class LoginComponent {
     }
   }
 
-  register() {
-    if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe({
-        next: res => {
-          this.message = res.message;
-          this.registerForm.reset();
-          this.isLoginMode = true;
-        },
-        error: err => this.message = err.error || 'Registration failed!'
-      });
-    }
-  }
   // register() {
   //   if (this.registerForm.valid) {
   //     this.authService.register(this.registerForm.value).subscribe({

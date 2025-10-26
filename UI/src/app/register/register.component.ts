@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { environment } from 'src/environment/environment';
 import { AuthService } from '../core/services/auth.service';
 
 @Component({
@@ -11,20 +9,13 @@ import { AuthService } from '../core/services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
-
-userForm!: FormGroup;
 export class RegisterComponent implements OnInit {
   userForm!: FormGroup;
   selectedImage: File | null = null;
   previewUrl: string | ArrayBuffer | null = null;
   isSubmitting = false;
-  message:any
- // appurl=`${environment.apiUrl}/register`
   message: string | null = null;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, 
-    private router: Router,private authService:AuthService) {}
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -35,10 +26,8 @@ export class RegisterComponent implements OnInit {
     this.userForm = this.fb.group({
       Name: ['', [Validators.required, Validators.maxLength(100)]],
       Address: [''],
-      Aadhaar: ['', [Validators.required, Validators.pattern(/^\d{12}$/)]],
       Aadhaar: [''],
       PanCard: [''],
-      MobileNumber: ['', [Validators.required]],
       MobileNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       Role: ['', Validators.required],
       FactoryName: ['', Validators.required],
@@ -58,8 +47,6 @@ export class RegisterComponent implements OnInit {
   }
 
   submitForm(): void {
-    console.log(this.userForm.invalid)
-    if (this.userForm.invalid) return ;
     if (this.userForm.invalid) return;
 
     const formData = new FormData();
@@ -72,18 +59,6 @@ export class RegisterComponent implements OnInit {
       formData.append('Image', this.selectedImage);
     }
 
-   
-     if (this.userForm.valid) {
-      this.authService.register(this.userForm.value).subscribe({
-        next: res => {
-          // this.message = res.message;
-          // this.registerForm.reset();
-          // this.isLoginMode = true;
-        },
-        error: err => this.message = err.error || 'Registration failed!'
-      });
-    }
-  }
     this.isSubmitting = true;
     this.message = null;
 

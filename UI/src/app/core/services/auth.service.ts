@@ -9,10 +9,6 @@ export class AuthService {
     
   } 
   private baseUrl = `${environment.apiUrl}/`;
-
-
-
-
   private TOKEN_KEY = 'jwt_token';
 
 
@@ -77,10 +73,6 @@ getReport(requestdata:any): Observable<any> {
   }
 
 
-   //datta 
-  register(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}Auth/register`, data);
-  }
  
   // register(data: any): Observable<any> {
   //   return this.http.post(`${this.baseUrl}Auth/register`, data);

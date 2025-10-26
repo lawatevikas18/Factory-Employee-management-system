@@ -4,7 +4,6 @@
 
     <form [formGroup]="userForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
       <div class="grid-container">
-
         <div class="form-group">
           <label>Full Name</label>
           <input type="text" formControlName="Name" />
@@ -46,7 +45,6 @@
           <label>Designation</label>
           <select formControlName="Role">
             <option value="">Select Role</option>
-           
             <option value="Admin">Admin</option>
             <option value="supervisor">supervisor</option>
           </select>
@@ -84,7 +82,6 @@
       </div>
 
       <button type="submit" class="submit-btn" [disabled]="isSubmitting">
-      Add User
         Add User
       </button>
 
