@@ -13,6 +13,7 @@ import { LoaderService } from 'src/app/core/services/loader.service';
 })
 export class LoginComponent {
   isLoginMode = true; // toggle between login and register
+  // isLoginMode = true; // toggle between login and register
   loginForm: FormGroup;
   registerForm: FormGroup;
   message: string = '';
@@ -46,6 +47,10 @@ export class LoginComponent {
     this.isLoginMode = !this.isLoginMode;
     this.message = '';
   }
+  // toggleMode() {
+  //   this.isLoginMode = !this.isLoginMode;
+  //   this.message = '';
+  // }
 
   login() {
     
@@ -82,6 +87,18 @@ export class LoginComponent {
       });
     }
   }
+  // register() {
+  //   if (this.registerForm.valid) {
+  //     this.authService.register(this.registerForm.value).subscribe({
+  //       next: (res: any) => {
+  //         this.message = res.message;
+  //         this.registerForm.reset();
+  //         this.isLoginMode = true;
+  //       },
+  //       error: err => this.message = err.error || 'Registration failed!'
+  //     });
+  //   }
+  // }
 
   togglePassword() {
     this.showPassword = !this.showPassword;

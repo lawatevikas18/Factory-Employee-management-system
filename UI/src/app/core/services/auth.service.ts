@@ -81,6 +81,10 @@ getReport(requestdata:any): Observable<any> {
   register(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}Auth/register`, data);
   }
+ 
+  // register(data: any): Observable<any> {
+  //   return this.http.post(`${this.baseUrl}Auth/register`, data);
+  // }
 
   login(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}Auth/login`, data);
@@ -95,6 +99,21 @@ return this.role
   // setUserRole(userole:any){
   //   this.role=userole
   // }
+
+
+  register(formData: FormData) {
+    return this.http.post(`${this.baseUrl}Auth/register`, formData);
+  }
+   
+
+  updateUser(id: number, formData: FormData) {
+    return this.http.put(`${this.baseUrl}Auth/update/${id}`, formData);
+  }
+
+  getUserById(id: number) {
+    return this.http.get(`${this.baseUrl}Auth/user/${id}`);
+  }
+
 }
 
 

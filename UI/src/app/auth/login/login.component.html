@@ -14,9 +14,11 @@
       </div>
 
       <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
+      <!-- <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2> -->
 
       <!-- Login Form -->
       <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="login()">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <label>Mobile Number</label>
         <input type="text" formControlName="mobileNumber" placeholder="Mobile Number">
         
