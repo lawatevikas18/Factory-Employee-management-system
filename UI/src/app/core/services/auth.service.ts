@@ -7,8 +7,7 @@ export class AuthService {
  private role:any
   constructor(private http: HttpClient) {
     
-  }
-  private baseUrl = 'https://emp360-001-site1.stempurl.com/api/'; 
+  } 
   private baseUrl = `${environment.apiUrl}/`;
 
 

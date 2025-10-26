@@ -7,10 +7,11 @@ import { OptComponent } from './opt/opt.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NetworkLogoComponent } from './network-logo/network-logo.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, OptComponent, NetworkLogoComponent],
+  declarations: [LoginComponent, OptComponent, NetworkLogoComponent, RegisterComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
