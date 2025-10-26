@@ -4,6 +4,7 @@ import { EmployeeService } from 'src/app/core/services/employee.service';
 import { ErrorPopUpService } from 'src/app/core/services/error-pop-up.service';
 import { LoaderService } from 'src/app/core/services/loader.service';
 import { SessionService } from 'src/app/core/services/session.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,7 @@ export class DashboardComponent {
   factoryName = '';
   role = '';
   imageurl = ''
+  photoUrl = environment.photoUrl;
 
   attendancePercentage = 0;
   siteOperationalPercentage = 0;
@@ -53,7 +55,7 @@ export class DashboardComponent {
     this.employeeService.getDashBoardData().subscribe({
       next: (res) => {
         this.userName = res.userName;
-        this.imageurl = res.imagePath;
+        this.imageurl = res.imageurl;
         this.factoryName = res.factoryName;
         this.role = res.role;
         this.totalEmployees = res.employee_count;

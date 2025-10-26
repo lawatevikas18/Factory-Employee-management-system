@@ -9,6 +9,7 @@ export class AuthService {
     
   }
   private baseUrl = 'https://emp360-001-site1.stempurl.com/api/'; 
+  private baseUrl = `${environment.apiUrl}/`;
   private TOKEN_KEY = 'jwt_token';
 
 

@@ -30,6 +30,7 @@ export interface EmployeeWallet {
 })
 export class EmployeeService {
   private apiUrl = `${environment.apiUrl}/Employee`;
+  private photoUrl = environment.photoUrl;
 
   constructor(private http: HttpClient) {}
    private getHeaders() {
