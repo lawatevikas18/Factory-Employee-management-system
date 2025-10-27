@@ -72,11 +72,7 @@ getReport(requestdata:any): Observable<any> {
     return sessionStorage.getItem(this.TOKEN_KEY);
   }
 
-
  
-  // register(data: any): Observable<any> {
-  //   return this.http.post(`${this.baseUrl}Auth/register`, data);
-  // }
 
   login(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}Auth/login`, data);
@@ -105,6 +101,14 @@ return this.role
   getUserById(id: number) {
     return this.http.get(`${this.baseUrl}Auth/user/${id}`);
   }
+
+  
+getUsers(): Observable<any> {
+  return this.http.get<any>(`${this.baseUrl}Auth`);
+}
+
+
+ 
 
 }
 

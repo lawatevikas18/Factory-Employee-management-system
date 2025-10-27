@@ -1,160 +1,256 @@
-.add-user-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 1rem;
-  background-color: #f3f4f6;
+:host {
+  display: block;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  color: #1f2937;
+}
+
+/* 🌐 Page Layout */
+.user-page-container {
+  padding: 1.5rem;
+  background-color: #f9fafb;
   min-height: 100vh;
 }
 
-.form-card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 1.8rem 2rem;
-  width: 100%;
-  max-width: 600px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.title {
+.page-title {
   text-align: center;
-  color: #1d4ed8;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 
-.grid-container {
+/* 🔄 Loading */
+.loading-text {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* 🧾 User Grid */
+.user-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+.user-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
 }
 
-label {
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
+.user-card:hover {
+  transform: translateY(-4px);
 }
 
-input,
-select {
-  padding: 0.6rem 0.8rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  outline: none;
-  font-size: 0.9rem;
-  background-color: #f9fafb;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-input:focus,
-select:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
-  background-color: #fff;
-}
-
-.image-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-.preview {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.preview img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
+/* 🖼️ Avatar */
+.avatar-ring {
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  padding: 3px;
   border-radius: 50%;
-  border: 2px solid #2563eb;
-  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
+  display: inline-block;
 }
 
-.submit-btn {
-  width: 100%;
+.avatar-ring img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+}
+
+/* ✏️ Edit Button */
+.edit-btn {
   background-color: #2563eb;
   color: #fff;
-  font-weight: 600;
   border: none;
-  border-radius: 8px;
-  padding: 0.75rem;
-  margin-top: 1.5rem;
+  border-radius: 0.6rem;
+  padding: 0.45rem 1rem;
+  margin-top: 0.75rem;
+  width: 100%;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease, transform 0.2s;
+  font-size: 0.9rem;
+  transition: background 0.25s ease;
 }
 
-.submit-btn:hover {
-  background-color: #1e40af;
-  transform: scale(1.01);
+.edit-btn:hover {
+  background-color: #1d4ed8;
 }
 
-.submit-btn:disabled {
-  background-color: #9ca3af;
-  cursor: not-allowed;
+/* 🔲 Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 100;
 }
 
-.error small {
-  color: #dc2626;
-  font-size: 0.75rem;
-  margin-top: 0.2rem;
-  display: block;
+/* 🧩 Modal Content */
+.modal-content {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.2rem;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease, slideUp 0.3s ease;
+  position: relative;
 }
 
-.error-message {
-  margin-top: 1rem;
-  color: #dc2626;
-  font-weight: 600;
+/* 🔘 Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ef4444;
+}
+
+/* 🧾 Modal Title */
+.modal-title {
   text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
-/* ✅ Mobile view optimization */
-@media (max-width: 600px) {
-  .add-user-container {
-    padding: 0.8rem;
-    align-items: flex-start;
+/* 🧍 Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.form-grid label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.3rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+/* 🖼️ Preview Image */
+.image-preview {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.image-preview img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ✅ Buttons */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.actions button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.cancel-btn {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.cancel-btn:hover {
+  background: #d1d5db;
+}
+
+.save-btn {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 1rem;
+    max-width: 400px;
   }
 
-  .form-card {
-    padding: 1.2rem 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
   }
 
-  .title {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+  .form-input {
+    font-size: 0.95rem;
   }
 
-  label {
-    font-size: 0.85rem;
+  .modal-title {
+    font-size: 1.2rem;
   }
 
-  input,
-  select {
-    padding: 0.55rem 0.7rem;
-    font-size: 0.85rem;
+  .image-preview img {
+    width: 70px;
+    height: 70px;
   }
 
-  .preview img {
-    width: 60px;
-    height: 60px;
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .submit-btn {
-    font-size: 0.9rem;
-    padding: 0.7rem;
-    margin-top: 1rem;
+  .actions button {
+    width: 100%;
   }
 }

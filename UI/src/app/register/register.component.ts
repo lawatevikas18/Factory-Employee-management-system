@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../core/services/auth.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-register',
@@ -10,68 +11,87 @@ import { AuthService } from '../core/services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+   users: any[] = [];
+  loading = true;
+  editMode = false;
+  selectedUser: any = null;
   userForm!: FormGroup;
-  selectedImage: File | null = null;
-  previewUrl: string | ArrayBuffer | null = null;
-  isSubmitting = false;
-  message: string | null = null;
+  previewImage?: string;
+  selectedImage?: File;
+  photoUrl = environment.photoUrl;
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private userService: AuthService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.userForm = this.fb.group({
-      Name: ['', [Validators.required, Validators.maxLength(100)]],
-      Address: [''],
-      Aadhaar: [''],
-      PanCard: [''],
-      MobileNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      Role: ['', Validators.required],
-      FactoryName: ['', Validators.required],
-      Password: ['', [Validators.required, Validators.minLength(6)]],
-      Image: [null]
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.loading = true;
+    this.userService.getUsers().subscribe({
+      next: (res:any) => {
+        console.log("Users",res)
+        this.users = res.users;
+        this.loading = false;
+      },
+      
+      error: (err) => {
+         console.log("Users",err)
+         this.loading = false
+        }
     });
   }
 
-  onFileSelected(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      this.selectedImage = file;
-      const reader = new FileReader();
-      reader.onload = () => (this.previewUrl = reader.result);
-      reader.readAsDataURL(file);
-    }
+  startEdit(user: any) {
+    this.selectedUser = user;
+    this.editMode = true;
+    this.userForm = this.fb.group({
+      name: [user.name, Validators.required],
+      address: [user.address],
+      aadhaar: [user.aadhaar],
+      panCard: [user.panCard],
+      mobileNumber: [user.mobileNumber, Validators.required],
+      role: [user.role, Validators.required],
+      factoryName: [user.factoryName],
+      password: ['']
+    });
+    this.previewImage = environment.photoUrl + user.imagePath;
+    console.log("Selected User Image:", this.previewImage);
   }
 
-  submitForm(): void {
-    if (this.userForm.invalid) return;
+  cancelEdit() {
+    this.editMode = false;
+    this.selectedUser = null;
+    this.userForm.reset();
+    this.previewImage = undefined;
+  }
+
+  onFileChange(event: any) {
+    this.selectedImage = event.target.files[0];
+     if (!this.selectedImage) return;
+    const reader = new FileReader();
+    reader.onload = (e) => (this.previewImage = e.target?.result as string);
+    reader.readAsDataURL(this.selectedImage);
+  }
+ 
+
+  updateUser() {
+    if (!this.selectedUser) return;
 
     const formData = new FormData();
-    Object.entries(this.userForm.value).forEach(([key, value]) => {
-      if (value !== null && value !== undefined) {
-        formData.append(key, value as string);
-      }
+    Object.keys(this.userForm.value).forEach(key => {
+      formData.append(key, this.userForm.value[key]);
     });
-    if (this.selectedImage) {
-      formData.append('Image', this.selectedImage);
-    }
+    if (this.selectedImage) formData.append('image', this.selectedImage);
 
-    this.isSubmitting = true;
-    this.message = null;
-
-    this.authService.register(formData).subscribe({
-      next: (res: any) => {
-        this.isSubmitting = false;
-        this.message = res.message || 'User registered successfully!';
-        this.userForm.reset();
-        this.previewUrl = null;
+    this.userService.updateUser(this.selectedUser.userId, formData).subscribe({
+      next: () => {
+        alert('✅ User updated successfully!');
+        this.loadUsers();
+        this.cancelEdit();
       },
-      error: (err: any) => {
-        this.isSubmitting = false;
-        this.message = err.error?.error || 'Registration failed!';
+      error: (err) => {
+        alert('❌ Error updating user: ' + (err.error?.error || err.message));
       }
     });
   }

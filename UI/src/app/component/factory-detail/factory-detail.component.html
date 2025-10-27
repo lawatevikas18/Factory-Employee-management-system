@@ -33,29 +33,25 @@
           <tr>
             <th>#</th>
             <th>Factory Name</th>
-            <th>Address</th>
-            <th>Customer</th>
-            <th>GSTIN</th>
-            <th>State</th>
+            <th>Description</th>
+            <th>customerName</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let f of filteredList; let i = index">
             <td>{{ i + 1 }}</td>
-            <td class="fw-semibold">{{ f.FactoryName }}</td>
-            <td>{{ f.Address }}</td>
-            <td>{{ f.CustomerName }}</td>
-            <td>{{ f.GSTIN }}</td>
-            <td>{{ f.State }}</td>
+            <td class="fw-semibold">{{ f.factoryName}}</td>
+            <td>{{ f.description || '-'  }}</td>
+            <td>{{ f.customerName || '-' }}</td>
             <td>
               <div class="d-flex justify-content-center gap-2">
                 <button class="btn btn-outline-primary btn-sm" (click)="editItem(f)">
                   <i class="bi bi-pencil"></i>
                 </button>
-                <button class="btn btn-outline-danger btn-sm" (click)="deleteItem(f.factorydetailsID)">
+                <!-- <button class="btn btn-outline-danger btn-sm" (click)="deleteItem(f.factorydetailsID)">
                   <i class="bi bi-trash"></i>
-                </button>
+                </button> -->
               </div>
             </td>
           </tr>

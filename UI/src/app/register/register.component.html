@@ -1,93 +1,83 @@
-<div class="add-user-container">
-  <div class="form-card">
-    <h2 class="title">Add New User</h2>
+<div class="user-page-container">
+  <h2 class="page-title">👥 User Management</h2>
 
-    <form [formGroup]="userForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
-      <div class="grid-container">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" formControlName="Name" />
-          <div class="error" *ngIf="userForm.get('Name')?.touched && userForm.get('Name')?.invalid">
-            <small *ngIf="userForm.get('Name')?.errors?.['required']">Name is required.</small>
-            <small *ngIf="userForm.get('Name')?.errors?.['maxLength']">Name cannot exceed 100 characters.</small>
-          </div>
-        </div>
+  <!-- 🔄 Loader -->
+  <div *ngIf="loading" class="loading-text">Loading users...</div>
 
-        <div class="form-group">
-          <label>Address</label>
-          <input type="text" formControlName="Address" />
-        </div>
-
-        <div class="form-group">
-          <label>Aadhaar Number</label>
-          <input type="text" maxlength="12" formControlName="Aadhaar" />
-          <div class="error" *ngIf="userForm.get('Aadhaar')?.touched && userForm.get('Aadhaar')?.invalid">
-            <small *ngIf="userForm.get('Aadhaar')?.errors?.['required']">Aadhaar number is required.</small>
-            <small *ngIf="userForm.get('Aadhaar')?.errors?.['pattern']">Aadhaar must be 12 digits.</small>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>PAN Card</label>
-          <input type="text" maxlength="10" formControlName="PanCard" />
-        </div>
-
-        <div class="form-group">
-          <label>Mobile Number</label>
-          <input type="text" maxlength="10" formControlName="MobileNumber" />
-          <div class="error" *ngIf="userForm.get('MobileNumber')?.touched && userForm.get('MobileNumber')?.invalid">
-            <small *ngIf="userForm.get('MobileNumber')?.errors?.['pattern']">MobileNumber must be 10 digits.</small>
-            <small *ngIf="userForm.get('MobileNumber')?.errors?.['required']">Mobile number is required.</small>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Designation</label>
-          <select formControlName="Role">
-            <option value="">Select Role</option>
-            <option value="Admin">Admin</option>
-            <option value="supervisor">supervisor</option>
-          </select>
-          <div class="error" *ngIf="userForm.get('Role')?.touched && userForm.get('Role')?.invalid">
-            <small *ngIf="userForm.get('Role')?.errors?.['required']">Role is required.</small>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Factory Name</label>
-          <input type="text" formControlName="FactoryName" />
-          <div class="error" *ngIf="userForm.get('FactoryName')?.touched && userForm.get('FactoryName')?.invalid">
-            <small *ngIf="userForm.get('FactoryName')?.errors?.['required']">Factory name is required.</small>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" formControlName="Password" />
-          <div class="error" *ngIf="userForm.get('Password')?.touched && userForm.get('Password')?.invalid">
-            <small *ngIf="userForm.get('Password')?.errors?.['required']">Password is required.</small>
-            <small *ngIf="userForm.get('Password')?.errors?.['minlength']">
-              Password must be at least 6 characters.
-            </small>
-          </div>
-        </div>
-
-        <div class="form-group image-upload">
-          <label>Profile Image</label>
-          <input type="file" accept="image/*" (change)="onFileSelected($event)" />
-          <div class="preview" *ngIf="previewUrl">
-            <img [src]="previewUrl" alt="Preview" />
-          </div>
-        </div>
+  <!-- 🧾 User Grid -->
+  <div class="user-grid" *ngIf="!loading">
+    <div *ngFor="let user of users" class="user-card">
+      <div class="avatar-ring">
+        <img [src]="photoUrl + user.imagePath" alt="User Image" />
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="isSubmitting">
-        Add User
-      </button>
+      <h3>{{ user.name }}</h3>
+      <p class="role">{{ user.role }}</p>
+      <p class="mobile">📱 {{ user.mobileNumber }}</p>
+      <p class="factory">🏭 {{ user.factoryName }}</p>
 
-      <div class="error-message" *ngIf="message">
-        {{ message }}
-      </div>
-    </form>
+      <button (click)="startEdit(user)" class="edit-btn">✏️ Edit</button>
+    </div>
+  </div>
+
+  <!-- ✏️ Edit Modal -->
+  <div *ngIf="editMode" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-btn" (click)="cancelEdit()">✖</button>
+      <h3 class="modal-title">Edit User</h3>
+
+      <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+        <div class="form-grid">
+          <div>
+            <label>Name</label>
+            <input formControlName="name" class="form-input" />
+          </div>
+          <div>
+            <label>Role</label>
+            <input formControlName="role" class="form-input" />
+          </div>
+          <div>
+            <label>Mobile</label>
+            <input formControlName="mobileNumber" class="form-input" />
+          </div>
+          <div>
+            <label>Factory</label>
+            <input formControlName="factoryName" class="form-input" />
+          </div>
+          <div class="col-span-2">
+            <label>Address</label>
+            <input formControlName="address" class="form-input" />
+          </div>
+          <div>
+            <label>Aadhaar</label>
+            <input formControlName="aadhaar" class="form-input" />
+          </div>
+          <div>
+            <label>PAN</label>
+            <input formControlName="panCard" class="form-input" />
+          </div>
+          <div>
+            <label>New Password</label>
+            <input type="password" formControlName="password" class="form-input" />
+          </div>
+          <div>
+            <label>Change Image</label>
+            <input type="file" (change)="onFileChange($event)" />
+          </div>
+        </div>
+
+        <!-- 🖼️ Image Preview -->
+        <div class="image-preview" *ngIf="previewImage">
+          <div class="avatar-ring preview">
+            <img [src]="previewImage" alt="Preview Image" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" (click)="cancelEdit()" class="cancel-btn">Cancel</button>
+          <button type="submit" [disabled]="userForm.invalid" class="save-btn">💾 Update</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

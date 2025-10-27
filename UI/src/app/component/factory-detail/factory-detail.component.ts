@@ -49,9 +49,10 @@ export class FactoryDetailComponent implements OnInit {
   loadData() {
     this.loading = true;
     this.http.get<any[]>(this.baseUrl,{ headers: this.getHeaders() }).subscribe({
-      next: (res) => {
-        this.factoryList = res;
-        this.filteredList = res;
+      next: (res:any) => {
+        this.factoryList = res.data;
+        this.filteredList = res.data;
+        console.log("Factory Details:", this.factoryList, this.filteredList);
         this.loading = false;
       },
       error: () => {
