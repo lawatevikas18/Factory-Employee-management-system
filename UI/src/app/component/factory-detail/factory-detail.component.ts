@@ -10,6 +10,7 @@ import { environment } from 'src/environment/environment';
 })
 export class FactoryDetailComponent implements OnInit {
   baseUrl = `${environment.apiUrl}/FactoryDetail`; // 🔹 Change API port if needed
+                              
   factoryList: any[] = [];
   filteredList: any[] = [];
   searchTerm: string = '';
@@ -48,7 +49,7 @@ export class FactoryDetailComponent implements OnInit {
   loadData() {
     this.loading = true;
     this.http.get<any[]>(this.baseUrl,{ headers: this.getHeaders() }).subscribe({
-      next: res => {
+      next: (res) => {
         this.factoryList = res;
         this.filteredList = res;
         this.loading = false;
