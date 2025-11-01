@@ -134,6 +134,7 @@ button:active {
 
     label {
       font-size: 0.9rem;
+      
     }
 
     input {
@@ -284,6 +285,13 @@ button:active {
   height: 5px !important;
   bottom: 0 !important;
   background: rgba(255,255,255,0.8) !important;
+}
+
+input.form-control::placeholder,
+textarea.form-control::placeholder,
+select.form-select::placeholder {
+  color: #999;
+  font-family: 'Poppins';
 }
 
   

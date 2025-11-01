@@ -10,7 +10,7 @@
         <!-- Photo Upload -->
         <div class="col-md-6">
           <label class="form-label">Photo</label>
-          <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)" />
+          <input type="file" class="form-control" placeholder="Add photo" accept="image/*" (change)="onFileSelected($event)" />
 
           <!-- Show newly selected image preview -->
           <div *ngIf="photoPreview" class="mt-2">
@@ -28,7 +28,7 @@
 
         <div class="col-md-6">
           <label class="form-label">Name *</label>
-          <input class="form-control" formControlName="name" />
+          <input class="form-control" formControlName="name" placeholder="Enter your full name" />
           <div class="text-danger" *ngIf="employeeForm.controls['name'].touched && employeeForm.controls['name'].invalid">
             Name is required (min 3 chars)
           </div>
@@ -47,20 +47,20 @@
 
         <div class="col-md-6">
           <label class="form-label">Mobile 1 *</label>
-          <input class="form-control" formControlName="mobile1" />
+          <input class="form-control" formControlName="mobile1" placeholder="Enter mobile number" />
           <div class="text-danger" *ngIf="employeeForm.controls['mobile1'].touched && employeeForm.controls['mobile1'].invalid">
             Enter valid 10 digit number
           </div>
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">Mobile 2</label>
-          <input class="form-control" formControlName="mobile2" />
+          <label class="form-label" >Mobile 2</label>
+          <input class="form-control" formControlName="mobile2" placeholder="Enter mobile number" />
         </div>
 
         <div class="col-md-6">
           <label class="form-label">Salary *</label>
-          <input type="number" class="form-control" formControlName="monthlySalary" />
+          <input type="number" class="form-control" formControlName="monthlySalary" placeholder="Enter employee Salary" />
           <div class="text-danger" *ngIf="employeeForm.controls['monthlySalary'].touched && employeeForm.controls['monthlySalary'].invalid">
             Salary must be at least 1000
           </div>
@@ -68,7 +68,7 @@
 
         <div class="col-md-6">
           <label class="form-label">Aadhaar *</label>
-          <input class="form-control" formControlName="aadhaar" />
+          <input class="form-control" formControlName="aadhaar" placeholder="Enter aadhar card" />
           <div class="text-danger" *ngIf="employeeForm.controls['aadhaar'].touched && employeeForm.controls['aadhaar'].invalid">
             Aadhaar must be 12 digits
           </div>
@@ -76,7 +76,8 @@
 
         <div class="col-md-6">
           <label class="form-label">PAN Card</label>
-          <input class="form-control" formControlName="panCard" (input)="toUpperCase($event)" style="text-transform: uppercase" />
+          <input class="form-control" formControlName="panCard"
+          placeholder="Enter pan card number"  (input)="toUpperCase($event)" style="text-transform: uppercase" />
           <div class="text-danger" *ngIf="employeeForm.controls['panCard'].touched && employeeForm.controls['panCard'].invalid">
             Invalid PAN format
           </div>
@@ -84,27 +85,27 @@
 
         <div class="col-12">
           <label class="form-label">Address</label>
-          <textarea class="form-control" formControlName="address"></textarea>
+          <textarea class="form-control" formControlName="address" placeholder="Enter full address"></textarea>
         </div>
 
         <div class="col-md-6">
           <label class="form-label">Village</label>
-          <input class="form-control" formControlName="village" />
+          <input class="form-control" formControlName="village" placeholder="Enter village number" />
         </div>
 
         <div class="col-md-6">
           <label class="form-label">Taluka</label>
-          <input class="form-control" formControlName="taluka" />
+          <input class="form-control" formControlName="taluka" placeholder="Enter taluka " />
         </div>
 
         <div class="col-md-6">
           <label class="form-label">District</label>
-          <input class="form-control" formControlName="district" />
+          <input class="form-control" formControlName="district" placeholder="Enter district" />
         </div>
 
         <div class="col-md-6">
           <label class="form-label">State</label>
-          <input class="form-control" formControlName="state" />
+          <input class="form-control" formControlName="state" placeholder="Enter state" />
         </div>
       </div>
 

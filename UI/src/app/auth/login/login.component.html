@@ -21,12 +21,28 @@
         <input type="text" formControlName="mobileNumber" placeholder="Mobile Number">
         
         <label>Password</label>
-        <div class="password-wrapper">
+        <!-- <div class="password-wrapper">
           <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Password">
           <span class="toggle" (click)="togglePassword()">
             {{ showPassword ? 'Hide' : 'Show' }}
           </span>
-        </div>
+        </div> -->
+
+        <div class="password-wrapper">
+  <input 
+    [type]="showPassword ? 'text' : 'password'" 
+    formControlName="password" 
+    placeholder="Password"
+    class="password-input"
+  />
+
+  <i 
+    class="toggle-icon" 
+    [ngClass]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'" 
+    (click)="togglePassword()">
+  </i>
+</div>
+
            
         <button type="submit">Login</button>
       </form>
