@@ -10,7 +10,9 @@
         ⚙
       </button> -->
       <button class="btn btn-danger btn-sm" (click)="logout()">
-        ⏻
+        <span class="material-symbols-outlined">
+logout
+</span>
       </button>
       
     </div>
@@ -27,8 +29,7 @@
         </a> -->
     <!-- Desktop: Language + Logout -->
     <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarContent">
-      <!-- Language Dropdown -->
-      <div class="dropdown me-3">
+      <!-- <div class="dropdown me-3">
         <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
           🌐 Language
         </button>
@@ -39,10 +40,13 @@
             </button>
           </li>
         </ul>
-      </div>
+      </div> -->
 
       <!-- Logout -->
-      <button class="btn btn-danger" (click)="logout()">⏻ Logout</button>
+      <button class="btn btn-danger" (click)="logout()">  <span class="material-symbols-outlined">
+logout
+</span></button>
+      
     </div>
   </div>
 </nav>

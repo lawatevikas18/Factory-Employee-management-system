@@ -27,11 +27,11 @@ $bg-light: #f8fafc;
     }
   }
 
-  .gradient-text {
-    background: linear-gradient(90deg, #2563eb, #0ea5e9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  // .gradient-text {
+  //   background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  //   -webkit-background-clip: text;
+  //   -webkit-text-fill-color: transparent;
+  // }
 
   .form-label {
     font-weight: 600;
@@ -52,7 +52,7 @@ $bg-light: #f8fafc;
   }
 
   .primary-btn {
-    background: linear-gradient(90deg, $primary-color, #0ea5e9);
+    background: #2b6cb0 !important;
     color: white;
     border-radius: 30px;
     border: none;

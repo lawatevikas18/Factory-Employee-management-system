@@ -31,6 +31,7 @@ body, .container, .container-fluid {
 h2, h3, h4, h5 {
   font-weight: 600;
   color: #2b3a45;
+  font-family: 'Poppins';
 }
 
 button {
@@ -130,10 +131,12 @@ button:active {
     h4 {
       margin-bottom: 20px;
       font-weight: 600;
+      color: black;
     }
 
     label {
       font-size: 0.9rem;
+      font-family: 'Poppins';
       
     }
 
@@ -230,25 +233,6 @@ button:active {
   padding: 1rem;
 }
 
-
-
-
-
-// :root {
-//   --primary-color: #c900cc;
-//   --secondary-color: #45ef42;
-//   --bg-light: #f8f9fa;
-//   --border-radius: 8px;
-// }
-
-// .btn-primary {
-//   background-color: var(--primary-color);
-//   border-radius: var(--border-radius);
-// }
-
-
-
-
 /* Center of screen */
 .toast-center {
   top: 50% !important;
@@ -292,9 +276,72 @@ textarea.form-control::placeholder,
 select.form-select::placeholder {
   color: #999;
   font-family: 'Poppins';
+  font-size: 16px;
+    font-weight: 400
+}
+input{
+    padding: 0.4rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+    color: black !important;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Poppins';
 }
 
+label {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    color: black !important;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+.cancel-btn{
+  background-color: #2b6cb0;
+  color: #fff;
+  font-weight: 400;
   
+}
+.btn-success {
+    background-color: #16a34a !important;
+    color: #fff !important;
+     font-weight: 400;
+}
+  
+// .table-hover>tbody>tr:hover>* {
+//     --bs-table-color-state: #d75454;
+//     --bs-table-bg-state: var(--bs-table-hover-bg);
+// }
 
 
-  
+.table {
+    --bs-table-color-type: initial;
+    --bs-table-bg-type: initial;
+    --bs-table-color-state: initial;
+    --bs-table-bg-state: initial;
+    --bs-table-color: black;
+    font-weight: 400;
+
+    --bs-table-bg: var(--bs-body-bg);
+    --bs-table-border-color: var(--bs-border-color);
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: var(--bs-emphasis-color);
+    --bs-table-striped-bg: rgba(var(--bs-emphasis-color-rgb), 0.05);
+    --bs-table-active-color: var(--bs-emphasis-color);
+    --bs-table-active-bg: rgba(var(--bs-emphasis-color-rgb), 0.1);
+    --bs-table-hover-color: var(--bs-emphasis-color);
+    --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    vertical-align: top;
+    border-color: var(--bs-table-border-color);
+}
+ 
+
+.table th {
+  background-color: #080808 !important;
+  color: white;
+  text-align: center;
+}

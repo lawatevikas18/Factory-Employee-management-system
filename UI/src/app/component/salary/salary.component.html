@@ -1,5 +1,5 @@
 <div class="salary-container">
-  <h2 class="heading">💰 Employee Salary Preview</h2>
+  <h4 class="heading">💰 Employee Salary Preview</h4>
 
   <div *ngIf="loading" class="loading">
     <i class="fa fa-spinner fa-spin"></i> Loading...
@@ -35,8 +35,14 @@
             <td class="advance">₹{{ s.advance | number:'1.0-2' }}</td>
             <td class="total">₹{{ s.totalSalaryPreview | number:'1.0-2' }}</td>
             <td>
-              <button class="btn-view" (click)="viewSalaryHistory(s)">View</button>
-              <button class="btn-generate" (click)="openGenerateModal(s)">Generate</button>
+              <!-- <button class="btn-view" (click)="viewSalaryHistory(s)">View</button>
+              <button class="btn-generate" (click)="openGenerateModal(s)">Generate</button> -->
+               <button class="btn btn-sm btn-primary me-1" (click)="viewSalaryHistory(s)">
+                  <i class="bi bi-eye"></i>
+                </button>
+                <button  class="btn btn-sm btn-success me-1" (click)="openGenerateModal(s)">
+                  <i class="bi bi-cash-stack"></i>
+                </button>
             </td>
           </tr>
         </tbody>

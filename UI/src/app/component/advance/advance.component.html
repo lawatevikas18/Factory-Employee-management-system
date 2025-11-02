@@ -1,6 +1,6 @@
 <div class="container">
   <div *ngIf="!showDetails">
-    <h2 class="title">Employee Advances</h2>
+    <h4 class="title">Employee Advances</h4>
 
     <div *ngIf="!sendAdvanceForm">
       <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
@@ -40,12 +40,13 @@
               <td>{{ emp.mobile1 }}</td>
               <td>₹ {{ emp.advanceBalance }}</td>
               <td class="d-flex justify-content-center">
-                <button class="btn btn-sm btn-outline-primary me-1" (click)="viewEmployee(emp)">
+                <button class="btn btn-sm btn-primary me-1" (click)="viewEmployee(emp)">
                   <i class="bi bi-eye"></i>
                 </button>
-                <button  *ngIf="role" class="btn btn-sm btn-success" (click)="selectEmployee(emp)">
-                  Select
+                <button *ngIf="role" class="btn btn-sm btn-success me-1" (click)="selectEmployee(emp)">
+                  <i class="bi bi-cash-stack"></i>
                 </button>
+  
               </td>
             </tr>
           </tbody>

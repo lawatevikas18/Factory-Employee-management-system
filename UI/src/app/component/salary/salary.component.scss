@@ -3,7 +3,7 @@
   max-width: 100%;
   margin: 0 auto;
 
-  .heading { text-align: center; color: #2563eb; font-weight: 700; margin-bottom: 1rem; font-size: 1.4rem; }
+  // .heading { text-align: center; color: #2563eb; font-weight: 700; margin-bottom: 1rem; font-size: 1.4rem; } 
   .loading { text-align: center; color: gray; }
   .table-wrapper { overflow-x: auto; }
 
@@ -14,7 +14,8 @@
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
 
     th, td { padding: 8px; text-align: center; border: 1px solid #ddd; }
-    th { background-color: #2563eb; color: white; font-weight: 600; }
+    th { background-color: #080808; color: white; font-weight: 600; }
+   
     tr:hover { background-color: #eef6ff; }
 
     .present { color: #16a34a; font-weight: bold; }

@@ -190,15 +190,13 @@
               <td>₹{{ bill.paidAmount }}</td>
               <td>₹{{ bill.pendingAmount }}</td>
               <td>
-                <button (click)="editBill(bill)" class="btn btn-sm edit-btn">
-                  ✏️
-                </button>
-                <button
-                  (click)="deleteBill(bill.billId!)"
-                  class="btn btn-sm delete-btn"
-                >
-                  🗑️
-                </button>
+        
+                 <button class="btn btn-sm  me-1" style="background-color: #2563eb; border-color: #2563eb; color: #fff;" (click)="editBill(bill)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="deleteBill(bill.billId!)">
+                <i class="bi bi-trash"></i>
+              </button>
               </td>
             </tr>
             <tr *ngIf="bills.length === 0">

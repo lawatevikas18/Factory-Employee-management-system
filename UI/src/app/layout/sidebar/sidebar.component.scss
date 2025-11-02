@@ -87,6 +87,8 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
 
   .side-nav-item {
     width: 100%;
@@ -132,8 +134,14 @@
 }
 
 .sidenav-link-text {
-  color: #b1aeae;
+  color: #fff;
+
 }
+.side-nav .active .sidenav-link-text,
+.side-nav .active .sidenav-link-icon {
+  color: black !important;
+}
+
 
 /* 🔹 Responsive */
 

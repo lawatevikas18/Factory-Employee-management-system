@@ -52,7 +52,6 @@ export class FactoryDetailComponent implements OnInit {
       next: (res:any) => {
         this.factoryList = res.data;
         this.filteredList = res.data;
-        console.log("Factory Details:", this.factoryList, this.filteredList);
         this.loading = false;
       },
       error: () => {
